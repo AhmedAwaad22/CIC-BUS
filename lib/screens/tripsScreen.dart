@@ -68,35 +68,18 @@ class _TripsState extends State<TripsScreen> {
               backgroundColor: HexColor('#9e1510'),
               elevation: 0.0,
               titleSpacing: 0.0,
-              // title: Align(
-              //   alignment: Alignment.center,
-              //   child: Text(
-              //     "${widget.bus.enName}",
-              //     style: TextStyle(
-              //         color: Colors.white,
-              //         fontWeight: FontWeight.bold,
-              //         fontSize: 20),
-              //   ),
-              // ),
+              iconTheme: IconThemeData(color: Colors.white), // Sets the color of the back button to white
               actions: <Widget>[
-                // IconButton(
-                //   onPressed: () {
-                //     showSearch(context: context, delegate: SearchUser(widget.bus));
-                //   },
-                //   icon: Icon(Icons.search_sharp),
-                // ),
                 IconButton(
                   onPressed: () async {
                     setState(() {
-                      if (!pressed) {
-                        pressed = true;
-                      } else {
-                        pressed = false;
-                      }
-                      ;
+                      pressed = !pressed; // Toggle pressed state
                     });
                   },
-                  icon: pressed ? Icon(Icons.help) : Icon(Icons.help_outline),
+                  icon: Icon(
+                    pressed ? Icons.help : Icons.help_outline,
+                    color: Colors.white, // Sets the color of the help icon to white
+                  ),
                 ),
               ],
               flexibleSpace: SafeArea(
@@ -105,14 +88,18 @@ class _TripsState extends State<TripsScreen> {
                   child: Text(
                     "${widget.bus.enName}",
                     style: TextStyle(
-                        fontFamily: 'Cairo-VariableFont_wght',
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
+                      fontFamily: 'Cairo-VariableFont_wght',
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),
             ),
+
+
+
             body: Align(
               alignment: Alignment.center,
               child: RefreshIndicator(

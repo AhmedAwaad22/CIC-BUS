@@ -100,9 +100,12 @@ class _SaveDataState extends State<SaveData> {
                         "Trip details",
                         style: TextStyle(
                             fontFamily: 'Cairo-VariableFont_wght',
-                            fontSize: 25),
+                            fontSize: 25,
+                            color: Colors.white,
+                            ),
                       ),
                       backgroundColor: HexColor('#9e1510'),
+                      iconTheme: IconThemeData(color: Colors.white),
                       actions: <Widget>[
                         IconButton(
                           onPressed: () async {
@@ -115,9 +118,10 @@ class _SaveDataState extends State<SaveData> {
                               ;
                             });
                           },
-                          icon: pressed
-                              ? Icon(Icons.help)
-                              : Icon(Icons.help_outline),
+                      icon: Icon(
+                        pressed ? Icons.help : Icons.help_outline,
+                        color: Colors.white, // Sets the color of the help icon to white
+                      ),
                         ),
                       ],
                     ),

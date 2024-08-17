@@ -99,6 +99,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     backgroundColor: HexColor('#9e1510'),
                     centerTitle: true,
                     elevation: 0,
+                    iconTheme: IconThemeData(color: Colors.white),
                     actions: <Widget>[
                       IconButton(
                         onPressed: () async {
@@ -111,7 +112,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             ;
                           });
                         },
-                        icon: pressed ? Icon(Icons.help) : Icon(Icons.help_outline),
+                        icon: Icon(
+                          pressed ? Icons.help : Icons.help_outline,
+                          color: Colors.white, // Sets the color of the help icon to white
+                        ),                        
                       ),
                     ],
                   ),

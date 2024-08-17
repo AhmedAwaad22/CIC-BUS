@@ -165,93 +165,94 @@ class _HomeScreenState extends State<HomeScreen> {
                                         "N") {
                                       return Scaffold(
                                         appBar: AppBar(
-                                              backgroundColor: HexColor('#9e1510'), // Sets background color of the AppBar
-                                              elevation: 0.0, // Removes shadow
-                                              titleSpacing: 0.0, // Removes spacing between title and start of AppBar
-                                              title: Align(
-                                                alignment: Alignment.topLeft, // Aligns the title to the top left
-                                                child: InkWell(
-                                                  onTap: () async {
-                                                    // Define Accept and Reject buttons
-                                                    Widget acceptButton = TextButton(
-                                                      onPressed: () {
-                                                        // Call the Logout function on accept
-                                                        Logout();
-                                                      },
-                                                      child: Text(
-                                                        'Yes',
-                                                        style: TextStyle(
-                                                          color: HexColor('#BD0006'),
-                                                          fontSize: 16,
-                                                          fontWeight: FontWeight.bold,
+                                          backgroundColor: HexColor('#9e1510'), // Sets background color of the AppBar
+                                          elevation: 0.0, // Removes shadow
+                                          titleSpacing: 0.0, // Removes spacing between title and start of AppBar
+                                          title: Align(
+                                          alignment: Alignment.topLeft, // Aligns the title to the top left
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Row(
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius: BorderRadius.circular(20.0),
+                                                  child: InkWell(
+                                                    onTap: () async {
+                                                      // Define Accept and Reject buttons
+                                                      Widget acceptButton = TextButton(
+                                                        onPressed: () {
+                                                          // Call the Logout function on accept
+                                                          Logout();
+                                                        },
+                                                        child: Text(
+                                                          'Yes',
+                                                          style: TextStyle(
+                                                            color: HexColor('#BD0006'),
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                          ),
                                                         ),
-                                                      ),
-                                                    );
+                                                      );
 
-                                                    Widget rejectButton = TextButton(
-                                                      onPressed: () {
-                                                        Navigator.pop(context); // Close the dialog on reject
-                                                      },
-                                                      child: Text(
-                                                        'No',
-                                                        style: TextStyle(
-                                                          color: HexColor('#BD0006'),
-                                                          fontSize: 16,
-                                                          fontWeight: FontWeight.bold,
+                                                      Widget rejectButton = TextButton(
+                                                        onPressed: () {
+                                                          Navigator.pop(context); // Close the dialog on reject
+                                                        },
+                                                        child: Text(
+                                                          'No',
+                                                          style: TextStyle(
+                                                            color: HexColor('#BD0006'),
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                          ),
                                                         ),
-                                                      ),
-                                                    );
+                                                      );
 
-                                                    // Set up the AlertDialog
-                                                    AlertDialog alert = AlertDialog(
-                                                      backgroundColor: Colors.white,
-                                                      shape: RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                                                      ),
-                                                      contentPadding: EdgeInsets.all(30),
-                                                      title: Text(
-                                                        "Logout",
-                                                        style: TextStyle(
-                                                          color: HexColor('#9e1510'), // Adjusted title color to match AppBar
-                                                          fontSize: 19,
-                                                          fontWeight: FontWeight.bold,
+                                                      // Set up the AlertDialog
+                                                      AlertDialog alert = AlertDialog(
+                                                        backgroundColor: Colors.white,
+                                                        shape: RoundedRectangleBorder(
+                                                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
                                                         ),
-                                                      ),
-                                                      content: Text(
-                                                        'Are you sure you want to logout from the application?',
-                                                        style: TextStyle(fontSize: 14),
-                                                      ),
-                                                      actions: [
-                                                        Row(
-                                                          mainAxisAlignment: MainAxisAlignment.end,
-                                                          children: [
-                                                            acceptButton,
-                                                            SizedBox(width: 12),
-                                                            rejectButton,
-                                                          ],
+                                                        contentPadding: EdgeInsets.all(30),
+                                                        title: Text(
+                                                          "Logout",
+                                                          style: TextStyle(
+                                                            color: HexColor('#BD0006'),
+                                                            fontSize: 19,
+                                                            fontWeight: FontWeight.bold,
+                                                          ),
                                                         ),
-                                                      ],
-                                                    );
+                                                        content: Text(
+                                                          'Are you sure you want to logout from the application?',
+                                                          style: TextStyle(fontSize: 14),
+                                                        ),
+                                                        actions: [
+                                                          Row(
+                                                            mainAxisAlignment: MainAxisAlignment.end,
+                                                            children: [
+                                                              acceptButton,
+                                                              SizedBox(width: 12),
+                                                              rejectButton,
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      );
 
-                                                    // Show the AlertDialog
-                                                    showDialog(
-                                                      context: context,
-                                                      builder: (BuildContext context) {
-                                                        return alert;
-                                                      },
-                                                    );
-                                                  },
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.all(8.0),
+                                                      // Show the AlertDialog
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (BuildContext context) {
+                                                          return alert;
+                                                        },
+                                                      );
+                                                    },
                                                     child: Row(
                                                       children: [
-                                                        ClipRRect(
-                                                          borderRadius: BorderRadius.circular(20.0),
-                                                          child: Icon(
-                                                            Icons.logout,
-                                                            color: Colors.white,
-                                                            size: 30.0,
-                                                          ),
+                                                        Icon(
+                                                          Icons.logout,
+                                                          color: Colors.white,
+                                                          size: 30.0,
                                                         ),
                                                         SizedBox(width: 8), // Add spacing between icon and text
                                                         Text(
@@ -267,34 +268,38 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                              actions: <Widget>[
-                                                IconButton(
-                                                  color: Colors.white,
-                                                  onPressed: () async {
-                                                    setState(() {
-                                                      pressed = !pressed; // Toggle the pressed state
-                                                    });
-                                                  },
-                                                  icon: pressed ? Icon(Icons.help) : Icon(Icons.help_outline),
-                                                ),
                                               ],
-                                              automaticallyImplyLeading: false, // Prevents default back button
-                                              flexibleSpace: SafeArea(
-                                                child: Align(
-                                                  alignment: Alignment.center,
-                                                  child: AutoSizeText(
-                                                    "CIC Bus",
-                                                    style: TextStyle(
-                                                      fontSize: MediaQuery.of(context).size.height * 0.03,
-                                                      fontWeight: FontWeight.bold,
-                                                      color: Colors.white,
-                                                      fontFamily: 'Cairo-VariableFont_wght',
-                                                    ),
-                                                  ),
-                                                ),
+                                            ),
+                                          ),
+                                          ),
+                                          actions: <Widget>[
+                                          IconButton(
+                                            color: Colors.white,
+                                            onPressed: () async {
+                                              setState(() {
+                                                pressed = !pressed; // Toggle the pressed state
+                                              });
+                                            },
+                                            icon: pressed ? Icon(Icons.help) : Icon(Icons.help_outline),
+                                          ),
+                                          ],
+                                          automaticallyImplyLeading: false, // Prevents default back button
+                                          flexibleSpace: SafeArea(
+                                          child: Align(
+                                            alignment: Alignment.center,
+                                            child: AutoSizeText(
+                                              "CIC Bus",
+                                              style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                                fontFamily: 'Cairo-VariableFont_wght',
                                               ),
                                             ),
+                                          ),
+                                          ),
+                                          ),
+
 
                                           body: Stack(
                                           children: <Widget>[

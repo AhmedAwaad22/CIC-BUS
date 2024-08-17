@@ -70,10 +70,11 @@ class _MyWidgetState extends State<TicketScreen> {
                     visible = true;
                     await Logout();
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text("Logged out",
-                          style: TextStyle(
-                              color: HexColor('#F5F5F5'),
-                              fontWeight: FontWeight.bold)),
+                      content: Text(
+                        "Logged out",
+                        style: TextStyle(
+                        color: HexColor('#F5F5F5'),
+                        fontWeight: FontWeight.bold)),
                     ));
                   },
                   child: Text('Yes',
@@ -145,6 +146,7 @@ class _MyWidgetState extends State<TicketScreen> {
                   Text(
                     'Logout',
                     style: TextStyle(
+                        color: Colors.white,
                         fontFamily: 'Cairo-ExtraLight',
                         fontSize: 16,
                         fontWeight: FontWeight.w800),
@@ -161,7 +163,7 @@ class _MyWidgetState extends State<TicketScreen> {
             child: AutoSizeText(
               "CIC Bus",
               style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                   fontFamily: 'Cairo-VariableFont_wght'),
