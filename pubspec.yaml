@@ -66,6 +66,7 @@ dependencies:
   get: ^4.6.5
   package_info_plus:
   url_launcher: ^6.1.6
+  webview_flutter: ^4.0.0
 
 dev_dependencies:
 

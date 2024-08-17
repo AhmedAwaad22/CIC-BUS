@@ -62,15 +62,26 @@ class _SplashScreenState extends State<SplashScreen> {
         ):
             Expanded(
               child:  Scaffold(
-                        body: Container(
+                    body: Stack(
+                      children: [
+                        Container(
                           width: double.infinity,
                           height: double.infinity,
                           child: Image.asset(
-                            'assets/images/splash_screen.png',
+                            'assets/images/splash_2.png',
                             fit: BoxFit.cover,
                           ),
                         ),
-                      )
+                        Center(
+                          child: Image.asset(
+                            'assets/images/logo_2.png',
+                            width: 400.0,
+                            height: 400.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
             ),
         ],
     );

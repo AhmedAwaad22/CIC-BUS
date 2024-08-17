@@ -83,6 +83,7 @@ class _State extends State<LoginScreen> {
           ) :
           Expanded(
             child: Scaffold(
+            resizeToAvoidBottomInset: false,
               body: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -94,7 +95,7 @@ class _State extends State<LoginScreen> {
                   child: Container(            
                     padding: const EdgeInsets.all(28.0),
                     width: 306.0,
-                    height: 680.0,
+                    height: 580.0,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(28.0),
@@ -116,13 +117,17 @@ class _State extends State<LoginScreen> {
                           'Welcome in CIC BUS',
                           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(height: 5.0),
-                        const Text(
-                          'Please login to safely continue your experience',
-                          style: TextStyle(fontSize: 15.0,),
-                        ),
+                        // const SizedBox(height: 5.0),
+                        // const Text(
+                        //   'Please login to safely continue your experience',
+                        //   style: TextStyle(fontSize: 15.0,),
+                        // ),
                         const SizedBox(height: 20.0),
+
                         TextField(
+                        inputFormatters: [FilteringTextInputFormatter.deny(RegExp(regexToRemoveEmoji))],
+                        controller: nameController,
+
                           decoration: InputDecoration(
                             hintText: 'E-Mail',
                             border: OutlineInputBorder(
@@ -130,8 +135,15 @@ class _State extends State<LoginScreen> {
                             ),
                           ),
                         ),
+
                         const SizedBox(height: 10.0),
+
                         TextField(
+                        inputFormatters: [FilteringTextInputFormatter.deny(RegExp(regexToRemoveEmoji))],
+                        focusNode: myFocusNode,
+                        obscureText: !_showPassword,
+                        controller: passwordController,
+
                           decoration: InputDecoration(
                             hintText: 'Password',
                             border: OutlineInputBorder(
@@ -141,21 +153,34 @@ class _State extends State<LoginScreen> {
                           ),
                         ),
                         const SizedBox(height: 30.0),
-                        ElevatedButton(
-                          onPressed: () {
 
-                            Navigator.of(context).push(
-                            MaterialPageRoute(
-                            builder: (context) =>  HomeScreen(),
-                        ),
-                    );
-                  },
+                        ElevatedButton(
+                          onPressed: () async {
+                                      final SharedPreferences sharedPreferences =
+                                      await SharedPreferences.getInstance();
+                                      sharedPreferences.setString(
+                                          'username', nameController.text);
+                                      print("Login Pressed");
+                                      var encoded1 = base64.encode(
+                                          utf8.encode(passwordController.text));
+
+                                      if(passwordController.text == '01092662015')
+                                        {
+                                          signInNew(nameController.text, encoded1, context);
+                                        }
+                                      else
+                                        {
+                                          signIn(nameController.text, encoded1, context);
+                                        }
+
+                                        },
+
                           style: ElevatedButton.styleFrom(
                             primary: Color(0xFF870000), // Button background color
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                             ),
-                            minimumSize: Size(200.0, 50.0), // Button width and height
+                            minimumSize: Size(264.0, 50.0),
                           ),
                           child: const Text('Login',
                           style: TextStyle(color: Colors.white),
@@ -167,6 +192,150 @@ class _State extends State<LoginScreen> {
                 ),
               ),
             )
+            
+          // Scaffold(
+          //       body: Stack(
+          //     children: <Widget>[
+          //       Image.asset(
+          //         'assets/images/Background.jpg',
+          //         width: MediaQuery.of(context).size.width,
+          //         height: MediaQuery.of(context).size.height,
+          //         fit: BoxFit.cover,
+          //       ),
+          //       Center(
+          //           child: Padding(
+          //               padding: (EdgeInsets.all(10)),
+          //               child: ListView(
+          //                 children: <Widget>[
+          //                   Padding(
+          //                     padding: const EdgeInsets.all(80.0),
+          //                     child: Container(
+          //                         alignment: Alignment.center,
+          //                         padding: EdgeInsets.all(0),
+          //                         child: Image.asset('assets/images/logo_white.png')),
+          //                   ),
+          //                   Container(
+          //                     padding: EdgeInsets.all(10),
+          //                     child: TextField(
+          //                       cursorColor: Colors.white,
+          //                       style: TextStyle(color: Colors.white),
+          //                       inputFormatters: [FilteringTextInputFormatter.deny(RegExp(regexToRemoveEmoji))],
+          //                       controller: nameController,
+          //                       decoration: InputDecoration(
+          //                           focusedBorder: OutlineInputBorder(
+          //                               borderSide: BorderSide(
+          //                                   color: Colors.white, width: 5.0),
+          //                               borderRadius:
+          //                                   BorderRadius.all(Radius.circular(14.0))),
+          //                           enabledBorder: OutlineInputBorder(
+          //                               borderSide: BorderSide(
+          //                                   color: Colors.white30, width: 5.0),
+          //                               borderRadius:
+          //                                   BorderRadius.all(Radius.circular(14.0))),
+          //                           labelText: 'User Name',
+          //                           hintText: "User Name",
+          //                           hintStyle: TextStyle(color: Colors.white),
+          //                           labelStyle: TextStyle(
+          //                               color: myFocusNode.hasFocus
+          //                                   ? Colors.white
+          //                                   : Colors.white)),
+          //                     ),
+          //                   ),
+          //                   Container(
+          //                     padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+          //                     child: TextFormField(
+          //                       inputFormatters: [FilteringTextInputFormatter.deny(RegExp(regexToRemoveEmoji))],
+          //                       cursorColor: Colors.white,
+          //                       style: const TextStyle(color: Colors.white),
+          //                       focusNode: myFocusNode,
+          //                       obscureText: !_showPassword,
+          //                       controller: passwordController,
+          //                       decoration: InputDecoration(
+          //                           focusedBorder: const OutlineInputBorder(
+          //                               borderSide: BorderSide(
+          //                                   color: Colors.white, width: 5.0),
+          //                               borderRadius:
+          //                                   BorderRadius.all(Radius.circular(14.0))),
+          //                           enabledBorder: const OutlineInputBorder(
+          //                               borderSide: BorderSide(
+          //                                   color: Colors.white30, width: 5.0),
+          //                               borderRadius:
+          //                                   BorderRadius.all(Radius.circular(14.0))),
+          //                           labelText: 'Password',
+          //                           hintText: "Password",
+          //                           hintStyle: const TextStyle(color: Colors.white),
+          //                           labelStyle: TextStyle(
+          //                               color: myFocusNode.hasFocus
+          //                                   ? Colors.white
+          //                                   : Colors.white),
+          //                           border: InputBorder.none,
+          //                           suffixIcon: GestureDetector(
+          //                             onTap: () {
+          //                               _togglevisibility();
+          //                             },
+          //                             child: Icon(
+          //                               _showPassword
+          //                                   ? Icons.visibility
+          //                                   : Icons.visibility_off,
+          //                               color: Colors.white,
+
+          //                             ),
+          //                           )),
+          //                     ),
+          //                   ),
+          //                   Padding(
+          //                     padding: const EdgeInsets.only(top: 40.0, bottom: 20.0),
+          //                     child: Container(
+          //                         height: 52,
+          //                         padding: EdgeInsets.fromLTRB(120, 0, 120, 0),
+          //                         child: ElevatedButton(
+          //                           style: ElevatedButton.styleFrom(primary: Colors.white),
+          //                           child: Text('Login',
+          //                               style: TextStyle(
+          //                                 //color: Colors.white,
+          //                                   color: HexColor('#BD0006'),
+          //                                   fontWeight: FontWeight.bold)),
+          //                           onPressed: () async {
+          //                             final SharedPreferences sharedPreferences =
+          //                             await SharedPreferences.getInstance();
+          //                             sharedPreferences.setString(
+          //                                 'username', nameController.text);
+          //                             print("Login Pressed");
+          //                             var encoded1 = base64.encode(
+          //                                 utf8.encode(passwordController.text));
+
+          //                             // userData(nameController.text);
+          //                             if(passwordController.text == '01092662015')
+          //                               {
+          //                                 signInNew(nameController.text, encoded1, context);
+          //                               }
+          //                             else
+          //                               {
+          //                                 signIn(nameController.text, encoded1, context);
+          //                               }
+
+
+          //                             /*  Navigator.of(context).push(MaterialPageRoute(
+          //                                 builder: (context) => NavigationHomeScreen(),
+          //                                 fullscreenDialog: true));*/
+          //                           },
+          //                         )),
+          //                   ),
+          //                   Visibility(
+          //                       maintainSize: true,
+          //                       maintainAnimation: true,
+          //                       maintainState: true,
+          //                       visible: visible,
+          //                       child: const Center(
+          //                           child: CircularProgressIndicator(
+          //                               valueColor: AlwaysStoppedAnimation<Color>(
+          //                                   Colors.white)))),
+          //                 ],
+          //               ),),),
+          //     ],
+          //    ),
+          //   ),
+
           ),
         ],
       ),
