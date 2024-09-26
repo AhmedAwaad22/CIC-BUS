@@ -36,16 +36,6 @@ class _MyAppState extends State<MyApp> {
     super.initState();
   }
 
-  // Future<bool> checkConnection() async {
-  //   var connectivityResult = await (Connectivity().checkConnectivity());
-  //   if (connectivityResult == ConnectivityResult.mobile ||
-  //       connectivityResult == ConnectivityResult.wifi) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // } 
-
   @override
   Widget build(BuildContext context) {
     return StreamProvider<InternetConnectionStatus>(

@@ -29,15 +29,6 @@ class _SplashScreenState extends State<SplashScreen> {
    super.initState();
   }
 
-  /*Future getValidationData() async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
-    var obtainedEmail = sharedPreferences.getString('username');
-    setState(() {
-      finalEmail = obtainedEmail;
-    });
-    print(finalEmail);
-  }*/
   Future getValidationData() async {
     final SharedPreferences sharedPreferences =
     await SharedPreferences.getInstance();
@@ -88,7 +79,6 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
 
-  
   var data = [];
   var data2 = [];
   List<TokenApiNew> results = [];
@@ -161,51 +151,6 @@ else
       });
     }
   }
-
-
-
-
-    // else {
-    //   Timer(Duration(seconds: 2), () {
-    //     getValidationData().whenComplete(() async {
-    //       if (loginToken == false) {
-    //         Navigator.of(context)
-    //             .push(MaterialPageRoute(builder: (context) => LoginScreen()));
-    //       } else if(loginToken == true) {
-    //         Navigator.of(context).push(MaterialPageRoute(
-    //             builder: (context) => HomeScreen(),
-    //             fullscreenDialog: true));
-    //       }
-    //     });
-    //   });
-    //   var response = await http.post(url,
-    //       body: postdata);
-    //   if (response.statusCode == 200) {
-    //     data = json.decode(response.body);
-    //     results = data.map((e) => BusList.fromJson(e)).toList();
-    //     if(results[0].token == 'N')
-    //     {
-    //       Navigator.of(context)
-    //           .push(MaterialPageRoute(builder: (context) => LoginScreen()));
-    //     }
-    //     else {
-    //       Timer(Duration(seconds: 2), () {
-    //         getValidationData().whenComplete(() async {
-    //           if (loginToken == false) {
-    //             Navigator.of(context)
-    //                 .push(MaterialPageRoute(builder: (context) => LoginScreen()));
-    //           } else if(loginToken == true) {
-    //             Navigator.of(context).push(MaterialPageRoute(
-    //                 builder: (context) => HomeScreen(),
-    //                 fullscreenDialog: true));
-    //           }
-    //         });
-    //       });
-    //     }
-    //   }
-    // }
-
-
 
     return results;
   }

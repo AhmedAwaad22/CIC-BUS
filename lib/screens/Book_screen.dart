@@ -180,416 +180,312 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                             'Y') {
                                           if (snapshot_oamr.data[0].promo ==
                                               'Y') {
-                                            return Column(
-                                              children: [
-                                                pressed
-                                                    ? Expanded(
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                                    color: Colors
-                                                                        .white),
-                                                            child: Column(
-                                                              children: [
-                                                                Row(
-                                                                    children: <
-                                                                        Widget>[
-                                                                      Expanded(
-                                                                        child: new Container(
-                                                                            margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                                                            child: Divider(
-                                                                              thickness: 2,
-                                                                              color: HexColor('#9e1510'),
-                                                                              height: 25,
-                                                                            )),
-                                                                      ),
-                                                                      Text(
-                                                                          "User Guide",
-                                                                          style: TextStyle(
-                                                                              color: HexColor('#9e1510'),
-                                                                              fontSize: MediaQuery.of(context).size.height * 0.02,
-                                                                              fontWeight: FontWeight.bold,
-                                                                              fontFamily: 'Tajawal-Regular')),
-                                                                      Expanded(
-                                                                        child: new Container(
-                                                                            margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                                                            child: Divider(
-                                                                              thickness: 2,
-                                                                              color: HexColor('#9e1510'),
-                                                                              height: 25,
-                                                                            )),
-                                                                      ),
-                                                                    ]),
-                                                                Container(
-                                                                    child: Image
-                                                                        .asset(
-                                                                  "assets/images/BUS Application_Page_4.jpg",
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .height *
-                                                                      0.50,
-                                                                )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      )
-                                                    : SizedBox(),
-                                                Row(children: <Widget>[
-                                                  Expanded(
-                                                    child: new Container(
-                                                        margin: const EdgeInsets
-                                                                .only(
-                                                            left: 10.0,
-                                                            right: 15.0),
-                                                        child: Divider(
-                                                          thickness: 2,
-                                                          color: HexColor(
-                                                              '#9e1510'),
-                                                          height: 25,
-                                                        )),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.all(10),
-                                                    child: Text(
-                                                        "Book Your Seat",
-                                                        style: TextStyle(
-                                                            color: HexColor(
-                                                                '#9e1510'),
-                                                            fontSize: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .height *
-                                                                0.02,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            fontFamily:
-                                                                'Tajawal-Regular')),
-                                                  ),
-                                                  new Container(
-                                                      margin:
-                                                          const EdgeInsets.only(
-                                                              left: 15.0,
-                                                              right: 10.0),
-                                                      child: Divider(
-                                                        thickness: 2,
-                                                        color:
-                                                            HexColor('#9e1510'),
-                                                        height: 25,
-                                                      )),
-                                                ]),
-                                                ListView.builder(
-                                                    itemCount:
-                                                        snapshot.data.length,
-                                                    itemBuilder:
-                                                        (BuildContext context,
-                                                            int index) {
-                                                      //final user = snapshot.data as BusBook;
-                                                      return SingleChildScrollView(
-                                                        child: Column(
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(35),
-                                                              child: Card(
-                                                                shape:
-                                                                    RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              20.0),
-                                                                ),
-                                                                elevation: 22,
-                                                                child: ClipPath(
-                                                                  child:
-                                                                      Container(
-                                                                    padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                        horizontal:
-                                                                            25,
-                                                                        vertical:
-                                                                            25),
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      border: Border(
-                                                                          right: BorderSide(
-                                                                              color: HexColor('#9e1510'),
-                                                                              width: 12)),
-                                                                      color: HexColor(
-                                                                          '#f4f4f4'),
-                                                                    ),
-                                                                    child:
-                                                                        Center(
-                                                                      child:
-                                                                          Column(
-                                                                        children: [
-                                                                          Align(
-                                                                            alignment:
-                                                                                Alignment.center,
-                                                                            child: Container(
-                                                                                child: Image.asset(
-                                                                              "assets/images/without_number.png",
-                                                                              width: 35,
-                                                                              height: 35,
-                                                                            )),
-                                                                          ),
-                                                                          SizedBox(
-                                                                            height:
-                                                                                10,
-                                                                          ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                Alignment.center,
-                                                                            child:
-                                                                                Container(
-                                                                              child: Text(
-                                                                                widget.name,
-                                                                                style: TextStyle(
-                                                                                  fontWeight: FontWeight.bold,
-                                                                                  fontSize: 18,
-                                                                                  fontFamily: 'Tajawal-Regular',
-                                                                                  color: HexColor('#BD0006'),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  clipper: ShapeBorderClipper(
-                                                                      shape: RoundedRectangleBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(15))),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            MySquare(
-                                                              txt1: "Capacity",
-                                                              txt2: snapshot
-                                                                  .data[index]
-                                                                  .busCapacity,
-                                                            ),
-                                                            MySquare(
-                                                              txt1: "Reserve",
-                                                              txt2: snapshot
-                                                                  .data[index]
-                                                                  .busReserve,
-                                                            ),
-                                                            MySquare(
-                                                              txt1: "Available",
-                                                              txt2: snapshot
-                                                                  .data[index]
-                                                                  .busAvailable,
-                                                            ),
-                                                            FutureBuilder(
-                                                                future:
-                                                                    _GetConfirmationData_topay(),
-                                                                builder: (BuildContext
-                                                                        context,
-                                                                    AsyncSnapshot
-                                                                        snapshot_toPay) {
-                                                                  if (snapshot_toPay
-                                                                      .hasData) {
-                                                                    return AfterVerified(
-                                                                      txt1:
-                                                                          "Total price",
-                                                                      txt2: snapshot_toPay
-                                                                          .data[
-                                                                              0]
-                                                                          .toPay,
-                                                                      txt3: snapshot_toPay
-                                                                          .data[
-                                                                              0]
-                                                                          .toPayAfter,
-                                                                      txt4:
-                                                                          'Instead of',
-                                                                    );
-                                                                  } else if (snapshot_toPay
-                                                                      .hasError) {
-                                                                    return Center(
-                                                                        child: Lottie.asset(
-                                                                            'assets/images/lf30_editor_iuu7wud2.json',
-                                                                            width:
-                                                                                MediaQuery.of(context).size.width * 0.6));
-                                                                  } else {
-                                                                    return Center(
-                                                                        child: Lottie.asset(
-                                                                            'assets/images/lf30_editor_iuu7wud2.json',
-                                                                            width:
-                                                                                MediaQuery.of(context).size.width * 0.6));
-                                                                  }
 
-                                                                  /// here your data
-                                                                }),
 
-                                                            SizedBox(
-                                                              height: 20,
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(10),
-                                                              child: Row(
-                                                                children: [
-                                                                  Text(
-                                                                    "No. of Seats",
-                                                                    style: TextStyle(
-                                                                        color: HexColor(
-                                                                            '#9e1510'),
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .bold,
-                                                                        fontSize:
-                                                                            16),
-                                                                  ),
-                                                                  SizedBox(
-                                                                    width: MediaQuery.of(context)
-                                                                            .size
-                                                                            .width *
-                                                                        0.1,
-                                                                  ),
-                                                                  DropdownButtonFormField(
-                                                                      value:
-                                                                          _value,
-                                                                      items:
-                                                                          _menuItems,
-                                                                      decoration:
-                                                                          InputDecoration(
-                                                                        border: OutlineInputBorder(
-                                                                            borderRadius: const BorderRadius.all(
-                                                                          const Radius.circular(
-                                                                              10.0),
-                                                                        )),
-                                                                        hintText:
-                                                                            "Seats",
-                                                                        hintStyle: TextStyle(
-                                                                            color:
-                                                                                HexColor('#9e1510'),
-                                                                            fontWeight: FontWeight.bold),
-                                                                      ),
-                                                                      onChanged:
-                                                                          (value) {
-                                                                        setState(
-                                                                            () {
-                                                                          _value =
-                                                                              value as String;
-                                                                        });
-                                                                        prefs.setString(
-                                                                            "T",
-                                                                            _value);
-                                                                      }),
-                                                                ],
-                                                              ),
-                                                            ),
 
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(10),
-                                                              child: Row(
-                                                                children: [
-                                                                  SizedBox(
-                                                                    width: 16,
-                                                                  ),
-                                                                  Image.asset(
-                                                                    'assets/images/success.png',
-                                                                    width: MediaQuery.of(context)
-                                                                            .size
-                                                                            .width *
-                                                                        0.06,
-                                                                  ),
-                                                                  SizedBox(
-                                                                    width: 15,
-                                                                  ),
-                                                                  Container(
-                                                                    margin: EdgeInsets
-                                                                        .only(
-                                                                            top:
-                                                                                4),
-                                                                    child: Text(
-                                                                      "Verified",
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontSize:
-                                                                            21,
-                                                                        fontFamily:
-                                                                            'Cairo-VariableFont_wght',
-                                                                        color: Colors
-                                                                            .green,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
+return Column(
+  children: [
+    if (pressed) 
+      Expanded(
+        child: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(color: Colors.white),
+            child: Column(
+              children: [
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+                        child: Divider(
+                          thickness: 2,
+                          color: HexColor('#9e1510'),
+                          height: 25,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "User Guide",
+                      style: TextStyle(
+                        color: HexColor('#9e1510'),
+                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Tajawal-Regular',
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                        child: Divider(
+                          thickness: 2,
+                          color: HexColor('#9e1510'),
+                          height: 25,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  child: Image.asset(
+                    "assets/images/BUS Application_Page_4.jpg",
+                    width: MediaQuery.of(context).size.height * 0.50,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ) 
+    else 
+      SizedBox(),
 
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(10),
-                                                              child:
-                                                                  ElevatedButton(
-                                                                style: ElevatedButton
-                                                                    .styleFrom(
-                                                                  textStyle:
-                                                                      TextStyle(
-                                                                    fontSize:
-                                                                        20,
-                                                                    color: HexColor(
-                                                                        '#9e1510'),
-                                                                  ),
-                                                                  minimumSize: Size
-                                                                      .fromHeight(
-                                                                          40),
-                                                                  primary: HexColor(
-                                                                      '#9e1510'),
-                                                                  shape: RoundedRectangleBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              5.0)),
-                                                                ),
-                                                                onPressed: () {
-                                                                  setState(() {
-                                                                    visible =
-                                                                        true;
-                                                                    _getBal();
-                                                                  });
-                                                                },
-                                                                child: visible
-                                                                    ? Row(
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment
-                                                                                .center,
-                                                                        children: [
-                                                                            CircularProgressIndicator(
-                                                                              color: Colors.white,
-                                                                            ),
-                                                                            SizedBox(
-                                                                              width: 25,
-                                                                            ),
-                                                                            Text("Please wait...")
-                                                                          ])
-                                                                    : Text(
-                                                                        'Next',
-                                                                        style: TextStyle(
-                                                                            //color: Colors.white,
-                                                                            color: Colors.white,
-                                                                            fontFamily: 'Cairo-VariableFont_wght',
-                                                                            fontWeight: FontWeight.bold)),
-                                                              ),
-                                                            )
-                                                            //                     HexColor('#BD0006'))))),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    }),
-                                              ],
-                                            );
+    Row(
+      children: <Widget>[
+        Expanded(
+          child: Container(
+            margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+            child: Divider(
+              thickness: 2,
+              color: HexColor('#9e1510'),
+              height: 25,
+            ),
+          ),
+        ),
+Row(
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    Padding(
+      padding: EdgeInsets.all(10),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.8,
+        child: Text(
+          "Book Your Seat",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: HexColor('#9e1510'),
+            fontSize: MediaQuery.of(context).size.height * 0.02,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Tajawal-Regular',
+          ),
+        ),
+      ),
+    ),
+  ],
+),
+
+        Container(
+          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+          height: 25,
+          color: HexColor('#9e1510'),
+        ),
+      ],
+    ),
+
+    Expanded(
+      child: ListView.builder(
+        itemCount: snapshot.data.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Padding(
+            padding: EdgeInsets.all(35),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              elevation: 22,
+              child: ClipPath(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      right: BorderSide(color: HexColor('#9e1510'), width: 12),
+                    ),
+                    color: HexColor('#f4f4f4'),
+                  ),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            child: Image.asset(
+                              "assets/images/without_number.png",
+                              width: 35,
+                              height: 35,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            child: Text(
+                              widget.name,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                fontFamily: 'Tajawal-Regular',
+                                color: HexColor('#BD0006'),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                clipper: ShapeBorderClipper(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    ),
+    
+    // Add the rest of your widgets below the ListView.builder if needed
+    FutureBuilder(
+      future: _GetConfirmationData_topay(),
+      builder: (BuildContext context, AsyncSnapshot snapshot_toPay) {
+        if (snapshot_toPay.hasData) {
+          return AfterVerified(
+            txt1: "Total price",
+            txt2: snapshot_toPay.data[0].toPay,
+            txt3: snapshot_toPay.data[0].toPayAfter,
+            txt4: 'Instead of',
+          );
+        } else if (snapshot_toPay.hasError) {
+          return Center(
+            child: Lottie.asset(
+              'assets/images/lf30_editor_iuu7wud2.json',
+              width: MediaQuery.of(context).size.width * 0.6,
+            ),
+          );
+        } else {
+          return Center(
+            child: Lottie.asset(
+              'assets/images/lf30_editor_iuu7wud2.json',
+              width: MediaQuery.of(context).size.width * 0.6,
+            ),
+          );
+        }
+      },
+    ),
+    SizedBox(height: 20),
+Padding(
+  padding: EdgeInsets.all(10),
+  child: Row(
+    children: [
+      Text(
+        "No. of Seats",
+        style: TextStyle(
+          color: HexColor('#9e1510'),
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
+      ),
+      SizedBox(width: MediaQuery.of(context).size.width * 0.1),
+      Expanded( 
+        child: DropdownButtonFormField(
+          value: _value,
+          items: _menuItems,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(10.0),
+              ),
+            ),
+            hintText: "Seats",
+            hintStyle: TextStyle(
+              color: HexColor('#9e1510'),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          onChanged: (value) {
+            setState(() {
+              _value = value as String;
+            });
+            prefs.setString("T", _value);
+          },
+        ),
+      ),
+    ],
+  ),
+),
+
+    Padding(
+      padding: EdgeInsets.all(10),
+      child: Row(
+        children: [
+          SizedBox(width: 16),
+          Image.asset(
+            'assets/images/success.png',
+            width: MediaQuery.of(context).size.width * 0.06,
+          ),
+          SizedBox(width: 15),
+          Container(
+            margin: EdgeInsets.only(top: 4),
+            child: Text(
+              "Verified",
+              style: TextStyle(
+                fontSize: 21,
+                fontFamily: 'Cairo-VariableFont_wght',
+                color: Colors.green,
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+    Padding(
+      padding: EdgeInsets.all(10),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          textStyle: TextStyle(
+            fontSize: 20,
+            color: HexColor('#9e1510'),
+          ),
+          minimumSize: Size.fromHeight(40),
+          primary: HexColor('#9e1510'),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+        ),
+        onPressed: () {
+          setState(() {
+            visible = true;
+            _getBal();
+          });
+        },
+        child: visible
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircularProgressIndicator(color: Colors.white),
+                SizedBox(width: 25),
+                Text("Please wait..."),
+              ],
+            )
+          : Text(
+              'Next',
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Cairo-VariableFont_wght',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+      ),
+    ),
+  ],
+);
+
+
+
+
+
+                                            
                                           } else if (snapshot_oamr
                                                   .data[0].promo ==
                                               'N') {
@@ -668,7 +564,7 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                   Padding(
                                                     padding: EdgeInsets.all(10),
                                                     child: Text(
-                                                        "Book Your Seat",
+                                                        "Book Your Seat", //Drop-off Point
                                                         style: TextStyle(
                                                             color: HexColor(
                                                                 '#9e1510'),
@@ -696,6 +592,7 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                         )),
                                                   ),
                                                 ]),
+
                                                 Expanded(
                                                   child: ListView.builder(
                                                       itemCount:
@@ -999,6 +896,9 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                         );
                                                       }),
                                                 ),
+
+                                                //Closssssssssssssssssssssssssse
+
                                               ],
                                             );
                                           } else {
@@ -1014,6 +914,8 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                         } else if (snapshot_oamr
                                                 .data[0].openPromo ==
                                             'N') {
+
+                                          //Starrrrrrrrrrrrrrrrrrrrt Column 1
                                           return Column(
                                             children: [
                                               pressed
@@ -1097,7 +999,7 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsets.all(10),
-                                                  child: Text("Book Your Seat",
+                                                  child: Text("Book Your Seat", // ??????????
                                                       style: TextStyle(
                                                           color: HexColor(
                                                               '#9e1510'),
@@ -1125,6 +1027,9 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                       )),
                                                 ),
                                               ]),
+
+                                              // Here To Campus (Book Your Trip)
+
                                               Expanded(
                                                 child: ListView.builder(
                                                     itemCount:
@@ -1382,8 +1287,13 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                       );
                                                     }),
                                               ),
+                                              //Clossssssssssssssssssssssssssssssse Expanded 1
                                             ],
                                           );
+                                          //Closssssssssssssssssssssse Column 1
+
+
+
                                         } else {
                                           return Center(
                                               child: Lottie.asset(
@@ -1895,9 +1805,14 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                               ),
                                             ],
                                           );
+
+                                        //Closssssssssssssssssssse Colum 1
+
                                         } else if (snapshot_forpromocode
                                                 .data[0].promo ==
                                             'N') {
+
+                                        //Starrrrrrrrrrrrrrrrrrrrt Colum 2
                                           return Column(
                                             children: [
                                               pressed
@@ -1965,7 +1880,8 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                       ),
                                                     )
                                                   : SizedBox(),
-                                              Row(children: <Widget>[
+                                              Row(
+                                                children: <Widget>[
                                                 Expanded(
                                                   child: new Container(
                                                       margin:
@@ -2008,7 +1924,8 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                         height: 25,
                                                       )),
                                                 ),
-                                              ]),
+                                              ],
+                                              ),
                                               Expanded(
                                                 child: ListView.builder(
                                                     itemCount:
@@ -2144,10 +2061,8 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                                             width:
                                                                                 MediaQuery.of(context).size.width * 0.6));
                                                                   }
-
                                                                   /// here your data
                                                                 }),
-
                                                             SizedBox(
                                                               height: 20,
                                                             ),
@@ -2211,7 +2126,6 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                                       .spaceBetween,
                                                               children: <
                                                                   Widget>[
-                                                                //SizedBox
                                                                 Container(
                                                                   margin: EdgeInsets
                                                                       .only(
@@ -2229,8 +2143,6 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                                             18),
                                                                   ),
                                                                 ),
-                                                                //Text//SizedBox
-                                                                /** Checkbox Widget **/
                                                                 Container(
                                                                   margin: EdgeInsets
                                                                       .only(
@@ -2250,8 +2162,7 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                                                     },
                                                                   ),
                                                                 ),
-                                                                //Checkbox
-                                                              ], //<Widget>[]
+                                                              ], 
                                                             ),
                                                             Padding(
                                                               padding:
@@ -2366,6 +2277,9 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                               ),
                                             ],
                                           );
+
+                                          //Closssssssssssssssssssse Colum 2
+
                                         } else {
                                           return Center(
                                               child: Lottie.asset(
@@ -2378,6 +2292,8 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                       } else if (snapshot_forpromocode
                                               .data[0].openPromo ==
                                           'N') {
+
+                                        //Starrrrrrrrrrrrrrrrrrrrrt Expanded 2
                                         return Expanded(
                                           child: Column(
                                             children: [
@@ -2796,6 +2712,7 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
                                             ],
                                           ),
                                         );
+                                        //Closssssssssssssssssssssse Expanded 2
                                       } else {
                                         return Center(
                                             child: Lottie.asset(
@@ -3121,8 +3038,7 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
     print(username);
     print(widget.Date);
     print(widget.time);
-
-    // print(BusID);
+    print(promocode);
     // print(username);
     // print(changeValue);
 
@@ -3145,10 +3061,13 @@ class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
 
     final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
     final response = await http.post(url, body: data);
+    print('_______________________________________________________________________________');
     print(response);
     print("The value of check box");
     print(chk_box);
     List<dynamic> data1 = json.decode(response.body);
+    print('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH');
+    print(data1);
     List<GetConfirmData> list = [];
     if (response.statusCode == 200) {
       list = data1.map((item) => GetConfirmData.fromJson(item)).toList();
