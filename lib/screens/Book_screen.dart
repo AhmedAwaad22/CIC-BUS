@@ -483,9 +483,6 @@ Padding(
 
 
 
-
-
-                                            
                                           } else if (snapshot_oamr
                                                   .data[0].promo ==
                                               'N') {
