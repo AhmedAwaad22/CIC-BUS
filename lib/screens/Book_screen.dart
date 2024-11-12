@@ -19,8 +19,8 @@ import 'package:http/http.dart' as http;
 import '../widget/totalPriceAfterVerified.dart';
 import 'NoInternatePageMain.dart';
 
-class BookScreenAndPayment_old extends StatefulWidget {
-  const BookScreenAndPayment_old({
+class BookScreenAndPayment extends StatefulWidget {
+  const BookScreenAndPayment({
     Key? key,
     required this.pointsId,
     required this.busId,
@@ -43,10 +43,10 @@ class BookScreenAndPayment_old extends StatefulWidget {
   final String dir;
 
   @override
-  State<BookScreenAndPayment_old> createState() => _BookScreenAndPaymentState_old();
+  State<BookScreenAndPayment> createState() => _BookScreenAndPaymentState_old();
 }
 
-class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment_old> {
+class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
   String? CountryId;
   List<BusBook> countries = [];
   List<BusBook> book = [];
@@ -780,394 +780,394 @@ return Column(
                                             'N') {
 
                                           //Starrrrrrrrrrrrrrrrrrrrt Column 1
-return Column(
-  children: [
-    Expanded(
-      child: Container(
-        color: Colors.red,
-        child: Center(child: Text("محتوى هنا")),
-      ),
-    ),
-    Container(
-      height: 50,
-      color: Colors.blue,
-      child: Center(child: Text("عنصر آخر")),
-    ),
-  ],
-);
+// return Column(
+//   children: [
+//     Expanded(
+//       child: Container(
+//         color: Colors.red,
+//         child: Center(child: Text("Body")),
+//       ),
+//     ),
+//     Container(
+//       height: 50,
+//       color: Colors.blue,
+//       child: Center(child: Text("Another")),
+//     ),
+//   ],
+// );
 
-                                          // return Column(
-                                          //   children: [
-                                          //     pressed
-                                          //         ? Expanded(
-                                          //             child:
-                                          //                 SingleChildScrollView(
-                                          //               child: Container(
-                                          //                 decoration:
-                                          //                     BoxDecoration(
-                                          //                         color: Colors
-                                          //                             .white),
-                                          //                 child: Column(
-                                          //                   children: [
-                                          //                     Row(
-                                          //                         children: <
-                                          //                             Widget>[
-                                          //                           Expanded(
-                                          //                             child: new Container(
-                                          //                                 margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                          //                                 child: Divider(
-                                          //                                   thickness:
-                                          //                                       2,
-                                          //                                   color:
-                                          //                                       HexColor('#9e1510'),
-                                          //                                   height:
-                                          //                                       25,
-                                          //                                 )),
-                                          //                           ),
-                                          //                           Text(
-                                          //                               "User Guide",
-                                          //                               style: TextStyle(
-                                          //                                   color: HexColor(
-                                          //                                       '#9e1510'),
-                                          //                                   fontSize: MediaQuery.of(context).size.height *
-                                          //                                       0.02,
-                                          //                                   fontWeight:
-                                          //                                       FontWeight.bold,
-                                          //                                   fontFamily: 'Tajawal-Regular')),
-                                          //                           Expanded(
-                                          //                             child: new Container(
-                                          //                                 margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                          //                                 child: Divider(
-                                          //                                   thickness:
-                                          //                                       2,
-                                          //                                   color:
-                                          //                                       HexColor('#9e1510'),
-                                          //                                   height:
-                                          //                                       25,
-                                          //                                 )),
-                                          //                           ),
-                                          //                         ]),
-                                          //                     Container(
-                                          //                         child: Image
-                                          //                             .asset(
-                                          //                       "assets/images/BUS Application_Page_4.jpg",
-                                          //                       width: MediaQuery.of(
-                                          //                                   context)
-                                          //                               .size
-                                          //                               .height *
-                                          //                           0.50,
-                                          //                     )),
-                                          //                   ],
-                                          //                 ),
-                                          //               ),
-                                          //             ),
-                                          //           )
-                                          //         : SizedBox(),
-                                          //     Row(children: <Widget>[
-                                          //       Expanded(
-                                          //         child: new Container(
-                                          //             margin:
-                                          //                 const EdgeInsets.only(
-                                          //                     left: 10.0,
-                                          //                     right: 15.0),
-                                          //             child: Divider(
-                                          //               thickness: 2,
-                                          //               color:
-                                          //                   HexColor('#9e1510'),
-                                          //               height: 25,
-                                          //             )),
-                                          //       ),
-                                          //       Padding(
-                                          //         padding: EdgeInsets.all(10),
-                                          //         child: Text("Book Your Seat", // ??????????
-                                          //             style: TextStyle(
-                                          //                 color: HexColor(
-                                          //                     '#9e1510'),
-                                          //                 fontSize: MediaQuery.of(
-                                          //                             context)
-                                          //                         .size
-                                          //                         .height *
-                                          //                     0.02,
-                                          //                 fontWeight:
-                                          //                     FontWeight.bold,
-                                          //                 fontFamily:
-                                          //                     'Tajawal-Regular')),
-                                          //       ),
-                                          //       Expanded(
-                                          //         child: new Container(
-                                          //             margin:
-                                          //                 const EdgeInsets.only(
-                                          //                     left: 15.0,
-                                          //                     right: 10.0),
-                                          //             child: Divider(
-                                          //               thickness: 2,
-                                          //               color:
-                                          //                   HexColor('#9e1510'),
-                                          //               height: 25,
-                                          //             )),
-                                          //       ),
-                                          //     ]),
-                                          //     //Starttttttttttttttttttt Expanded 1
-                                          //     Expanded(
-                                          //       child: ListView.builder(
-                                          //           itemCount:
-                                          //               snapshot.data.length,
-                                          //           itemBuilder:
-                                          //               (BuildContext context,
-                                          //                   int index) {
-                                          //             //final user = snapshot.data as BusBook;
-                                          //             return SingleChildScrollView(
-                                          //               child: Column(
-                                          //                 children: [
-                                          //                   Padding(
-                                          //                     padding:
-                                          //                         EdgeInsets
-                                          //                             .all(35),
-                                          //                     child: Card(
-                                          //                       shape:
-                                          //                           RoundedRectangleBorder(
-                                          //                         borderRadius:
-                                          //                             BorderRadius
-                                          //                                 .circular(
-                                          //                                     20.0),
-                                          //                       ),
-                                          //                       elevation: 22,
-                                          //                       child: ClipPath(
-                                          //                         child:
-                                          //                             Container(
-                                          //                           padding: const EdgeInsets
-                                          //                                   .symmetric(
-                                          //                               horizontal:
-                                          //                                   25,
-                                          //                               vertical:
-                                          //                                   25),
-                                          //                           decoration:
-                                          //                               BoxDecoration(
-                                          //                             border: Border(
-                                          //                                 right: BorderSide(
-                                          //                                     color: HexColor('#9e1510'),
-                                          //                                     width: 12)),
-                                          //                             color: HexColor(
-                                          //                                 '#f4f4f4'),
-                                          //                           ),
-                                          //                           child:
-                                          //                               Center(
-                                          //                             child:
-                                          //                                 Column(
-                                          //                               children: [
-                                          //                                 Align(
-                                          //                                   alignment:
-                                          //                                       Alignment.center,
-                                          //                                   child: Container(
-                                          //                                       child: Image.asset(
-                                          //                                     "assets/images/without_number.png",
-                                          //                                     width: 35,
-                                          //                                     height: 35,
-                                          //                                   )),
-                                          //                                 ),
-                                          //                                 SizedBox(
-                                          //                                   height:
-                                          //                                       10,
-                                          //                                 ),
-                                          //                                 Align(
-                                          //                                   alignment:
-                                          //                                       Alignment.center,
-                                          //                                   child:
-                                          //                                       Container(
-                                          //                                     child: Text(
-                                          //                                       widget.name,
-                                          //                                       style: TextStyle(
-                                          //                                         fontWeight: FontWeight.bold,
-                                          //                                         fontSize: 18,
-                                          //                                         fontFamily: 'Tajawal-Regular',
-                                          //                                         color: HexColor('#BD0006'),
-                                          //                                       ),
-                                          //                                     ),
-                                          //                                   ),
-                                          //                                 ),
-                                          //                               ],
-                                          //                             ),
-                                          //                           ),
-                                          //                         ),
-                                          //                         clipper: ShapeBorderClipper(
-                                          //                             shape: RoundedRectangleBorder(
-                                          //                                 borderRadius:
-                                          //                                     BorderRadius.circular(15))),
-                                          //                       ),
-                                          //                     ),
-                                          //                   ),
-                                          //                   MySquare(
-                                          //                     txt1: "Capacity",
-                                          //                     txt2: snapshot
-                                          //                         .data[index]
-                                          //                         .busCapacity,
-                                          //                   ),
-                                          //                   MySquare(
-                                          //                     txt1: "Reserve",
-                                          //                     txt2: snapshot
-                                          //                         .data[index]
-                                          //                         .busReserve,
-                                          //                   ),
-                                          //                   MySquare(
-                                          //                     txt1: "Available",
-                                          //                     txt2: snapshot
-                                          //                         .data[index]
-                                          //                         .busAvailable,
-                                          //                   ),
-                                          //                   FutureBuilder(
-                                          //                       future:
-                                          //                           _GetConfirmationData_topay(),
-                                          //                       builder: (BuildContext
-                                          //                               context,
-                                          //                           AsyncSnapshot
-                                          //                               snapshot_toPay) {
-                                          //                         if (snapshot_toPay
-                                          //                             .hasData) {
-                                          //                           return MySquare(
-                                          //                               txt1:
-                                          //                                   "Total price",
-                                          //                               txt2: snapshot_toPay
-                                          //                                   .data[0]
-                                          //                                   .toPay);
-                                          //                         } else if (snapshot_toPay
-                                          //                             .hasError) {
-                                          //                           return Center(
-                                          //                               child: Lottie.asset(
-                                          //                                   'assets/images/lf30_editor_iuu7wud2.json',
-                                          //                                   width:
-                                          //                                       MediaQuery.of(context).size.width * 0.6));
-                                          //                         } else {
-                                          //                           return Center(
-                                          //                               child: Lottie.asset(
-                                          //                                   'assets/images/lf30_editor_iuu7wud2.json',
-                                          //                                   width:
-                                          //                                       MediaQuery.of(context).size.width * 0.6));
-                                          //                         }
+                                          return Column(
+                                            children: [
+                                              pressed
+                                                  ? Expanded(
+                                                      child:
+                                                          SingleChildScrollView(
+                                                        child: Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  color: Colors
+                                                                      .white),
+                                                          child: Column(
+                                                            children: [
+                                                              Row(
+                                                                  children: <
+                                                                      Widget>[
+                                                                    Expanded(
+                                                                      child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+                                                                          child: Divider(
+                                                                            thickness:
+                                                                                2,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            height:
+                                                                                25,
+                                                                          )),
+                                                                    ),
+                                                                    Text(
+                                                                        "User Guide",
+                                                                        style: TextStyle(
+                                                                            color: HexColor(
+                                                                                '#9e1510'),
+                                                                            fontSize: MediaQuery.of(context).size.height *
+                                                                                0.02,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontFamily: 'Tajawal-Regular')),
+                                                                    Expanded(
+                                                                      child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                                                                          child: Divider(
+                                                                            thickness:
+                                                                                2,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            height:
+                                                                                25,
+                                                                          )),
+                                                                    ),
+                                                                  ]),
+                                                              Container(
+                                                                  child: Image
+                                                                      .asset(
+                                                                "assets/images/BUS Application_Page_4.jpg",
+                                                                width: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .height *
+                                                                    0.50,
+                                                              )),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    )
+                                                  : SizedBox(),
+                                              Row(children: <Widget>[
+                                                Expanded(
+                                                  child: new Container(
+                                                      margin:
+                                                          const EdgeInsets.only(
+                                                              left: 10.0,
+                                                              right: 15.0),
+                                                      child: Divider(
+                                                        thickness: 2,
+                                                        color:
+                                                            HexColor('#9e1510'),
+                                                        height: 25,
+                                                      )),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Text("Book Your Seat", // ??????????
+                                                      style: TextStyle(
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          fontSize: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              0.02,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontFamily:
+                                                              'Tajawal-Regular')),
+                                                ),
+                                                Expanded(
+                                                  child: new Container(
+                                                      margin:
+                                                          const EdgeInsets.only(
+                                                              left: 15.0,
+                                                              right: 10.0),
+                                                      child: Divider(
+                                                        thickness: 2,
+                                                        color:
+                                                            HexColor('#9e1510'),
+                                                        height: 25,
+                                                      )),
+                                                ),
+                                              ]),
+                                              //Starttttttttttttttttttt Expanded 1
+                                              Expanded(
+                                                child: ListView.builder(
+                                                    itemCount:
+                                                        snapshot.data.length,
+                                                    itemBuilder:
+                                                        (BuildContext context,
+                                                            int index) {
+                                                      //final user = snapshot.data as BusBook;
+                                                      return SingleChildScrollView(
+                                                        child: Column(
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(35),
+                                                              child: Card(
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20.0),
+                                                                ),
+                                                                elevation: 22,
+                                                                child: ClipPath(
+                                                                  child:
+                                                                      Container(
+                                                                    padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            25,
+                                                                        vertical:
+                                                                            25),
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      border: Border(
+                                                                          right: BorderSide(
+                                                                              color: HexColor('#9e1510'),
+                                                                              width: 12)),
+                                                                      color: HexColor(
+                                                                          '#f4f4f4'),
+                                                                    ),
+                                                                    child:
+                                                                        Center(
+                                                                      child:
+                                                                          Column(
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child: Container(
+                                                                                child: Image.asset(
+                                                                              "assets/images/without_number.png",
+                                                                              width: 35,
+                                                                              height: 35,
+                                                                            )),
+                                                                          ),
+                                                                          SizedBox(
+                                                                            height:
+                                                                                10,
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child:
+                                                                                Container(
+                                                                              child: Text(
+                                                                                widget.name,
+                                                                                style: TextStyle(
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  fontSize: 18,
+                                                                                  fontFamily: 'Tajawal-Regular',
+                                                                                  color: HexColor('#BD0006'),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  clipper: ShapeBorderClipper(
+                                                                      shape: RoundedRectangleBorder(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(15))),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Capacity",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busCapacity,
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Reserve",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busReserve,
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Available",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busAvailable,
+                                                            ),
+                                                            FutureBuilder(
+                                                                future:
+                                                                    _GetConfirmationData_topay(),
+                                                                builder: (BuildContext
+                                                                        context,
+                                                                    AsyncSnapshot
+                                                                        snapshot_toPay) {
+                                                                  if (snapshot_toPay
+                                                                      .hasData) {
+                                                                    return MySquare(
+                                                                        txt1:
+                                                                            "Total price",
+                                                                        txt2: snapshot_toPay
+                                                                            .data[0]
+                                                                            .toPay);
+                                                                  } else if (snapshot_toPay
+                                                                      .hasError) {
+                                                                    return Center(
+                                                                        child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.6));
+                                                                  } else {
+                                                                    return Center(
+                                                                        child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.6));
+                                                                  }
 
-                                          //                         /// here your data
-                                          //                       }),
+                                                                  /// here your data
+                                                                }),
 
-                                          //                   SizedBox(
-                                          //                     height: 20,
-                                          //                   ),
-                                          //                   Padding(
-                                          //                     padding:
-                                          //                         EdgeInsets
-                                          //                             .all(10),
-                                          //                     child: Row(
-                                          //                       children: [
-                                          //                         Text(
-                                          //                           "No. of Seats",
-                                          //                           style: TextStyle(
-                                          //                               color: HexColor(
-                                          //                                   '#9e1510'),
-                                          //                               fontWeight:
-                                          //                                   FontWeight
-                                          //                                       .bold,
-                                          //                               fontSize:
-                                          //                                   16),
-                                          //                         ),
-                                          //                         SizedBox(
-                                          //                           width: MediaQuery.of(context)
-                                          //                                   .size
-                                          //                                   .width *
-                                          //                               0.1,
-                                          //                         ),
-                                          //                         Expanded(
-                                          //                           child: DropdownButtonFormField(
-                                          //                               value: _value,
-                                          //                               items: _menuItems,
-                                          //                               decoration: InputDecoration(
-                                          //                                 border: OutlineInputBorder(
-                                          //                                     borderRadius: const BorderRadius.all(
-                                          //                                   const Radius.circular(10.0),
-                                          //                                 )),
-                                          //                                 hintText:
-                                          //                                     "Seats",
-                                          //                                 hintStyle: TextStyle(
-                                          //                                     color: HexColor('#BD0006'),
-                                          //                                     fontWeight: FontWeight.bold),
-                                          //                               ),
-                                          //                               onChanged: (value) {
-                                          //                                 setState(
-                                          //                                     () {
-                                          //                                   _value =
-                                          //                                       value as String;
-                                          //                                   // _read();
-                                          //                                 });
-                                          //                                 prefs.setString(
-                                          //                                     "T",
-                                          //                                     _value);
-                                          //                               }),
-                                          //                         ),
-                                          //                       ],
-                                          //                     ),
-                                          //                   ),
+                                                            SizedBox(
+                                                              height: 20,
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "No. of Seats",
+                                                                    style: TextStyle(
+                                                                        color: HexColor(
+                                                                            '#9e1510'),
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        fontSize:
+                                                                            16),
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width: MediaQuery.of(context)
+                                                                            .size
+                                                                            .width *
+                                                                        0.1,
+                                                                  ),
+                                                                  Expanded(
+                                                                    child: DropdownButtonFormField(
+                                                                        value: _value,
+                                                                        items: _menuItems,
+                                                                        decoration: InputDecoration(
+                                                                          border: OutlineInputBorder(
+                                                                              borderRadius: const BorderRadius.all(
+                                                                            const Radius.circular(10.0),
+                                                                          )),
+                                                                          hintText:
+                                                                              "Seats",
+                                                                          hintStyle: TextStyle(
+                                                                              color: HexColor('#BD0006'),
+                                                                              fontWeight: FontWeight.bold),
+                                                                        ),
+                                                                        onChanged: (value) {
+                                                                          setState(
+                                                                              () {
+                                                                            _value =
+                                                                                value as String;
+                                                                            // _read();
+                                                                          });
+                                                                          prefs.setString(
+                                                                              "T",
+                                                                              _value);
+                                                                        }),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
 
-                                          //                   Padding(
-                                          //                     padding:
-                                          //                         EdgeInsets
-                                          //                             .all(10),
-                                          //                     child:
-                                          //                         ElevatedButton(
-                                          //                       style: ElevatedButton
-                                          //                           .styleFrom(
-                                          //                         textStyle:
-                                          //                             TextStyle(
-                                          //                           fontSize:
-                                          //                               20,
-                                          //                           color: HexColor(
-                                          //                               '#9e1510'),
-                                          //                         ),
-                                          //                         minimumSize: Size
-                                          //                             .fromHeight(
-                                          //                                 40),
-                                          //                         primary: HexColor(
-                                          //                             '#9e1510'),
-                                          //                         shape: RoundedRectangleBorder(
-                                          //                             borderRadius:
-                                          //                                 BorderRadius.circular(
-                                          //                                     5.0)),
-                                          //                       ),
-                                          //                       onPressed: () {
-                                          //                         setState(() {
-                                          //                           visible =
-                                          //                               true;
-                                          //                           _getBal();
-                                          //                         });
-                                          //                       },
-                                          //                       child: visible
-                                          //                           ? Row(
-                                          //                               mainAxisAlignment:
-                                          //                                   MainAxisAlignment
-                                          //                                       .center,
-                                          //                               children: [
-                                          //                                   CircularProgressIndicator(
-                                          //                                     color: Colors.white,
-                                          //                                   ),
-                                          //                                   SizedBox(
-                                          //                                     width: 25,
-                                          //                                   ),
-                                          //                                   Text("Please wait...")
-                                          //                                 ])
-                                          //                           : Text(
-                                          //                               'Next',
-                                          //                               style: TextStyle(
-                                          //                                   //color: Colors.white,
-                                          //                                   color: Colors.white,
-                                          //                                   fontFamily: 'Cairo-VariableFont_wght',
-                                          //                                   fontWeight: FontWeight.bold)),
-                                          //                     ),
-                                          //                   )
-                                          //                   //                     HexColor('#BD0006'))))),
-                                          //                 ],
-                                          //               ),
-                                          //             );
-                                          //           }),
-                                          //     ),
-                                          //     //Clossssssssssssssssssssssssssssssse Expanded 1
-                                          //   ],
-                                          // );
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child:
+                                                                  ElevatedButton(
+                                                                style: ElevatedButton
+                                                                    .styleFrom(
+                                                                  textStyle:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        20,
+                                                                    color: HexColor(
+                                                                        '#9e1510'),
+                                                                  ),
+                                                                  minimumSize: Size
+                                                                      .fromHeight(
+                                                                          40),
+                                                                  primary: HexColor(
+                                                                      '#9e1510'),
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5.0)),
+                                                                ),
+                                                                onPressed: () {
+                                                                  setState(() {
+                                                                    visible =
+                                                                        true;
+                                                                    _getBal();
+                                                                  });
+                                                                },
+                                                                child: visible
+                                                                    ? Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment
+                                                                                .center,
+                                                                        children: [
+                                                                            CircularProgressIndicator(
+                                                                              color: Colors.white,
+                                                                            ),
+                                                                            SizedBox(
+                                                                              width: 25,
+                                                                            ),
+                                                                            Text("Please wait...")
+                                                                          ])
+                                                                    : Text(
+                                                                        'Next',
+                                                                        style: TextStyle(
+                                                                            //color: Colors.white,
+                                                                            color: Colors.white,
+                                                                            fontFamily: 'Cairo-VariableFont_wght',
+                                                                            fontWeight: FontWeight.bold)),
+                                                              ),
+                                                            )
+                                                            //                     HexColor('#BD0006'))))),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    }),
+                                              ),
+                                              //Clossssssssssssssssssssssssssssssse Expanded 1
+                                            ],
+                                          );
                                           //Closssssssssssssssssssssse Column 1
 
 
@@ -1207,489 +1207,488 @@ return Column(
 
                                           //Starrrrrrrrrrrrrrrrrrrrt Column 2
 
-return Column(
-  children: [
-    Expanded(
-      child: Container(
-        color: Colors.red,
-        child: Center(child: Text("محتوى هنا")),
-      ),
-    ),
-    Container(
-      height: 50,
-      color: Colors.blue,
-      child: Center(child: Text("عنصر آخر")),
-    ),
-  ],
-);
+// return Column(
+//   children: [
+//     Expanded(
+//       child: Container(
+//         color: Colors.red,
+//         child: Center(child: Text("Body")),
+//       ),
+//     ),
+//     Container(
+//       height: 50,
+//       color: Colors.blue,
+//       child: Center(child: Text("Another")),
+//     ),
+//   ],
+// );
 
-                                          // return Column(
-                                          //   children: [
-                                          //     pressed
-                                          //         ? Expanded(
-                                          //             child:
-                                          //                 SingleChildScrollView(
-                                          //               child: Container(
-                                          //                 decoration:
-                                          //                     BoxDecoration(
-                                          //                         color: Colors
-                                          //                             .white),
-                                          //                 child: Column(
-                                          //                   children: [
-                                          //                     Row(
-                                          //                         children: <
-                                          //                             Widget>[
-                                          //                           Expanded(
-                                          //                             child: new Container(
-                                          //                                 margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                          //                                 child: Divider(
-                                          //                                   thickness:
-                                          //                                       2,
-                                          //                                   color:
-                                          //                                       HexColor('#9e1510'),
-                                          //                                   height:
-                                          //                                       25,
-                                          //                                 )),
-                                          //                           ),
-                                          //                           Text(
-                                          //                               "User Guide",
-                                          //                               style: TextStyle(
-                                          //                                   color: HexColor(
-                                          //                                       '#9e1510'),
-                                          //                                   fontSize: MediaQuery.of(context).size.height *
-                                          //                                       0.02,
-                                          //                                   fontWeight:
-                                          //                                       FontWeight.bold,
-                                          //                                   fontFamily: 'Tajawal-Regular')),
-                                          //                           Expanded(
-                                          //                             child: new Container(
-                                          //                                 margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                          //                                 child: Divider(
-                                          //                                   thickness:
-                                          //                                       2,
-                                          //                                   color:
-                                          //                                       HexColor('#9e1510'),
-                                          //                                   height:
-                                          //                                       25,
-                                          //                                 )),
-                                          //                           ),
-                                          //                         ]),
-                                          //                     Container(
-                                          //                         child: Image
-                                          //                             .asset(
-                                          //                       "assets/images/BUS Application_Page_4.jpg",
-                                          //                       width: MediaQuery.of(
-                                          //                                   context)
-                                          //                               .size
-                                          //                               .height *
-                                          //                           0.50,
-                                          //                     )),
-                                          //                   ],
-                                          //                 ),
-                                          //               ),
-                                          //             ),
-                                          //           )
-                                          //         : SizedBox(),
-                                          //     Row(children: <Widget>[
-                                          //       Expanded(
-                                          //         child: new Container(
-                                          //             margin:
-                                          //                 const EdgeInsets.only(
-                                          //                     left: 10.0,
-                                          //                     right: 15.0),
-                                          //             child: Divider(
-                                          //               thickness: 2,
-                                          //               color:
-                                          //                   HexColor('#9e1510'),
-                                          //               height: 25,
-                                          //             )),
-                                          //       ),
-                                          //       Padding(
-                                          //         padding: EdgeInsets.all(10),
-                                          //         child: Text("Book Your Seat",
-                                          //             style: TextStyle(
-                                          //                 color: HexColor(
-                                          //                     '#9e1510'),
-                                          //                 fontSize: MediaQuery.of(
-                                          //                             context)
-                                          //                         .size
-                                          //                         .height *
-                                          //                     0.02,
-                                          //                 fontWeight:
-                                          //                     FontWeight.bold,
-                                          //                 fontFamily:
-                                          //                     'Tajawal-Regular')),
-                                          //       ),
-                                          //       Expanded(
-                                          //         child: new Container(
-                                          //             margin:
-                                          //                 const EdgeInsets.only(
-                                          //                     left: 15.0,
-                                          //                     right: 10.0),
-                                          //             child: Divider(
-                                          //               thickness: 2,
-                                          //               color:
-                                          //                   HexColor('#9e1510'),
-                                          //               height: 25,
-                                          //             )),
-                                          //       ),
-                                          //     ]),
-                                          //     Expanded(
-                                          //       child: ListView.builder(
-                                          //           itemCount:
-                                          //               snapshot.data.length,
-                                          //           itemBuilder:
-                                          //               (BuildContext context,
-                                          //                   int index) {
-                                          //             //final user = snapshot.data as BusBook;
-                                          //             return SingleChildScrollView(
-                                          //               child: Column(
-                                          //                 children: [
-                                          //                   Padding(
-                                          //                     padding:
-                                          //                         EdgeInsets
-                                          //                             .all(35),
-                                          //                     child: Card(
-                                          //                       shape:
-                                          //                           RoundedRectangleBorder(
-                                          //                         borderRadius:
-                                          //                             BorderRadius
-                                          //                                 .circular(
-                                          //                                     20.0),
-                                          //                       ),
-                                          //                       elevation: 22,
-                                          //                       child: ClipPath(
-                                          //                         child:
-                                          //                             Container(
-                                          //                           padding: const EdgeInsets
-                                          //                                   .symmetric(
-                                          //                               horizontal:
-                                          //                                   25,
-                                          //                               vertical:
-                                          //                                   25),
-                                          //                           decoration:
-                                          //                               BoxDecoration(
-                                          //                             border: Border(
-                                          //                                 right: BorderSide(
-                                          //                                     color: HexColor('#9e1510'),
-                                          //                                     width: 12)),
-                                          //                             color: HexColor(
-                                          //                                 '#f4f4f4'),
-                                          //                           ),
-                                          //                           child:
-                                          //                               Center(
-                                          //                             child:
-                                          //                                 Column(
-                                          //                               children: [
-                                          //                                 Align(
-                                          //                                   alignment:
-                                          //                                       Alignment.center,
-                                          //                                   child: Container(
-                                          //                                       child: Image.asset(
-                                          //                                     "assets/images/without_number.png",
-                                          //                                     width: 35,
-                                          //                                     height: 35,
-                                          //                                   )),
-                                          //                                 ),
-                                          //                                 SizedBox(
-                                          //                                   height:
-                                          //                                       10,
-                                          //                                 ),
-                                          //                                 Align(
-                                          //                                   alignment:
-                                          //                                       Alignment.center,
-                                          //                                   child:
-                                          //                                       Container(
-                                          //                                     child: Text(
-                                          //                                       widget.name,
-                                          //                                       style: TextStyle(
-                                          //                                         fontWeight: FontWeight.bold,
-                                          //                                         fontSize: 18,
-                                          //                                         fontFamily: 'Tajawal-Regular',
-                                          //                                         color: HexColor('#9e1510'),
-                                          //                                       ),
-                                          //                                     ),
-                                          //                                   ),
-                                          //                                 ),
-                                          //                               ],
-                                          //                             ),
-                                          //                           ),
-                                          //                         ),
-                                          //                         clipper: ShapeBorderClipper(
-                                          //                             shape: RoundedRectangleBorder(
-                                          //                                 borderRadius:
-                                          //                                     BorderRadius.circular(15))),
-                                          //                       ),
-                                          //                     ),
-                                          //                   ),
-                                          //                   MySquare(
-                                          //                     txt1: "Capacity",
-                                          //                     txt2: snapshot
-                                          //                         .data[index]
-                                          //                         .busCapacity,
-                                          //                   ),
-                                          //                   MySquare(
-                                          //                     txt1: "Reserve",
-                                          //                     txt2: snapshot
-                                          //                         .data[index]
-                                          //                         .busReserve,
-                                          //                   ),
-                                          //                   MySquare(
-                                          //                     txt1: "Available",
-                                          //                     txt2: snapshot
-                                          //                         .data[index]
-                                          //                         .busAvailable,
-                                          //                   ),
-                                          //                   FutureBuilder(
-                                          //                       future:
-                                          //                           _GetConfirmationData_topay(),
-                                          //                       builder: (BuildContext
-                                          //                               context,
-                                          //                           AsyncSnapshot
-                                          //                               snapshot_toPay) {
-                                          //                         if (snapshot_toPay
-                                          //                             .hasData) {
-                                          //                           return AfterVerified(
-                                          //                             txt1:
-                                          //                                 "Total price",
-                                          //                             txt2: snapshot_toPay
-                                          //                                 .data[
-                                          //                                     0]
-                                          //                                 .toPay,
-                                          //                             txt3: snapshot_toPay
-                                          //                                 .data[
-                                          //                                     0]
-                                          //                                 .toPayAfter,
-                                          //                             txt4:
-                                          //                                 'Instead of',
-                                          //                           );
-                                          //                         } else if (snapshot_toPay
-                                          //                             .hasError) {
-                                          //                           return Center(
-                                          //                               child: Lottie.asset(
-                                          //                                   'assets/images/lf30_editor_iuu7wud2.json',
-                                          //                                   width:
-                                          //                                       MediaQuery.of(context).size.width * 0.6));
-                                          //                         } else {
-                                          //                           return Center(
-                                          //                               child: Lottie.asset(
-                                          //                                   'assets/images/lf30_editor_iuu7wud2.json',
-                                          //                                   width:
-                                          //                                       MediaQuery.of(context).size.width * 0.6));
-                                          //                         }
+                                          return Column(
+                                            children: [
+                                              pressed
+                                                  ? Expanded(
+                                                      child:
+                                                          SingleChildScrollView(
+                                                        child: Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  color: Colors
+                                                                      .white),
+                                                          child: Column(
+                                                            children: [
+                                                              Row(
+                                                                  children: <
+                                                                      Widget>[
+                                                                    Expanded(
+                                                                      child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+                                                                          child: Divider(
+                                                                            thickness:
+                                                                                2,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            height:
+                                                                                25,
+                                                                          )),
+                                                                    ),
+                                                                    Text(
+                                                                        "User Guide",
+                                                                        style: TextStyle(
+                                                                            color: HexColor(
+                                                                                '#9e1510'),
+                                                                            fontSize: MediaQuery.of(context).size.height *
+                                                                                0.02,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontFamily: 'Tajawal-Regular')),
+                                                                    Expanded(
+                                                                      child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                                                                          child: Divider(
+                                                                            thickness:
+                                                                                2,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            height:
+                                                                                25,
+                                                                          )),
+                                                                    ),
+                                                                  ]),
+                                                              Container(
+                                                                  child: Image
+                                                                      .asset(
+                                                                "assets/images/BUS Application_Page_4.jpg",
+                                                                width: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .height *
+                                                                    0.50,
+                                                              )),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    )
+                                                  : SizedBox(),
+                                              Row(children: <Widget>[
+                                                Expanded(
+                                                  child: new Container(
+                                                      margin:
+                                                          const EdgeInsets.only(
+                                                              left: 10.0,
+                                                              right: 15.0),
+                                                      child: Divider(
+                                                        thickness: 2,
+                                                        color:
+                                                            HexColor('#9e1510'),
+                                                        height: 25,
+                                                      )),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Text("Book Your Seat",
+                                                      style: TextStyle(
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          fontSize: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              0.02,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontFamily:
+                                                              'Tajawal-Regular')),
+                                                ),
+                                                Expanded(
+                                                  child: new Container(
+                                                      margin:
+                                                          const EdgeInsets.only(
+                                                              left: 15.0,
+                                                              right: 10.0),
+                                                      child: Divider(
+                                                        thickness: 2,
+                                                        color:
+                                                            HexColor('#9e1510'),
+                                                        height: 25,
+                                                      )),
+                                                ),
+                                              ]),
+                                              Expanded(
+                                                child: ListView.builder(
+                                                    itemCount:
+                                                        snapshot.data.length,
+                                                    itemBuilder:
+                                                        (BuildContext context,
+                                                            int index) {
+                                                      //final user = snapshot.data as BusBook;
+                                                      return SingleChildScrollView(
+                                                        child: Column(
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(35),
+                                                              child: Card(
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20.0),
+                                                                ),
+                                                                elevation: 22,
+                                                                child: ClipPath(
+                                                                  child:
+                                                                      Container(
+                                                                    padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            25,
+                                                                        vertical:
+                                                                            25),
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      border: Border(
+                                                                          right: BorderSide(
+                                                                              color: HexColor('#9e1510'),
+                                                                              width: 12)),
+                                                                      color: HexColor(
+                                                                          '#f4f4f4'),
+                                                                    ),
+                                                                    child:
+                                                                        Center(
+                                                                      child:
+                                                                          Column(
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child: Container(
+                                                                                child: Image.asset(
+                                                                              "assets/images/without_number.png",
+                                                                              width: 35,
+                                                                              height: 35,
+                                                                            )),
+                                                                          ),
+                                                                          SizedBox(
+                                                                            height:
+                                                                                10,
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child:
+                                                                                Container(
+                                                                              child: Text(
+                                                                                widget.name,
+                                                                                style: TextStyle(
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  fontSize: 18,
+                                                                                  fontFamily: 'Tajawal-Regular',
+                                                                                  color: HexColor('#9e1510'),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  clipper: ShapeBorderClipper(
+                                                                      shape: RoundedRectangleBorder(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(15))),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Capacity",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busCapacity,
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Reserve",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busReserve,
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Available",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busAvailable,
+                                                            ),
+                                                            FutureBuilder(
+                                                                future:
+                                                                    _GetConfirmationData_topay(),
+                                                                builder: (BuildContext
+                                                                        context,
+                                                                    AsyncSnapshot
+                                                                        snapshot_toPay) {
+                                                                  if (snapshot_toPay
+                                                                      .hasData) {
+                                                                    return AfterVerified(
+                                                                      txt1:
+                                                                          "Total price",
+                                                                      txt2: snapshot_toPay
+                                                                          .data[
+                                                                              0]
+                                                                          .toPay,
+                                                                      txt3: snapshot_toPay
+                                                                          .data[
+                                                                              0]
+                                                                          .toPayAfter,
+                                                                      txt4:
+                                                                          'Instead of',
+                                                                    );
+                                                                  } else if (snapshot_toPay
+                                                                      .hasError) {
+                                                                    return Center(
+                                                                        child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.6));
+                                                                  } else {
+                                                                    return Center(
+                                                                        child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.6));
+                                                                  }
 
-                                          //                         /// here your data
-                                          //                       }),
+                                                                  /// here your data
+                                                                }),
 
-                                          //                   SizedBox(
-                                          //                     height: 20,
-                                          //                   ),
-                                          //                   Padding(
-                                          //                     padding:
-                                          //                         EdgeInsets
-                                          //                             .all(10),
-                                          //                     child: Row(
-                                          //                       children: [
-                                          //                         Text(
-                                          //                           "No. of Seats",
-                                          //                           style: TextStyle(
-                                          //                               color: HexColor(
-                                          //                                   '#9e1510'),
-                                          //                               fontWeight:
-                                          //                                   FontWeight
-                                          //                                       .bold,
-                                          //                               fontSize:
-                                          //                                   16),
-                                          //                         ),
-                                          //                         SizedBox(
-                                          //                           width: MediaQuery.of(context)
-                                          //                                   .size
-                                          //                                   .width *
-                                          //                               0.1,
-                                          //                         ),
-                                          //                         Expanded(
-                                          //                           child: DropdownButtonFormField(
-                                          //                               value: _value,
-                                          //                               items: _menuItems,
-                                          //                               decoration: InputDecoration(
-                                          //                                 border: OutlineInputBorder(
-                                          //                                     borderRadius: const BorderRadius.all(
-                                          //                                   const Radius.circular(10.0),
-                                          //                                 )),
-                                          //                                 hintText:
-                                          //                                     "Seats",
-                                          //                                 hintStyle: TextStyle(
-                                          //                                     color: HexColor('#9e1510'),
-                                          //                                     fontWeight: FontWeight.bold),
-                                          //                               ),
-                                          //                               onChanged: (value) {
-                                          //                                 setState(
-                                          //                                     () {
-                                          //                                   _value =
-                                          //                                       value as String;
-                                          //                                   // _read();
-                                          //                                 });
-                                          //                                 prefs.setString(
-                                          //                                     "T",
-                                          //                                     _value);
-                                          //                               }),
-                                          //                         ),
-                                          //                       ],
-                                          //                     ),
-                                          //                   ),
+                                                            SizedBox(
+                                                              height: 20,
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "No. of Seats",
+                                                                    style: TextStyle(
+                                                                        color: HexColor(
+                                                                            '#9e1510'),
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        fontSize:
+                                                                            16),
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width: MediaQuery.of(context)
+                                                                            .size
+                                                                            .width *
+                                                                        0.1,
+                                                                  ),
+                                                                  Expanded(
+                                                                    child: DropdownButtonFormField(
+                                                                        value: _value,
+                                                                        items: _menuItems,
+                                                                        decoration: InputDecoration(
+                                                                          border: OutlineInputBorder(
+                                                                              borderRadius: const BorderRadius.all(
+                                                                            const Radius.circular(10.0),
+                                                                          )),
+                                                                          hintText:
+                                                                              "Seats",
+                                                                          hintStyle: TextStyle(
+                                                                              color: HexColor('#9e1510'),
+                                                                              fontWeight: FontWeight.bold),
+                                                                        ),
+                                                                        onChanged: (value) {
+                                                                          setState(
+                                                                              () {
+                                                                            _value =
+                                                                                value as String;
+                                                                            // _read();
+                                                                          });
+                                                                          prefs.setString(
+                                                                              "T",
+                                                                              _value);
+                                                                        }),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
 
-                                          //                   Row(
-                                          //                     mainAxisAlignment:
-                                          //                         MainAxisAlignment
-                                          //                             .spaceBetween,
-                                          //                     children: <
-                                          //                         Widget>[
-                                          //                       //SizedBox
-                                          //                       Container(
-                                          //                         margin: EdgeInsets
-                                          //                             .only(
-                                          //                                 left:
-                                          //                                     10),
-                                          //                         child: Text(
-                                          //                           'Book return trip',
-                                          //                           style: TextStyle(
-                                          //                               color: HexColor(
-                                          //                                   '#9e1510'),
-                                          //                               fontWeight:
-                                          //                                   FontWeight
-                                          //                                       .bold,
-                                          //                               fontSize:
-                                          //                                   18),
-                                          //                         ),
-                                          //                       ),
-                                          //                       //Text//SizedBox
-                                          //                       /** Checkbox Widget **/
-                                          //                       Container(
-                                          //                         margin: EdgeInsets
-                                          //                             .only(
-                                          //                                 right:
-                                          //                                     200),
-                                          //                         child:
-                                          //                             Checkbox(
-                                          //                           value: this
-                                          //                               .chk_box,
-                                          //                           onChanged:
-                                          //                               (chk_box) {
-                                          //                             setState(
-                                          //                                 () {
-                                          //                               this.chk_box =
-                                          //                                   chk_box!;
-                                          //                             });
-                                          //                           },
-                                          //                         ),
-                                          //                       ),
-                                          //                       //Checkbox
-                                          //                     ], //<Widget>[]
-                                          //                   ),
-                                          //                   Padding(
-                                          //                     padding:
-                                          //                         EdgeInsets
-                                          //                             .all(10),
-                                          //                     child: Row(
-                                          //                       children: [
-                                          //                         SizedBox(
-                                          //                           width: 16,
-                                          //                         ),
-                                          //                         Image.asset(
-                                          //                           'assets/images/success.png',
-                                          //                           width: MediaQuery.of(context)
-                                          //                                   .size
-                                          //                                   .width *
-                                          //                               0.06,
-                                          //                         ),
-                                          //                         SizedBox(
-                                          //                           width: 15,
-                                          //                         ),
-                                          //                         Container(
-                                          //                           margin: EdgeInsets
-                                          //                               .only(
-                                          //                                   top:
-                                          //                                       4),
-                                          //                           child: Text(
-                                          //                             "Verified",
-                                          //                             style:
-                                          //                                 TextStyle(
-                                          //                               fontSize:
-                                          //                                   21,
-                                          //                               fontFamily:
-                                          //                                   'Cairo-VariableFont_wght',
-                                          //                               color: Colors
-                                          //                                   .green,
-                                          //                             ),
-                                          //                           ),
-                                          //                         ),
-                                          //                       ],
-                                          //                     ),
-                                          //                   ),
+                                                            // Row(
+                                                            //   mainAxisAlignment:
+                                                            //       MainAxisAlignment
+                                                            //           .spaceBetween,
+                                                            //   children: <
+                                                            //       Widget>[
+                                                            //     //SizedBox
+                                                            //     Container(
+                                                            //       margin: EdgeInsets
+                                                            //           .only(
+                                                            //               left:
+                                                            //                   10),
+                                                            //       child: Text(
+                                                            //         'Book return trip',
+                                                            //         style: TextStyle(
+                                                            //             color: HexColor(
+                                                            //                 '#9e1510'),
+                                                            //             fontWeight:
+                                                            //                 FontWeight
+                                                            //                     .bold,
+                                                            //             fontSize:
+                                                            //                 18),
+                                                            //       ),
+                                                            //     ),
 
-                                          //                   Padding(
-                                          //                     padding:
-                                          //                         EdgeInsets
-                                          //                             .all(10),
-                                          //                     child:
-                                          //                         ElevatedButton(
-                                          //                       style: ElevatedButton
-                                          //                           .styleFrom(
-                                          //                         textStyle:
-                                          //                             TextStyle(
-                                          //                           fontSize:
-                                          //                               20,
-                                          //                           color: HexColor(
-                                          //                               '#9e1510'),
-                                          //                         ),
-                                          //                         minimumSize: Size
-                                          //                             .fromHeight(
-                                          //                                 40),
-                                          //                         primary: HexColor(
-                                          //                             '#9e1510'),
-                                          //                         shape: RoundedRectangleBorder(
-                                          //                             borderRadius:
-                                          //                                 BorderRadius.circular(
-                                          //                                     5.0)),
-                                          //                       ),
-                                          //                       onPressed: () {
-                                          //                         setState(() {
-                                          //                           visible =
-                                          //                               true;
-                                          //                           _getBal();
-                                          //                         });
-                                          //                       },
-                                          //                       child: visible
-                                          //                           ? Row(
-                                          //                               mainAxisAlignment:
-                                          //                                   MainAxisAlignment
-                                          //                                       .center,
-                                          //                               children: [
-                                          //                                   CircularProgressIndicator(
-                                          //                                     color: Colors.white,
-                                          //                                   ),
-                                          //                                   SizedBox(
-                                          //                                     width: 25,
-                                          //                                   ),
-                                          //                                   Text("Please wait...")
-                                          //                                 ])
-                                          //                           : Text(
-                                          //                               'Next',
-                                          //                               style: TextStyle(
-                                          //                                   //color: Colors.white,
-                                          //                                   color: Colors.white,
-                                          //                                   fontFamily: 'Cairo-VariableFont_wght',
-                                          //                                   fontWeight: FontWeight.bold)),
-                                          //                     ),
-                                          //                   )
-                                          //                   //                     HexColor('#BD0006'))))),
-                                          //                 ],
-                                          //               ),
-                                          //             );
-                                          //           }),
-                                          //     ),
-                                          //   ],
-                                          // );
+                                                            //     Container(
+                                                            //       margin: EdgeInsets
+                                                            //           .only(
+                                                            //               right:
+                                                            //                   200),
+                                                            //       child:
+                                                            //           Checkbox(
+                                                            //         value: this
+                                                            //             .chk_box,
+                                                            //         onChanged:
+                                                            //             (chk_box) {
+                                                            //           setState(
+                                                            //               () {
+                                                            //             this.chk_box =
+                                                            //                 chk_box!;
+                                                            //           });
+                                                            //         },
+                                                            //       ),
+                                                            //     ),
+                                                            //   ], 
+                                                            // ),
+
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child: Row(
+                                                                children: [
+                                                                  SizedBox(
+                                                                    width: 16,
+                                                                  ),
+                                                                  Image.asset(
+                                                                    'assets/images/success.png',
+                                                                    width: MediaQuery.of(context)
+                                                                            .size
+                                                                            .width *
+                                                                        0.06,
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width: 15,
+                                                                  ),
+                                                                  Container(
+                                                                    margin: EdgeInsets
+                                                                        .only(
+                                                                            top:
+                                                                                4),
+                                                                    child: Text(
+                                                                      "Verified",
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontSize:
+                                                                            21,
+                                                                        fontFamily:
+                                                                            'Cairo-VariableFont_wght',
+                                                                        color: Colors
+                                                                            .green,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child:
+                                                                  ElevatedButton(
+                                                                style: ElevatedButton
+                                                                    .styleFrom(
+                                                                  textStyle:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        20,
+                                                                    color: HexColor(
+                                                                        '#9e1510'),
+                                                                  ),
+                                                                  minimumSize: Size
+                                                                      .fromHeight(
+                                                                          40),
+                                                                  primary: HexColor(
+                                                                      '#9e1510'),
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5.0)),
+                                                                ),
+                                                                onPressed: () {
+                                                                  setState(() {
+                                                                    visible =
+                                                                        true;
+                                                                    _getBal();
+                                                                  });
+                                                                },
+                                                                child: visible
+                                                                    ? Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment
+                                                                                .center,
+                                                                        children: [
+                                                                            CircularProgressIndicator(
+                                                                              color: Colors.white,
+                                                                            ),
+                                                                            SizedBox(
+                                                                              width: 25,
+                                                                            ),
+                                                                            Text("Please wait...")
+                                                                          ])
+                                                                    : Text(
+                                                                        'Next',
+                                                                        style: TextStyle(
+                                                                            //color: Colors.white,
+                                                                            color: Colors.white,
+                                                                            fontFamily: 'Cairo-VariableFont_wght',
+                                                                            fontWeight: FontWeight.bold)),
+                                                              ),
+                                                            )
+                                                          ],
+                                                        ),
+                                                      );
+                                                    }
+                                                  ),
+                                               ),
+                                             ],
+                                           );
 
                                         //Closssssssssssssssssssse Colum 2
 
@@ -1699,486 +1698,487 @@ return Column(
 
                                         //Starrrrrrrrrrrrrrrrrrrrt Colum 3
 
-return Column(
-  children: [
-    Expanded(
-      child: Container(
-        color: Colors.red,
-        child: Center(child: Text("محتوى هنا")),
-      ),
-    ),
-    Container(
-      height: 50,
-      color: Colors.blue,
-      child: Center(child: Text("عنصر آخر")),
-    ),
-  ],
-);
+// return Column(
+//   children: [
+//     Expanded(
+//       child: Container(
+//         color: Colors.red,
+//         child: Center(child: Text("Body")),
+//       ),
+//     ),
+//     Container(
+//       height: 50,
+//       color: Colors.blue,
+//       child: Center(child: Text("Another")),
+//     ),
+//   ],
+// );
 
-                                          // return Column(
-                                          //   children: [
-                                          //     pressed
-                                          //         ? Expanded(
-                                          //             child:
-                                          //                 SingleChildScrollView(
-                                          //               child: Container(
-                                          //                 decoration:
-                                          //                     BoxDecoration(
-                                          //                         color: Colors
-                                          //                             .white),
-                                          //                 child: Column(
-                                          //                   children: [
-                                          //                     Row(
-                                          //                         children: <
-                                          //                             Widget>[
-                                          //                           Expanded(
-                                          //                             child: new Container(
-                                          //                                 margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                          //                                 child: Divider(
-                                          //                                   thickness:
-                                          //                                       2,
-                                          //                                   color:
-                                          //                                       HexColor('#9e1510'),
-                                          //                                   height:
-                                          //                                       25,
-                                          //                                 )),
-                                          //                           ),
-                                          //                           Text(
-                                          //                               "User Guide",
-                                          //                               style: TextStyle(
-                                          //                                   color: HexColor(
-                                          //                                       '#9e1510'),
-                                          //                                   fontSize: MediaQuery.of(context).size.height *
-                                          //                                       0.02,
-                                          //                                   fontWeight:
-                                          //                                       FontWeight.bold,
-                                          //                                   fontFamily: 'Tajawal-Regular')),
-                                          //                           Expanded(
-                                          //                             child: new Container(
-                                          //                                 margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                          //                                 child: Divider(
-                                          //                                   thickness:
-                                          //                                       2,
-                                          //                                   color:
-                                          //                                       HexColor('#BD0006'),
-                                          //                                   height:
-                                          //                                       25,
-                                          //                                 )),
-                                          //                           ),
-                                          //                         ]),
-                                          //                     Container(
-                                          //                         child: Image
-                                          //                             .asset(
-                                          //                       "assets/images/BUS Application_Page_4.jpg",
-                                          //                       width: MediaQuery.of(
-                                          //                                   context)
-                                          //                               .size
-                                          //                               .height *
-                                          //                           0.50,
-                                          //                     )),
-                                          //                   ],
-                                          //                 ),
-                                          //               ),
-                                          //             ),
-                                          //           )
-                                          //         : SizedBox(),
-                                          //     Row(
-                                          //       children: <Widget>[
-                                          //       Expanded(
-                                          //         child: new Container(
-                                          //             margin:
-                                          //                 const EdgeInsets.only(
-                                          //                     left: 10.0,
-                                          //                     right: 15.0),
-                                          //             child: Divider(
-                                          //               thickness: 2,
-                                          //               color:
-                                          //                   HexColor('#9e1510'),
-                                          //               height: 25,
-                                          //             )),
-                                          //       ),
-                                          //       Padding(
-                                          //         padding: EdgeInsets.all(10),
-                                          //         child: Text("Book Your Seat",
-                                          //             style: TextStyle(
-                                          //                 color: HexColor(
-                                          //                     '#9e1510'),
-                                          //                 fontSize: MediaQuery.of(
-                                          //                             context)
-                                          //                         .size
-                                          //                         .height *
-                                          //                     0.02,
-                                          //                 fontWeight:
-                                          //                     FontWeight.bold,
-                                          //                 fontFamily:
-                                          //                     'Tajawal-Regular')),
-                                          //       ),
-                                          //       Expanded(
-                                          //         child: new Container(
-                                          //             margin:
-                                          //                 const EdgeInsets.only(
-                                          //                     left: 15.0,
-                                          //                     right: 10.0),
-                                          //             child: Divider(
-                                          //               thickness: 2,
-                                          //               color:
-                                          //                   HexColor('#9e1510'),
-                                          //               height: 25,
-                                          //             )),
-                                          //       ),
-                                          //     ],
-                                          //     ),
-                                          //     Expanded(
-                                          //       child: ListView.builder(
-                                          //           itemCount:
-                                          //               snapshot.data.length,
-                                          //           itemBuilder:
-                                          //               (BuildContext context,
-                                          //                   int index) {
-                                          //             //final user = snapshot.data as BusBook;
-                                          //             return SingleChildScrollView(
-                                          //               child: Column(
-                                          //                 children: [
-                                          //                   Padding(
-                                          //                     padding:
-                                          //                         EdgeInsets
-                                          //                             .all(35),
-                                          //                     child: Card(
-                                          //                       shape:
-                                          //                           RoundedRectangleBorder(
-                                          //                         borderRadius:
-                                          //                             BorderRadius
-                                          //                                 .circular(
-                                          //                                     20.0),
-                                          //                       ),
-                                          //                       elevation: 22,
-                                          //                       child: ClipPath(
-                                          //                         child:
-                                          //                             Container(
-                                          //                           padding: const EdgeInsets
-                                          //                                   .symmetric(
-                                          //                               horizontal:
-                                          //                                   25,
-                                          //                               vertical:
-                                          //                                   25),
-                                          //                           decoration:
-                                          //                               BoxDecoration(
-                                          //                             border: Border(
-                                          //                                 right: BorderSide(
-                                          //                                     color: HexColor('#9e1510'),
-                                          //                                     width: 12)),
-                                          //                             color: HexColor(
-                                          //                                 '#f4f4f4'),
-                                          //                           ),
-                                          //                           child:
-                                          //                               Center(
-                                          //                             child:
-                                          //                                 Column(
-                                          //                               children: [
-                                          //                                 Align(
-                                          //                                   alignment:
-                                          //                                       Alignment.center,
-                                          //                                   child: Container(
-                                          //                                       child: Image.asset(
-                                          //                                     "assets/images/without_number.png",
-                                          //                                     width: 35,
-                                          //                                     height: 35,
-                                          //                                   )),
-                                          //                                 ),
-                                          //                                 SizedBox(
-                                          //                                   height:
-                                          //                                       10,
-                                          //                                 ),
-                                          //                                 Align(
-                                          //                                   alignment:
-                                          //                                       Alignment.center,
-                                          //                                   child:
-                                          //                                       Container(
-                                          //                                     child: Text(
-                                          //                                       widget.name,
-                                          //                                       style: TextStyle(
-                                          //                                         fontWeight: FontWeight.bold,
-                                          //                                         fontSize: 18,
-                                          //                                         fontFamily: 'Tajawal-Regular',
-                                          //                                         color: HexColor('#BD0006'),
-                                          //                                       ),
-                                          //                                     ),
-                                          //                                   ),
-                                          //                                 ),
-                                          //                               ],
-                                          //                             ),
-                                          //                           ),
-                                          //                         ),
-                                          //                         clipper: ShapeBorderClipper(
-                                          //                             shape: RoundedRectangleBorder(
-                                          //                                 borderRadius:
-                                          //                                     BorderRadius.circular(15))),
-                                          //                       ),
-                                          //                     ),
-                                          //                   ),
-                                          //                   MySquare(
-                                          //                     txt1: "Capacity",
-                                          //                     txt2: snapshot
-                                          //                         .data[index]
-                                          //                         .busCapacity,
-                                          //                   ),
-                                          //                   MySquare(
-                                          //                     txt1: "Reserve",
-                                          //                     txt2: snapshot
-                                          //                         .data[index]
-                                          //                         .busReserve,
-                                          //                   ),
-                                          //                   MySquare(
-                                          //                     txt1: "Available",
-                                          //                     txt2: snapshot
-                                          //                         .data[index]
-                                          //                         .busAvailable,
-                                          //                   ),
-                                          //                   FutureBuilder(
-                                          //                       future:
-                                          //                           _GetConfirmationData_topay(),
-                                          //                       builder: (BuildContext
-                                          //                               context,
-                                          //                           AsyncSnapshot
-                                          //                               snapshot_toPay) {
-                                          //                         if (snapshot_toPay
-                                          //                             .hasData) {
-                                          //                           return MySquare(
-                                          //                               txt1:
-                                          //                                   "Total price",
-                                          //                               txt2: snapshot_toPay
-                                          //                                   .data[0]
-                                          //                                   .toPay);
-                                          //                         } else if (snapshot_toPay
-                                          //                             .hasError) {
-                                          //                           return Center(
-                                          //                               child: Lottie.asset(
-                                          //                                   'assets/images/lf30_editor_iuu7wud2.json',
-                                          //                                   width:
-                                          //                                       MediaQuery.of(context).size.width * 0.6));
-                                          //                         } else {
-                                          //                           return Center(
-                                          //                               child: Lottie.asset(
-                                          //                                   'assets/images/lf30_editor_iuu7wud2.json',
-                                          //                                   width:
-                                          //                                       MediaQuery.of(context).size.width * 0.6));
-                                          //                         }
-                                          //                         /// here your data
-                                          //                       }),
-                                          //                   SizedBox(
-                                          //                     height: 20,
-                                          //                   ),
-                                          //                   Padding(
-                                          //                     padding:
-                                          //                         EdgeInsets
-                                          //                             .all(10),
-                                          //                     child: Row(
-                                          //                       children: [
-                                          //                         Text(
-                                          //                           "No. of Seats",
-                                          //                           style: TextStyle(
-                                          //                               color: HexColor(
-                                          //                                   '#BD0006'),
-                                          //                               fontWeight:
-                                          //                                   FontWeight
-                                          //                                       .bold,
-                                          //                               fontSize:
-                                          //                                   16),
-                                          //                         ),
-                                          //                         SizedBox(
-                                          //                           width: MediaQuery.of(context)
-                                          //                                   .size
-                                          //                                   .width *
-                                          //                               0.1,
-                                          //                         ),
-                                          //                         Expanded(
-                                          //                           child: DropdownButtonFormField(
-                                          //                               value: _value,
-                                          //                               items: _menuItems,
-                                          //                               decoration: InputDecoration(
-                                          //                                 border: OutlineInputBorder(
-                                          //                                     borderRadius: const BorderRadius.all(
-                                          //                                   const Radius.circular(10.0),
-                                          //                                 )),
-                                          //                                 hintText:
-                                          //                                     "Seats",
-                                          //                                 hintStyle: TextStyle(
-                                          //                                     color: HexColor('#9e1510'),
-                                          //                                     fontWeight: FontWeight.bold),
-                                          //                               ),
-                                          //                               onChanged: (value) {
-                                          //                                 setState(
-                                          //                                     () {
-                                          //                                   _value =
-                                          //                                       value as String;
-                                          //                                   // _read();
-                                          //                                 });
-                                          //                                 prefs.setString(
-                                          //                                     "T",
-                                          //                                     _value);
-                                          //                               }),
-                                          //                         ),
-                                          //                       ],
-                                          //                     ),
-                                          //                   ),
+                                          return Column(
+                                            children: [
+                                              pressed
+                                                  ? Expanded(
+                                                      child:
+                                                          SingleChildScrollView(
+                                                        child: Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  color: Colors
+                                                                      .white),
+                                                          child: Column(
+                                                            children: [
+                                                              Row(
+                                                                  children: <
+                                                                      Widget>[
+                                                                    Expanded(
+                                                                      child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+                                                                          child: Divider(
+                                                                            thickness:
+                                                                                2,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            height:
+                                                                                25,
+                                                                          )),
+                                                                    ),
+                                                                    Text(
+                                                                        "User Guide",
+                                                                        style: TextStyle(
+                                                                            color: HexColor(
+                                                                                '#9e1510'),
+                                                                            fontSize: MediaQuery.of(context).size.height *
+                                                                                0.02,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontFamily: 'Tajawal-Regular')),
+                                                                    Expanded(
+                                                                      child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                                                                          child: Divider(
+                                                                            thickness:
+                                                                                2,
+                                                                            color:
+                                                                                HexColor('#BD0006'),
+                                                                            height:
+                                                                                25,
+                                                                          )),
+                                                                    ),
+                                                                  ]),
+                                                              Container(
+                                                                  child: Image
+                                                                      .asset(
+                                                                "assets/images/BUS Application_Page_4.jpg",
+                                                                width: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .height *
+                                                                    0.50,
+                                                              )),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    )
+                                                  : SizedBox(),
+                                              Row(
+                                                children: <Widget>[
+                                                Expanded(
+                                                  child: new Container(
+                                                      margin:
+                                                          const EdgeInsets.only(
+                                                              left: 10.0,
+                                                              right: 15.0),
+                                                      child: Divider(
+                                                        thickness: 2,
+                                                        color:
+                                                            HexColor('#9e1510'),
+                                                        height: 25,
+                                                      )),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Text("Book Your Seat",
+                                                      style: TextStyle(
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          fontSize: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              0.02,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontFamily:
+                                                              'Tajawal-Regular')),
+                                                ),
+                                                Expanded(
+                                                  child: new Container(
+                                                      margin:
+                                                          const EdgeInsets.only(
+                                                              left: 15.0,
+                                                              right: 10.0),
+                                                      child: Divider(
+                                                        thickness: 2,
+                                                        color:
+                                                            HexColor('#9e1510'),
+                                                        height: 25,
+                                                      )),
+                                                ),
+                                              ],
+                                              ),
+                                              Expanded(
+                                                child: ListView.builder(
+                                                    itemCount:
+                                                        snapshot.data.length,
+                                                    itemBuilder:
+                                                        (BuildContext context,
+                                                            int index) {
+                                                      //final user = snapshot.data as BusBook;
+                                                      return SingleChildScrollView(
+                                                        child: Column(
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(35),
+                                                              child: Card(
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20.0),
+                                                                ),
+                                                                elevation: 22,
+                                                                child: ClipPath(
+                                                                  child:
+                                                                      Container(
+                                                                    padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            25,
+                                                                        vertical:
+                                                                            25),
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      border: Border(
+                                                                          right: BorderSide(
+                                                                              color: HexColor('#9e1510'),
+                                                                              width: 12)),
+                                                                      color: HexColor(
+                                                                          '#f4f4f4'),
+                                                                    ),
+                                                                    child:
+                                                                        Center(
+                                                                      child:
+                                                                          Column(
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child: Container(
+                                                                                child: Image.asset(
+                                                                              "assets/images/without_number.png",
+                                                                              width: 35,
+                                                                              height: 35,
+                                                                            )),
+                                                                          ),
+                                                                          SizedBox(
+                                                                            height:
+                                                                                10,
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child:
+                                                                                Container(
+                                                                              child: Text(
+                                                                                widget.name,
+                                                                                style: TextStyle(
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  fontSize: 18,
+                                                                                  fontFamily: 'Tajawal-Regular',
+                                                                                  color: HexColor('#BD0006'),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  clipper: ShapeBorderClipper(
+                                                                      shape: RoundedRectangleBorder(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(15))),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Capacity",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busCapacity,
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Reserve",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busReserve,
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Available",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busAvailable,
+                                                            ),
+                                                            FutureBuilder(
+                                                                future:
+                                                                    _GetConfirmationData_topay(),
+                                                                builder: (BuildContext
+                                                                        context,
+                                                                    AsyncSnapshot
+                                                                        snapshot_toPay) {
+                                                                  if (snapshot_toPay
+                                                                      .hasData) {
+                                                                    return MySquare(
+                                                                        txt1:
+                                                                            "Total price",
+                                                                        txt2: snapshot_toPay
+                                                                            .data[0]
+                                                                            .toPay);
+                                                                  } else if (snapshot_toPay
+                                                                      .hasError) {
+                                                                    return Center(
+                                                                        child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.6));
+                                                                  } else {
+                                                                    return Center(
+                                                                        child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.6));
+                                                                  }
+                                                                  /// here your data
+                                                                }),
+                                                            SizedBox(
+                                                              height: 20,
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "No. of Seats",
+                                                                    style: TextStyle(
+                                                                        color: HexColor(
+                                                                            '#BD0006'),
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        fontSize:
+                                                                            16),
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width: MediaQuery.of(context)
+                                                                            .size
+                                                                            .width *
+                                                                        0.1,
+                                                                  ),
+                                                                  Expanded(
+                                                                    child: DropdownButtonFormField(
+                                                                        value: _value,
+                                                                        items: _menuItems,
+                                                                        decoration: InputDecoration(
+                                                                          border: OutlineInputBorder(
+                                                                              borderRadius: const BorderRadius.all(
+                                                                            const Radius.circular(10.0),
+                                                                          )),
+                                                                          hintText:
+                                                                              "Seats",
+                                                                          hintStyle: TextStyle(
+                                                                              color: HexColor('#9e1510'),
+                                                                              fontWeight: FontWeight.bold),
+                                                                        ),
+                                                                        onChanged: (value) {
+                                                                          setState(
+                                                                              () {
+                                                                            _value =
+                                                                                value as String;
+                                                                            // _read();
+                                                                          });
+                                                                          prefs.setString(
+                                                                              "T",
+                                                                              _value);
+                                                                        }),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
 
-                                          //                   Row(
-                                          //                     mainAxisAlignment:
-                                          //                         MainAxisAlignment
-                                          //                             .spaceBetween,
-                                          //                     children: <
-                                          //                         Widget>[
-                                          //                       Container(
-                                          //                         margin: EdgeInsets
-                                          //                             .only(
-                                          //                                 left:
-                                          //                                     10),
-                                          //                         child: Text(
-                                          //                           'Book return trip',
-                                          //                           style: TextStyle(
-                                          //                               color: HexColor(
-                                          //                                   '#9e1510'),
-                                          //                               fontWeight:
-                                          //                                   FontWeight
-                                          //                                       .bold,
-                                          //                               fontSize:
-                                          //                                   18),
-                                          //                         ),
-                                          //                       ),
-                                          //                       Container(
-                                          //                         margin: EdgeInsets
-                                          //                             .only(
-                                          //                                 right:
-                                          //                                     200),
-                                          //                         child:
-                                          //                             Checkbox(
-                                          //                           value: this
-                                          //                               .chk_box,
-                                          //                           onChanged:
-                                          //                               (chk_box) {
-                                          //                             setState(
-                                          //                                 () {
-                                          //                               this.chk_box =
-                                          //                                   chk_box!;
-                                          //                             });
-                                          //                           },
-                                          //                         ),
-                                          //                       ),
-                                          //                     ], 
-                                          //                   ),
-                                          //                   Padding(
-                                          //                     padding:
-                                          //                         EdgeInsets
-                                          //                             .all(10),
-                                          //                     child: InkWell(
-                                          //                       onTap: () {
-                                          //                         _GetConfirmationData_ConfirmPromo();
-                                          //                       },
-                                          //                       child: Row(
-                                          //                         children: [
-                                          //                           SizedBox(
-                                          //                             width: 16,
-                                          //                           ),
-                                          //                           Image.asset(
-                                          //                             'assets/images/plus.png',
-                                          //                             color: Colors
-                                          //                                 .black,
-                                          //                             width: MediaQuery.of(context)
-                                          //                                     .size
-                                          //                                     .width *
-                                          //                                 0.04,
-                                          //                           ),
-                                          //                           SizedBox(
-                                          //                             width: 15,
-                                          //                           ),
-                                          //                           Container(
-                                          //                             margin: EdgeInsets
-                                          //                                 .only(
-                                          //                                     top: 4),
-                                          //                             child:
-                                          //                                 Text(
-                                          //                               "Add promo code",
-                                          //                               style:
-                                          //                                   TextStyle(
-                                          //                                 fontWeight:
-                                          //                                     FontWeight.bold,
-                                          //                                 fontSize:
-                                          //                                     18,
-                                          //                                 fontFamily:
-                                          //                                     'Tajawal-Regular',
-                                          //                                 color:
-                                          //                                     HexColor('#9e1510'),
-                                          //                               ),
-                                          //                             ),
-                                          //                           ),
-                                          //                         ],
-                                          //                       ),
-                                          //                     ),
-                                          //                   ),
+                                                            // Row(
+                                                            //   mainAxisAlignment:
+                                                            //       MainAxisAlignment
+                                                            //           .spaceBetween,
+                                                            //   children: <
+                                                            //       Widget>[
+                                                            //     Container(
+                                                            //       margin: EdgeInsets
+                                                            //           .only(
+                                                            //               left:
+                                                            //                   10),
+                                                            //       child: Text(
+                                                            //         'Book return trip',
+                                                            //         style: TextStyle(
+                                                            //             color: HexColor(
+                                                            //                 '#9e1510'),
+                                                            //             fontWeight:
+                                                            //                 FontWeight
+                                                            //                     .bold,
+                                                            //             fontSize:
+                                                            //                 18),
+                                                            //       ),
+                                                            //     ),
+                                                            //     Container(
+                                                            //       margin: EdgeInsets
+                                                            //           .only(
+                                                            //               right:
+                                                            //                   200),
+                                                            //       child:
+                                                            //           Checkbox(
+                                                            //         value: this
+                                                            //             .chk_box,
+                                                            //         onChanged:
+                                                            //             (chk_box) {
+                                                            //           setState(
+                                                            //               () {
+                                                            //             this.chk_box =
+                                                            //                 chk_box!;
+                                                            //           });
+                                                            //         },
+                                                            //       ),
+                                                            //     ),
+                                                            //   ], 
+                                                            // ),
 
-                                          //                   Padding(
-                                          //                     padding:
-                                          //                         EdgeInsets
-                                          //                             .all(10),
-                                          //                     child:
-                                          //                         ElevatedButton(
-                                          //                       style: ElevatedButton
-                                          //                           .styleFrom(
-                                          //                         textStyle:
-                                          //                             TextStyle(
-                                          //                           fontSize:
-                                          //                               20,
-                                          //                           color: HexColor(
-                                          //                               '#9e1510'),
-                                          //                         ),
-                                          //                         minimumSize: Size
-                                          //                             .fromHeight(
-                                          //                                 40),
-                                          //                         primary: HexColor(
-                                          //                             '#9e1510'),
-                                          //                         shape: RoundedRectangleBorder(
-                                          //                             borderRadius:
-                                          //                                 BorderRadius.circular(
-                                          //                                     5.0)),
-                                          //                       ),
-                                          //                       onPressed: () {
-                                          //                         setState(() {
-                                          //                           visible =
-                                          //                               true;
-                                          //                           _getBal();
-                                          //                         });
-                                          //                       },
-                                          //                       child: visible
-                                          //                           ? Row(
-                                          //                               mainAxisAlignment:
-                                          //                                   MainAxisAlignment
-                                          //                                       .center,
-                                          //                               children: [
-                                          //                                   CircularProgressIndicator(
-                                          //                                     color: Colors.white,
-                                          //                                   ),
-                                          //                                   SizedBox(
-                                          //                                     width: 25,
-                                          //                                   ),
-                                          //                                   Text("Please wait...")
-                                          //                                 ])
-                                          //                           : Text(
-                                          //                               'Next',
-                                          //                               style: TextStyle(
-                                          //                                   //color: Colors.white,
-                                          //                                   color: Colors.white,
-                                          //                                   fontFamily: 'Cairo-VariableFont_wght',
-                                          //                                   fontWeight: FontWeight.bold)),
-                                          //                     ),
-                                          //                   )
-                                          //                   //                     HexColor('#BD0006'))))),
-                                          //                 ],
-                                          //               ),
-                                          //             );
-                                          //           }),
-                                          //     ),
-                                          //   ],
-                                          // );
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child: InkWell(
+                                                                onTap: () {
+                                                                  _GetConfirmationData_ConfirmPromo();
+                                                                },
+                                                                child: Row(
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width: 16,
+                                                                    ),
+                                                                    Image.asset(
+                                                                      'assets/images/plus.png',
+                                                                      color: Colors
+                                                                          .black,
+                                                                      width: MediaQuery.of(context)
+                                                                              .size
+                                                                              .width *
+                                                                          0.04,
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width: 15,
+                                                                    ),
+                                                                    Container(
+                                                                      margin: EdgeInsets
+                                                                          .only(
+                                                                              top: 4),
+                                                                      child:
+                                                                          Text(
+                                                                        "Add promo code",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontWeight:
+                                                                              FontWeight.bold,
+                                                                          fontSize:
+                                                                              18,
+                                                                          fontFamily:
+                                                                              'Tajawal-Regular',
+                                                                          color:
+                                                                              HexColor('#9e1510'),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child:
+                                                                  ElevatedButton(
+                                                                style: ElevatedButton
+                                                                    .styleFrom(
+                                                                  textStyle:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        20,
+                                                                    color: HexColor(
+                                                                        '#9e1510'),
+                                                                  ),
+                                                                  minimumSize: Size
+                                                                      .fromHeight(
+                                                                          40),
+                                                                  primary: HexColor(
+                                                                      '#9e1510'),
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5.0)),
+                                                                ),
+                                                                onPressed: () {
+                                                                  setState(() {
+                                                                    visible =
+                                                                        true;
+                                                                    _getBal();
+                                                                  });
+                                                                },
+                                                                child: visible
+                                                                    ? Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment
+                                                                                .center,
+                                                                        children: [
+                                                                            CircularProgressIndicator(
+                                                                              color: Colors.white,
+                                                                            ),
+                                                                            SizedBox(
+                                                                              width: 25,
+                                                                            ),
+                                                                            Text("Please wait...")
+                                                                          ])
+                                                                    : Text(
+                                                                        'Next',
+                                                                        style: TextStyle(
+                                                                            //color: Colors.white,
+                                                                            color: Colors.white,
+                                                                            fontFamily: 'Cairo-VariableFont_wght',
+                                                                            fontWeight: FontWeight.bold)),
+                                                              ),
+                                                            )
+                                                            //                     HexColor('#BD0006'))))),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    }),
+                                              ),
+                                            ],
+                                          );
 
                                           //Closssssssssssssssssssse Colum 3
 
@@ -2197,439 +2197,441 @@ return Column(
 
                                         //Starrrrrrrrrrrrrrrrrrrrrt Expanded 2
 
-return Column(
-  children: [
-    Expanded(
-      child: Container(
-        color: Colors.red,
-        child: Center(child: Text("محتوى هنا")),
-      ),
-    ),
-    Container(
-      height: 50,
-      color: Colors.blue,
-      child: Center(child: Text("عنصر آخر")),
-    ),
-  ],
-);
+// return Column(
+//   children: [
+//     Expanded(
+//       child: Container(
+//         color: Colors.red,
+//         child: Center(child: Text("Body")),
+//       ),
+//     ),
+//     Container(
+//       height: 50,
+//       color: Colors.blue,
+//       child: Center(child: Text("Another")),
+//     ),
+//   ],
+// );
 
-                                        // return Expanded(
-                                        //   child: Column(
-                                        //     children: [
-                                        //       pressed
-                                        //           ? Expanded(
-                                        //               child:
-                                        //                   SingleChildScrollView(
-                                        //                 child: Container(
-                                        //                   decoration:
-                                        //                       BoxDecoration(
-                                        //                           color: Colors
-                                        //                               .white),
-                                        //                   child: Column(
-                                        //                     children: [
-                                        //                       Row(
-                                        //                           children: <
-                                        //                               Widget>[
-                                        //                             Expanded(
-                                        //                               child: new Container(
-                                        //                                   margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                        //                                   child: Divider(
-                                        //                                     thickness:
-                                        //                                         2,
-                                        //                                     color:
-                                        //                                         HexColor('#BD0006'),
-                                        //                                     height:
-                                        //                                         25,
-                                        //                                   )),
-                                        //                             ),
-                                        //                             Text(
-                                        //                                 "User Guide",
-                                        //                                 style: TextStyle(
-                                        //                                     color: HexColor(
-                                        //                                         '#9e1510'),
-                                        //                                     fontSize: MediaQuery.of(context).size.height *
-                                        //                                         0.02,
-                                        //                                     fontWeight:
-                                        //                                         FontWeight.bold,
-                                        //                                     fontFamily: 'Tajawal-Regular')),
-                                        //                             Expanded(
-                                        //                               child: new Container(
-                                        //                                   margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                        //                                   child: Divider(
-                                        //                                     thickness:
-                                        //                                         2,
-                                        //                                     color:
-                                        //                                         HexColor('#9e1510'),
-                                        //                                     height:
-                                        //                                         25,
-                                        //                                   )),
-                                        //                             ),
-                                        //                           ]),
-                                        //                       Container(
-                                        //                           child: Image
-                                        //                               .asset(
-                                        //                         "assets/images/BUS Application_Page_3.jpg",
-                                        //                         width: MediaQuery.of(
-                                        //                                     context)
-                                        //                                 .size
-                                        //                                 .height *
-                                        //                             0.50,
-                                        //                       )),
-                                        //                     ],
-                                        //                   ),
-                                        //                 ),
-                                        //               ),
-                                        //             )
-                                        //           : SizedBox(),
-                                        //       Row(children: <Widget>[
-                                        //         Expanded(
-                                        //           child: new Container(
-                                        //               margin:
-                                        //                   const EdgeInsets.only(
-                                        //                       left: 10.0,
-                                        //                       right: 15.0),
-                                        //               child: Divider(
-                                        //                 thickness: 2,
-                                        //                 color:
-                                        //                     HexColor('#9e1510'),
-                                        //                 height: 25,
-                                        //               )),
-                                        //         ),
-                                        //         Text("Book Your Seat",
-                                        //             style: TextStyle(
-                                        //                 color:
-                                        //                     HexColor('#9e1510'),
-                                        //                 fontSize: MediaQuery.of(
-                                        //                             context)
-                                        //                         .size
-                                        //                         .height *
-                                        //                     0.02,
-                                        //                 fontWeight:
-                                        //                     FontWeight.bold,
-                                        //                 fontFamily:
-                                        //                     'Tajawal-Regular')),
-                                        //         Expanded(
-                                        //           child: new Container(
-                                        //               margin:
-                                        //                   const EdgeInsets.only(
-                                        //                       left: 15.0,
-                                        //                       right: 10.0),
-                                        //               child: Divider(
-                                        //                 thickness: 2,
-                                        //                 color:
-                                        //                     HexColor('#9e1510'),
-                                        //                 height: 25,
-                                        //               )),
-                                        //         ),
-                                        //       ]),
-                                        //       Expanded(
-                                        //         child: ListView.builder(
-                                        //             itemCount:
-                                        //                 snapshot.data.length,
-                                        //             itemBuilder:
-                                        //                 (BuildContext context,
-                                        //                     int index) {
-                                        //               //final user = snapshot.data as BusBook;
-                                        //               return SingleChildScrollView(
-                                        //                 child: Column(
-                                        //                   children: [
-                                        //                     Padding(
-                                        //                       padding:
-                                        //                           EdgeInsets
-                                        //                               .all(35),
-                                        //                       child: Card(
-                                        //                         shape:
-                                        //                             RoundedRectangleBorder(
-                                        //                           borderRadius:
-                                        //                               BorderRadius
-                                        //                                   .circular(
-                                        //                                       20.0),
-                                        //                         ),
-                                        //                         elevation: 22,
-                                        //                         child: ClipPath(
-                                        //                           child:
-                                        //                               Container(
-                                        //                             padding: const EdgeInsets
-                                        //                                     .symmetric(
-                                        //                                 horizontal:
-                                        //                                     25,
-                                        //                                 vertical:
-                                        //                                     25),
-                                        //                             decoration:
-                                        //                                 BoxDecoration(
-                                        //                               border: Border(
-                                        //                                   right: BorderSide(
-                                        //                                       color: HexColor('#9e1510'),
-                                        //                                       width: 12)),
-                                        //                               color: HexColor(
-                                        //                                   '#f4f4f4'),
-                                        //                             ),
-                                        //                             child:
-                                        //                                 Center(
-                                        //                               child:
-                                        //                                   Column(
-                                        //                                 children: [
-                                        //                                   Align(
-                                        //                                     alignment:
-                                        //                                         Alignment.center,
-                                        //                                     child: Container(
-                                        //                                         child: Image.asset(
-                                        //                                       "assets/images/without_number.png",
-                                        //                                       width: 35,
-                                        //                                       height: 35,
-                                        //                                     )),
-                                        //                                   ),
-                                        //                                   SizedBox(
-                                        //                                     height:
-                                        //                                         10,
-                                        //                                   ),
-                                        //                                   Align(
-                                        //                                     alignment:
-                                        //                                         Alignment.center,
-                                        //                                     child:
-                                        //                                         Container(
-                                        //                                       child: Text(
-                                        //                                         widget.name,
-                                        //                                         style: TextStyle(
-                                        //                                           fontWeight: FontWeight.bold,
-                                        //                                           fontSize: 18,
-                                        //                                           fontFamily: 'Tajawal-Regular',
-                                        //                                           color: HexColor('#9e1510'),
-                                        //                                         ),
-                                        //                                       ),
-                                        //                                     ),
-                                        //                                   ),
-                                        //                                 ],
-                                        //                               ),
-                                        //                             ),
-                                        //                           ),
-                                        //                           clipper: ShapeBorderClipper(
-                                        //                               shape: RoundedRectangleBorder(
-                                        //                                   borderRadius:
-                                        //                                       BorderRadius.circular(15))),
-                                        //                         ),
-                                        //                       ),
-                                        //                     ),
-                                        //                     MySquare(
-                                        //                       txt1: "Capacity",
-                                        //                       txt2: snapshot
-                                        //                           .data[index]
-                                        //                           .busCapacity,
-                                        //                     ),
-                                        //                     MySquare(
-                                        //                       txt1: "Reserve",
-                                        //                       txt2: snapshot
-                                        //                           .data[index]
-                                        //                           .busReserve,
-                                        //                     ),
-                                        //                     MySquare(
-                                        //                       txt1: "Available",
-                                        //                       txt2: snapshot
-                                        //                           .data[index]
-                                        //                           .busAvailable,
-                                        //                     ),
-                                        //                     FutureBuilder(
-                                        //                         future:
-                                        //                             _GetConfirmationData_topay(),
-                                        //                         builder: (BuildContext
-                                        //                                 context,
-                                        //                             AsyncSnapshot
-                                        //                                 snapshot_toPay) {
-                                        //                           if (snapshot_toPay
-                                        //                               .hasData) {
-                                        //                             return MySquare(
-                                        //                                 txt1:
-                                        //                                     "Total price",
-                                        //                                 txt2: snapshot_toPay
-                                        //                                     .data[0]
-                                        //                                     .toPay);
-                                        //                           } else if (snapshot_toPay
-                                        //                               .hasError) {
-                                        //                             return Center(
-                                        //                                 child: Lottie.asset(
-                                        //                                     'assets/images/lf30_editor_iuu7wud2.json',
-                                        //                                     width:
-                                        //                                         MediaQuery.of(context).size.width * 0.6));
-                                        //                           } else {
-                                        //                             return Center(
-                                        //                                 child: Lottie.asset(
-                                        //                                     'assets/images/lf30_editor_iuu7wud2.json',
-                                        //                                     width:
-                                        //                                         MediaQuery.of(context).size.width * 0.6));
-                                        //                           }
+                                        return Expanded(
+                                          child: Column(
+                                            children: [
+                                              pressed
+                                                  ? Expanded(
+                                                      child:
+                                                          SingleChildScrollView(
+                                                        child: Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  color: Colors
+                                                                      .white),
+                                                          child: Column(
+                                                            children: [
+                                                              Row(
+                                                                  children: <
+                                                                      Widget>[
+                                                                    Expanded(
+                                                                      child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+                                                                          child: Divider(
+                                                                            thickness:
+                                                                                2,
+                                                                            color:
+                                                                                HexColor('#BD0006'),
+                                                                            height:
+                                                                                25,
+                                                                          )),
+                                                                    ),
+                                                                    Text(
+                                                                        "User Guide",
+                                                                        style: TextStyle(
+                                                                            color: HexColor(
+                                                                                '#9e1510'),
+                                                                            fontSize: MediaQuery.of(context).size.height *
+                                                                                0.02,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontFamily: 'Tajawal-Regular')),
+                                                                    Expanded(
+                                                                      child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                                                                          child: Divider(
+                                                                            thickness:
+                                                                                2,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            height:
+                                                                                25,
+                                                                          )),
+                                                                    ),
+                                                                  ]),
+                                                              Container(
+                                                                  child: Image
+                                                                      .asset(
+                                                                "assets/images/BUS Application_Page_3.jpg",
+                                                                width: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .height *
+                                                                    0.50,
+                                                              )),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    )
+                                                  : SizedBox(),
+                                              Row(children: <Widget>[
+                                                Expanded(
+                                                  child: new Container(
+                                                      margin:
+                                                          const EdgeInsets.only(
+                                                              left: 10.0,
+                                                              right: 15.0),
+                                                      child: Divider(
+                                                        thickness: 2,
+                                                        color:
+                                                            HexColor('#9e1510'),
+                                                        height: 25,
+                                                      )),
+                                                ),
+                                                Text("Book Your Seat",
+                                                    style: TextStyle(
+                                                        color:
+                                                            HexColor('#9e1510'),
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.02,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontFamily:
+                                                            'Tajawal-Regular')),
+                                                Expanded(
+                                                  child: new Container(
+                                                      margin:
+                                                          const EdgeInsets.only(
+                                                              left: 15.0,
+                                                              right: 10.0),
+                                                      child: Divider(
+                                                        thickness: 2,
+                                                        color:
+                                                            HexColor('#9e1510'),
+                                                        height: 25,
+                                                      )),
+                                                ),
+                                              ]),
+                                              Expanded(
+                                                child: ListView.builder(
+                                                    itemCount:
+                                                        snapshot.data.length,
+                                                    itemBuilder:
+                                                        (BuildContext context,
+                                                            int index) {
+                                                      //final user = snapshot.data as BusBook;
+                                                      return SingleChildScrollView(
+                                                        child: Column(
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(35),
+                                                              child: Card(
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20.0),
+                                                                ),
+                                                                elevation: 22,
+                                                                child: ClipPath(
+                                                                  child:
+                                                                      Container(
+                                                                    padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            25,
+                                                                        vertical:
+                                                                            25),
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      border: Border(
+                                                                          right: BorderSide(
+                                                                              color: HexColor('#9e1510'),
+                                                                              width: 12)),
+                                                                      color: HexColor(
+                                                                          '#f4f4f4'),
+                                                                    ),
+                                                                    child:
+                                                                        Center(
+                                                                      child:
+                                                                          Column(
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child: Container(
+                                                                                child: Image.asset(
+                                                                              "assets/images/without_number.png",
+                                                                              width: 35,
+                                                                              height: 35,
+                                                                            )),
+                                                                          ),
+                                                                          SizedBox(
+                                                                            height:
+                                                                                10,
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child:
+                                                                                Container(
+                                                                              child: Text(
+                                                                                widget.name,
+                                                                                style: TextStyle(
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  fontSize: 18,
+                                                                                  fontFamily: 'Tajawal-Regular',
+                                                                                  color: HexColor('#9e1510'),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  clipper: ShapeBorderClipper(
+                                                                      shape: RoundedRectangleBorder(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(15))),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Capacity",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busCapacity,
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Reserve",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busReserve,
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Available",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busAvailable,
+                                                            ),
+                                                            FutureBuilder(
+                                                                future:
+                                                                    _GetConfirmationData_topay(),
+                                                                builder: (BuildContext
+                                                                        context,
+                                                                    AsyncSnapshot
+                                                                        snapshot_toPay) {
+                                                                  if (snapshot_toPay
+                                                                      .hasData) {
+                                                                    return MySquare(
+                                                                        txt1:
+                                                                            "Total price",
+                                                                        txt2: snapshot_toPay
+                                                                            .data[0]
+                                                                            .toPay);
+                                                                  } else if (snapshot_toPay
+                                                                      .hasError) {
+                                                                    return Center(
+                                                                        child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.6));
+                                                                  } else {
+                                                                    return Center(
+                                                                        child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.6));
+                                                                  }
 
-                                        //                           /// here your data
-                                        //                         }),
-                                        //                     SizedBox(
-                                        //                       height: 20,
-                                        //                     ),
-                                        //                     Padding(
-                                        //                       padding:
-                                        //                           EdgeInsets
-                                        //                               .all(10),
-                                        //                       child: Row(
-                                        //                         children: [
-                                        //                           Text(
-                                        //                             "No. of Seats",
-                                        //                             style: TextStyle(
-                                        //                                 color: HexColor(
-                                        //                                     '#9e1510'),
-                                        //                                 fontWeight:
-                                        //                                     FontWeight
-                                        //                                         .bold,
-                                        //                                 fontSize:
-                                        //                                     16),
-                                        //                           ),
-                                        //                           SizedBox(
-                                        //                             width: MediaQuery.of(context)
-                                        //                                     .size
-                                        //                                     .width *
-                                        //                                 0.1,
-                                        //                           ),
-                                        //                           Expanded(
-                                        //                             child: DropdownButtonFormField(
-                                        //                                 value: _value,
-                                        //                                 items: _menuItems,
-                                        //                                 decoration: InputDecoration(
-                                        //                                   border: OutlineInputBorder(
-                                        //                                       borderRadius: const BorderRadius.all(
-                                        //                                     const Radius.circular(10.0),
-                                        //                                   )),
-                                        //                                   hintText:
-                                        //                                       "Seats",
-                                        //                                   hintStyle: TextStyle(
-                                        //                                       color: HexColor('#9e1510'),
-                                        //                                       fontWeight: FontWeight.bold),
-                                        //                                 ),
-                                        //                                 onChanged: (value) {
-                                        //                                   setState(
-                                        //                                       () {
-                                        //                                     _value =
-                                        //                                         value as String;
-                                        //                                     // _read();
-                                        //                                   });
-                                        //                                   prefs.setString(
-                                        //                                       "T",
-                                        //                                       _value);
-                                        //                                 }),
-                                        //                           ),
-                                        //                         ],
-                                        //                       ),
-                                        //                     ),
-                                        //                     SizedBox(
-                                        //                       height: 15,
-                                        //                     ),
-                                        //                     Row(
-                                        //                       mainAxisAlignment:
-                                        //                           MainAxisAlignment
-                                        //                               .spaceBetween,
-                                        //                       children: <
-                                        //                           Widget>[
-                                        //                         //SizedBox
-                                        //                         Container(
-                                        //                           margin: EdgeInsets
-                                        //                               .only(
-                                        //                                   left:
-                                        //                                       10),
-                                        //                           child: Text(
-                                        //                             'Book return trip',
-                                        //                             style: TextStyle(
-                                        //                                 color: HexColor(
-                                        //                                     '#9e1510'),
-                                        //                                 fontWeight:
-                                        //                                     FontWeight
-                                        //                                         .bold,
-                                        //                                 fontSize:
-                                        //                                     18),
-                                        //                           ),
-                                        //                         ),
-                                        //                         //Text//SizedBox
-                                        //                         /** Checkbox Widget **/
-                                        //                         Container(
-                                        //                           margin: EdgeInsets
-                                        //                               .only(
-                                        //                                   right:
-                                        //                                       200),
-                                        //                           child:
-                                        //                               Checkbox(
-                                        //                             value: this
-                                        //                                 .chk_box,
-                                        //                             onChanged:
-                                        //                                 (chk_box) {
-                                        //                               setState(
-                                        //                                   () {
-                                        //                                 this.chk_box =
-                                        //                                     chk_box!;
-                                        //                               });
-                                        //                             },
-                                        //                           ),
-                                        //                         ),
-                                        //                         //Checkbox
-                                        //                       ], //<Widget>[]
-                                        //                     ),
-                                        //                     Padding(
-                                        //                       padding:
-                                        //                           EdgeInsets
-                                        //                               .all(10),
-                                        //                       child:
-                                        //                           ElevatedButton(
-                                        //                         style: ElevatedButton
-                                        //                             .styleFrom(
-                                        //                           textStyle:
-                                        //                               TextStyle(
-                                        //                             fontSize:
-                                        //                                 20,
-                                        //                             color: HexColor(
-                                        //                                 '#9e1510'),
-                                        //                           ),
-                                        //                           minimumSize: Size
-                                        //                               .fromHeight(
-                                        //                                   40),
-                                        //                           primary: HexColor(
-                                        //                               '#9e1510'),
-                                        //                           shape: RoundedRectangleBorder(
-                                        //                               borderRadius:
-                                        //                                   BorderRadius.circular(
-                                        //                                       5.0)),
-                                        //                         ),
-                                        //                         onPressed: () {
-                                        //                           setState(() {
-                                        //                             visible =
-                                        //                                 true;
-                                        //                             _getBal();
-                                        //                           });
-                                        //                         },
-                                        //                         child: visible
-                                        //                             ? Row(
-                                        //                                 mainAxisAlignment:
-                                        //                                     MainAxisAlignment
-                                        //                                         .center,
-                                        //                                 children: [
-                                        //                                     CircularProgressIndicator(
-                                        //                                       color: Colors.white,
-                                        //                                     ),
-                                        //                                     SizedBox(
-                                        //                                       width: 25,
-                                        //                                     ),
-                                        //                                     Text("Please wait...")
-                                        //                                   ])
-                                        //                             : Text(
-                                        //                                 'Next',
-                                        //                                 style: TextStyle(
-                                        //                                     color: Colors.white,
-                                        //                                     fontFamily: 'Cairo-VariableFont_wght',
-                                        //                                     fontWeight: FontWeight.bold)),
-                                        //                       ),
-                                        //                     )
-                                        //                   ],
-                                        //                 ),
-                                        //               );
-                                        //             }),
-                                        //       ),
-                                        //     ],
-                                        //   ),
-                                        // );
+                                                                  /// here your data
+                                                                }),
+                                                            SizedBox(
+                                                              height: 20,
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "No. of Seats",
+                                                                    style: TextStyle(
+                                                                        color: HexColor(
+                                                                            '#9e1510'),
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        fontSize:
+                                                                            16),
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width: MediaQuery.of(context)
+                                                                            .size
+                                                                            .width *
+                                                                        0.1,
+                                                                  ),
+                                                                  Expanded(
+                                                                    child: DropdownButtonFormField(
+                                                                        value: _value,
+                                                                        items: _menuItems,
+                                                                        decoration: InputDecoration(
+                                                                          border: OutlineInputBorder(
+                                                                              borderRadius: const BorderRadius.all(
+                                                                            const Radius.circular(10.0),
+                                                                          )),
+                                                                          hintText:
+                                                                              "Seats",
+                                                                          hintStyle: TextStyle(
+                                                                              color: HexColor('#9e1510'),
+                                                                              fontWeight: FontWeight.bold),
+                                                                        ),
+                                                                        onChanged: (value) {
+                                                                          setState(
+                                                                              () {
+                                                                            _value =
+                                                                                value as String;
+                                                                            // _read();
+                                                                          });
+                                                                          prefs.setString(
+                                                                              "T",
+                                                                              _value);
+                                                                        }),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+
+                                                            SizedBox(height: 15),
+
+                                                            // Row(
+                                                            //   mainAxisAlignment:
+                                                            //       MainAxisAlignment
+                                                            //           .spaceBetween,
+                                                            //   children: <
+                                                            //       Widget>[
+                                                            //     //SizedBox
+                                                            //     Container(
+                                                            //       margin: EdgeInsets
+                                                            //           .only(
+                                                            //               left:
+                                                            //                   10),
+                                                            //       child: Text(
+                                                            //         'Book return trip',
+                                                            //         style: TextStyle(
+                                                            //             color: HexColor(
+                                                            //                 '#9e1510'),
+                                                            //             fontWeight:
+                                                            //                 FontWeight
+                                                            //                     .bold,
+                                                            //             fontSize:
+                                                            //                 18),
+                                                            //       ),
+                                                            //     ),
+                                                            //     Container(
+                                                            //       margin: EdgeInsets
+                                                            //           .only(
+                                                            //               right:
+                                                            //                   200),
+                                                            //       child:
+                                                            //           Checkbox(
+                                                            //         value: this
+                                                            //             .chk_box,
+                                                            //         onChanged:
+                                                            //             (chk_box) {
+                                                            //           setState(
+                                                            //               () {
+                                                            //             this.chk_box =
+                                                            //                 chk_box!;
+                                                            //           });
+                                                            //         },
+                                                            //       ),
+                                                            //     ),
+                                                            //     //Checkbox
+                                                            //   ], //<Widget>[]
+                                                            // ),
+                                                            
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child:
+                                                                  ElevatedButton(
+                                                                style: ElevatedButton
+                                                                    .styleFrom(
+                                                                  textStyle:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        20,
+                                                                    color: HexColor(
+                                                                        '#9e1510'),
+                                                                  ),
+                                                                  minimumSize: Size
+                                                                      .fromHeight(
+                                                                          40),
+                                                                  primary: HexColor(
+                                                                      '#9e1510'),
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5.0)),
+                                                                ),
+                                                                onPressed: () {
+                                                                  setState(() {
+                                                                    visible =
+                                                                        true;
+                                                                    _getBal();
+                                                                  });
+                                                                },
+                                                                child: visible
+                                                                    ? Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment
+                                                                                .center,
+                                                                        children: [
+                                                                            CircularProgressIndicator(
+                                                                              color: Colors.white,
+                                                                            ),
+                                                                            SizedBox(
+                                                                              width: 25,
+                                                                            ),
+                                                                            Text("Please wait...")
+                                                                          ])
+                                                                    : Text(
+                                                                        'Next',
+                                                                        style: TextStyle(
+                                                                            color: Colors.white,
+                                                                            fontFamily: 'Cairo-VariableFont_wght',
+                                                                            fontWeight: FontWeight.bold)),
+                                                              ),
+                                                            )
+                                                          ],
+                                                        ),
+                                                      );
+                                                    }
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+
                                         //Closssssssssssssssssssssse Expanded 2
+
                                       } else {
                                         return Center(
                                             child: Lottie.asset(
