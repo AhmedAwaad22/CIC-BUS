@@ -6,6 +6,7 @@ import 'package:blur/blur.dart';
 import 'package:cicbus/model/BusLineAPI.dart';
 import 'package:cicbus/model/busdata.dart';
 import 'package:cicbus/model/trips.dart';
+import 'package:cicbus/screens/NewBookScreen.dart';
 import 'package:cicbus/widget/my_square.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
