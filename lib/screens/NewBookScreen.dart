@@ -16,8 +16,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 
-class BookScreenAndPayment extends StatefulWidget {
-  const BookScreenAndPayment({
+class BookScreenAndPayment_old extends StatefulWidget {
+  const BookScreenAndPayment_old({
     Key? key,
     required this.pointsId,
     required this.busId,
@@ -40,11 +40,11 @@ class BookScreenAndPayment extends StatefulWidget {
   final String dir;
 
   @override
-  State<BookScreenAndPayment> createState() => _BookScreenAndPaymentState();
+  State<BookScreenAndPayment_old> createState() => _BookScreenAndPaymentState();
 }
 
 
-class _BookScreenAndPaymentState extends State<BookScreenAndPayment> {
+class _BookScreenAndPaymentState extends State<BookScreenAndPayment_old> {
 
   String? CountryId;
   List<BusBook> countries = [];
