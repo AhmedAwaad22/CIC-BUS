@@ -413,7 +413,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                                 HexColor('#9e1510'))),
                                         Expanded(
                                             child: Text(
-                                                "\EGP ${snapshot.data![0].reservation[0].pickPrice}",
+                                                "\EGP ${snapshot.data![0].reservation[0].reserveAmount}",
                                                 textAlign: TextAlign.end,
                                                 style: TextStyle(
                                                     fontSize: 18,
@@ -770,7 +770,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                                 HexColor('#9e1510'))),
                                         Expanded(
                                             child: Text(
-                                                "\EGP ${snapshot.data![0].reservation[0].pickPrice}",
+                                                "\EGP ${snapshot.data![0].reservation[0].reserveAmount}",
                                                 textAlign: TextAlign.end,
                                                 style: TextStyle(
                                                     fontSize: 18,
