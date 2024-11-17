@@ -26,6 +26,7 @@ class BusList {
     required this.holdMsg,
     required this.token,
     required this.update,
+    required this.addbalance,
   });
 
   String activisionStatus;
@@ -42,6 +43,7 @@ class BusList {
   String holdMsg;
   String token;
   String update;
+  String addbalance;
 
   factory BusList.fromJson(Map<String, dynamic> json) => BusList(
         activisionStatus: json["activision_status"],
@@ -59,6 +61,7 @@ class BusList {
         holdMsg: json["hold_msg"],
         token: json["token"],
         update: json["update"],
+        addbalance: json["addbalance"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -76,6 +79,7 @@ class BusList {
         "hold_msg": holdMsg,
         "token": token,
         "update": update,
+        "addbalance": addbalance,
       };
 }
 

@@ -179,305 +179,427 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
                                               'Y') {
 
 
- //Starrrrrrrrrrrt Column 
-return Column(
-  children: [
-    if (pressed) 
-      Expanded(
-        child: SingleChildScrollView(
-          child: Container(
-            decoration: BoxDecoration(color: Colors.white),
-            child: Column(
-              children: [
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                        child: Divider(
-                          thickness: 2,
-                          color: HexColor('#9e1510'),
-                          height: 25,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      "User Guide",
-                      style: TextStyle(
-                        color: HexColor('#9e1510'),
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Tajawal-Regular',
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                        child: Divider(
-                          thickness: 2,
-                          color: HexColor('#9e1510'),
-                          height: 25,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  child: Image.asset(
-                    "assets/images/BUS Application_Page_4.jpg",
-                    width: MediaQuery.of(context).size.height * 0.50,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ) 
-    else 
-      SizedBox(),
+ //Starrrrrrrrrrrt Column From Campus 3la Allah
+  return Column(
+                                            children: [
+                                              pressed
+                                                  ? Expanded(
+                                                      child:
+                                                          SingleChildScrollView(
+                                                        child: Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  color: Colors
+                                                                      .white),
+                                                          child: Column(
+                                                            children: [
+                                                              Row(
+                                                                  children: <
+                                                                      Widget>[
+                                                                    Expanded(
+                                                                      child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+                                                                          child: Divider(
+                                                                            thickness:
+                                                                                2,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            height:
+                                                                                25,
+                                                                          )),
+                                                                    ),
+                                                                    Text(
+                                                                        "User Guide",
+                                                                        style: TextStyle(
+                                                                            color: HexColor(
+                                                                                '#9e1510'),
+                                                                            fontSize: MediaQuery.of(context).size.height *
+                                                                                0.02,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontFamily: 'Tajawal-Regular')),
+                                                                    Expanded(
+                                                                      child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                                                                          child: Divider(
+                                                                            thickness:
+                                                                                2,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            height:
+                                                                                25,
+                                                                          )),
+                                                                    ),
+                                                                  ]),
+                                                              Container(
+                                                                  child: Image
+                                                                      .asset(
+                                                                "assets/images/BUS Application_Page_4.jpg",
+                                                                width: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .height *
+                                                                    0.50,
+                                                              )),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    )
+                                                  : SizedBox(),
+                                              Row(children: <Widget>[
+                                                Expanded(
+                                                  child: new Container(
+                                                      margin:
+                                                          const EdgeInsets.only(
+                                                              left: 10.0,
+                                                              right: 15.0),
+                                                      child: Divider(
+                                                        thickness: 2,
+                                                        color:
+                                                            HexColor('#9e1510'),
+                                                        height: 25,
+                                                      )),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Text("Book Your Seat",
+                                                      style: TextStyle(
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          fontSize: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              0.02,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontFamily:
+                                                              'Tajawal-Regular')),
+                                                ),
+                                                Expanded(
+                                                  child: new Container(
+                                                      margin:
+                                                          const EdgeInsets.only(
+                                                              left: 15.0,
+                                                              right: 10.0),
+                                                      child: Divider(
+                                                        thickness: 2,
+                                                        color:
+                                                            HexColor('#9e1510'),
+                                                        height: 25,
+                                                      )),
+                                                ),
+                                              ]),
+                                              Expanded(
+                                                child: ListView.builder(
+                                                    itemCount:
+                                                        snapshot.data.length,
+                                                    itemBuilder:
+                                                        (BuildContext context,
+                                                            int index) {
+                                                      //final user = snapshot.data as BusBook;
+                                                      return SingleChildScrollView(
+                                                        child: Column(
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(35),
+                                                              child: Card(
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20.0),
+                                                                ),
+                                                                elevation: 22,
+                                                                child: ClipPath(
+                                                                  child:
+                                                                      Container(
+                                                                    padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            25,
+                                                                        vertical:
+                                                                            25),
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      border: Border(
+                                                                          right: BorderSide(
+                                                                              color: HexColor('#9e1510'),
+                                                                              width: 12)),
+                                                                      color: HexColor(
+                                                                          '#f4f4f4'),
+                                                                    ),
+                                                                    child:
+                                                                        Center(
+                                                                      child:
+                                                                          Column(
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child: Container(
+                                                                                child: Image.asset(
+                                                                              "assets/images/without_number.png",
+                                                                              width: 35,
+                                                                              height: 35,
+                                                                            )),
+                                                                          ),
+                                                                          SizedBox(
+                                                                            height:
+                                                                                10,
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child:
+                                                                                Container(
+                                                                              child: Text(
+                                                                                widget.name,
+                                                                                style: TextStyle(
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  fontSize: 18,
+                                                                                  fontFamily: 'Tajawal-Regular',
+                                                                                  color: HexColor('#9e1510'),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  clipper: ShapeBorderClipper(
+                                                                      shape: RoundedRectangleBorder(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(15))),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Capacity",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busCapacity,
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Reserve",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busReserve,
+                                                            ),
+                                                            MySquare(
+                                                              txt1: "Available",
+                                                              txt2: snapshot
+                                                                  .data[index]
+                                                                  .busAvailable,
+                                                            ),
+                                                            FutureBuilder(
+                                                                future:
+                                                                    _GetConfirmationData_topay(),
+                                                                builder: (BuildContext
+                                                                        context,
+                                                                    AsyncSnapshot
+                                                                        snapshot_toPay) {
+                                                                  if (snapshot_toPay
+                                                                      .hasData) {
+                                                                    return AfterVerified(
+                                                                      txt1:
+                                                                          "Total price",
+                                                                      txt2: snapshot_toPay
+                                                                          .data[
+                                                                              0]
+                                                                          .toPay,
+                                                                      txt3: snapshot_toPay
+                                                                          .data[
+                                                                              0]
+                                                                          .toPayAfter,
+                                                                      txt4:
+                                                                          'Instead of',
+                                                                    );
+                                                                  } else if (snapshot_toPay
+                                                                      .hasError) {
+                                                                    return Center(
+                                                                        child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.6));
+                                                                  } else {
+                                                                    return Center(
+                                                                        child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.6));
+                                                                  }
 
-    Row(
-      children: <Widget>[
-        Expanded(
-          child: Container(
-            margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-            child: Divider(
-              thickness: 2,
-              color: HexColor('#9e1510'),
-              height: 25,
-            ),
-          ),
-        ),
-Row(
-  mainAxisSize: MainAxisSize.min,
-  children: [
-    Padding(
-      padding: EdgeInsets.all(10),
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.8,
-        child: Text(
-          "Book Your Seat",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: HexColor('#9e1510'),
-            fontSize: MediaQuery.of(context).size.height * 0.02,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Tajawal-Regular',
-          ),
-        ),
-      ),
-    ),
-  ],
-),
+                                                                  /// here your data
+                                                                }),
 
-        Container(
-          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-          height: 25,
-          color: HexColor('#9e1510'),
-        ),
-      ],
-    ),
+                                                            SizedBox(
+                                                              height: 20,
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "No. of Seats",
+                                                                    style: TextStyle(
+                                                                        color: HexColor(
+                                                                            '#9e1510'),
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        fontSize:
+                                                                            16),
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width: MediaQuery.of(context)
+                                                                            .size
+                                                                            .width *
+                                                                        0.1,
+                                                                  ),
+                                                                  Expanded(
+                                                                    child: DropdownButtonFormField(
+                                                                        value: _value,
+                                                                        items: _menuItems,
+                                                                        decoration: InputDecoration(
+                                                                          border: OutlineInputBorder(
+                                                                              borderRadius: const BorderRadius.all(
+                                                                            const Radius.circular(10.0),
+                                                                          )),
+                                                                          hintText:
+                                                                              "Seats",
+                                                                          hintStyle: TextStyle(
+                                                                              color: HexColor('#9e1510'),
+                                                                              fontWeight: FontWeight.bold),
+                                                                        ),
+                                                                        onChanged: (value) {
+                                                                          setState(
+                                                                              () {
+                                                                            _value =
+                                                                                value as String;
+                                                                            // _read();
+                                                                          });
+                                                                          prefs.setString(
+                                                                              "T",
+                                                                              _value);
+                                                                        }),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child: Row(
+                                                                children: [
+                                                                  SizedBox(
+                                                                    width: 16,
+                                                                  ),
+                                                                  Image.asset(
+                                                                    'assets/images/success.png',
+                                                                    width: MediaQuery.of(context)
+                                                                            .size
+                                                                            .width *
+                                                                        0.06,
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width: 15,
+                                                                  ),
+                                                                  Container(
+                                                                    margin: EdgeInsets
+                                                                        .only(
+                                                                            top:
+                                                                                4),
+                                                                    child: Text(
+                                                                      "Verified",
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontSize:
+                                                                            21,
+                                                                        fontFamily:
+                                                                            'Cairo-VariableFont_wght',
+                                                                        color: Colors
+                                                                            .green,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
 
-    Expanded(
-      child: ListView.builder(
-        itemCount: snapshot.data.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: EdgeInsets.all(35),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              elevation: 22,
-              child: ClipPath(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      right: BorderSide(color: HexColor('#9e1510'), width: 12),
-                    ),
-                    color: HexColor('#f4f4f4'),
-                  ),
-                  child: Center(
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.center,
-                          child: Container(
-                            child: Image.asset(
-                              "assets/images/without_number.png",
-                              width: 35,
-                              height: 35,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Container(
-                            child: Text(
-                              widget.name,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                fontFamily: 'Tajawal-Regular',
-                                color: HexColor('#BD0006'),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                clipper: ShapeBorderClipper(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-              ),
-            ),
-          );
-        },
-      ),
-    ),
-    
-    // Add the rest of your widgets below the ListView.builder if needed
-    FutureBuilder(
-      future: _GetConfirmationData_topay(),
-      builder: (BuildContext context, AsyncSnapshot snapshot_toPay) {
-        if (snapshot_toPay.hasData) {
-          return AfterVerified(
-            txt1: "Total price",
-            txt2: snapshot_toPay.data[0].toPay,
-            txt3: snapshot_toPay.data[0].toPayAfter,
-            txt4: 'Instead of',
-          );
-        } else if (snapshot_toPay.hasError) {
-          return Center(
-            child: Lottie.asset(
-              'assets/images/lf30_editor_iuu7wud2.json',
-              width: MediaQuery.of(context).size.width * 0.6,
-            ),
-          );
-        } else {
-          return Center(
-            child: Lottie.asset(
-              'assets/images/lf30_editor_iuu7wud2.json',
-              width: MediaQuery.of(context).size.width * 0.6,
-            ),
-          );
-        }
-      },
-    ),
-    SizedBox(height: 20),
-Padding(
-  padding: EdgeInsets.all(10),
-  child: Row(
-    children: [
-      Text(
-        "No. of Seats",
-        style: TextStyle(
-          color: HexColor('#9e1510'),
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
-        ),
-      ),
-      SizedBox(width: MediaQuery.of(context).size.width * 0.1),
-      Expanded( 
-        child: DropdownButtonFormField(
-          value: _value,
-          items: _menuItems,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(
-                Radius.circular(10.0),
-              ),
-            ),
-            hintText: "Seats",
-            hintStyle: TextStyle(
-              color: HexColor('#9e1510'),
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          onChanged: (value) {
-            setState(() {
-              _value = value as String;
-            });
-            prefs.setString("T", _value);
-          },
-        ),
-      ),
-    ],
-  ),
-),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child:
+                                                                  ElevatedButton(
+                                                                style: ElevatedButton
+                                                                    .styleFrom(
+                                                                  textStyle:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        20,
+                                                                    color: HexColor(
+                                                                        '#9e1510'),
+                                                                  ),
+                                                                  minimumSize: Size
+                                                                      .fromHeight(
+                                                                          40),
+                                                                  primary: HexColor(
+                                                                      '#9e1510'),
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5.0)),
+                                                                ),
+                                                                onPressed: () {
+                                                                  setState(() {
+                                                                    visible =
+                                                                        true;
+                                                                    _getBal();
+                                                                  });
+                                                                },
+                                                                child: visible
+                                                                    ? Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment
+                                                                                .center,
+                                                                        children: [
+                                                                            CircularProgressIndicator(
+                                                                              color: Colors.white,
+                                                                            ),
+                                                                            SizedBox(
+                                                                              width: 25,
+                                                                            ),
+                                                                            Text("Please wait...")
+                                                                          ])
+                                                                    : Text(
+                                                                        'Next',
+                                                                        style: TextStyle(
+                                                                            //color: Colors.white,
+                                                                            color: Colors.white,
+                                                                            fontFamily: 'Cairo-VariableFont_wght',
+                                                                            fontWeight: FontWeight.bold)),
+                                                              ),
+                                                            )
+                                                          ],
+                                                        ),
+                                                      );
+                                                    }
+                                                  ),
+                                               ),
+                                             ],
+                                           );
 
-    Padding(
-      padding: EdgeInsets.all(10),
-      child: Row(
-        children: [
-          SizedBox(width: 16),
-          Image.asset(
-            'assets/images/success.png',
-            width: MediaQuery.of(context).size.width * 0.06,
-          ),
-          SizedBox(width: 15),
-          Container(
-            margin: EdgeInsets.only(top: 4),
-            child: Text(
-              "Verified",
-              style: TextStyle(
-                fontSize: 21,
-                fontFamily: 'Cairo-VariableFont_wght',
-                color: Colors.green,
-              ),
-            ),
-          ),
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          textStyle: TextStyle(
-            fontSize: 20,
-            color: HexColor('#9e1510'),
-          ),
-          minimumSize: Size.fromHeight(40),
-          primary: HexColor('#9e1510'),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5.0),
-          ),
-        ),
-        onPressed: () {
-          setState(() {
-            visible = true;
-            _getBal();
-          });
-        },
-        child: visible
-          ? Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircularProgressIndicator(color: Colors.white),
-                SizedBox(width: 25),
-                Text("Please wait..."),
-              ],
-            )
-          : Text(
-              'Next',
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'Cairo-VariableFont_wght',
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-      ),
-    ),
-  ],
-);
-//Closssssssssse Column 
+                                    //Closssssssssse Column  From Campus 3la Allah
 
 
                                           } else if (snapshot_oamr
@@ -848,7 +970,8 @@ return Column(
                                                       ),
                                                     )
                                                   : SizedBox(),
-                                              Row(children: <Widget>[
+                                              Row(
+                                                children: <Widget>[
                                                 Expanded(
                                                   child: new Container(
                                                       margin:
@@ -891,7 +1014,8 @@ return Column(
                                                         height: 25,
                                                       )),
                                                 ),
-                                              ]),
+                                              ]
+                                              ),
                                               Expanded(
                                                 child: ListView.builder(
                                                     itemCount:
@@ -1145,6 +1269,7 @@ return Column(
                                               ),
                                             ],
                                           );
+
 //Closssssssssssssssse Column From Campus Without Promo Code
 
 
@@ -1168,7 +1293,8 @@ return Column(
                                   ),
                                 );
                               } else if (widget.bothStatus == "Y") {
-                                return FutureBuilder(
+                                return Expanded(
+                                  child:  FutureBuilder(
                                   future: _GetConfirmationData_topay(),
                                   builder: (BuildContext context,
                                       AsyncSnapshot<dynamic>
@@ -1182,23 +1308,7 @@ return Column(
                                                 .data[0].promo ==
                                             'Y') {
 
-                                          //Starrrrrrrrrrrrrrrrrrrrt Column 2
-
-// return Column(
-//   children: [
-//     Expanded(
-//       child: Container(
-//         color: Colors.red,
-//         child: Center(child: Text("Body")),
-//       ),
-//     ),
-//     Container(
-//       height: 50,
-//       color: Colors.blue,
-//       child: Center(child: Text("Another")),
-//     ),
-//   ],
-// );
+                                          //Starrrrrrrrrrrrrrrrrrrrt Column to campus 3la allah
 
                                           return Column(
                                             children: [
@@ -1516,38 +1626,23 @@ return Column(
                                                             ),
 
                                                             Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
+                                                              mainAxisAlignment:MainAxisAlignment
                                                                       .spaceBetween,
-                                                              children: <
-                                                                  Widget>[
-                                                                //SizedBox
+                                                              children: <Widget>[
                                                                 Container(
-                                                                  margin: EdgeInsets
-                                                                      .only(
-                                                                          left:
-                                                                              10),
+                                                                  margin: EdgeInsets.only(left:10),
                                                                   child: Text(
                                                                     'Book return trip',
                                                                     style: TextStyle(
-                                                                        color: HexColor(
-                                                                            '#9e1510'),
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .bold,
-                                                                        fontSize:
-                                                                            18),
+                                                                        color: HexColor('#9e1510'),
+                                                                        fontWeight:FontWeight.bold,
+                                                                        fontSize:18),
                                                                   ),
                                                                 ),
                                                                 Container(
-                                                                  margin: EdgeInsets
-                                                                      .only(
-                                                                          right:
-                                                                              200),
-                                                                  child:
-                                                                      Checkbox(
-                                                                    value: this
-                                                                        .chk_box,
+                                                                  margin: EdgeInsets.only(right:20),
+                                                                  child:Checkbox(
+                                                                    value: this.chk_box,
                                                                     onChanged:
                                                                         (chk_box) {
                                                                       setState(
@@ -1666,7 +1761,7 @@ return Column(
                                              ],
                                            );
 
-                                        //Closssssssssssssssssssse Colum 2
+                                        //Closssssssssssssssssssse Column to campus 3la allah
 
                                         } else if (snapshot_forpromocode
                                                 .data[0].promo ==
@@ -1674,296 +1769,248 @@ return Column(
 
 //Starrrrrrrrrrrrrrrrrrrrt Colum To Campus With Promo Code
 
-return SingleChildScrollView(  // Wrap the whole content in SingleChildScrollView
-  child: Column(
-    children: [
-      // First section with a conditionally visible widget
-      pressed
-          ? Container(
-              decoration: BoxDecoration(color: Colors.white),
-              child: Column(
-                children: [
-                  Row(
-                    children: <Widget>[
-                      Flexible(
-                        child: Container(
-                          margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                          child: Divider(
-                            thickness: 2,
-                            color: HexColor('#9e1510'),
-                            height: 25,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        "User Guide",
-                        style: TextStyle(
-                          color: HexColor('#9e1510'),
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Tajawal-Regular',
-                        ),
-                      ),
-                      Flexible(
-                        child: Container(
-                          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                          child: Divider(
-                            thickness: 2,
-                            color: HexColor('#BD0006'),
-                            height: 25,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    child: Image.asset(
-                      "assets/images/BUS Application_Page_4.jpg",
-                      width: MediaQuery.of(context).size.height * 0.50,
-                    ),
-                  ),
-                ],
-              ),
-            )
-          : SizedBox(),
+            	                        return Expanded(
+                                          child: Column(
+                                            children: [pressed? Expanded(
+                                                      child:SingleChildScrollView(
+                                                        child: Container(decoration:
+                                                              BoxDecoration(color: Colors.white),
+                                                          child: Column(children: [
+                                                              Row(children: <Widget>[
+                                                                    Expanded(child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+                                                                          child: Divider(thickness:2,
+                                                                            color:HexColor('#BD0006'),
+                                                                            height:25,),),),
+                                                                    Text("User Guide",
+                                                                        style: TextStyle(
+                                                                            color: HexColor('#9e1510'),
+                                                                            fontSize: MediaQuery.of(context).size.height *0.02,
+                                                                            fontWeight:FontWeight.bold,
+                                                                            fontFamily: 'Tajawal-Regular')),
+                                                                    Expanded(
+                                                                      child: new Container(
+                                                                          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                                                                          child: Divider(thickness: 2,
+                                                                            color:HexColor('#9e1510'),
+                                                                            height:25),),),],),
+                                                              Container(child: Image.asset(
+                                                                "assets/images/BUS Application_Page_3.jpg",
+                                                                width: MediaQuery.of(context).size.height *0.50,),),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ): SizedBox(),
+                                              Row(children: <Widget>[
+                                                Expanded(child: new Container(
+                                                      margin: const EdgeInsets.only(left: 10.0,right: 15.0),
+                                                      child: Divider(thickness: 2,
+                                                        color:HexColor('#9e1510'),
+                                                        height: 25,),),),
+                                                Text("Book Your Seat",
+                                                    style: TextStyle(
+                                                        color:HexColor('#9e1510'),
+                                                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                                                        fontWeight:FontWeight.bold,
+                                                        fontFamily:'Tajawal-Regular')),
+                                                Expanded(
+                                                  child: new Container(
+                                                      margin:const EdgeInsets.only(left: 15.0,right: 10.0),
+                                                      child: Divider(thickness: 2,
+                                                        color:HexColor('#9e1510'),
+                                                        height: 25),),),],),
+                                              Expanded(
+                                                child: ListView.builder(itemCount: snapshot.data.length,
+                                                    itemBuilder:(BuildContext context,int index) {
+                                                      return SingleChildScrollView(
+                                                        child: Column( children: [
+                                                            Padding( padding: EdgeInsets.all(35),
+                                                              child: Card(shape: RoundedRectangleBorder(
+                                                                  borderRadius: BorderRadius.circular(20.0),),
+                                                                elevation: 22,
+                                                                child: ClipPath( child:
+                                                                      Container( padding: const EdgeInsets.symmetric(
+                                                                        horizontal: 25,
+                                                                        vertical: 25),
+                                                                    decoration: BoxDecoration(
+                                                                      border: Border(
+                                                                          right: BorderSide(color: HexColor('#9e1510'), width: 12),),
+                                                                      color: HexColor('#f4f4f4'),),
+                                                                    child: Center(
+                                                                      child: Column(
+                                                                        children: [ Align(
+                                                                            alignment: Alignment.center,
+                                                                            child: Container( child: Image.asset(
+                                                                              "assets/images/without_number.png",
+                                                                              width: 35, height: 35,),),),
+                                                                          SizedBox(height: 10),
+                                                                          Align(alignment: Alignment.center,
+                                                                            child: Container(
+                                                                              child: Text( widget.name,
+                                                                                style: TextStyle( fontWeight: FontWeight.bold,
+                                                                                  fontSize: 18, fontFamily: 'Tajawal-Regular',
+                                                                                  color: HexColor('#9e1510'),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  clipper: ShapeBorderClipper(
+                                                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            MySquare(txt1: "Capacity", txt2: snapshot.data[index].busCapacity,),
+                                                            MySquare(txt1: "Reserve", txt2: snapshot.data[index].busReserve,),
+                                                            MySquare(txt1: "Available", txt2: snapshot.data[index].busAvailable,),
+                                                            FutureBuilder(future:_GetConfirmationData_topay(),
+                                                                builder: (BuildContext context, AsyncSnapshot snapshot_toPay) {
+                                                                  if (snapshot_toPay.hasData) {
+                                                                    return MySquare( txt1: "Total price",
+                                                                        txt2: snapshot_toPay.data[0].toPay);
+                                                                  } else if (snapshot_toPay.hasError) {
+                                                                    return Center(child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width: MediaQuery.of(context).size.width * 0.6));
+                                                                  } else {
+                                                                    return Center(
+                                                                        child: Lottie.asset('assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:MediaQuery.of(context).size.width * 0.6),);
+                                                                }
+                                                                  /// here your data
+                                                                }),
+                                                            SizedBox(height: 20),
+                                                            Padding(padding:EdgeInsets.all(10),
+                                                              child: Row(children: [
+                                                                  Text("No. of Seats",
+                                                                    style: TextStyle( color: HexColor('#9e1510'),
+                                                                        fontWeight: FontWeight.bold,
+                                                                        fontSize: 16),),
+                                                                  SizedBox(width: MediaQuery.of(context).size.width * 0.1),
+                                                                  Expanded(child: DropdownButtonFormField(
+                                                                        value: _value,
+                                                                        items: _menuItems,
+                                                                        decoration: InputDecoration(
+                                                                          border: OutlineInputBorder(
+                                                                              borderRadius: const BorderRadius.all(
+                                                                            const Radius.circular(10.0),
+                                                                          ),),
+                                                                          hintText:"Seats",
+                                                                          hintStyle: TextStyle(
+                                                                              color: HexColor('#9e1510'),
+                                                                              fontWeight: FontWeight.bold),),
+                                                                        onChanged: (value) {
+                                                                          setState(() { _value = value as String;
+                                                                          });
+                                                                          prefs.setString( "T", _value);
+                                                                        }),
+                                                                     ),
+                                                                   ],
+                                                                 ),
+                                                               ),
 
-      // Book Your Seat row with ListView.builder
-      Row(
-        children: <Widget>[
-          Flexible(
-            child: Container(
-              margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-              child: Divider(
-                thickness: 2,
-                color: HexColor('#9e1510'),
-                height: 25,
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-              "Book Your Seat",
-              style: TextStyle(
-                color: HexColor('#9e1510'),
-                fontSize: MediaQuery.of(context).size.height * 0.02,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Tajawal-Regular',
-              ),
-            ),
-          ),
-          Flexible(
-            child: Container(
-              margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-              child: Divider(
-                thickness: 2,
-                color: HexColor('#9e1510'),
-                height: 25,
-              ),
-            ),
-          ),
-        ],
-      ),
+                                                           Row(
+                                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                              children: <Widget>[
+                                                                Container(margin: EdgeInsets.only(left:10),
+                                                                  child: Text('Book return trip',
+                                                                    style: TextStyle(
+                                                                        color: HexColor('#9e1510'),
+                                                                        fontWeight:FontWeight.bold,
+                                                                        fontSize:18),
+                                                                  ),
+                                                                ),
+                                                                Container(margin: EdgeInsets.only(right:20),
+                                                                  child: Checkbox( value: this.chk_box,
+                                                                    onChanged:(chk_box) {
+                                                                      setState(() { this.chk_box = chk_box!;
+                                                                      });
+                                                                    },
+                                                                  ),
+                                                                ),
+                                                              ], 
+                                                            ),
 
-      // Instead of using Expanded, let's use ListView.builder with shrinkWrap
-      ListView.builder(
-        shrinkWrap: true,  // Shrinks to fit the available space
-        physics: NeverScrollableScrollPhysics(),  // Disable scrolling inside ListView
-        itemCount: snapshot.data.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(35),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  elevation: 22,
-                  child: ClipPath(
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          right: BorderSide(color: HexColor('#9e1510'), width: 12),
+
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: InkWell(
+                    onTap: () {
+                      _GetConfirmationData_ConfirmPromo();
+                    },
+                    child: Row(
+                      children: [
+                        SizedBox(width: 16),
+                        Image.asset(
+                          'assets/images/plus.png',
+                          color: Colors.black,
+                          width: MediaQuery.of(context).size.width * 0.04,
                         ),
-                        color: HexColor('#f4f4f4'),
-                      ),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment.center,
-                              child: Image.asset(
-                                "assets/images/without_number.png",
-                                width: 35,
-                                height: 35,
-                              ),
+                        SizedBox(width: 15),
+                        Container(
+                          margin: EdgeInsets.only(top: 4),
+                          child: Text(
+                            "Add promo code",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              fontFamily: 'Tajawal-Regular',
+                              color: HexColor('#9e1510'),
                             ),
-                            SizedBox(height: 10),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                widget.name,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  fontFamily: 'Tajawal-Regular',
-                                  color: HexColor('#BD0006'),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    clipper: ShapeBorderClipper(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                    ),
-                  ),
-                ),
-              ),
-              //MySquare(txt1: "Capacity", txt2: snapshot.data[index].busCapacity),
-              //MySquare(txt1: "Reserve", txt2: snapshot.data[index].busReserve),
-              MySquare(txt1: "Available", txt2: snapshot.data[index].busAvailable),
-              FutureBuilder(
-                future: _GetConfirmationData_topay(),
-                builder: (BuildContext context, AsyncSnapshot snapshot_toPay) {
-                  if (snapshot_toPay.hasData) {
-                    return MySquare(txt1: "Total price", txt2: snapshot_toPay.data[0].toPay);
-                  } else if (snapshot_toPay.hasError) {
-                    return Center(
-                      child: Lottie.asset(
-                        'assets/images/lf30_editor_iuu7wud2.json',
-                        width: MediaQuery.of(context).size.width * 0.6,
-                      ),
-                    );
-                  } else {
-                    return Center(
-                      child: Lottie.asset(
-                        'assets/images/lf30_editor_iuu7wud2.json',
-                        width: MediaQuery.of(context).size.width * 0.6,
-                      ),
-                    );
-                  }
-                },
-              ),
-              SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    Text(
-                      "No. of Seats",
-                      style: TextStyle(
-                        color: HexColor('#BD0006'),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.1),
-                    Flexible(
-                      child: DropdownButtonFormField(
-                        value: _value,
-                        items: _menuItems,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(const Radius.circular(10.0)),
-                          ),
-                          hintText: "Seats",
-                          hintStyle: TextStyle(
-                            color: HexColor('#9e1510'),
-                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        onChanged: (value) {
-                          setState(() {
-                            _value = value as String;
-                          });
-                          prefs.setString("T", _value);
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: InkWell(
-                  onTap: () {
-                    _GetConfirmationData_ConfirmPromo();
-                  },
-                  child: Row(
-                    children: [
-                      SizedBox(width: 16),
-                      Image.asset(
-                        'assets/images/plus.png',
-                        color: Colors.black,
-                        width: MediaQuery.of(context).size.width * 0.04,
-                      ),
-                      SizedBox(width: 15),
-                      Text(
-                        "Add promo code",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          fontFamily: 'Tajawal-Regular',
-                          color: HexColor('#9e1510'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    textStyle: TextStyle(
-                      fontSize: 20,
-                      color: HexColor('#9e1510'),
-                    ),
-                    minimumSize: Size.fromHeight(40),
-                    primary: HexColor('#9e1510'),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0),
+                      ],
                     ),
                   ),
-                  onPressed: () {
-                    setState(() {
-                      visible = true;
-                      _getBal();
-                    });
-                  },
-                  child: visible
-                      ? Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CircularProgressIndicator(
+                ),
+            Padding(
+                  padding: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      textStyle: TextStyle(fontSize: 20, color: HexColor('#9e1510')),
+                      minimumSize: Size.fromHeight(40),
+                      primary: HexColor('#9e1510'),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        visible = true;
+                        _getBal();
+                      });
+                    },
+                    child: visible
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CircularProgressIndicator(color: Colors.white),
+                              SizedBox(width: 25),
+                              Text("Please wait...")
+                            ],
+                          )
+                        : Text(
+                            'Next',
+                            style: TextStyle(
                               color: Colors.white,
+                              fontFamily: 'Cairo-VariableFont_wght',
+                              fontWeight: FontWeight.bold,
                             ),
-                            SizedBox(width: 25),
-                            Text("Please wait..."),
-                          ],
-                        )
-                      : Text(
-                          'Next',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Cairo-VariableFont_wght',
-                            fontWeight: FontWeight.bold,
                           ),
-                        ),
+                  ),
                 ),
-              ),
-            ],
-          );
-        },
-      ),
-    ],
-  ),
-);
-                                          
+                                                                          ],
+                                                                        ),
+                                                                      );
+                                                                    }
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+														                              );
+                                                     
 //Closssssssssssssssssssse Colum To Campus With Promo Code
 
 
@@ -2126,26 +2173,26 @@ return SingleChildScrollView(  // Wrap the whole content in SingleChildScrollVie
                                                                  ),
                                                                ),
                                                             SizedBox(height: 15),
-                                                            // Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                            //   children: <Widget>[
-                                                            //     Container(margin: EdgeInsets.only(left:10),
-                                                            //       child: Text('Book return trip',
-                                                            //         style: TextStyle(
-                                                            //             color: HexColor('#9e1510'),
-                                                            //             fontWeight:FontWeight.bold,
-                                                            //             fontSize:18),
-                                                            //       ),
-                                                            //     ),
-                                                            //     Container(margin: EdgeInsets.only(right:200),
-                                                            //       child: Checkbox( value: this.chk_box,
-                                                            //         onChanged:(chk_box) {
-                                                            //           setState(() { this.chk_box = chk_box!;
-                                                            //           });
-                                                            //         },
-                                                            //       ),
-                                                            //     ),
-                                                            //   ], 
-                                                            // ),
+                                                            Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                              children: <Widget>[
+                                                                Container(margin: EdgeInsets.only(left:10),
+                                                                  child: Text('Book return trip',
+                                                                    style: TextStyle(
+                                                                        color: HexColor('#9e1510'),
+                                                                        fontWeight:FontWeight.bold,
+                                                                        fontSize:18),
+                                                                  ),
+                                                                ),
+                                                                Container(margin: EdgeInsets.only(right:20),
+                                                                  child: Checkbox( value: this.chk_box,
+                                                                    onChanged:(chk_box) {
+                                                                      setState(() { this.chk_box = chk_box!;
+                                                                      });
+                                                                    },
+                                                                  ),
+                                                                ),
+                                                              ], 
+                                                            ),
                                                             Padding(padding:EdgeInsets.all(10),
                                                               child:ElevatedButton(
                                                                 style: ElevatedButton.styleFrom(
@@ -2185,7 +2232,7 @@ return SingleChildScrollView(  // Wrap the whole content in SingleChildScrollVie
 //Closssssssssssssssse Expanded To Campus Without Promo Code
 
                                       } else {
-                                        return Center(
+                                  return Center(
                                             child: Lottie.asset(
                                                 'assets/images/lf30_editor_iuu7wud2.json',
                                                 width: MediaQuery.of(context)
@@ -2212,6 +2259,7 @@ return SingleChildScrollView(  // Wrap the whole content in SingleChildScrollVie
                                                   0.6));
                                     }
                                   },
+                                ),
                                 );
                               } else {
                                 return SizedBox(
@@ -2454,7 +2502,7 @@ return SingleChildScrollView(  // Wrap the whole content in SingleChildScrollVie
     print(widget.time);
     print("the value moham gdn");
     print(value);
-
+    print(widget.dir);
     // print(BusID);
     // print(username);
     // print(changeValue);
@@ -2476,7 +2524,7 @@ return SingleChildScrollView(  // Wrap the whole content in SingleChildScrollVie
     final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
     final response = await http.post(url, body: data);
     print(response);
-    print("The value of check box");
+    print("The value of check box1");
     print(chk_box);
     List data1 = json.decode(response.body);
     List<GetConfirmData> list = [];
@@ -2534,7 +2582,7 @@ return SingleChildScrollView(  // Wrap the whole content in SingleChildScrollVie
     final response = await http.post(url, body: data);
     print('_______________________________________________________________________________');
     print(response);
-    print("The value of check box");
+    print("The value of check box2");
     print(chk_box);
     List<dynamic> data1 = json.decode(response.body);
     print('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH');
@@ -2643,7 +2691,7 @@ return SingleChildScrollView(  // Wrap the whole content in SingleChildScrollVie
     final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
     final response = await http.post(url, body: data);
     print(response);
-    print("The value of check box");
+    print("The value of check box3");
     print(chk_box);
     List<dynamic> data1 = json.decode(response.body);
     List<GetConfirmData> list = [];
