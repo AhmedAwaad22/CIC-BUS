@@ -30,24 +30,24 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.0.3
-  animations: ^2.0.3
+ #animations: ^2.0.3
   async: ^2.8.2
   animated_login: ^1.5.4
   hexcolor: ^2.0.7
-  flutter_beep: ^1.0.0
+  #flutter_beep: ^1.0.0
   http: ^0.13.4
   convert: ^3.0.2
-  path_provider_android: 2.0.11
+  #path_provider_android: 2.0.11
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  #cupertino_icons: ^1.0.2
   flutter_svg: ^1.1.0
   shared_preferences: ^2.0.15
-  flutter_launcher_icons: ^0.10.0
+  #flutter_launcher_icons: ^0.10.0
   blur: ^3.1.0
   intl: ^0.17.0
-  snippet_coder_utils: ^1.0.12
+  #snippet_coder_utils: ^1.0.12
   internet_connection_checker: ^0.0.1+4
   overlay_support: ^2.0.1
   connectivity_plus: ^2.3.6+1
@@ -55,9 +55,9 @@ dependencies:
   auto_size_text: ^3.0.0
   flutter_phone_direct_caller: ^2.1.1
   flutter_html: ^3.0.0-alpha.6
-  pspdfkit_flutter: ^3.3.0
+  #pspdfkit_flutter: ^3.3.0
   path_provider: ^2.0.11
-  dio: ^4.0.6
+  #dio: ^4.0.6
   flutter_pdfview: ^1.2.5
   new_version: ^0.3.1
   lottie: ^1.4.2
