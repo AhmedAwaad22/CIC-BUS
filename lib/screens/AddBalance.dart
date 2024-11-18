@@ -229,21 +229,6 @@ class _AddBalanceState extends State<AddBalance> {
                           fontWeight: FontWeight.bold),),
                             ),
 
-            // Add balance button
-            // ElevatedButton(
-            //   onPressed: _addBalance,
-            //   style: ElevatedButton.styleFrom(
-            //     primary: Color(0xFF9e1510),
-            //     padding: const EdgeInsets.symmetric(vertical: 14),
-            //     shape: RoundedRectangleBorder(
-            //       borderRadius: BorderRadius.circular(8),
-            //     ),
-            //   ),
-            //   child: const Text(
-            //     'Add Balance',
-            //     style: TextStyle(fontSize: 16, color: Colors.white),
-            //   ),
-            // ),
           ],
         ),
       ),
@@ -260,10 +245,11 @@ class _AddBalanceState extends State<AddBalance> {
           content: const SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('1. '),
-                Text('2. '),
-                Text('3. '),
-                Text('4. '),
+                Text('1. Choose Your College.'),
+                Text('2. Enter Required Amount.'),
+                Text('3. Click Next.'),
+                Text('4. Proceed With Your Panment on the Payment Gateway.'),
+                Text('5. After Successfully Paid Press (Go To Home).'),
               ],
             ),
           ),
