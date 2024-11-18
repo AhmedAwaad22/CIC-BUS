@@ -24,8 +24,6 @@ class _WebViewPageState extends State<WebViewPage> {
 
   // Initialize WebView and set controller
   void _initializeWebView() async {
-    // Initialize WebView package and set up the controller
-    //await WebViewController.setWebContentsDebuggingEnabled(true); // enable debugging in development mode
     _webViewController = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted) // Allow JS execution
       ..setNavigationDelegate(NavigationDelegate(
@@ -64,33 +62,57 @@ class _WebViewPageState extends State<WebViewPage> {
         return Future.value(false);
       },
       child: Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Payment Page',
-          style: TextStyle(color: Colors.white), // Set the text color to white
+        appBar: AppBar(
+          title: const Text(
+            'Payment Page',
+            style: TextStyle(color: Colors.white), // Set the text color to white
+          ),
+          backgroundColor: Color(0xFF9e1510),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white), // Set the back button color to white
+            onPressed: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
+            },
+          ),
         ),
-        backgroundColor: Color(0xFF9e1510),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white), // Set the back button color to white
-          onPressed: () {
-            Navigator.of(context).pop();
-            Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => HomeScreen()),
-            );
-          },
-        ), // Your existing AppBar background color
-      ),
         body: Stack(
-        children: [
-          WebViewWidget(
-            controller: _webViewController,
-          ),
-          if (isLoading) // Show loading indicator while the page is loading
-            const Center(
-              child: CircularProgressIndicator(),
-          ),
-         ],
-       ),
+          children: [
+            WebViewWidget(
+              controller: _webViewController,
+            ),
+            if (isLoading) // Show loading indicator while the page is loading
+              const Center(
+                child: CircularProgressIndicator(),
+              ),
+            // Home button at the bottom
+            Positioned(
+              bottom: 16, // Distance from the bottom of the screen
+              left: 16,   // Distance from the left side of the screen
+              right: 16,  // Distance from the right side of the screen
+              child: ElevatedButton(
+                onPressed: () {
+                  // Navigate to the Home screen when pressed
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xFF9e1510), // Button color (same as AppBar)
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: const Text(
+                  'Go to Home',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

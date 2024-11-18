@@ -59,9 +59,9 @@ class _AddBalanceState extends State<AddBalance> {
       if (username != null) {
         // Prepare the API request to get the JSON response
         final response = await _getPaymentDetails(username, selectedCollege!, price);
-        print('awaaaaaaaaaaaaaad the start');
-        print(username);
-        print('awaaaaaaaaaaaaaad the end');
+        //print('awaaaaaaaaaaaaaad the start');
+        //print(username);
+        //print('awaaaaaaaaaaaaaad the end');
         if (response != null && response['result']['iframeLink'] != null) {
           // If response contains iframeLink, open it in a new WebView page
           String iframeLink = response['result']['iframeLink'];

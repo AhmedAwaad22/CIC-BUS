@@ -184,23 +184,35 @@ class _State extends State<LoginScreen> {
 
                                         },
 
-                          style: ElevatedButton.styleFrom(
-                            primary: Color(0xFF870000), // Button background color
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            minimumSize: Size(264.0, 50.0),
-                          ),
-                          child: const Text('Login',
-                          style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            )
+                                        child:visible? Row(
+                                        mainAxisAlignment:MainAxisAlignment.center,
+                                        children: [CircularProgressIndicator(
+                                              color: Colors.white,),
+                                            SizedBox(width: 25),
+                                            Text("Please wait...",
+                                            style: TextStyle(
+                                              color: Colors.white
+                                            ),
+                                            )
+                                          ],): Text('Login',
+                                        style: TextStyle( color: Colors.white,
+                                            fontFamily: 'Cairo-VariableFont_wght',
+                                            fontWeight: FontWeight.bold),),
+
+                                            style: ElevatedButton.styleFrom(
+                                              primary: Color(0xFF870000), // Button background color
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(10.0),
+                                              ),
+                                              minimumSize: Size(264.0, 50.0),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
             
           // Scaffold(
           //       body: Stack(
