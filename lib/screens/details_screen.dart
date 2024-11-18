@@ -4,9 +4,7 @@ import 'dart:ui';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:blur/blur.dart';
 import 'package:cicbus/model/BusLineAPI.dart';
-import 'package:cicbus/model/busdata.dart';
 import 'package:cicbus/model/trips.dart';
-import 'package:cicbus/screens/NewBookScreen.dart';
 import 'package:cicbus/widget/my_square.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
@@ -22,8 +20,6 @@ import '../model/SearchModel.dart';
 import '../model/booking.dart';
 import 'Book_screen.dart';
 import 'NoInternatePageMain.dart';
-import 'bus_book.dart';
-import 'bus_seats.dart';
 import 'dart:ui' as ui;
 import 'package:http/http.dart' as http;
 

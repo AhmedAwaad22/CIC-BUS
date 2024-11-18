@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:cicbus/screens/LoginScreen.dart';
 import 'package:cicbus/screens/SplashScreen.dart';
-import 'package:cicbus/screens/maintenanceScreen.dart';
+import 'package:cicbus/screens/home.dart';
 import 'package:cicbus/widget/App_theme.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
           textTheme: AppTheme.textTheme,
           platform: TargetPlatform.iOS,
         ),
-        home: SplashScreen(),
+        home: HomeScreen(),
       ),
     );
   }

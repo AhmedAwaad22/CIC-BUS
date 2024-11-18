@@ -4,7 +4,6 @@ import 'package:cicbus/model/getConfirmData.dart';
 import 'package:cicbus/screens/Book_screen.dart';
 import 'package:cicbus/screens/NoInternatePageMain.dart';
 import 'package:cicbus/screens/home.dart';
-import 'package:cicbus/screens/promo_code.dart';
 import 'package:cicbus/screens/tripsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';

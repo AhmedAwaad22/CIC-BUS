@@ -63,6 +63,7 @@ class UpdateScreenMandatory extends StatelessWidget {
                     child: Text(
                       "Update now",
                       style: TextStyle(
+                        color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Kanit-Light'),

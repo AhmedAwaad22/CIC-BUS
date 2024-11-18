@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:cicbus/model/trips.dart';
 import 'package:cicbus/screens/NoInternatePageMain.dart';
 import 'package:cicbus/screens/home.dart';
-import 'package:cicbus/screens/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
@@ -14,9 +13,7 @@ import 'package:http/http.dart' as http;
 
 import '../main.dart';
 import '../model/SearchModel.dart';
-import '../model/busdata.dart';
 import 'LoginScreen.dart';
-import 'FetchBusDataList_SecondPage.dart';
 import 'details_screen.dart';
 
 class TripsScreen extends StatefulWidget {
