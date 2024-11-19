@@ -1,4 +1,5 @@
 
+import 'package:cicbus/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -47,19 +48,29 @@ class _NoInternetState extends State<NoInternet> {
             SizedBox(
               height: 20,
             ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  textStyle: TextStyle(
-                    fontSize: 18,
-                    color: Colors.blue,
-                  ),
-                  primary: Colors.white,
-                  shape: RoundedRectangleBorder(side: BorderSide(color: Colors.blue, width: 1), borderRadius: BorderRadius.circular(25.0)),
-                ),
-                onPressed: () {
-                  setState(() {});
-                },
-                child: Text("Refresh", style: TextStyle(fontSize: 16, color: Colors.blue, fontWeight: FontWeight.bold)))
+              ElevatedButton(
+              style: ElevatedButton.styleFrom(
+              textStyle: const TextStyle(
+                fontSize: 18,
+                color: Colors.blue,
+              ),
+              primary: Colors.white,
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(color: Colors.blue, width: 1),
+                borderRadius: BorderRadius.circular(25.0),
+              ),
+              ),
+              onPressed: () {
+              setState(() {
+                // Add any logic here to update the state or refresh data.
+                // For example, re-fetch data or reset variables.
+              });
+              },
+              child: const Text(
+              "Refresh",
+              style: TextStyle(fontSize: 16, color: Colors.blue, fontWeight: FontWeight.bold),
+              ),
+            ),
           ],
         ),
       ),

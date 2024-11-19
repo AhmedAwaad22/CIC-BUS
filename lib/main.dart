@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
           textTheme: AppTheme.textTheme,
           platform: TargetPlatform.iOS,
         ),
-        home: HomeScreen(),
+        home: SplashScreen(),
       ),
     );
   }

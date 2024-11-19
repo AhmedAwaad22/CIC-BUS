@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:cicbus/main.dart';
 import 'package:cicbus/screens/WebView_Screen.dart';
+import 'package:cicbus/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart'; 
 import 'package:http/http.dart' as http;
@@ -134,8 +136,19 @@ class _AddBalanceState extends State<AddBalance> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.of(context).pop();
-          },
+              Navigator.pop(context,true);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              ).then((value) {
+                if (value == true) {
+                  // Refresh logic here
+                  setState(() {
+                    // Update your state to refresh the UI
+                  });
+                }
+              });
+            },
         ),
         actions: [
           IconButton(
@@ -189,8 +202,11 @@ class _AddBalanceState extends State<AddBalance> {
             const Text('Add Money:'),
             TextField(
               controller: priceController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
+              keyboardType: TextInputType.numberWithOptions(decimal: false),
+              inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'^\d?\d*')), // Allow digits and one optional decimal point
+                ],
+                decoration: const InputDecoration(
                 hintText: 'Enter Amount',
                 border: OutlineInputBorder(),
                 contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -228,12 +244,11 @@ class _AddBalanceState extends State<AddBalance> {
                           fontFamily: 'Cairo-VariableFont_wght',
                           fontWeight: FontWeight.bold),),
                             ),
-
-          ],
-        ),
-      ),
-    );
-  }
+                          ],
+                        ),
+                      ),
+                    );
+                  }
 
   // Display help dialog
   void _showHelpDialog() {

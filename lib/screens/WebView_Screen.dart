@@ -1,3 +1,4 @@
+import 'package:cicbus/screens/AddBalance.dart';
 import 'package:cicbus/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart'; // Import the correct WebView package
@@ -71,10 +72,18 @@ class _WebViewPageState extends State<WebViewPage> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white), // Set the back button color to white
             onPressed: () {
-              Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => HomeScreen()),
-              );
+              Navigator.pop(context, true);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddBalance()),
+              ).then((value) {
+                if (value == true) {
+                  // Refresh logic here
+                  setState(() {
+                    // Update your state to refresh the UI
+                  });
+                }
+              });
             },
           ),
         ),

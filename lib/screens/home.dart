@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     super.initState();
     if (mounted) {
-      Timer(const Duration(milliseconds: 800), () {
+      Timer(const Duration(milliseconds: 100), () {
         checkNewVersion(newVersion);
       });
       // timer = Timer.periodic(Duration(seconds: 10), (Timer t) => setState((){
@@ -184,7 +184,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ? Center(child: Text("Taking longer than expected..."))
                                       : Center(child: CircularProgressIndicator()); */
                                       return Center(child: CircularProgressIndicator());
-                                }else */ if (snapshot.hasData && snapshot.data != null) {
+                                }else */ 
+                                if (snapshot.hasData && snapshot.data != null) {
                                   if (snapshot.data![0].addbalance == "Y") {
                                     _showAddBalance = true;
                                   }else{
