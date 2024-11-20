@@ -16,7 +16,8 @@ class BusList {
     required this.activisionMsg,
     required this.cancelStatus,
     required this.subscription,
-    required this.subscriptionMessage,
+    required this.subscriptionMessageAR,
+    required this.subscriptionMessageEN,
     required this.reservationStatus,
     required this.reservation,
     required this.currentBalance,
@@ -33,7 +34,8 @@ class BusList {
   String activisionMsg;
   String cancelStatus;
   String subscription;
-  String subscriptionMessage;
+  String subscriptionMessageAR;
+  String subscriptionMessageEN;
   String reservationStatus;
   List<Reservation> reservation;
   String currentBalance;
@@ -50,7 +52,8 @@ class BusList {
         activisionMsg: json["activision_msg"],
         cancelStatus: json["cancel_status"],
         subscription: json["subscription"],
-        subscriptionMessage: json["subscription_message"],
+        subscriptionMessageAR: json["subscription_message_ar"],
+        subscriptionMessageEN: json["subscription_message_en"],
         reservationStatus: json["reservation_status"],
         reservation: List<Reservation>.from(
             json["reservation"].map((x) => Reservation.fromJson(x))),
@@ -69,7 +72,8 @@ class BusList {
         "activision_msg": activisionMsg,
         "cancel_status": cancelStatus,
         "subscription": subscription,
-        "subscription_message": subscriptionMessage,
+        "subscription_messageAR": subscriptionMessageAR,
+        "subscription_messageEN": subscriptionMessageEN,
         "reservation_status": reservationStatus,
         "reservation": List<dynamic>.from(reservation.map((x) => x.toJson())),
         "CurrentBalance": currentBalance,

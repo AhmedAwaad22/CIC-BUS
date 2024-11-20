@@ -261,7 +261,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           ),
                         ),
                       )
-                    : SizedBox(),
+                    : SizedBox(height: MediaQuery.of(context).size.height * 0.2,),
                 Expanded(
                   child: FutureBuilder(
                     future: _userList.getUserList(),
@@ -272,58 +272,102 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                         return Container(
                           height: MediaQuery.of(context).size.height,
                           width: MediaQuery.of(context).size.width,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                'assets/images/welcome.svg',
-                                height: MediaQuery.of(context).size.height * .2,
-                                width: MediaQuery.of(context).size.width * .2,
-                                fit: BoxFit.cover,
-                              ),
-                              SizedBox(
-                                height: 50,
-                              ),
-                              Center(
-                                child: Text(
-                                  snapshot.data![0].subscriptionMessage,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.black87,
-                                      fontSize:
-                                          MediaQuery.of(context).size.height * .017),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    textStyle: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.blue,
-                                    ),
-                                    primary: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                        side: BorderSide(
-                                            color: HexColor('#BD0006'), width: 1),
-                                        borderRadius: BorderRadius.circular(25.0)),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.of(context).pushAndRemoveUntil(
-                                        MaterialPageRoute(
-                                            builder: (context) => HomeScreen(),
-                                            fullscreenDialog: false),
-                                        ModalRoute.withName('/')
-                                    );
-                                  },
-                                  child: Text("Refresh",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: HexColor('#BD0006'),
-                                          fontWeight: FontWeight.bold)))
-                            ],
-                          ),
+          child: SingleChildScrollView( 
+            child: Column(
+              children: [
+                SvgPicture.asset(
+                  'assets/images/welcome.svg',
+                  height: MediaQuery.of(context).size.height * .2,
+                  width: MediaQuery.of(context).size.width * .2,
+                  fit: BoxFit.cover,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * .050,   // Left padding
+                      right: MediaQuery.of(context).size.width * .050,  // Right padding
+                    ),
+                child:Container(
+                padding: EdgeInsets.all(MediaQuery.of(context).size.width * .025),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(  // Add gradient background for a smooth transition of colors
+                colors: [Colors.red, Colors.white],  // Define two gradient colors (red to orange)
+                begin: Alignment.topLeft,  // Start of gradient (top-left)
+                end: Alignment.bottomRight,  // End of gradient (bottom-right)
+              ),
+                  boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),  // Soft shadow with some transparency
+                  offset: Offset(0, 4),  // Shadow positioned slightly below the container
+                  blurRadius: 6,  // Makes the shadow softer and spread out
+                  spreadRadius: 2,  // Makes the shadow expand
+                ),
+              ],
+              borderRadius: BorderRadius.circular(15), 
+            ),
+            child: Column(  // Use a Column to stack two Text widgets
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  snapshot.data![0].subscriptionMessageEN,  // First subscription message
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: MediaQuery.of(context).size.height * .020,
+                  ),
+                ),
+                SizedBox(height: 10),  // Add space between the texts
+                Text(
+                  snapshot.data![0].subscriptionMessageAR,  // Second subscription message
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: MediaQuery.of(context).size.height * .020,
+                  ),
+                ),
+              ],
+            ),
+          ),
+      ),
+
+          SizedBox(height: 20),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                      primary: HexColor('#BD0006'), // Button background color
+                      padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 40.0), // Padding for the button
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: HexColor('#BD0006'), width: 1),
+                        borderRadius: BorderRadius.circular(30.0), // Rounded button corners
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                        ModalRoute.withName('/'),
+                      );
+                    },
+                    child: Text(
+                      "Refresh",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+
+
                         );
                       } else {
                         return Center(child: CircularProgressIndicator());
