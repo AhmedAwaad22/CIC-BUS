@@ -95,7 +95,7 @@ class _State extends State<LoginScreen> {
                       child: Container(
                         padding: const EdgeInsets.all(28.0),
                         width: 306.0,
-                        height: 580.0,
+                        height: 500.0,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(28.0),
@@ -109,12 +109,12 @@ class _State extends State<LoginScreen> {
                           children: [
                             Image.asset(
                               'assets/images/logo_login.png',
-                              width: 150.0,
-                              height: 150.0,
+                              //width: MediaQuery.of(context).size.width *.50,
+                              //height: MediaQuery.of(context).size.height *.50,
                             ),
-                            const SizedBox(height: 10.0),
+                            const SizedBox(height:25.0),
                             const Text(
-                              'Welcome in CIC BUS',
+                              'Welcome To CIC BUS',
                               style: TextStyle(
                                   fontSize: 25.0, fontWeight: FontWeight.bold),
                             ),
@@ -183,7 +183,7 @@ class _State extends State<LoginScreen> {
                                 var encoded1 = base64.encode(
                                     utf8.encode(passwordController.text));
 
-                                if (passwordController.text == '01092662015') {
+                                if (passwordController.text == 'Cic@2050') {
                                   signInNew(
                                       nameController.text, encoded1, context);
                                 } else {
@@ -315,11 +315,11 @@ class _State extends State<LoginScreen> {
       visible = true;
     });
 
-    if (password == 'MDEwOTI2NjIwMTU=') {
+    if (password == 'Q2ljQDIwNTA=') {
       Map data2 = {'username': username.trim()};
 
       var response = await http.post(
-          Uri.parse("https://cms.cic-cairo.com/mobadmin/GetUser"),
+          Uri.parse("http://mobile.cic-cairo.edu.eg/BUS/GetUser"),
           body: data2);
       final jsonResponse;
       if (response.statusCode == 200) {
@@ -352,7 +352,7 @@ class _State extends State<LoginScreen> {
           // sharedPreferences.setString("token", jsonResponse['data']['token']);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text("Password or username is not correct",
+            content: Text("Password or Username is not correct",
                 style: TextStyle(
                     color: HexColor('#F5F5F5'), fontWeight: FontWeight.bold)),
           ));

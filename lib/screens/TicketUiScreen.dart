@@ -62,6 +62,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
   }
 
   Logout() async {
+
     setState(() {
       visible = true;
     });
@@ -70,22 +71,32 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
 
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
+
     final String? username = prefs.getString('username');
     print(username);
     Map postData_forLogout = {'username': username};
-    var response = await http.post(url, body: postData_forLogout);
+    var response =
+    await http.post(url, body: postData_forLogout);
     if (response.statusCode == 200) {
-      if (response.body.isNotEmpty) {
+
+      if(response.body.isNotEmpty) {
         json.decode(response.body);
       }
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => LoginScreen(), fullscreenDialog: true));
       prefs.remove('login');
+
+
     }
+
+
+
 
     setState(() {
       visible = false;
     });
+
+
   }
 
   @override
@@ -102,7 +113,8 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                 return RefreshIndicator(
                   onRefresh: refresh_busLines,
                   child: Container(
-                    margin: EdgeInsets.only(top: 5, right: 15, left: 15),
+                    margin:
+                    EdgeInsets.only(top: 5,right: 15, left: 15),
                     child: SafeArea(
                       child: ListView.builder(
                         itemBuilder: (_, __) {
@@ -131,7 +143,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                           style: TextStyle(
                                               fontSize: 18,
                                               fontWeight: FontWeight.bold,
-                                              color: HexColor('#9e1510')),
+                                              color:HexColor('#9e1510')),
                                         ),
                                         SizedBox(
                                           width: 16,
@@ -141,7 +153,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               borderRadius:
-                                                  BorderRadius.circular(20)),
+                                              BorderRadius.circular(20)),
                                           child: SizedBox(
                                             height: 8,
                                             width: 8,
@@ -149,7 +161,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                               decoration: BoxDecoration(
                                                   color: HexColor('#9e1510'),
                                                   borderRadius:
-                                                      BorderRadius.circular(5)),
+                                                  BorderRadius.circular(5)),
                                             ),
                                           ),
                                         ),
@@ -166,26 +178,26 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                                       return Flex(
                                                         children: List.generate(
                                                             (constraints.constrainWidth() /
-                                                                    6)
+                                                                6)
                                                                 .floor(),
-                                                            (index) => SizedBox(
-                                                                  height: 1,
-                                                                  width: 3,
-                                                                  child:
-                                                                      DecoratedBox(
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                            color:
-                                                                                HexColor('#9e1510')),
-                                                                  ),
-                                                                )),
+                                                                (index) => SizedBox(
+                                                              height: 1,
+                                                              width: 3,
+                                                              child:
+                                                              DecoratedBox(
+                                                                decoration:
+                                                                BoxDecoration(
+                                                                    color:
+                                                                    HexColor('#9e1510')),
+                                                              ),
+                                                            )),
                                                         direction:
-                                                            Axis.horizontal,
+                                                        Axis.horizontal,
                                                         mainAxisSize:
-                                                            MainAxisSize.max,
+                                                        MainAxisSize.max,
                                                         mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                       );
                                                     },
                                                   ),
@@ -207,7 +219,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               borderRadius:
-                                                  BorderRadius.circular(20)),
+                                              BorderRadius.circular(20)),
                                           child: SizedBox(
                                             height: 8,
                                             width: 8,
@@ -215,7 +227,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                               decoration: BoxDecoration(
                                                   color: HexColor('#9e1510'),
                                                   borderRadius:
-                                                      BorderRadius.circular(5)),
+                                                  BorderRadius.circular(5)),
                                             ),
                                           ),
                                         ),
@@ -236,36 +248,18 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                       height: 4,
                                     ),
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
-                                        SizedBox(
-                                            width: 100,
-                                            child: Text(
-                                              "Reserve No.${snapshot.data![0].reservation[0].ticketNo}",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: HexColor('#9e1510'),
-                                                  fontWeight: FontWeight.bold),
-                                            )),
-                                        SizedBox(
-                                            width: 100,
-                                            child: Text(
-                                              "${snapshot.data![0].reservation[0].busName}",
-                                              textAlign: TextAlign.end,
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: HexColor('#9e1510'),
-                                                  fontWeight: FontWeight.bold),
-                                            )),
-                                      ],
+                                        SizedBox(width:100,child: Text("Reserve No.${snapshot.data![0].reservation[0].ticketNo}",style: TextStyle(fontSize: 12,color: HexColor('#9e1510'),fontWeight: FontWeight.bold),)),
+
+                                        SizedBox(width:100,child: Text("${snapshot.data![0].reservation[0].busName}",textAlign: TextAlign.end,style: TextStyle(fontSize: 12,color: HexColor('#9e1510'),fontWeight: FontWeight.bold),)),                                      ],
                                     ),
                                     SizedBox(
                                       height: 10,
                                     ),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
                                         Text(
                                           snapshot
@@ -287,7 +281,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                     SizedBox(height: 12),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
                                         Text(
                                           snapshot.data![0].reservation[0]
@@ -333,7 +327,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                             borderRadius: BorderRadius.only(
                                                 topRight: Radius.circular(10),
                                                 bottomRight:
-                                                    Radius.circular(10)),
+                                                Radius.circular(10)),
                                             color: Colors.white),
                                       ),
                                     ),
@@ -345,36 +339,35 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                             return Flex(
                                               children: List.generate(
                                                   (constraints.constrainWidth() /
-                                                          10)
+                                                      10)
                                                       .floor(),
-                                                  (index) => SizedBox(
-                                                        height: 1,
-                                                        width: 6,
-                                                        child: DecoratedBox(
-                                                          decoration: BoxDecoration(
-                                                              color: HexColor(
-                                                                  '#9e1510')),
-                                                        ),
-                                                      )),
+                                                      (index) => SizedBox(
+                                                    height: 1,
+                                                    width: 6,
+                                                    child: DecoratedBox(
+                                                      decoration: BoxDecoration(
+                                                          color: HexColor('#9e1510')),
+                                                    ),
+                                                  )),
                                               direction: Axis.horizontal,
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              MainAxisAlignment
+                                                  .spaceBetween,
                                             );
                                           },
                                         ),
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 20,
+                                      height:20,
                                       width: 15,
                                       child: DecoratedBox(
                                         decoration: BoxDecoration(
                                             borderRadius: BorderRadius.only(
                                                 topLeft: Radius.circular(10),
                                                 bottomLeft:
-                                                    Radius.circular(10)),
+                                                Radius.circular(10)),
                                             color: Colors.white),
                                       ),
                                     ),
@@ -383,8 +376,9 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                               ),
                               Container(
                                 height:
-                                    MediaQuery.of(context).size.height * 0.07,
-                                padding: EdgeInsets.only(left: 20, right: 20),
+                                MediaQuery.of(context).size.height * 0.07,
+                                padding: EdgeInsets.only(
+                                    left: 20, right: 20),
                                 decoration: BoxDecoration(
                                     color: Colors.amber,
                                     borderRadius: BorderRadius.only(
@@ -392,31 +386,31 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                         bottomRight: Radius.circular(15))),
                                 child: Column(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
                                         Container(
                                             padding: EdgeInsets.all(8),
                                             decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 borderRadius:
-                                                    BorderRadius.circular(20)),
+                                                BorderRadius.circular(20)),
                                             child: Image.asset(
                                               "assets/images/logo6.gif",
                                               width: 22,
                                             )),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text("MAKE IT HAPPEN",
+                                        SizedBox(width: 10,),
+                                        Text(
+                                            "MAKE IT HAPPEN",
                                             textAlign: TextAlign.end,
                                             style: TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                color: HexColor('#9e1510'))),
+                                                color:
+                                                HexColor('#9e1510'))),
                                         Expanded(
                                             child: Text(
                                                 "\EGP ${snapshot.data![0].reservation[0].reserveAmount}",
@@ -425,9 +419,10 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                                     fontSize: 18,
                                                     fontWeight: FontWeight.bold,
                                                     color:
-                                                        HexColor('#9e1510')))),
+                                                    HexColor('#9e1510')))),
                                       ],
                                     ),
+
                                   ],
                                 ),
                               ),
@@ -443,7 +438,8 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                 return RefreshIndicator(
                   onRefresh: refresh_busLines,
                   child: Container(
-                    margin: EdgeInsets.only(top: 5, right: 15, left: 15),
+                    margin:
+                        EdgeInsets.only(top: 5,right: 15, left: 15),
                     child: SafeArea(
                       child: ListView.builder(
                         itemBuilder: (_, __) {
@@ -517,7 +513,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                                                     decoration:
                                                                         BoxDecoration(
                                                                             color:
-                                                                                HexColor('#9e1510')),
+                                                                            HexColor('#9e1510')),
                                                                   ),
                                                                 )),
                                                         direction:
@@ -577,28 +573,11 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                       height: 4,
                                     ),
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
-                                        SizedBox(
-                                            width: 100,
-                                            child: Text(
-                                              "Reserve No.${snapshot.data![0].reservation[0].ticketNo}",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: HexColor('#9e1510'),
-                                                  fontWeight: FontWeight.bold),
-                                            )),
-                                        SizedBox(
-                                            width: 100,
-                                            child: Text(
-                                              "${snapshot.data![0].reservation[0].busName}",
-                                              textAlign: TextAlign.end,
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: HexColor('#9e1510'),
-                                                  fontWeight: FontWeight.bold),
-                                            )),
+                                        SizedBox(width:100,child: Text("Reserve No.${snapshot.data![0].reservation[0].ticketNo}",style: TextStyle(fontSize: 12,color: HexColor('#9e1510'),fontWeight: FontWeight.bold),)),
+
+                                        SizedBox(width:100,child: Text("${snapshot.data![0].reservation[0].busName}",textAlign: TextAlign.end,style: TextStyle(fontSize: 12,color: HexColor('#9e1510'),fontWeight: FontWeight.bold),)),
                                       ],
                                     ),
                                     SizedBox(
@@ -618,48 +597,45 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                         ),
                                         Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                             children: [
-                                              InkWell(
-                                                  onTap: () async {
-                                                    await FlutterPhoneDirectCaller
-                                                        .callNumber(snapshot
-                                                            .data![0]
-                                                            .reservation[0]
-                                                            .driverNo);
-                                                  },
-                                                  child: Text(
-                                                    snapshot
+
+                                          InkWell(
+                                              onTap: () async {
+                                                await FlutterPhoneDirectCaller
+                                                    .callNumber(snapshot
                                                         .data![0]
                                                         .reservation[0]
-                                                        .driverName,
-                                                    style: TextStyle(
-                                                        fontSize: 18,
-                                                        color:
-                                                            HexColor('#9e1510'),
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  )),
-                                              SizedBox(
-                                                width: 5,
-                                              ),
-                                              Container(
-                                                margin:
-                                                    EdgeInsets.only(bottom: 2),
-                                                child: InkWell(
-                                                    onTap: () async {
-                                                      await FlutterPhoneDirectCaller
-                                                          .callNumber(snapshot
-                                                              .data![0]
-                                                              .reservation[0]
-                                                              .driverNo);
-                                                    },
-                                                    child: Icon(
-                                                      Icons.call,
-                                                      size: 15,
-                                                    )),
-                                              ),
-                                            ]),
+                                                        .driverNo);
+                                              },
+                                              child: Text(
+                                                snapshot.data![0].reservation[0]
+                                                    .driverName,
+                                                style: TextStyle(
+                                                    fontSize: 18,
+                                                    color: HexColor('#9e1510'),
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              )),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(bottom: 2),
+                                            child: InkWell(
+                                                onTap: () async {
+                                                  await FlutterPhoneDirectCaller
+                                                      .callNumber(snapshot
+                                                          .data![0]
+                                                          .reservation[0]
+                                                          .driverNo);
+                                                },
+                                                child: Icon(
+                                                  Icons.call,
+                                                  size: 15,
+                                                )),
+                                          ),
+                                        ]),
                                       ],
                                     ),
                                     SizedBox(height: 12),
@@ -730,8 +706,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                                         width: 7,
                                                         child: DecoratedBox(
                                                           decoration: BoxDecoration(
-                                                              color: HexColor(
-                                                                  '#9e1510')),
+                                                              color:HexColor('#9e1510')),
                                                         ),
                                                       )),
                                               direction: Axis.horizontal,
@@ -745,7 +720,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 20,
+                                      height:20,
                                       width: 15,
                                       child: DecoratedBox(
                                         decoration: BoxDecoration(
@@ -760,8 +735,9 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                 ),
                               ),
                               Container(
-                                height: 50,
-                                padding: EdgeInsets.only(left: 20, right: 20),
+                                height:50,
+                                padding: EdgeInsets.only(
+                                    left: 20, right: 20),
                                 decoration: BoxDecoration(
                                     color: Colors.amber,
                                     borderRadius: BorderRadius.only(
@@ -783,15 +759,15 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                               "assets/images/logo6.gif",
                                               width: 22,
                                             )),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text("MAKE IT HAPPEN",
+                                        SizedBox(width: 10,),
+                                        Text(
+                                            "MAKE IT HAPPEN",
                                             textAlign: TextAlign.end,
                                             style: TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                color: HexColor('#9e1510'))),
+                                                color:
+                                                HexColor('#9e1510'))),
                                         Expanded(
                                             child: Text(
                                                 "\EGP ${snapshot.data![0].reservation[0].reserveAmount}",
@@ -803,6 +779,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
                                                         HexColor('#9e1510')))),
                                       ],
                                     ),
+
                                   ],
                                 ),
                               ),
@@ -827,4 +804,7 @@ class _TicketUiScreenState extends State<TicketUiScreen> {
       ),
     );
   }
+
+
 }
+
