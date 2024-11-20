@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final busList = busListFromJson(jsonString);
-
 import 'dart:convert';
 
 List<BusList> busListFromJson(String str) =>
@@ -28,6 +24,7 @@ class BusList {
     required this.token,
     required this.update,
     required this.addbalance,
+    required this.subamount,
   });
 
   String activisionStatus;
@@ -46,6 +43,7 @@ class BusList {
   String token;
   String update;
   String addbalance;
+  String subamount;
 
   factory BusList.fromJson(Map<String, dynamic> json) => BusList(
         activisionStatus: json["activision_status"],
@@ -65,6 +63,7 @@ class BusList {
         token: json["token"],
         update: json["update"],
         addbalance: json["addbalance"],
+        subamount: json["bus_sub_amount"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -84,6 +83,7 @@ class BusList {
         "token": token,
         "update": update,
         "addbalance": addbalance,
+        "subamount": subamount,
       };
 }
 
