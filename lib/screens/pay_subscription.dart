@@ -10,6 +10,11 @@ import 'package:http/http.dart' as http;
 import 'package:webview_flutter/webview_flutter.dart';
 
 class PaySubscription extends StatefulWidget {
+  final subamount; // Declare a variable to receive subamount
+
+  // Constructor to receive subamount value
+  const PaySubscription({Key? key, required this.subamount}) : super(key: key);
+  
   @override
   _PaySubscriptionState createState() => _PaySubscriptionState();
 }
@@ -27,6 +32,7 @@ class _PaySubscriptionState extends State<PaySubscription> {
   final TextEditingController priceController = TextEditingController();
 
   bool visible = false;
+  
 
   @override
   void initState() {
@@ -97,10 +103,11 @@ class _PaySubscriptionState extends State<PaySubscription> {
     try {
       // Construct the API URL or endpoint
       final String url =
-          'http://mobile.cic-cairo.edu.eg/BUS/OnLnPayment/$username/$selectedCollege/$price';
+          'http://mobile.cic-cairo.edu.eg/BUS/OnLnPayment/$username/$selectedCollege/$price/subfees';
       // Send GET request
       final response = await http.get(Uri.parse(url));
-
+  print(url);
+  print('hamaaaaaaaaaaaaaada');
       // If the request was successful (status code 200)
       if (response.statusCode == 200) {
         // Parse and return the JSON response
@@ -197,9 +204,16 @@ class _PaySubscriptionState extends State<PaySubscription> {
 
             const SizedBox(height: 16),
 
-            const Text('Pay fees:'),
+            const Text(
+              'Pay Fees:',
+            style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+            ),
             TextField(
-              controller: priceController..text = '100',
+              controller: priceController..text = widget.subamount,
               keyboardType: TextInputType.numberWithOptions(decimal: false),
               inputFormatters: <TextInputFormatter>[
                 FilteringTextInputFormatter.allow(RegExp(r'^\d?\d*')),
@@ -212,7 +226,7 @@ class _PaySubscriptionState extends State<PaySubscription> {
             ),
 
             const SizedBox(height: 16),
-
+        
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 textStyle: TextStyle(
@@ -260,6 +274,8 @@ class _PaySubscriptionState extends State<PaySubscription> {
     );
   }
 
+  
+  
   // Display help dialog
   void _showHelpDialog() {
     showDialog(

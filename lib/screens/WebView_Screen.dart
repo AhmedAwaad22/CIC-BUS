@@ -75,7 +75,7 @@ class _WebViewPageState extends State<WebViewPage> {
               Navigator.pop(context, true);
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AddBalance()),
+                MaterialPageRoute(builder: (context) => HomeScreen()),
               ).then((value) {
                 if (value == true) {
                   // Refresh logic here

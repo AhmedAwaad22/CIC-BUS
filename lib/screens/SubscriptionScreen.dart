@@ -18,13 +18,13 @@ import 'package:http/http.dart' as http;
 import 'LoginScreen.dart';
 
 class SubscriptionScreen extends StatefulWidget {
-  const SubscriptionScreen({Key? key}) : super(key: key);
 
   @override
   State<SubscriptionScreen> createState() => _SubscriptionScreenState();
 }
 
 class _SubscriptionScreenState extends State<SubscriptionScreen> {
+  bool _showAddBalance = false;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final GlobalKey _one = GlobalKey();
   final GlobalKey _two = GlobalKey();
@@ -311,6 +311,11 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                                     if (snapshot.hasError) {
                                       return Center(child: CircularProgressIndicator());
                                     } else if (snapshot.hasData) {
+                                      if (snapshot.data![0].addbalance == "Y") {
+                                    _showAddBalance = true;
+                                  }else{
+                                    _showAddBalance = false;
+                                  }
                                       return Container(
                                         height: MediaQuery.of(context).size.height,
                                         width: MediaQuery.of(context).size.width,
@@ -372,6 +377,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                                               ),
                                             ),
                                             SizedBox(height: 20),
+                                            if (_showAddBalance)
                                             ElevatedButton(
                                               style: ElevatedButton.styleFrom(
                                                 textStyle: TextStyle(fontSize: 18, color: Colors.white),
@@ -386,9 +392,11 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                                                 ),
                                               ),
                                               onPressed: () {
-                                                Navigator.pushReplacement(
+                                                Navigator.push(
                                                   context,
-                                                  MaterialPageRoute(builder: (context) => PaySubscription()),
+                                                  MaterialPageRoute(builder: (context) => PaySubscription(
+                                                    subamount: snapshot.data![0].subamount,
+                                                    )),
                                                 );
                                               },
                                               child: Text(
