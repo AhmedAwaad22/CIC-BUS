@@ -760,20 +760,42 @@ child: Row(
     });
   }
 
-  Future<bool?> showWairing(BuildContext context) async => showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-            title: const Text("Do you want close the application ?"),
-            actions: [
-              ElevatedButton(
-                  onPressed: () => Navigator.pop(context, false),
-                  child: const Text("No")),
-              ElevatedButton(
-                  onPressed: () => SystemNavigator.pop(),
-                  child: const Text("Yes"))
-              //SystemNavigator.pop()
-            ],
-          ));
+Future<bool?> showWairing(BuildContext context) async {
+  return showDialog<bool>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text(
+        "Do you want to close the application?",
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      ),
+      
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      actions: [
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.green, // Button color
+
+          ),
+          onPressed: () => SystemNavigator.pop(),
+          child: const Text("Yes"),
+        ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.red, // Button color
+
+          ),
+          onPressed: () => Navigator.pop(context, false),
+          child: const Text("No"),
+        ),
+        
+      ],
+    ),
+  );
+}
+
+
 
   Logout() async {
     setState(() {

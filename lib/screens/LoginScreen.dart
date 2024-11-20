@@ -132,7 +132,7 @@ class _State extends State<LoginScreen> {
                               ],
                               controller: nameController,
                               decoration: InputDecoration(
-                                hintText: 'E-Mail',
+                                hintText: 'Username',
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
