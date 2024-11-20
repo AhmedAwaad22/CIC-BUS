@@ -77,8 +77,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  
-
   @override
   void initState() {
     autoLogIn();
@@ -101,8 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     _userList.getUserList();
 
-
-      /* Future.delayed(Duration(seconds: 45), () {
+    /* Future.delayed(Duration(seconds: 45), () {
         if (mounted) {
           setState(() {
             showLoading = false;
@@ -120,7 +117,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> secureScreen() async {
     await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   }
-  
 
   void checkNewVersion(NewVersion newVersion) async {
     final status = await newVersion.getVersionStatus();
@@ -159,11 +155,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               : Expanded(
                   child: Scaffold(
-                          body: FutureBuilder(
-                          future: _userList.getUserList(),
-                          builder: (BuildContext context,
-                              AsyncSnapshot<List<BusList>> snapshot) {
-                                /* if (snapshot.connectionState == ConnectionState.none) {
+                    body: FutureBuilder(
+                        future: _userList.getUserList(),
+                        builder: (BuildContext context,
+                            AsyncSnapshot<List<BusList>> snapshot) {
+                          /* if (snapshot.connectionState == ConnectionState.none) {
                                   // Connection was never established or future is null
                                   return Center(
                                     child: Column(
@@ -184,450 +180,562 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ? Center(child: Text("Taking longer than expected..."))
                                       : Center(child: CircularProgressIndicator()); */
                                       return Center(child: CircularProgressIndicator());
-                                }else */ 
-                                if (snapshot.hasData && snapshot.data != null) {
-                                  if (snapshot.data![0].addbalance == "Y") {
-                                    _showAddBalance = true;
-                                  }else{
-                                    _showAddBalance = false;
-                                  }
-                                if (snapshot.hasError) {
-                                  return const Center(
-                                      child: CircularProgressIndicator());
-                                } else if (snapshot.hasData) {
-                                  ref_no =
-                                      snapshot.data![0].reservation[0].ticketNo;
-                                  if (snapshot.data![0].activisionStatus == "Y") {
-                                    if (snapshot.data![0].subscription == "Y") {
-                                      if (snapshot.data![0].holdStatus == 'Y') {
-                                        return HoldScreen();
-                                      } else if (snapshot.data![0].holdStatus ==
-                                          'N') {
-                                        if (snapshot.data![0].reservationStatus ==
-                                            "N") {
-                                          return Scaffold(
-                                               appBar: AppBar(
-                                                    backgroundColor: HexColor('#9e1510'), // Sets background color of the AppBar
-                                                    elevation: 0.0, // Removes shadow
-                                                    titleSpacing: 0.0, // Removes spacing between title and start of AppBar
-                                                    title: Align(
-                                                    alignment: Alignment.topLeft, // Aligns the title to the top left
-                                                    child: Padding(
-                                                      padding: const EdgeInsets.all(8.0),
+                                }else */
+                          if (snapshot.hasData && snapshot.data != null) {
+                            if (snapshot.data![0].addbalance == "Y") {
+                              _showAddBalance = true;
+                            } else {
+                              _showAddBalance = false;
+                            }
+                            if (snapshot.hasError) {
+                              return const Center(
+                                  child: CircularProgressIndicator());
+                            } else if (snapshot.hasData) {
+                              ref_no =
+                                  snapshot.data![0].reservation[0].ticketNo;
+                              if (snapshot.data![0].activisionStatus == "Y") {
+                                if (snapshot.data![0].subscription == "Y") {
+                                  if (snapshot.data![0].holdStatus == 'Y') {
+                                    return HoldScreen();
+                                  } else if (snapshot.data![0].holdStatus ==
+                                      'N') {
+                                    if (snapshot.data![0].reservationStatus ==
+                                        "N") {
+                                      return Scaffold(
+                                        appBar: AppBar(
+                                          backgroundColor: HexColor(
+                                              '#9e1510'), // Sets background color of the AppBar
+                                          elevation: 0.0, // Removes shadow
+                                          titleSpacing:
+                                              0.0, // Removes spacing between title and start of AppBar
+                                          title: Align(
+                                            alignment: Alignment
+                                                .topLeft, // Aligns the title to the top left
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Row(
+                                                children: [
+                                                  ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20.0),
+                                                    child: InkWell(
+                                                      onTap: () async {
+                                                        // Define Accept and Reject buttons
+                                                        Widget acceptButton =
+                                                            TextButton(
+                                                          onPressed: () {
+                                                            // Call the Logout function on accept
+                                                            Logout();
+                                                          },
+                                                          child: Text(
+                                                            'Yes',
+                                                            style: TextStyle(
+                                                              color: HexColor(
+                                                                  '#BD0006'),
+                                                              fontSize: 16,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                            ),
+                                                          ),
+                                                        );
+
+                                                        Widget rejectButton =
+                                                            TextButton(
+                                                          onPressed: () {
+                                                            Navigator.pop(
+                                                                context); // Close the dialog on reject
+                                                          },
+                                                          child: Text(
+                                                            'No',
+                                                            style: TextStyle(
+                                                              color: HexColor(
+                                                                  '#BD0006'),
+                                                              fontSize: 16,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                            ),
+                                                          ),
+                                                        );
+
+                                                        // Set up the AlertDialog
+                                                        AlertDialog alert =
+                                                            AlertDialog(
+                                                          backgroundColor:
+                                                              Colors.white,
+                                                          shape:
+                                                              RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius.all(
+                                                                    Radius.circular(
+                                                                        10.0)),
+                                                          ),
+                                                          contentPadding:
+                                                              EdgeInsets.all(
+                                                                  30),
+                                                          title: Text(
+                                                            "Logout",
+                                                            style: TextStyle(
+                                                              color: HexColor(
+                                                                  '#BD0006'),
+                                                              fontSize: 19,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                            ),
+                                                          ),
+                                                          content: Text(
+                                                            'Are you sure you want to logout from the application?',
+                                                            style: TextStyle(
+                                                                fontSize: 14),
+                                                          ),
+                                                          actions: [
+                                                            Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                acceptButton,
+                                                                SizedBox(
+                                                                    width: 12),
+                                                                rejectButton,
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        );
+
+                                                        // Show the AlertDialog
+                                                        showDialog(
+                                                          context: context,
+                                                          builder: (BuildContext
+                                                              context) {
+                                                            return alert;
+                                                          },
+                                                        );
+                                                      },
                                                       child: Row(
                                                         children: [
-                                                          ClipRRect(
-                                                            borderRadius: BorderRadius.circular(20.0),
-                                                            child: InkWell(
-                                                              onTap: () async {
-                                                                // Define Accept and Reject buttons
-                                                                Widget acceptButton = TextButton(
-                                                                  onPressed: () {
-                                                                    // Call the Logout function on accept
-                                                                    Logout();
-                                                                  },
-                                                                  child: Text(
-                                                                    'Yes',
-                                                                    style: TextStyle(
-                                                                      color: HexColor('#BD0006'),
-                                                                      fontSize: 16,
-                                                                      fontWeight: FontWeight.bold,
-                                                                    ),
-                                                                  ),
-                                                                );
-
-                                                                Widget rejectButton = TextButton(
-                                                                  onPressed: () {
-                                                                    Navigator.pop(context); // Close the dialog on reject
-                                                                  },
-                                                                  child: Text(
-                                                                    'No',
-                                                                    style: TextStyle(
-                                                                      color: HexColor('#BD0006'),
-                                                                      fontSize: 16,
-                                                                      fontWeight: FontWeight.bold,
-                                                                    ),
-                                                                  ),
-                                                                );
-
-                                                                // Set up the AlertDialog
-                                                                AlertDialog alert = AlertDialog(
-                                                                  backgroundColor: Colors.white,
-                                                                  shape: RoundedRectangleBorder(
-                                                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                                                                  ),
-                                                                  contentPadding: EdgeInsets.all(30),
-                                                                  title: Text(
-                                                                    "Logout",
-                                                                    style: TextStyle(
-                                                                      color: HexColor('#BD0006'),
-                                                                      fontSize: 19,
-                                                                      fontWeight: FontWeight.bold,
-                                                                    ),
-                                                                  ),
-                                                                  content: Text(
-                                                                    'Are you sure you want to logout from the application?',
-                                                                    style: TextStyle(fontSize: 14),
-                                                                  ),
-                                                                  actions: [
-                                                                    Row(
-                                                                      mainAxisAlignment: MainAxisAlignment.end,
-                                                                      children: [
-                                                                        acceptButton,
-                                                                        SizedBox(width: 12),
-                                                                        rejectButton,
-                                                                      ],
-                                                                    ),
-                                                                  ],
-                                                                );
-
-                                                                // Show the AlertDialog
-                                                                showDialog(
-                                                                  context: context,
-                                                                  builder: (BuildContext context) {
-                                                                    return alert;
-                                                                  },
-                                                                );
-                                                              },
-                                                              child: Row(
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons.logout,
-                                                                    color: Colors.white,
-                                                                    size: 30.0,
-                                                                  ),
-                                                                  SizedBox(width: 8), // Add spacing between icon and text
-                                                                  Text(
-                                                                    'Logout',
-                                                                    style: TextStyle(
-                                                                      fontFamily: 'Cairo-ExtraLight',
-                                                                      fontSize: 16,
-                                                                      color: Colors.white,
-                                                                      fontWeight: FontWeight.w800,
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
+                                                          Icon(
+                                                            Icons.logout,
+                                                            color: Colors.white,
+                                                            size: 30.0,
+                                                          ),
+                                                          SizedBox(
+                                                              width:
+                                                                  8), // Add spacing between icon and text
+                                                          Text(
+                                                            'Logout',
+                                                            style: TextStyle(
+                                                              fontFamily:
+                                                                  'Cairo-ExtraLight',
+                                                              fontSize: 16,
+                                                              color:
+                                                                  Colors.white,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w800,
                                                             ),
                                                           ),
                                                         ],
                                                       ),
                                                     ),
-                                                    ),
-                                                    actions: <Widget>[
-                                                    IconButton(
-                                                      color: Colors.white,
-                                                      onPressed: () async {
-                                                        setState(() {
-                                                          pressed = !pressed; // Toggle the pressed state
-                                                        });
-                                                      },
-                                                      icon: pressed ? Icon(Icons.help) : Icon(Icons.help_outline),
-                                                    ),
-                                                    ],
-                                                    automaticallyImplyLeading: false, // Prevents default back button
-                                                    flexibleSpace: SafeArea(
-                                                    child: Align(
-                                                      alignment: Alignment.center,
-                                                      child: AutoSizeText(
-                                                        "CIC Bus",
-                                                        style: TextStyle(
-                                                          fontSize: 20.0,
-                                                          fontWeight: FontWeight.bold,
-                                                          color: Colors.white,
-                                                          fontFamily: 'Cairo-VariableFont_wght',
-                                                        ),
-                                                      ),
-                                                    ),
                                                   ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          actions: <Widget>[
+                                            IconButton(
+                                              color: Colors.white,
+                                              onPressed: () async {
+                                                setState(() {
+                                                  pressed =
+                                                      !pressed; // Toggle the pressed state
+                                                });
+                                              },
+                                              icon: pressed
+                                                  ? Icon(Icons.help)
+                                                  : Icon(Icons.help_outline),
+                                            ),
+                                          ],
+                                          automaticallyImplyLeading:
+                                              false, // Prevents default back button
+                                          flexibleSpace: SafeArea(
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: AutoSizeText(
+                                                "CIC Bus",
+                                                style: TextStyle(
+                                                  fontSize: 20.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                  fontFamily:
+                                                      'Cairo-VariableFont_wght',
                                                 ),
-
-
-                                              body: Stack(
-                                              children: <Widget>[
-                                                Container(
-                                                  height: MediaQuery.of(context).size.height / 3.0,
-                                                  width: MediaQuery.of(context).size.width,
-                                                  decoration: BoxDecoration(
-                                                    color: HexColor('#9e1510'),
-                                                    borderRadius: BorderRadius.only(
-                                                      bottomLeft: Radius.circular(25),
-                                                      bottomRight: Radius.circular(25),
-                                                    ),
-                                                  ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        body: Stack(
+                                          children: <Widget>[
+                                            Container(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height /
+                                                  3.0,
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              decoration: BoxDecoration(
+                                                color: HexColor('#9e1510'),
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(25),
+                                                  bottomRight:
+                                                      Radius.circular(25),
                                                 ),
-                                                SafeArea(
-                                                  child: Padding(
-                                                    padding: EdgeInsets.all(16.0),
-                                                    child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                      children: <Widget>[
-                                                        Row(
-                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                          children: [
-                                                            Expanded(
-                                                              child: AutoSizeText(
-                                                                'Hello, \n$name',
-                                                                style: const TextStyle(
-                                                                  color: Colors.white,
-                                                                  fontSize: 20,
-                                                                  fontFamily: 'Kanit-Light',
-                                                                  fontWeight: FontWeight.w800,
-                                                                ),
-                                                                maxFontSize: 20,
-                                                                maxLines: 2,
-                                                                minFontSize: 15,
-                                                              ),
+                                              ),
+                                            ),
+                                            SafeArea(
+                                              child: Padding(
+                                                padding: EdgeInsets.all(16.0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Expanded(
+                                                          child: AutoSizeText(
+                                                            'Hello, \n$name',
+                                                            style:
+                                                                const TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 20,
+                                                              fontFamily:
+                                                                  'Kanit-Light',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w800,
                                                             ),
-                                                            Column(
-                                                              crossAxisAlignment: CrossAxisAlignment.end,
+                                                            maxFontSize: 20,
+                                                            maxLines: 2,
+                                                            minFontSize: 15,
+                                                          ),
+                                                        ),
+                                                        Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          children: [
+                                                            AutoSizeText(
+                                                              'Balance',
+                                                              style: TextStyle(
+                                                                fontSize: 20,
+                                                                color: Colors
+                                                                    .white,
+                                                                fontFamily:
+                                                                    'Kanit-Light',
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w800,
+                                                              ),
+                                                              minFontSize: 15,
+                                                              maxLines: 1,
+                                                              maxFontSize: 20,
+                                                            ),
+                                                            SizedBox(height: 5),
+                                                            Row(
                                                               children: [
+                                                                Image.asset(
+                                                                  'assets/images/wallet.png',
+                                                                  height: 20,
+                                                                  width: 20,
+                                                                ),
+                                                                SizedBox(
+                                                                    width: 4),
                                                                 AutoSizeText(
-                                                                  'Balance',
-                                                                  style: TextStyle(
-                                                                    fontSize: 20,
-                                                                    color: Colors.white,
-                                                                    fontFamily: 'Kanit-Light',
-                                                                    fontWeight: FontWeight.w800,
+                                                                  "${snapshot.data![0].currentBalance} EGP",
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w800,
+                                                                    fontFamily:
+                                                                        'Kanit-Light',
+                                                                    fontSize:
+                                                                        20,
                                                                   ),
-                                                                  minFontSize: 15,
+                                                                  maxFontSize:
+                                                                      20,
                                                                   maxLines: 1,
-                                                                  maxFontSize: 20,
-                                                                ),
-                                                                SizedBox(height: 5),
-                                                                Row(
-                                                                  children: [
-                                                                    Image.asset(
-                                                                      'assets/images/wallet.png',
-                                                                      height: 20,
-                                                                      width: 20,
-                                                                    ),
-                                                                    SizedBox(width: 4),
-                                                                    AutoSizeText(
-                                                                      "${snapshot.data![0].currentBalance} EGP",
-                                                                      style: TextStyle(
-                                                                        color: Colors.white,
-                                                                        fontWeight: FontWeight.w800,
-                                                                        fontFamily: 'Kanit-Light',
-                                                                        fontSize: 20,
-                                                                      ),
-                                                                      maxFontSize: 20,
-                                                                      maxLines: 1,
-                                                                      minFontSize: 15,
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                SizedBox(height: 10),
-                                                                if (_showAddBalance)
-                                                                ElevatedButton(
-                                                                  onPressed: () {
-                                                                          Navigator.of(context).push(
-                                                                          MaterialPageRoute(
-                                                                          builder: (context) => AddBalance(),
-                                                                                  ),
-                                                                              );
-                                                                    // showAddBalanceDialog();
-                                                                  },
-                                                                  style: ElevatedButton.styleFrom(
-                                                                    primary: HexColor('#BD0006'), // Button color
-                                                                    shape: RoundedRectangleBorder(
-                                                                      borderRadius: BorderRadius.circular(10),
-                                                                    ),
-                                                                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                                                                  ),
-                                                                  child: Text(
-                                                                    'Add Balance',
-                                                                    style: TextStyle(
-                                                                      color: Colors.white,
-                                                                      fontFamily: 'Kanit-Light',
-                                                                      fontSize: 16,
-                                                                    ),
-                                                                  ),
+                                                                  minFontSize:
+                                                                      15,
                                                                 ),
                                                               ],
                                                             ),
+                                                            SizedBox(
+                                                                height: 10),
+                                                            if (_showAddBalance)
+                                                              ElevatedButton(
+                                                                onPressed: () {
+                                                                  Navigator.of(
+                                                                          context)
+                                                                      .push(
+                                                                    MaterialPageRoute(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              AddBalance(),
+                                                                    ),
+                                                                  );
+                                                                  // showAddBalanceDialog();
+                                                                },
+                                                                style: ElevatedButton
+                                                                    .styleFrom(
+                                                                  primary: HexColor(
+                                                                      '#BD0006'), // Button color
+                                                                  shape:
+                                                                      RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            10),
+                                                                  ),
+                                                                  padding: EdgeInsets.symmetric(
+                                                                      horizontal:
+                                                                          20,
+                                                                      vertical:
+                                                                          10),
+                                                                ),
+                                                                child: Text(
+                                                                  'Add Balance',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontFamily:
+                                                                        'Kanit-Light',
+                                                                    fontSize:
+                                                                        16,
+                                                                  ),
+                                                                ),
+                                                              ),
                                                           ],
                                                         ),
-                                                        SizedBox(height: 25),
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding: EdgeInsets.only(top: 50),
-                                                            child: RefreshIndicator(
-                                                              onRefresh: refresh_busLines,
-                                                              child: FutureBuilder<List<Trips>>(
-                                                                future: getTripList(),
-                                                                builder: (context, snapshot) {
-                                                                  if (!snapshot.hasData) {
-                                                                    return Center(
-                                                                      child: CircularProgressIndicator(),
-                                                                    );
-                                                                  }
-                                                                  List<Trips>? data = snapshot.data;
+                                                      ],
+                                                    ),
+                                                    SizedBox(height: 25),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                top: 50),
+                                                        child: RefreshIndicator(
+                                                          onRefresh:
+                                                              refresh_busLines,
+                                                          child: FutureBuilder<
+                                                              List<Trips>>(
+                                                            future:
+                                                                getTripList(),
+                                                            builder: (context,
+                                                                snapshot) {
+                                                              if (!snapshot
+                                                                  .hasData) {
+                                                                return Center(
+                                                                  child:
+                                                                      CircularProgressIndicator(),
+                                                                );
+                                                              }
+                                                              List<Trips>?
+                                                                  data =
+                                                                  snapshot.data;
 
-                                                                  return Column(
-                                                                    children: [
-                                                                      if (pressed) // Check if the pressed state is true
-                                                                        Expanded(
-                                                                          child: SingleChildScrollView(
-                                                                            child: Container(
-                                                                              decoration: BoxDecoration(color: Colors.white),
-                                                                              child: Column(
-                                                                                children: [
-                                                                                  Row(
-                                                                                    children: <Widget>[
-                                                                                      Expanded(
-                                                                                        child: Divider(
-                                                                                          thickness: 2,
-                                                                                          color: HexColor('#BD0006'),
-                                                                                          height: 25,
-                                                                                        ),
-                                                                                      ),
-                                                                                      Text(
-                                                                                        "User Guide",
-                                                                                        style: TextStyle(
-                                                                                          color: HexColor('#BD0006'),
-                                                                                          fontSize: MediaQuery.of(context).size.height * 0.02,
-                                                                                          fontWeight: FontWeight.bold,
-                                                                                          fontFamily: 'Tajawal-Regular',
-                                                                                        ),
-                                                                                      ),
-                                                                                      Expanded(
-                                                                                        child: Divider(
-                                                                                          thickness: 2,
-                                                                                          color: HexColor('#BD0006'),
-                                                                                          height: 25,
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
+                                                              return Column(
+                                                                children: [
+                                                                  if (pressed) // Check if the pressed state is true
+                                                                    Expanded(
+                                                                      child:
+                                                                          SingleChildScrollView(
+                                                                        child:
+                                                                            Container(
+                                                                          decoration:
+                                                                              BoxDecoration(color: Colors.white),
+                                                                          child:
+                                                                              Column(
+                                                                            children: [
+                                                                              Row(
+                                                                                children: <Widget>[
+                                                                                  Expanded(
+                                                                                    child: Divider(
+                                                                                      thickness: 2,
+                                                                                      color: HexColor('#BD0006'),
+                                                                                      height: 25,
+                                                                                    ),
                                                                                   ),
-                                                                                  SizedBox(height: 20),
-                                                                                  Image.asset(
-                                                                                    "assets/images/BUS Application_Page_1.jpg",
-                                                                                    width: MediaQuery.of(context).size.height * 0.50,
+                                                                                  Text(
+                                                                                    "User Guide",
+                                                                                    style: TextStyle(
+                                                                                      color: HexColor('#BD0006'),
+                                                                                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                                                                                      fontWeight: FontWeight.bold,
+                                                                                      fontFamily: 'Tajawal-Regular',
+                                                                                    ),
+                                                                                  ),
+                                                                                  Expanded(
+                                                                                    child: Divider(
+                                                                                      thickness: 2,
+                                                                                      color: HexColor('#BD0006'),
+                                                                                      height: 25,
+                                                                                    ),
                                                                                   ),
                                                                                 ],
                                                                               ),
-                                                                            ),
+                                                                              SizedBox(height: 20),
+                                                                              Image.asset(
+                                                                                "assets/images/BUS Application_Page_1.jpg",
+                                                                                width: MediaQuery.of(context).size.height * 0.50,
+                                                                              ),
+                                                                            ],
                                                                           ),
                                                                         ),
-                                                                      Expanded(
-                                                                        child: GridView.builder(
-                                                                          itemCount: snapshot.data!.length,
-                                                                          itemBuilder: (BuildContext context, int index) {
-                                                                            tripId = data![index].busId;
-                                                                            print(tripId);
-                                                                            return ClipRRect(
-                                                                              borderRadius: BorderRadius.circular(20),
-                                                                              child: Center(
-                                                                                child: Container(
-                                                                                  decoration: BoxDecoration(
-                                                                                    color: HexColor('#ffc209'),
-                                                                                    borderRadius: BorderRadius.circular(15),
-                                                                                    boxShadow: const [
-                                                                                      BoxShadow(
-                                                                                        offset: Offset(0, 17),
-                                                                                        blurRadius: 20,
-                                                                                        spreadRadius: -100,
-                                                                                        color: Colors.blueGrey,
-                                                                                      ),
-                                                                                    ],
+                                                                      ),
+                                                                    ),
+                                                                  Expanded(
+                                                                    child: GridView
+                                                                        .builder(
+                                                                      itemCount: snapshot
+                                                                          .data!
+                                                                          .length,
+                                                                      itemBuilder:
+                                                                          (BuildContext context,
+                                                                              int index) {
+                                                                        tripId =
+                                                                            data![index].busId;
+                                                                        print(
+                                                                            tripId);
+                                                                        return ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(20),
+                                                                          child:
+                                                                              Center(
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(
+                                                                                color: HexColor('#ffc209'),
+                                                                                borderRadius: BorderRadius.circular(15),
+                                                                                boxShadow: const [
+                                                                                  BoxShadow(
+                                                                                    offset: Offset(0, 17),
+                                                                                    blurRadius: 20,
+                                                                                    spreadRadius: -100,
+                                                                                    color: Colors.blueGrey,
                                                                                   ),
-                                                                                  child: Material(
-                                                                                    color: Colors.transparent,
-                                                                                    child: InkWell(
-                                                                                      onTap: () {
-                                                                                        Navigator.push(
-                                                                                          context,
-                                                                                          MaterialPageRoute(
-                                                                                            builder: (context) => TripsScreen(bus: data[index]),
-                                                                                          ),
-                                                                                        );
-                                                                                      },
-                                                                                      child: Padding(
-                                                                                        padding: const EdgeInsets.all(10.0),
-                                                                                        child: Column(
-                                                                                          children: <Widget>[
-                                                                                            Expanded(
-                                                                                              child: Image.asset(
-                                                                                                "assets/images/home_first.png",
-                                                                                                width: MediaQuery.of(context).size.width * .5,
-                                                                                                height: MediaQuery.of(context).size.height * .5,
-                                                                                              ),
-                                                                                            ),
-                                                                                            Text(
-                                                                                              data[index].enName,
-                                                                                              style: TextStyle(
-                                                                                                color: HexColor('#9e1510'),
-                                                                                                fontWeight: FontWeight.bold,
-                                                                                                fontSize: 18,
-                                                                                                fontFamily: 'Kanit-Light',
-                                                                                              ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
+                                                                                ],
+                                                                              ),
+                                                                              child: Material(
+                                                                                color: Colors.transparent,
+                                                                                child: InkWell(
+                                                                                  onTap: () {
+                                                                                    Navigator.push(
+                                                                                      context,
+                                                                                      MaterialPageRoute(
+                                                                                        builder: (context) => TripsScreen(bus: data[index]),
                                                                                       ),
+                                                                                    );
+                                                                                  },
+                                                                                  child: Padding(
+                                                                                    padding: const EdgeInsets.all(10.0),
+                                                                                    child: Column(
+                                                                                      children: <Widget>[
+                                                                                        Expanded(
+                                                                                          child: Image.asset(
+                                                                                            "assets/images/home_first.png",
+                                                                                            width: MediaQuery.of(context).size.width * .5,
+                                                                                            height: MediaQuery.of(context).size.height * .5,
+                                                                                          ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          data[index].enName,
+                                                                                          style: TextStyle(
+                                                                                            color: HexColor('#9e1510'),
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                            fontSize: 18,
+                                                                                            fontFamily: 'Kanit-Light',
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
                                                                                     ),
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            );
-                                                                          },
-                                                                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                                                            crossAxisCount: 2,
-                                                                            crossAxisSpacing: 15,
-                                                                            mainAxisSpacing: 15,
+                                                                            ),
                                                                           ),
-                                                                        ),
+                                                                        );
+                                                                      },
+                                                                      gridDelegate:
+                                                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                                                        crossAxisCount:
+                                                                            2,
+                                                                        crossAxisSpacing:
+                                                                            15,
+                                                                        mainAxisSpacing:
+                                                                            15,
                                                                       ),
-                                                                    ],
-                                                                  );
-                                                                },
-                                                              ),
-                                                            ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
                                                           ),
                                                         ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
+                                                  ],
                                                 ),
-                                              ],
+                                              ),
                                             ),
-
-
-                                          );
-                                        } else {
-                                          //cancelation and reservation important (New)
-                                          return TicketScreen();
-                                        }
-                                      } else {
-                                        return CircularProgressIndicator();
-                                      }
+                                          ],
+                                        ),
+                                      );
                                     } else {
-                                      return Column(children: [
-                                        Expanded(child: SubscriptionScreen())
-                                      ]);
+                                      //cancelation and reservation important (New)
+                                      return TicketScreen();
                                     }
-                                  } else if (snapshot.data![0].activisionStatus ==
-                                      "N") {
-                                    return Close();
                                   } else {
-                                    return const Center(
-                                        child: CircularProgressIndicator());
+                                    return CircularProgressIndicator();
                                   }
                                 } else {
-                                  return const Center(
-                                      child: CircularProgressIndicator());
+                                  return Column(children: [
+                                    Expanded(child: SubscriptionScreen())
+                                  ]);
                                 }
-
-                                }else{
-                                    // Handle the case where snapshot.data is null
-                                    //return Center(child: Text('No data available'));
-                                    return Center(child: CircularProgressIndicator());
-                                }
+                              } else if (snapshot.data![0].activisionStatus ==
+                                  "N") {
+                                return Close();
+                              } else {
+                                return const Center(
+                                    child: CircularProgressIndicator());
                               }
-                   ),
-               ),
-          ),
+                            } else {
+                              return const Center(
+                                  child: CircularProgressIndicator());
+                            }
+                          } else {
+                            // Handle the case where snapshot.data is null
+                            //return Center(child: Text('No data available'));
+                            return Center(child: CircularProgressIndicator());
+                          }
+                        }),
+                  ),
+                ),
         ],
       ),
     );
@@ -770,8 +878,8 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 void showAddBalanceDialog() {
-    var context;
-    showDialog(
+  var context;
+  showDialog(
     context: context,
     builder: (BuildContext context) {
       TextEditingController amountController = TextEditingController();

@@ -37,7 +37,7 @@ class PickupElement {
         activeMsg: json["active_msg"],
         nameStatus: json["name_status"],
         driverName: json["driver_name"],
-        busNumber: json["bus_number"] ,
+        busNumber: json["bus_number"],
         driverNo: json["driver_no"],
       );
 

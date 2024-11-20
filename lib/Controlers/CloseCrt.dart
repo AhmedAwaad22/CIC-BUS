@@ -44,19 +44,17 @@ class CloseCrt extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
         colorText: Colors.white,
         backgroundColor: Colors.black,
-
       );
       // here
-
     }
   }
+
   var data = [];
   List<BusList> results = [];
   String urlList = 'http://mobile.cic-cairo.edu.eg/BUS/BusLines';
-  Future<PackageInfo> packageInfo =  PackageInfo.fromPlatform();
+  Future<PackageInfo> packageInfo = PackageInfo.fromPlatform();
 
   //FetchUserList({Key? key,required this.context});
-
 
   Future<List<BusList>> getUserList() async {
     var url = Uri.parse(urlList);
@@ -75,7 +73,11 @@ class CloseCrt extends GetxController {
         print(token);
         print("dah version");
         print(version);
-        Map postdata = {'campus': campus, 'username': username,'version': version};
+        Map postdata = {
+          'campus': campus,
+          'username': username,
+          'version': version
+        };
 
         var response = await http.post(url,
             body: postdata,
@@ -85,13 +87,10 @@ class CloseCrt extends GetxController {
           data = json.decode(response.body);
           results = data.map((e) => BusList.fromJson(e)).toList();
           //First
-          if(results[0].token=="N")
-          {
+          if (results[0].token == "N") {
             Get.to(() => LoginScreen()); //y
-          } else
-          {
-            if(results[0].update == "Y")
-            {
+          } else {
+            if (results[0].update == "Y") {
               Get.to(() => UpdateScreenMandatory());
             }
           }
@@ -111,7 +110,11 @@ class CloseCrt extends GetxController {
         String version = packageInfo.version;
         print(campus);
         print(username);
-        Map postdata = {'campus': campus, 'username': username,'version':version};
+        Map postdata = {
+          'campus': campus,
+          'username': username,
+          'version': version
+        };
 
         var response = await http.post(url,
             body: postdata, headers: {HttpHeaders.userAgentHeader: "IosApp"});
@@ -119,13 +122,10 @@ class CloseCrt extends GetxController {
         if (response.statusCode == 200) {
           data = json.decode(response.body);
           results = data.map((e) => BusList.fromJson(e)).toList();
-          if(results[0].token=="N")
-          {
+          if (results[0].token == "N") {
             Get.to(() => LoginScreen()); //y
-          } else
-          {
-            if(results[0].update == "Y")
-            {
+          } else {
+            if (results[0].update == "Y") {
               Get.to(() => UpdateScreenMandatory());
             }
             //Get.to(() => UpdateScreenMandatory());
@@ -136,8 +136,6 @@ class CloseCrt extends GetxController {
       }
     }
 
-
     return results;
-
   }
 }

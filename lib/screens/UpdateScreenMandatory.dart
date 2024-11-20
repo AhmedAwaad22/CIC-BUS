@@ -10,17 +10,17 @@ class UpdateScreenMandatory extends StatelessWidget {
   Future<bool?> showWairing(BuildContext context) async => showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Do you want close the application ?"),
-        actions: [
-          ElevatedButton(
-              onPressed: () => Navigator.pop(context, false),
-              child: const Text("No")),
-          ElevatedButton(
-              onPressed: () => SystemNavigator.pop(),
-              child: const Text("Yes"))
-          //SystemNavigator.pop()
-        ],
-      ));
+            title: const Text("Do you want close the application ?"),
+            actions: [
+              ElevatedButton(
+                  onPressed: () => Navigator.pop(context, false),
+                  child: const Text("No")),
+              ElevatedButton(
+                  onPressed: () => SystemNavigator.pop(),
+                  child: const Text("Yes"))
+              //SystemNavigator.pop()
+            ],
+          ));
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +48,9 @@ class UpdateScreenMandatory extends StatelessWidget {
                       primary: HexColor('#BD0006'),
                       padding: EdgeInsets.all(20),
                       shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                              color:
-                              HexColor('#BD0006'),
-                              width: 1),
-                          borderRadius:
-                          BorderRadius.circular(
-                              25.0)),
+                          side:
+                              BorderSide(color: HexColor('#BD0006'), width: 1),
+                          borderRadius: BorderRadius.circular(25.0)),
                     ),
                     onPressed: () {
                       // set up the buttons
@@ -63,7 +59,7 @@ class UpdateScreenMandatory extends StatelessWidget {
                     child: Text(
                       "Update now",
                       style: TextStyle(
-                        color: Colors.white,
+                          color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Kanit-Light'),

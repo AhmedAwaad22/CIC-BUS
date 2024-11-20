@@ -46,6 +46,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
     _doctorsFuture = getPickup();
   }
+
   Future<void> secureScreen() async {
     await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   }
@@ -74,802 +75,1011 @@ class _DetailsScreenState extends State<DetailsScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Provider.of<InternetConnectionStatus>(context) == InternetConnectionStatus.disconnected
+            Provider.of<InternetConnectionStatus>(context) ==
+                    InternetConnectionStatus.disconnected
                 ? Expanded(
-                  child: NoInternet(),
-            ) :
-                Expanded(
-                  child: Scaffold(
-                  backgroundColor: const Color(0xFFFFFFFF),
-                  appBar: AppBar(
-                    leading: IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back_ios,
-                      ),
-                      onPressed: () => Navigator.pop(context),
-                    ),
-                    title: Text(
-                      '${widget.busList.pickMsg} ${widget.busList.enName} ',
-                      style: const TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold,fontFamily: 'Cairo-VariableFont_wght',fontSize: 20),
-                    ),
-                    backgroundColor: HexColor('#9e1510'),
-                    centerTitle: true,
-                    elevation: 0,
-                    iconTheme: IconThemeData(color: Colors.white),
-                    actions: <Widget>[
-                      IconButton(
-                        onPressed: () async {
-                          setState(() {
-                            if (!pressed) {
-                              pressed = true;
-                            } else {
-                              pressed = false;
-                            }
-                            ;
-                          });
-                        },
-                        icon: Icon(
-                          pressed ? Icons.help : Icons.help_outline,
-                          color: Colors.white, // Sets the color of the help icon to white
-                        ),                        
-                      ),
-                    ],
-                  ),
-
-                  body: FutureBuilder(
-                    future: getPickup(),
-                    builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                      print("hna ahm snapn shot");
-                      print (snapshot.data);
-                      if (snapshot.hasError) {
-                        return Center(
-                          child: Text(
-                            'Oops! something went wrong omar',
-                            style: TextStyle(fontSize: 18),
+                    child: NoInternet(),
+                  )
+                : Expanded(
+                    child: Scaffold(
+                        backgroundColor: const Color(0xFFFFFFFF),
+                        appBar: AppBar(
+                          leading: IconButton(
+                            icon: const Icon(
+                              Icons.arrow_back_ios,
+                            ),
+                            onPressed: () => Navigator.pop(context),
                           ),
-                        );
-                      } else if (snapshot.hasData) {
-                        if(snapshot.data[0].driverName == '')
-                          {
-                            return Column(
-                              children: [
-                                pressed
-                                    ? Expanded(
-                                  child:
-                                  SingleChildScrollView(
-                                    child: Container(
-                                      decoration:
-                                      BoxDecoration(
-                                          color:Colors.white ),
+                          title: Text(
+                            '${widget.busList.pickMsg} ${widget.busList.enName} ',
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Cairo-VariableFont_wght',
+                                fontSize: 20),
+                          ),
+                          backgroundColor: HexColor('#9e1510'),
+                          centerTitle: true,
+                          elevation: 0,
+                          iconTheme: IconThemeData(color: Colors.white),
+                          actions: <Widget>[
+                            IconButton(
+                              onPressed: () async {
+                                setState(() {
+                                  if (!pressed) {
+                                    pressed = true;
+                                  } else {
+                                    pressed = false;
+                                  }
+                                  ;
+                                });
+                              },
+                              icon: Icon(
+                                pressed ? Icons.help : Icons.help_outline,
+                                color: Colors
+                                    .white, // Sets the color of the help icon to white
+                              ),
+                            ),
+                          ],
+                        ),
+                        body: FutureBuilder(
+                          future: getPickup(),
+                          builder: (BuildContext context,
+                              AsyncSnapshot<dynamic> snapshot) {
+                            print("hna ahm snapn shot");
+                            print(snapshot.data);
+                            if (snapshot.hasError) {
+                              return Center(
+                                child: Text(
+                                  'Oops! something went wrong omar',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              );
+                            } else if (snapshot.hasData) {
+                              if (snapshot.data[0].driverName == '') {
+                                return Column(
+                                  children: [
+                                    pressed
+                                        ? Expanded(
+                                            child: SingleChildScrollView(
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    color: Colors.white),
+                                                child: Column(
+                                                  children: [
+                                                    Row(children: <Widget>[
+                                                      Expanded(
+                                                        child: new Container(
+                                                            margin:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                                    left: 10.0,
+                                                                    right:
+                                                                        15.0),
+                                                            child: Divider(
+                                                              thickness: 2,
+                                                              color: HexColor(
+                                                                  '#9e1510'),
+                                                              height: 25,
+                                                            )),
+                                                      ),
+                                                      Text("User Guide",
+                                                          style: TextStyle(
+                                                              color: HexColor(
+                                                                  '#9e1510'),
+                                                              fontSize: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  0.02,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontFamily:
+                                                                  'Tajawal-Regular')),
+                                                      Expanded(
+                                                        child: new Container(
+                                                            margin:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                                    left: 15.0,
+                                                                    right:
+                                                                        10.0),
+                                                            child: Divider(
+                                                              thickness: 2,
+                                                              color: HexColor(
+                                                                  '#9e1510'),
+                                                              height: 25,
+                                                            )),
+                                                      ),
+                                                    ]),
+                                                    SizedBox(
+                                                      height: 20,
+                                                    ),
+                                                    // Text(
+                                                    //     "Choose you Bus Line.",
+                                                    //     style: TextStyle(
+                                                    //         color: HexColor(
+                                                    //             '#BD0006'),
+                                                    //         fontSize: MediaQuery.of(context).size.height *
+                                                    //             0.02,
+                                                    //         fontWeight: FontWeight
+                                                    //             .bold,
+                                                    //         fontFamily:
+                                                    //         'Tajawal-Regular')),
+                                                    Container(
+                                                        child: Image.asset(
+                                                      "assets/images/BUS Application_Page_3.jpg",
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.50,
+                                                    )),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        : SizedBox(),
+                                    Row(children: <Widget>[
+                                      Expanded(
+                                        child: new Container(
+                                            margin: const EdgeInsets.only(
+                                                left: 10.0, right: 15.0),
+                                            child: Divider(
+                                              thickness: 2,
+                                              color: HexColor('#9e1510'),
+                                              height: 25,
+                                            )),
+                                      ),
+                                      Text("Driver contact Info",
+                                          style: TextStyle(
+                                              color: HexColor('#9e1510'),
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.02,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'Tajawal-Regular')),
+                                      Expanded(
+                                        child: new Container(
+                                            margin: const EdgeInsets.only(
+                                                left: 15.0, right: 10.0),
+                                            child: Divider(
+                                              thickness: 2,
+                                              color: HexColor('#9e1510'),
+                                              height: 25,
+                                            )),
+                                      ),
+                                    ]),
+                                    Expanded(
                                       child: Column(
                                         children: [
-                                          Row(children: <
-                                              Widget>[
-                                            Expanded(
-                                              child: new Container(
-                                                  margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                                  child: Divider(
-                                                    thickness:
-                                                    2,
-                                                    color:
-                                                    HexColor('#9e1510'),
-                                                    height:
-                                                    25,
-                                                  )),
-                                            ),
-                                            Text(
-                                                "User Guide",
-                                                style: TextStyle(
-                                                    color:HexColor('#9e1510'),
-                                                    fontSize: MediaQuery.of(context).size.height *
-                                                        0.02,
-                                                    fontWeight:
-                                                    FontWeight.bold,
-                                                    fontFamily: 'Tajawal-Regular')),
-                                            Expanded(
-                                              child: new Container(
-                                                  margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                                  child: Divider(
-                                                    thickness:
-                                                    2,
-                                                    color:
-                                                    HexColor('#9e1510'),
-                                                    height:
-                                                    25,
-                                                  )),
-                                            ),
-                                          ]),
-                                          SizedBox(
-                                            height: 20,
-                                          ),
-                                          // Text(
-                                          //     "Choose you Bus Line.",
-                                          //     style: TextStyle(
-                                          //         color: HexColor(
-                                          //             '#BD0006'),
-                                          //         fontSize: MediaQuery.of(context).size.height *
-                                          //             0.02,
-                                          //         fontWeight: FontWeight
-                                          //             .bold,
-                                          //         fontFamily:
-                                          //         'Tajawal-Regular')),
-                                          Container(
-                                              child: Image
-                                                  .asset(
-                                                "assets/images/BUS Application_Page_3.jpg",
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                    0.50,
-                                              )),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                )
-                                    : SizedBox(),
-                                Row(children: <Widget>[
-                                  Expanded(
-                                    child: new Container(
-                                        margin:
-                                        const EdgeInsets
-                                            .only(
-                                            left: 10.0,
-                                            right: 15.0),
-                                        child: Divider(
-                                          thickness: 2,
-                                          color: HexColor('#9e1510'),
-                                          height: 25,
-                                        )),
-                                  ),
-                                  Text("Driver contact Info",
-                                      style: TextStyle(
-                                          color: HexColor('#9e1510'),
-                                          fontSize: MediaQuery.of(
-                                              context)
-                                              .size
-                                              .height *
-                                              0.02,
-                                          fontWeight:
-                                          FontWeight.bold,
-                                          fontFamily:
-                                          'Tajawal-Regular')),
-                                  Expanded(
-                                    child: new Container(
-                                        margin:
-                                        const EdgeInsets
-                                            .only(
-                                            left: 15.0,
-                                            right: 10.0),
-                                        child: Divider(
-                                          thickness: 2,
-                                          color: HexColor('#9e1510'),
-                                          height: 25,
-                                        )),
-                                  ),
-                                ]),
-                                Expanded(
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.all(5),
-                                        child: Card(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(20.0),
-                                          ),
-                                          elevation: 22,
-                                          child: ClipPath(
-                                            child: Container(
-                                              padding: const EdgeInsets.symmetric(
-                                                  horizontal: 25, vertical: 25),
-                                              decoration: BoxDecoration(
-                                                border: Border(
-                                                    right: BorderSide(
-                                                        color: HexColor('#9e1510'),
-                                                        width: 12)),
-                                                color: HexColor('#f2f3ef'),
+                                          Padding(
+                                            padding: EdgeInsets.all(5),
+                                            child: Card(
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(20.0),
                                               ),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                                children: <Widget>[
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment.spaceAround,
+                                              elevation: 22,
+                                              child: ClipPath(
+                                                child: Container(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      horizontal: 25,
+                                                      vertical: 25),
+                                                  decoration: BoxDecoration(
+                                                    border: Border(
+                                                        right: BorderSide(
+                                                            color: HexColor(
+                                                                '#9e1510'),
+                                                            width: 12)),
+                                                    color: HexColor('#f2f3ef'),
+                                                  ),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: <Widget>[
-                                                      Text(
-                                                        'There is no driver name or number here',
-                                                        style: TextStyle(
-                                                            color: HexColor('#9e1510'),
-                                                            fontSize: MediaQuery.of(context).size.height*0.02,
-                                                            fontWeight: FontWeight.bold,
-                                                            fontFamily: 'Tajawal-Regular'),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceAround,
+                                                        children: <Widget>[
+                                                          Text(
+                                                            'There is no driver name or number here',
+                                                            style: TextStyle(
+                                                                color: HexColor(
+                                                                    '#9e1510'),
+                                                                fontSize: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .height *
+                                                                    0.02,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontFamily:
+                                                                    'Tajawal-Regular'),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ],
                                                   ),
-                                                ],
+                                                ),
+                                                clipper: ShapeBorderClipper(
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        15))),
                                               ),
                                             ),
-                                            clipper: ShapeBorderClipper(
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                    BorderRadius.circular(15))),
                                           ),
-                                        ),
-                                      ),
-                                      Row(children: <Widget>[
-                                        Expanded(
-                                          child: new Container(
-                                              margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                              child: Divider(
-                                                thickness: 2,
-                                                color:HexColor('#9e1510'),
-                                                height: 25,
-                                              )),
-                                        ),
-
-                                        Text("Pickup points",style: TextStyle(
-                                            color: HexColor('#9e1510'),
-                                            fontSize: MediaQuery.of(context).size.height*0.02,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'Tajawal-Regular')),
-
-                                        Expanded(
-                                          child: new Container(
-                                              margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                              child: Divider(
-                                                thickness: 2,
-                                                color: HexColor('#9e1510'),
-                                                height: 25,
-                                              )),
-                                        ),
-                                      ]),
-                                      Expanded(
-                                        child: SizedBox(
-                                          height: MediaQuery.of(context).size.height*0.9,
-                                          child: ListView.builder(
-                                              itemCount: snapshot.data[0].pickup.length,
-                                              itemBuilder: (BuildContext context, int index) {
-                                                return InkWell(
-                                                  onTap: () {
-                                                    Navigator.of(context).push(MaterialPageRoute(
-                                                        builder: (context) => BookScreenAndPayment(
-                                                          pointsId:
-                                                          snapshot.data[0].pickup[index].pickId,
-                                                          busId: widget.busList.busId.toString(),
-                                                          name: snapshot
-                                                              .data[0].pickup[index].pickNameEn
-                                                              .toString(),
-                                                          Image: snapshot
-                                                              .data[0].pickup[index].pickImage
-                                                              .toString(),
-                                                          DropDown: snapshot
-                                                              .data[0].pickup[index].pickMsg
-                                                              .toString(),
-                                                          bothStatus: snapshot
-                                                              .data[0].pickup[index].bothStatus
-                                                              .toString(),
-                                                          dir: widget.bus.image,
-                                                          time: snapshot
-                                                              .data[0].pickup[index].pickTime,
-                                                          Date: snapshot
-                                                              .data[0].pickup[index].pickDate,
-                                                        )));
-                                                  },
-                                                  child: Padding(
-                                                    padding: EdgeInsets.all(5),
-                                                    child: Card(
-                                                      shape: RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.circular(20.0),
-                                                      ),
-                                                      elevation: 22,
-                                                      child: ClipPath(
-                                                        child: Container(
-                                                          padding: const EdgeInsets.symmetric(
-                                                              horizontal: 25, vertical: 25),
-                                                          decoration: BoxDecoration(
-                                                            border: Border(
-                                                                right: BorderSide(
-                                                                    color: HexColor('#9e1510'),
-                                                                    width: 12)),
-                                                            color: HexColor('#f2f3ef'),
-                                                          ),
-                                                          child: Column(
-                                                            crossAxisAlignment:
-                                                            CrossAxisAlignment.start,
-                                                            children: <Widget>[
-                                                              Row(
-                                                                mainAxisAlignment:
-                                                                MainAxisAlignment.spaceAround,
-                                                                children: <Widget>[
-                                                                  Image.asset(
-                                                                    "assets/images/without_number.png",
-                                                                    width: 35,
-                                                                    height: 35,
-                                                                  ),
-                                                                  Spacer(),
-                                                                  Text(
-                                                                    snapshot.data[0].pickup[index]
-                                                                        .pickNameEn,
-                                                                    style: TextStyle(
-                                                                        color: HexColor('#9e1510'),
-                                                                        fontSize: 18,
-                                                                        fontWeight: FontWeight.bold,
-                                                                        fontFamily: 'Tajawal-Regular'),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              SizedBox(
-                                                                height: 30,
-                                                              ),
-                                                              Row(
-                                                                mainAxisAlignment:
-                                                                MainAxisAlignment.spaceBetween,
-                                                                children: <Widget>[
-                                                                  Row(
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons.today_rounded,
-                                                                        color: HexColor('#9e1510'),
-                                                                        size: 15,
-                                                                      ),
-                                                                      const SizedBox(
-                                                                        width: 6,
-                                                                      ),
-                                                                      Text(snapshot.data[0]
-                                                                          .pickup[index].pickDate)
-                                                                    ],
-                                                                  ),
-                                                                  Row(
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons.date_range,
-                                                                        color: HexColor('#9e1510'),
-                                                                        size: 15,
-                                                                      ),
-                                                                      const SizedBox(
-                                                                        width: 6,
-                                                                      ),
-                                                                      Text(snapshot.data[0]
-                                                                          .pickup[index].pickDay)
-                                                                    ],
-                                                                  ),
-                                                                  Row(
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons
-                                                                            .access_time_filled_rounded,
-                                                                        color: HexColor('#9e1510'),
-                                                                        size: 15,
-                                                                      ),
-                                                                      const SizedBox(
-                                                                        width: 6,
-                                                                      ),
-                                                                      Text(snapshot.data[0]
-                                                                          .pickup[index].pickTime),
-                                                                    ],
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        clipper: ShapeBorderClipper(
-                                                            shape: RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                BorderRadius.circular(15))),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                );
-                                              }),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            );
-                          }
-                        else
-                          {
-                            return Column(
-
-                              children: [
-                                pressed
-                                    ? Expanded(
-                                  child:
-                                  SingleChildScrollView(
-                                    child: Container(
-                                      decoration:
-                                      BoxDecoration(
-                                          color:Colors.white ),
-                                      child: Column(
-                                        children: [
-                                          Row(children: <
-                                              Widget>[
+                                          Row(children: <Widget>[
                                             Expanded(
                                               child: new Container(
-                                                  margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+                                                  margin: const EdgeInsets.only(
+                                                      left: 10.0, right: 15.0),
                                                   child: Divider(
-                                                    thickness:
-                                                    2,
-                                                    color:
-                                                    HexColor('#9e1510'),
-                                                    height:
-                                                    25,
+                                                    thickness: 2,
+                                                    color: HexColor('#9e1510'),
+                                                    height: 25,
                                                   )),
                                             ),
-                                            Text(
-                                                "User Guide",
+                                            Text("Pickup points",
                                                 style: TextStyle(
-                                                    color:HexColor('#9e1510'),
-                                                    fontSize: MediaQuery.of(context).size.height *
-                                                        0.02,
-                                                    fontWeight:
-                                                    FontWeight.bold,
-                                                    fontFamily: 'Tajawal-Regular')),
+                                                    color: HexColor('#9e1510'),
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.02,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontFamily:
+                                                        'Tajawal-Regular')),
                                             Expanded(
                                               child: new Container(
-                                                  margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                                                  margin: const EdgeInsets.only(
+                                                      left: 15.0, right: 10.0),
                                                   child: Divider(
-                                                    thickness:
-                                                    2,
-                                                    color:
-                                                    HexColor('#9e1510'),
-                                                    height:
-                                                    25,
+                                                    thickness: 2,
+                                                    color: HexColor('#9e1510'),
+                                                    height: 25,
                                                   )),
                                             ),
                                           ]),
-                                          SizedBox(
-                                            height: 20,
-                                          ),
-                                          // Text(
-                                          //     "Choose you Bus Line.",
-                                          //     style: TextStyle(
-                                          //         color: HexColor(
-                                          //             '#BD0006'),
-                                          //         fontSize: MediaQuery.of(context).size.height *
-                                          //             0.02,
-                                          //         fontWeight: FontWeight
-                                          //             .bold,
-                                          //         fontFamily:
-                                          //         'Tajawal-Regular')),
-                                          Container(
-                                              child: Image
-                                                  .asset(
-                                                "assets/images/BUS Application_Page_3.jpg",
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                    0.50,
-                                              )),
+                                          Expanded(
+                                            child: SizedBox(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.9,
+                                              child: ListView.builder(
+                                                  itemCount: snapshot
+                                                      .data[0].pickup.length,
+                                                  itemBuilder:
+                                                      (BuildContext context,
+                                                          int index) {
+                                                    return InkWell(
+                                                      onTap: () {
+                                                        Navigator.of(context).push(
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        BookScreenAndPayment(
+                                                                          pointsId: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickId,
+                                                                          busId: widget
+                                                                              .busList
+                                                                              .busId
+                                                                              .toString(),
+                                                                          name: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickNameEn
+                                                                              .toString(),
+                                                                          Image: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickImage
+                                                                              .toString(),
+                                                                          DropDown: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickMsg
+                                                                              .toString(),
+                                                                          bothStatus: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .bothStatus
+                                                                              .toString(),
+                                                                          dir: widget
+                                                                              .bus
+                                                                              .image,
+                                                                          time: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickTime,
+                                                                          Date: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickDate,
+                                                                        )));
+                                                      },
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsets.all(5),
+                                                        child: Card(
+                                                          shape:
+                                                              RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20.0),
+                                                          ),
+                                                          elevation: 22,
+                                                          child: ClipPath(
+                                                            child: Container(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .symmetric(
+                                                                      horizontal:
+                                                                          25,
+                                                                      vertical:
+                                                                          25),
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                border: Border(
+                                                                    right: BorderSide(
+                                                                        color: HexColor(
+                                                                            '#9e1510'),
+                                                                        width:
+                                                                            12)),
+                                                                color: HexColor(
+                                                                    '#f2f3ef'),
+                                                              ),
+                                                              child: Column(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: <Widget>[
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceAround,
+                                                                    children: <Widget>[
+                                                                      Image
+                                                                          .asset(
+                                                                        "assets/images/without_number.png",
+                                                                        width:
+                                                                            35,
+                                                                        height:
+                                                                            35,
+                                                                      ),
+                                                                      Spacer(),
+                                                                      Text(
+                                                                        snapshot
+                                                                            .data[0]
+                                                                            .pickup[index]
+                                                                            .pickNameEn,
+                                                                        style: TextStyle(
+                                                                            color: HexColor(
+                                                                                '#9e1510'),
+                                                                            fontSize:
+                                                                                18,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontFamily: 'Tajawal-Regular'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                  SizedBox(
+                                                                    height: 30,
+                                                                  ),
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: <Widget>[
+                                                                      Row(
+                                                                        children: [
+                                                                          Icon(
+                                                                            Icons.today_rounded,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            size:
+                                                                                15,
+                                                                          ),
+                                                                          const SizedBox(
+                                                                            width:
+                                                                                6,
+                                                                          ),
+                                                                          Text(snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickDate)
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        children: [
+                                                                          Icon(
+                                                                            Icons.date_range,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            size:
+                                                                                15,
+                                                                          ),
+                                                                          const SizedBox(
+                                                                            width:
+                                                                                6,
+                                                                          ),
+                                                                          Text(snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickDay)
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        children: [
+                                                                          Icon(
+                                                                            Icons.access_time_filled_rounded,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            size:
+                                                                                15,
+                                                                          ),
+                                                                          const SizedBox(
+                                                                            width:
+                                                                                6,
+                                                                          ),
+                                                                          Text(snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickTime),
+                                                                        ],
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            clipper: ShapeBorderClipper(
+                                                                shape: RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            15))),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }),
+                                            ),
+                                          )
                                         ],
                                       ),
                                     ),
-                                  ),
-                                )
-                                    : SizedBox(),
-                                Row(children: <Widget>[
-                                  Expanded(
-                                    child: new Container(
-                                        margin:
-                                        const EdgeInsets
-                                            .only(
-                                            left: 10.0,
-                                            right: 15.0),
-                                        child: Divider(
-                                          thickness: 2,
-                                          color: HexColor('#9e1510'),
-                                          height: 25,
-                                        )),
-                                  ),
-                                  Text("Driver contact Info",
-                                      style: TextStyle(
-                                          color: HexColor('#9e1510'),
-                                          fontSize: MediaQuery.of(
-                                              context)
-                                              .size
-                                              .height *
-                                              0.02,
-                                          fontWeight:
-                                          FontWeight.bold,
-                                          fontFamily:
-                                          'Tajawal-Regular')),
-                                  Expanded(
-                                    child: new Container(
-                                        margin:
-                                        const EdgeInsets
-                                            .only(
-                                            left: 15.0,
-                                            right: 10.0),
-                                        child: Divider(
-                                          thickness: 2,
-                                          color: HexColor('#9e1510'),
-                                          height: 25,
-                                        )),
-                                  ),
-                                ]),
-                                Expanded(
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.all(5),
-                                        child: Card(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(20.0),
-                                          ),
-                                          elevation: 22,
-                                          child: ClipPath(
-                                            child: Container(
-                                              padding: const EdgeInsets.symmetric(
-                                                  horizontal: 25, vertical: 25),
-                                              decoration: BoxDecoration(
-                                                border: Border(
-                                                    right: BorderSide(
-                                                        color:HexColor('#9e1510'),
-                                                        width: 12)),
-                                                color: HexColor('#f2f3ef'),
+                                  ],
+                                );
+                              } else {
+                                return Column(
+                                  children: [
+                                    pressed
+                                        ? Expanded(
+                                            child: SingleChildScrollView(
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    color: Colors.white),
+                                                child: Column(
+                                                  children: [
+                                                    Row(children: <Widget>[
+                                                      Expanded(
+                                                        child: new Container(
+                                                            margin:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                                    left: 10.0,
+                                                                    right:
+                                                                        15.0),
+                                                            child: Divider(
+                                                              thickness: 2,
+                                                              color: HexColor(
+                                                                  '#9e1510'),
+                                                              height: 25,
+                                                            )),
+                                                      ),
+                                                      Text("User Guide",
+                                                          style: TextStyle(
+                                                              color: HexColor(
+                                                                  '#9e1510'),
+                                                              fontSize: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  0.02,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontFamily:
+                                                                  'Tajawal-Regular')),
+                                                      Expanded(
+                                                        child: new Container(
+                                                            margin:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                                    left: 15.0,
+                                                                    right:
+                                                                        10.0),
+                                                            child: Divider(
+                                                              thickness: 2,
+                                                              color: HexColor(
+                                                                  '#9e1510'),
+                                                              height: 25,
+                                                            )),
+                                                      ),
+                                                    ]),
+                                                    SizedBox(
+                                                      height: 20,
+                                                    ),
+                                                    // Text(
+                                                    //     "Choose you Bus Line.",
+                                                    //     style: TextStyle(
+                                                    //         color: HexColor(
+                                                    //             '#BD0006'),
+                                                    //         fontSize: MediaQuery.of(context).size.height *
+                                                    //             0.02,
+                                                    //         fontWeight: FontWeight
+                                                    //             .bold,
+                                                    //         fontFamily:
+                                                    //         'Tajawal-Regular')),
+                                                    Container(
+                                                        child: Image.asset(
+                                                      "assets/images/BUS Application_Page_3.jpg",
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.50,
+                                                    )),
+                                                  ],
+                                                ),
                                               ),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                                children: <Widget>[
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                    children: [
-                                                      Image.asset(
-                                                          "assets/images/without_number.png",
-                                                        width: 35,
-                                                        height: 40,
-                                                      ),
-                                                      SizedBox(width: 10,),
-                                                      Text(
-                                                        'Contact the driver',
-                                                        textAlign: TextAlign.right,
-                                                        style: TextStyle(
-                                                            color: HexColor('#9e1510'),
-                                                            fontSize: MediaQuery.of(context).size.height*0.02,
-                                                            fontWeight: FontWeight.bold,
-                                                            fontFamily: 'Tajawal-Regular'),
-                                                      ),
-
-                                                        ],
+                                            ),
+                                          )
+                                        : SizedBox(),
+                                    Row(children: <Widget>[
+                                      Expanded(
+                                        child: new Container(
+                                            margin: const EdgeInsets.only(
+                                                left: 10.0, right: 15.0),
+                                            child: Divider(
+                                              thickness: 2,
+                                              color: HexColor('#9e1510'),
+                                              height: 25,
+                                            )),
+                                      ),
+                                      Text("Driver contact Info",
+                                          style: TextStyle(
+                                              color: HexColor('#9e1510'),
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.02,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'Tajawal-Regular')),
+                                      Expanded(
+                                        child: new Container(
+                                            margin: const EdgeInsets.only(
+                                                left: 15.0, right: 10.0),
+                                            child: Divider(
+                                              thickness: 2,
+                                              color: HexColor('#9e1510'),
+                                              height: 25,
+                                            )),
+                                      ),
+                                    ]),
+                                    Expanded(
+                                      child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.all(5),
+                                            child: Card(
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(20.0),
+                                              ),
+                                              elevation: 22,
+                                              child: ClipPath(
+                                                child: Container(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      horizontal: 25,
+                                                      vertical: 25),
+                                                  decoration: BoxDecoration(
+                                                    border: Border(
+                                                        right: BorderSide(
+                                                            color: HexColor(
+                                                                '#9e1510'),
+                                                            width: 12)),
+                                                    color: HexColor('#f2f3ef'),
                                                   ),
-                                                  SizedBox(height: 15,),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment.spaceAround,
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: <Widget>[
-
-                                                      InkWell(
-                                                        onTap: ()async{
-                                                          await FlutterPhoneDirectCaller.callNumber(snapshot.data[0].driverNo);
-                                                        },
-                                                        child: Container(
-                                                          padding: EdgeInsets.all(5),
-                                                          decoration: BoxDecoration(
-                                                            color: HexColor('#9e1510'),
-                                                            borderRadius: BorderRadius.all(
-                                                                Radius.circular(15.0) //                 <--- border radius here
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Image.asset(
+                                                            "assets/images/without_number.png",
+                                                            width: 35,
+                                                            height: 40,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 10,
+                                                          ),
+                                                          Text(
+                                                            'Contact the driver',
+                                                            textAlign:
+                                                                TextAlign.right,
+                                                            style: TextStyle(
+                                                                color: HexColor(
+                                                                    '#9e1510'),
+                                                                fontSize: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .height *
+                                                                    0.02,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontFamily:
+                                                                    'Tajawal-Regular'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      SizedBox(
+                                                        height: 15,
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceAround,
+                                                        children: <Widget>[
+                                                          InkWell(
+                                                            onTap: () async {
+                                                              await FlutterPhoneDirectCaller
+                                                                  .callNumber(
+                                                                      snapshot
+                                                                          .data[
+                                                                              0]
+                                                                          .driverNo);
+                                                            },
+                                                            child: Container(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(5),
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: HexColor(
+                                                                    '#9e1510'),
+                                                                borderRadius:
+                                                                    BorderRadius.all(
+                                                                        Radius.circular(
+                                                                            15.0) //                 <--- border radius here
+                                                                        ),
+                                                              ),
+                                                              child: Icon(
+                                                                Icons.call,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .width *
+                                                                    0.04,
+                                                              ),
                                                             ),
                                                           ),
-                                                          child: Icon(
-                                                            Icons.call,
-                                                            color: Colors.white,
-                                                            size: MediaQuery.of(context).size.width*0.04,
+                                                          Spacer(),
+                                                          Text(
+                                                            snapshot.data[0]
+                                                                .driverName,
+                                                            style: TextStyle(
+                                                                color: HexColor(
+                                                                    '#9e1510'),
+                                                                fontSize: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .height *
+                                                                    0.02,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontFamily:
+                                                                    'Tajawal-Regular'),
                                                           ),
-                                                        ),
-                                                      ),
-                                                      Spacer(),
-                                                      Text(
-                                                        snapshot.data[0].driverName,
-                                                        style: TextStyle(
-                                                            color: HexColor('#9e1510'),
-                                                            fontSize: MediaQuery.of(context).size.height*0.02,
-                                                            fontWeight: FontWeight.bold,
-                                                            fontFamily: 'Tajawal-Regular'),
+                                                        ],
                                                       ),
                                                     ],
                                                   ),
-                                                ],
+                                                ),
+                                                clipper: ShapeBorderClipper(
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        15))),
                                               ),
                                             ),
-                                            clipper: ShapeBorderClipper(
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                    BorderRadius.circular(15))),
                                           ),
-                                        ),
-                                      ),
-                                      Row(children: <Widget>[
-                                        Expanded(
-                                          child: new Container(
-                                              margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                              child: Divider(
-                                                thickness: 2,
-                                                color:HexColor('#9e1510'),
-                                                height: 25,
-                                              )),
-                                        ),
-
-                                        Text("Pickup points",style: TextStyle(
-                                            color: HexColor('#9e1510'),
-                                            fontSize: MediaQuery.of(context).size.height*0.02,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'Tajawal-Regular')),
-
-                                        Expanded(
-                                          child: new Container(
-                                              margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                              child: Divider(
-                                                thickness: 2,
-                                                color:HexColor('#9e1510'),
-                                                height: 25,
-                                              )),
-                                        ),
-                                      ]),
-                                      Expanded(
-                                        child: SizedBox(
-                                          height: MediaQuery.of(context).size.height*0.9,
-                                          child: ListView.builder(
-                                              itemCount: snapshot.data[0].pickup.length,
-                                              itemBuilder: (BuildContext context, int index) {
-                                                return InkWell(
-                                                  onTap: () {
-                                                    Navigator.of(context).push(MaterialPageRoute(
-                                                        builder: (context) => BookScreenAndPayment(
-                                                          pointsId:
-                                                          snapshot.data[0].pickup[index].pickId,
-                                                          busId: widget.busList.busId.toString(),
-                                                          name: snapshot
-                                                              .data[0].pickup[index].pickNameEn
-                                                              .toString(),
-                                                          Image: snapshot
-                                                              .data[0].pickup[index].pickImage
-                                                              .toString(),
-                                                          DropDown: snapshot
-                                                              .data[0].pickup[index].pickMsg
-                                                              .toString(),
-                                                          bothStatus: snapshot
-                                                              .data[0].pickup[index].bothStatus
-                                                              .toString(),
-                                                          dir: widget.bus.image,
-                                                          time: snapshot
-                                                              .data[0].pickup[index].pickTime,
-                                                          Date: snapshot
-                                                              .data[0].pickup[index].pickDate,
-                                                        )));
-                                                  },
-                                                  child: Padding(
-                                                    padding: EdgeInsets.all(5),
-                                                    child: Card(
-                                                      shape: RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.circular(20.0),
-                                                      ),
-                                                      elevation: 22,
-                                                      child: ClipPath(
-                                                        child: Container(
-                                                          padding: const EdgeInsets.symmetric(
-                                                              horizontal: 25, vertical: 25),
-                                                          decoration: BoxDecoration(
-                                                            border: Border(
-                                                                right: BorderSide(
-                                                                    color: HexColor('#9e1510'),
-                                                                    width: 12)),
-                                                            color: HexColor('#f2f3ef'),
+                                          Row(children: <Widget>[
+                                            Expanded(
+                                              child: new Container(
+                                                  margin: const EdgeInsets.only(
+                                                      left: 10.0, right: 15.0),
+                                                  child: Divider(
+                                                    thickness: 2,
+                                                    color: HexColor('#9e1510'),
+                                                    height: 25,
+                                                  )),
+                                            ),
+                                            Text("Pickup points",
+                                                style: TextStyle(
+                                                    color: HexColor('#9e1510'),
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.02,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontFamily:
+                                                        'Tajawal-Regular')),
+                                            Expanded(
+                                              child: new Container(
+                                                  margin: const EdgeInsets.only(
+                                                      left: 15.0, right: 10.0),
+                                                  child: Divider(
+                                                    thickness: 2,
+                                                    color: HexColor('#9e1510'),
+                                                    height: 25,
+                                                  )),
+                                            ),
+                                          ]),
+                                          Expanded(
+                                            child: SizedBox(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.9,
+                                              child: ListView.builder(
+                                                  itemCount: snapshot
+                                                      .data[0].pickup.length,
+                                                  itemBuilder:
+                                                      (BuildContext context,
+                                                          int index) {
+                                                    return InkWell(
+                                                      onTap: () {
+                                                        Navigator.of(context).push(
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        BookScreenAndPayment(
+                                                                          pointsId: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickId,
+                                                                          busId: widget
+                                                                              .busList
+                                                                              .busId
+                                                                              .toString(),
+                                                                          name: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickNameEn
+                                                                              .toString(),
+                                                                          Image: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickImage
+                                                                              .toString(),
+                                                                          DropDown: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickMsg
+                                                                              .toString(),
+                                                                          bothStatus: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .bothStatus
+                                                                              .toString(),
+                                                                          dir: widget
+                                                                              .bus
+                                                                              .image,
+                                                                          time: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickTime,
+                                                                          Date: snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickDate,
+                                                                        )));
+                                                      },
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsets.all(5),
+                                                        child: Card(
+                                                          shape:
+                                                              RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20.0),
                                                           ),
-                                                          child: Column(
-                                                            crossAxisAlignment:
-                                                            CrossAxisAlignment.start,
-                                                            children: <Widget>[
-                                                              Row(
-                                                                mainAxisAlignment:
-                                                                MainAxisAlignment.spaceAround,
+                                                          elevation: 22,
+                                                          child: ClipPath(
+                                                            child: Container(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .symmetric(
+                                                                      horizontal:
+                                                                          25,
+                                                                      vertical:
+                                                                          25),
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                border: Border(
+                                                                    right: BorderSide(
+                                                                        color: HexColor(
+                                                                            '#9e1510'),
+                                                                        width:
+                                                                            12)),
+                                                                color: HexColor(
+                                                                    '#f2f3ef'),
+                                                              ),
+                                                              child: Column(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
                                                                 children: <Widget>[
-                                                                  Image.asset(
-                                                                    "assets/images/without_number.png",
-                                                                    width: 35,
-                                                                    height: 35,
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceAround,
+                                                                    children: <Widget>[
+                                                                      Image
+                                                                          .asset(
+                                                                        "assets/images/without_number.png",
+                                                                        width:
+                                                                            35,
+                                                                        height:
+                                                                            35,
+                                                                      ),
+                                                                      Spacer(),
+                                                                      Text(
+                                                                        snapshot
+                                                                            .data[0]
+                                                                            .pickup[index]
+                                                                            .pickNameEn,
+                                                                        style: TextStyle(
+                                                                            color: HexColor(
+                                                                                '#9e1510'),
+                                                                            fontSize: MediaQuery.of(context).size.width *
+                                                                                0.04,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontFamily: 'Tajawal-Regular'),
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                  Spacer(),
-                                                                  Text(
-                                                                    snapshot.data[0].pickup[index]
-                                                                        .pickNameEn,
-                                                                    style: TextStyle(
-                                                                        color: HexColor('#9e1510'),
-                                                                        fontSize: MediaQuery.of(context).size.width*0.04,
-                                                                        fontWeight: FontWeight.bold,
-                                                                        fontFamily: 'Tajawal-Regular'),
+                                                                  SizedBox(
+                                                                    height: 30,
+                                                                  ),
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: <Widget>[
+                                                                      Row(
+                                                                        children: [
+                                                                          Icon(
+                                                                            Icons.today_rounded,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            size:
+                                                                                15,
+                                                                          ),
+                                                                          const SizedBox(
+                                                                            width:
+                                                                                6,
+                                                                          ),
+                                                                          Text(snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickDate)
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        children: [
+                                                                          Icon(
+                                                                            Icons.date_range,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            size:
+                                                                                15,
+                                                                          ),
+                                                                          const SizedBox(
+                                                                            width:
+                                                                                6,
+                                                                          ),
+                                                                          Text(snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickDay)
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        children: [
+                                                                          Icon(
+                                                                            Icons.access_time_filled_rounded,
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            size:
+                                                                                15,
+                                                                          ),
+                                                                          const SizedBox(
+                                                                            width:
+                                                                                6,
+                                                                          ),
+                                                                          Text(snapshot
+                                                                              .data[0]
+                                                                              .pickup[index]
+                                                                              .pickTime),
+                                                                        ],
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                 ],
                                                               ),
-                                                              SizedBox(
-                                                                height: 30,
-                                                              ),
-                                                              Row(
-                                                                mainAxisAlignment:
-                                                                MainAxisAlignment.spaceBetween,
-                                                                children: <Widget>[
-                                                                  Row(
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons.today_rounded,
-                                                                        color: HexColor('#9e1510'),
-                                                                        size: 15,
-                                                                      ),
-                                                                      const SizedBox(
-                                                                        width: 6,
-                                                                      ),
-                                                                      Text(snapshot.data[0]
-                                                                          .pickup[index].pickDate)
-                                                                    ],
-                                                                  ),
-                                                                  Row(
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons.date_range,
-                                                                        color: HexColor('#9e1510'),
-                                                                        size: 15,
-                                                                      ),
-                                                                      const SizedBox(
-                                                                        width: 6,
-                                                                      ),
-                                                                      Text(snapshot.data[0]
-                                                                          .pickup[index].pickDay)
-                                                                    ],
-                                                                  ),
-                                                                  Row(
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons
-                                                                            .access_time_filled_rounded,
-                                                                        color: HexColor('#9e1510'),
-                                                                        size: 15,
-                                                                      ),
-                                                                      const SizedBox(
-                                                                        width: 6,
-                                                                      ),
-                                                                      Text(snapshot.data[0]
-                                                                          .pickup[index].pickTime),
-                                                                    ],
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ],
+                                                            ),
+                                                            clipper: ShapeBorderClipper(
+                                                                shape: RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            15))),
                                                           ),
                                                         ),
-                                                        clipper: ShapeBorderClipper(
-                                                            shape: RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                BorderRadius.circular(15))),
                                                       ),
-                                                    ),
-                                                  ),
-                                                );
-                                              }),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            );
-                          }
-
-
-                      } else {
-                        return SizedBox(
-                            height: 500,
-                            child: Center(child: CircularProgressIndicator()));
-                      }
-                    },
-                  )),
-                ),
-              ],
+                                                    );
+                                                  }),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              }
+                            } else {
+                              return SizedBox(
+                                  height: 500,
+                                  child: Center(
+                                      child: CircularProgressIndicator()));
+                            }
+                          },
+                        )),
+                  ),
+          ],
         ));
   }
 
@@ -904,7 +1114,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     print(BusID);
     print("dirrrrrrrrrrrrrrrrrrrrrr");
     print(tripID);
-    print (campus);
+    print(campus);
     // print(PointID);
     // print(BusID);
     // print(username);

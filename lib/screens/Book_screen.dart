@@ -111,7 +111,9 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
       children: [
         Provider.of<InternetConnectionStatus>(context) ==
                 InternetConnectionStatus.disconnected
-            ? Expanded(child: NoInternet(),)
+            ? Expanded(
+                child: NoInternet(),
+              )
             : Expanded(
                 child: Scaffold(
                     key: _modelScaffoldKey,
@@ -121,8 +123,7 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
                         style: TextStyle(
                             fontFamily: 'Cairo-VariableFont_wght',
                             fontSize: 20,
-                            color: Colors.white
-                            ),
+                            color: Colors.white),
                       ),
                       backgroundColor: HexColor('#9e1510'),
                       iconTheme: IconThemeData(color: Colors.white),
@@ -140,19 +141,19 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
                           },
                           icon: Icon(
                             pressed ? Icons.help : Icons.help_outline,
-                            color: Colors.white, // Sets the color of the help icon to white
+                            color: Colors
+                                .white, // Sets the color of the help icon to white
                           ),
                         ),
                       ],
                     ),
-
                     body: Column(
                       children: [
                         FutureBuilder(
                           future: _doctorsFuture,
                           builder:
                               (BuildContext context, AsyncSnapshot snapshot) {
-                              print('The data is omar omar $snapshot.data');
+                            print('The data is omar omar $snapshot.data');
 
                             if (snapshot.hasError) {
                               return Center(
@@ -168,17 +169,893 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
                                     future: _GetConfirmationData_topay(),
                                     builder: (BuildContext context,
                                         AsyncSnapshot<dynamic> snapshot_oamr) {
-                                      print('The data is omar hakim $snapshot_oamr.data');
+                                      print(
+                                          'The data is omar hakim $snapshot_oamr.data');
                                       if (snapshot_oamr.connectionState ==
                                           ConnectionState.done) {
                                         if (snapshot_oamr.data[0].openPromo ==
                                             'Y') {
                                           if (snapshot_oamr.data[0].promo ==
                                               'Y') {
+                                            //Starrrrrrrrrrrt Column From Campus 3la Allah
+                                            return Column(
+                                              children: [
+                                                pressed
+                                                    ? Expanded(
+                                                        child:
+                                                            SingleChildScrollView(
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                                    color: Colors
+                                                                        .white),
+                                                            child: Column(
+                                                              children: [
+                                                                Row(
+                                                                    children: <Widget>[
+                                                                      Expanded(
+                                                                        child: new Container(
+                                                                            margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+                                                                            child: Divider(
+                                                                              thickness: 2,
+                                                                              color: HexColor('#9e1510'),
+                                                                              height: 25,
+                                                                            )),
+                                                                      ),
+                                                                      Text(
+                                                                          "User Guide",
+                                                                          style: TextStyle(
+                                                                              color: HexColor('#9e1510'),
+                                                                              fontSize: MediaQuery.of(context).size.height * 0.02,
+                                                                              fontWeight: FontWeight.bold,
+                                                                              fontFamily: 'Tajawal-Regular')),
+                                                                      Expanded(
+                                                                        child: new Container(
+                                                                            margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                                                                            child: Divider(
+                                                                              thickness: 2,
+                                                                              color: HexColor('#9e1510'),
+                                                                              height: 25,
+                                                                            )),
+                                                                      ),
+                                                                    ]),
+                                                                Container(
+                                                                    child: Image
+                                                                        .asset(
+                                                                  "assets/images/BUS Application_Page_4.jpg",
+                                                                  width: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .height *
+                                                                      0.50,
+                                                                )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      )
+                                                    : SizedBox(),
+                                                Row(children: <Widget>[
+                                                  Expanded(
+                                                    child: new Container(
+                                                        margin: const EdgeInsets
+                                                            .only(
+                                                            left: 10.0,
+                                                            right: 15.0),
+                                                        child: Divider(
+                                                          thickness: 2,
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          height: 25,
+                                                        )),
+                                                  ),
+                                                  Padding(
+                                                    padding: EdgeInsets.all(10),
+                                                    child: Text(
+                                                        "Book Your Seat",
+                                                        style: TextStyle(
+                                                            color: HexColor(
+                                                                '#9e1510'),
+                                                            fontSize: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .height *
+                                                                0.02,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontFamily:
+                                                                'Tajawal-Regular')),
+                                                  ),
+                                                  Expanded(
+                                                    child: new Container(
+                                                        margin: const EdgeInsets
+                                                            .only(
+                                                            left: 15.0,
+                                                            right: 10.0),
+                                                        child: Divider(
+                                                          thickness: 2,
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          height: 25,
+                                                        )),
+                                                  ),
+                                                ]),
+                                                Expanded(
+                                                  child: ListView.builder(
+                                                      itemCount:
+                                                          snapshot.data.length,
+                                                      itemBuilder:
+                                                          (BuildContext context,
+                                                              int index) {
+                                                        //final user = snapshot.data as BusBook;
+                                                        return SingleChildScrollView(
+                                                          child: Column(
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            35),
+                                                                child: Card(
+                                                                  shape:
+                                                                      RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            20.0),
+                                                                  ),
+                                                                  elevation: 22,
+                                                                  child:
+                                                                      ClipPath(
+                                                                    child:
+                                                                        Container(
+                                                                      padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                          horizontal:
+                                                                              25,
+                                                                          vertical:
+                                                                              25),
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        border: Border(
+                                                                            right:
+                                                                                BorderSide(color: HexColor('#9e1510'), width: 12)),
+                                                                        color: HexColor(
+                                                                            '#f4f4f4'),
+                                                                      ),
+                                                                      child:
+                                                                          Center(
+                                                                        child:
+                                                                            Column(
+                                                                          children: [
+                                                                            Align(
+                                                                              alignment: Alignment.center,
+                                                                              child: Container(
+                                                                                  child: Image.asset(
+                                                                                "assets/images/without_number.png",
+                                                                                width: 35,
+                                                                                height: 35,
+                                                                              )),
+                                                                            ),
+                                                                            SizedBox(
+                                                                              height: 10,
+                                                                            ),
+                                                                            Align(
+                                                                              alignment: Alignment.center,
+                                                                              child: Container(
+                                                                                child: Text(
+                                                                                  widget.name,
+                                                                                  style: TextStyle(
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                    fontSize: 18,
+                                                                                    fontFamily: 'Tajawal-Regular',
+                                                                                    color: HexColor('#9e1510'),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    clipper: ShapeBorderClipper(
+                                                                        shape: RoundedRectangleBorder(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(15))),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              MySquare(
+                                                                txt1:
+                                                                    "Capacity",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busCapacity,
+                                                              ),
+                                                              MySquare(
+                                                                txt1: "Reserve",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busReserve,
+                                                              ),
+                                                              MySquare(
+                                                                txt1:
+                                                                    "Available",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busAvailable,
+                                                              ),
+                                                              FutureBuilder(
+                                                                  future:
+                                                                      _GetConfirmationData_topay(),
+                                                                  builder: (BuildContext
+                                                                          context,
+                                                                      AsyncSnapshot
+                                                                          snapshot_toPay) {
+                                                                    if (snapshot_toPay
+                                                                        .hasData) {
+                                                                      return AfterVerified(
+                                                                        txt1:
+                                                                            "Total price",
+                                                                        txt2: snapshot_toPay
+                                                                            .data[0]
+                                                                            .toPay,
+                                                                        txt3: snapshot_toPay
+                                                                            .data[0]
+                                                                            .toPayAfter,
+                                                                        txt4:
+                                                                            'Instead of',
+                                                                      );
+                                                                    } else if (snapshot_toPay
+                                                                        .hasError) {
+                                                                      return Center(
+                                                                          child: Lottie.asset(
+                                                                              'assets/images/lf30_editor_iuu7wud2.json',
+                                                                              width: MediaQuery.of(context).size.width * 0.6));
+                                                                    } else {
+                                                                      return Center(
+                                                                          child: Lottie.asset(
+                                                                              'assets/images/lf30_editor_iuu7wud2.json',
+                                                                              width: MediaQuery.of(context).size.width * 0.6));
+                                                                    }
 
+                                                                    /// here your data
+                                                                  }),
+                                                              SizedBox(
+                                                                height: 20,
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            10),
+                                                                child: Row(
+                                                                  children: [
+                                                                    Text(
+                                                                      "No. of Seats",
+                                                                      style: TextStyle(
+                                                                          color: HexColor(
+                                                                              '#9e1510'),
+                                                                          fontWeight: FontWeight
+                                                                              .bold,
+                                                                          fontSize:
+                                                                              16),
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width: MediaQuery.of(context)
+                                                                              .size
+                                                                              .width *
+                                                                          0.1,
+                                                                    ),
+                                                                    Expanded(
+                                                                      child: DropdownButtonFormField(
+                                                                          value: _value,
+                                                                          items: _menuItems,
+                                                                          decoration: InputDecoration(
+                                                                            border: OutlineInputBorder(
+                                                                                borderRadius: const BorderRadius.all(
+                                                                              const Radius.circular(10.0),
+                                                                            )),
+                                                                            hintText:
+                                                                                "Seats",
+                                                                            hintStyle:
+                                                                                TextStyle(color: HexColor('#9e1510'), fontWeight: FontWeight.bold),
+                                                                          ),
+                                                                          onChanged: (value) {
+                                                                            setState(() {
+                                                                              _value = value as String;
+                                                                              // _read();
+                                                                            });
+                                                                            prefs.setString("T",
+                                                                                _value);
+                                                                          }),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            10),
+                                                                child: Row(
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width: 16,
+                                                                    ),
+                                                                    Image.asset(
+                                                                      'assets/images/success.png',
+                                                                      width: MediaQuery.of(context)
+                                                                              .size
+                                                                              .width *
+                                                                          0.06,
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width: 15,
+                                                                    ),
+                                                                    Container(
+                                                                      margin: EdgeInsets
+                                                                          .only(
+                                                                              top: 4),
+                                                                      child:
+                                                                          Text(
+                                                                        "Verified",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontSize:
+                                                                              21,
+                                                                          fontFamily:
+                                                                              'Cairo-VariableFont_wght',
+                                                                          color:
+                                                                              Colors.green,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            10),
+                                                                child:
+                                                                    ElevatedButton(
+                                                                  style: ElevatedButton
+                                                                      .styleFrom(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          20,
+                                                                      color: HexColor(
+                                                                          '#9e1510'),
+                                                                    ),
+                                                                    minimumSize:
+                                                                        Size.fromHeight(
+                                                                            40),
+                                                                    primary:
+                                                                        HexColor(
+                                                                            '#9e1510'),
+                                                                    shape: RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(5.0)),
+                                                                  ),
+                                                                  onPressed:
+                                                                      () {
+                                                                    setState(
+                                                                        () {
+                                                                      visible =
+                                                                          true;
+                                                                      _getBal();
+                                                                    });
+                                                                  },
+                                                                  child: visible
+                                                                      ? Row(
+                                                                          mainAxisAlignment: MainAxisAlignment
+                                                                              .center,
+                                                                          children: [
+                                                                              CircularProgressIndicator(
+                                                                                color: Colors.white,
+                                                                              ),
+                                                                              SizedBox(
+                                                                                width: 25,
+                                                                              ),
+                                                                              Text("Please wait...")
+                                                                            ])
+                                                                      : Text(
+                                                                          'Next',
+                                                                          style: TextStyle(
+                                                                              //color: Colors.white,
+                                                                              color: Colors.white,
+                                                                              fontFamily: 'Cairo-VariableFont_wght',
+                                                                              fontWeight: FontWeight.bold)),
+                                                                ),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        );
+                                                      }),
+                                                ),
+                                              ],
+                                            );
 
- //Starrrrrrrrrrrt Column From Campus 3la Allah
-  return Column(
+                                            //Closssssssssse Column  From Campus 3la Allah
+                                          } else if (snapshot_oamr
+                                                  .data[0].promo ==
+                                              'N') {
+//Starrrrrrrrrrrt Column From Campus With Promo Code
+                                            return Column(
+                                              children: [
+                                                pressed
+                                                    ? Expanded(
+                                                        child:
+                                                            SingleChildScrollView(
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                                    color: Colors
+                                                                        .white),
+                                                            child: Column(
+                                                              children: [
+                                                                Row(
+                                                                  children: <Widget>[
+                                                                    Expanded(
+                                                                      child:
+                                                                          Container(
+                                                                        margin: const EdgeInsets
+                                                                            .only(
+                                                                            left:
+                                                                                10.0,
+                                                                            right:
+                                                                                15.0),
+                                                                        child:
+                                                                            Divider(
+                                                                          thickness:
+                                                                              2,
+                                                                          color:
+                                                                              HexColor('#9e1510'),
+                                                                          height:
+                                                                              25,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    Text(
+                                                                      "User Guide",
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: HexColor(
+                                                                            '#BD0006'),
+                                                                        fontSize:
+                                                                            MediaQuery.of(context).size.height *
+                                                                                0.02,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        fontFamily:
+                                                                            'Tajawal-Regular',
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      child:
+                                                                          Container(
+                                                                        margin: const EdgeInsets
+                                                                            .only(
+                                                                            left:
+                                                                                15.0,
+                                                                            right:
+                                                                                10.0),
+                                                                        child:
+                                                                            Divider(
+                                                                          thickness:
+                                                                              2,
+                                                                          color:
+                                                                              HexColor('#9e1510'),
+                                                                          height:
+                                                                              25,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                Container(
+                                                                  child: Image
+                                                                      .asset(
+                                                                    "assets/images/BUS Application_Page_4.jpg",
+                                                                    width: MediaQuery.of(context)
+                                                                            .size
+                                                                            .height *
+                                                                        0.50,
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      )
+                                                    : SizedBox(),
+                                                Row(
+                                                  children: <Widget>[
+                                                    Expanded(
+                                                      child: Container(
+                                                        margin: const EdgeInsets
+                                                            .only(
+                                                            left: 10.0,
+                                                            right: 15.0),
+                                                        child: Divider(
+                                                          thickness: 2,
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          height: 25,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsets.all(10),
+                                                      child: Text(
+                                                        "Book Your Seat",
+                                                        style: TextStyle(
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          fontSize: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              0.02,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontFamily:
+                                                              'Tajawal-Regular',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Container(
+                                                        margin: const EdgeInsets
+                                                            .only(
+                                                            left: 15.0,
+                                                            right: 10.0),
+                                                        child: Divider(
+                                                          thickness: 2,
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          height: 25,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Expanded(
+                                                  child: ListView.builder(
+                                                    itemCount:
+                                                        snapshot.data.length,
+                                                    itemBuilder:
+                                                        (BuildContext context,
+                                                            int index) {
+                                                      return SingleChildScrollView(
+                                                        child: Column(
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(35),
+                                                              child: Card(
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20.0),
+                                                                ),
+                                                                elevation: 22,
+                                                                child: ClipPath(
+                                                                  child:
+                                                                      Container(
+                                                                    padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                        horizontal:
+                                                                            25,
+                                                                        vertical:
+                                                                            25),
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      border:
+                                                                          Border(
+                                                                        right: BorderSide(
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            width: 12),
+                                                                      ),
+                                                                      color: HexColor(
+                                                                          '#f4f4f4'),
+                                                                    ),
+                                                                    child:
+                                                                        Center(
+                                                                      child:
+                                                                          Column(
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child:
+                                                                                Container(
+                                                                              child: Image.asset(
+                                                                                "assets/images/without_number.png",
+                                                                                width: 35,
+                                                                                height: 35,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          SizedBox(
+                                                                              height: 10),
+                                                                          Align(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            child:
+                                                                                Container(
+                                                                              child: Text(
+                                                                                widget.name,
+                                                                                style: TextStyle(
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  fontSize: 18,
+                                                                                  fontFamily: 'Tajawal-Regular',
+                                                                                  color: HexColor('#BD0006'),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  clipper: ShapeBorderClipper(
+                                                                      shape: RoundedRectangleBorder(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(15))),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            MySquare(
+                                                                txt1:
+                                                                    "Capacity",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busCapacity),
+                                                            MySquare(
+                                                                txt1: "Reserve",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busReserve),
+                                                            MySquare(
+                                                                txt1:
+                                                                    "Available",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busAvailable),
+                                                            FutureBuilder(
+                                                              future:
+                                                                  _GetConfirmationData_topay(),
+                                                              builder: (BuildContext
+                                                                      context,
+                                                                  AsyncSnapshot
+                                                                      snapshot_toPay) {
+                                                                if (snapshot_toPay
+                                                                    .hasData) {
+                                                                  return MySquare(
+                                                                      txt1:
+                                                                          "Total price",
+                                                                      txt2: snapshot_toPay
+                                                                          .data[
+                                                                              0]
+                                                                          .toPay);
+                                                                } else {
+                                                                  return Center(
+                                                                    child: Lottie
+                                                                        .asset(
+                                                                      'assets/images/lf30_editor_iuu7wud2.json',
+                                                                      width: MediaQuery.of(context)
+                                                                              .size
+                                                                              .width *
+                                                                          0.6,
+                                                                    ),
+                                                                  );
+                                                                }
+                                                              },
+                                                            ),
+                                                            SizedBox(
+                                                                height: 20),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "No. of Seats",
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: HexColor(
+                                                                          '#9e1510'),
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                                  ),
+                                                                  SizedBox(
+                                                                      width: MediaQuery.of(context)
+                                                                              .size
+                                                                              .width *
+                                                                          0.1),
+                                                                  Expanded(
+                                                                    child:
+                                                                        DropdownButtonFormField(
+                                                                      value:
+                                                                          _value,
+                                                                      items:
+                                                                          _menuItems,
+                                                                      decoration:
+                                                                          InputDecoration(
+                                                                        border:
+                                                                            OutlineInputBorder(
+                                                                          borderRadius: const BorderRadius
+                                                                              .all(
+                                                                              Radius.circular(10.0)),
+                                                                        ),
+                                                                        hintText:
+                                                                            "Seats",
+                                                                        hintStyle: TextStyle(
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            fontWeight: FontWeight.bold),
+                                                                      ),
+                                                                      onChanged:
+                                                                          (value) {
+                                                                        setState(
+                                                                            () {
+                                                                          _value =
+                                                                              value as String;
+                                                                        });
+                                                                        prefs.setString(
+                                                                            "T",
+                                                                            _value);
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child: InkWell(
+                                                                onTap: () {
+                                                                  _GetConfirmationData_ConfirmPromo();
+                                                                },
+                                                                child: Row(
+                                                                  children: [
+                                                                    SizedBox(
+                                                                        width:
+                                                                            16),
+                                                                    Image.asset(
+                                                                      'assets/images/plus.png',
+                                                                      color: Colors
+                                                                          .black,
+                                                                      width: MediaQuery.of(context)
+                                                                              .size
+                                                                              .width *
+                                                                          0.04,
+                                                                    ),
+                                                                    SizedBox(
+                                                                        width:
+                                                                            15),
+                                                                    Container(
+                                                                      margin: EdgeInsets
+                                                                          .only(
+                                                                              top: 4),
+                                                                      child:
+                                                                          Text(
+                                                                        "Add promo code",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontWeight:
+                                                                              FontWeight.bold,
+                                                                          fontSize:
+                                                                              18,
+                                                                          fontFamily:
+                                                                              'Tajawal-Regular',
+                                                                          color:
+                                                                              HexColor('#9e1510'),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(10),
+                                                              child:
+                                                                  ElevatedButton(
+                                                                style: ElevatedButton
+                                                                    .styleFrom(
+                                                                  textStyle: TextStyle(
+                                                                      fontSize:
+                                                                          20,
+                                                                      color: HexColor(
+                                                                          '#9e1510')),
+                                                                  minimumSize: Size
+                                                                      .fromHeight(
+                                                                          40),
+                                                                  primary: HexColor(
+                                                                      '#9e1510'),
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5.0)),
+                                                                ),
+                                                                onPressed: () {
+                                                                  setState(() {
+                                                                    visible =
+                                                                        true;
+                                                                    _getBal();
+                                                                  });
+                                                                },
+                                                                child: visible
+                                                                    ? Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.center,
+                                                                        children: [
+                                                                          CircularProgressIndicator(
+                                                                              color: Colors.white),
+                                                                          SizedBox(
+                                                                              width: 25),
+                                                                          Text(
+                                                                              "Please wait...")
+                                                                        ],
+                                                                      )
+                                                                    : Text(
+                                                                        'Next',
+                                                                        style:
+                                                                            TextStyle(
+                                                                          color:
+                                                                              Colors.white,
+                                                                          fontFamily:
+                                                                              'Cairo-VariableFont_wght',
+                                                                          fontWeight:
+                                                                              FontWeight.bold,
+                                                                        ),
+                                                                      ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+
+//Closssssssssssssse Colum From Campus With Promo Code
+                                          } else {
+                                            return Center(
+                                                child: Lottie.asset(
+                                                    'assets/images/lf30_editor_iuu7wud2.json',
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.6));
+                                          }
+                                        } else if (snapshot_oamr
+                                                .data[0].openPromo ==
+                                            'N') {
+//Starrrrrrrrrrrrrrrrrrrrt Column From Campus Without Promo Code
+
+                                          return Column(
                                             children: [
                                               pressed
                                                   ? Expanded(
@@ -192,8 +1069,7 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
                                                           child: Column(
                                                             children: [
                                                               Row(
-                                                                  children: <
-                                                                      Widget>[
+                                                                  children: <Widget>[
                                                                     Expanded(
                                                                       child: new Container(
                                                                           margin: const EdgeInsets.only(left: 10.0, right: 15.0),
@@ -317,732 +1193,7 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
                                                                   child:
                                                                       Container(
                                                                     padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                        horizontal:
-                                                                            25,
-                                                                        vertical:
-                                                                            25),
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      border: Border(
-                                                                          right: BorderSide(
-                                                                              color: HexColor('#9e1510'),
-                                                                              width: 12)),
-                                                                      color: HexColor(
-                                                                          '#f4f4f4'),
-                                                                    ),
-                                                                    child:
-                                                                        Center(
-                                                                      child:
-                                                                          Column(
-                                                                        children: [
-                                                                          Align(
-                                                                            alignment:
-                                                                                Alignment.center,
-                                                                            child: Container(
-                                                                                child: Image.asset(
-                                                                              "assets/images/without_number.png",
-                                                                              width: 35,
-                                                                              height: 35,
-                                                                            )),
-                                                                          ),
-                                                                          SizedBox(
-                                                                            height:
-                                                                                10,
-                                                                          ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                Alignment.center,
-                                                                            child:
-                                                                                Container(
-                                                                              child: Text(
-                                                                                widget.name,
-                                                                                style: TextStyle(
-                                                                                  fontWeight: FontWeight.bold,
-                                                                                  fontSize: 18,
-                                                                                  fontFamily: 'Tajawal-Regular',
-                                                                                  color: HexColor('#9e1510'),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  clipper: ShapeBorderClipper(
-                                                                      shape: RoundedRectangleBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(15))),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            MySquare(
-                                                              txt1: "Capacity",
-                                                              txt2: snapshot
-                                                                  .data[index]
-                                                                  .busCapacity,
-                                                            ),
-                                                            MySquare(
-                                                              txt1: "Reserve",
-                                                              txt2: snapshot
-                                                                  .data[index]
-                                                                  .busReserve,
-                                                            ),
-                                                            MySquare(
-                                                              txt1: "Available",
-                                                              txt2: snapshot
-                                                                  .data[index]
-                                                                  .busAvailable,
-                                                            ),
-                                                            FutureBuilder(
-                                                                future:
-                                                                    _GetConfirmationData_topay(),
-                                                                builder: (BuildContext
-                                                                        context,
-                                                                    AsyncSnapshot
-                                                                        snapshot_toPay) {
-                                                                  if (snapshot_toPay
-                                                                      .hasData) {
-                                                                    return AfterVerified(
-                                                                      txt1:
-                                                                          "Total price",
-                                                                      txt2: snapshot_toPay
-                                                                          .data[
-                                                                              0]
-                                                                          .toPay,
-                                                                      txt3: snapshot_toPay
-                                                                          .data[
-                                                                              0]
-                                                                          .toPayAfter,
-                                                                      txt4:
-                                                                          'Instead of',
-                                                                    );
-                                                                  } else if (snapshot_toPay
-                                                                      .hasError) {
-                                                                    return Center(
-                                                                        child: Lottie.asset(
-                                                                            'assets/images/lf30_editor_iuu7wud2.json',
-                                                                            width:
-                                                                                MediaQuery.of(context).size.width * 0.6));
-                                                                  } else {
-                                                                    return Center(
-                                                                        child: Lottie.asset(
-                                                                            'assets/images/lf30_editor_iuu7wud2.json',
-                                                                            width:
-                                                                                MediaQuery.of(context).size.width * 0.6));
-                                                                  }
-
-                                                                  /// here your data
-                                                                }),
-
-                                                            SizedBox(
-                                                              height: 20,
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(10),
-                                                              child: Row(
-                                                                children: [
-                                                                  Text(
-                                                                    "No. of Seats",
-                                                                    style: TextStyle(
-                                                                        color: HexColor(
-                                                                            '#9e1510'),
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .bold,
-                                                                        fontSize:
-                                                                            16),
-                                                                  ),
-                                                                  SizedBox(
-                                                                    width: MediaQuery.of(context)
-                                                                            .size
-                                                                            .width *
-                                                                        0.1,
-                                                                  ),
-                                                                  Expanded(
-                                                                    child: DropdownButtonFormField(
-                                                                        value: _value,
-                                                                        items: _menuItems,
-                                                                        decoration: InputDecoration(
-                                                                          border: OutlineInputBorder(
-                                                                              borderRadius: const BorderRadius.all(
-                                                                            const Radius.circular(10.0),
-                                                                          )),
-                                                                          hintText:
-                                                                              "Seats",
-                                                                          hintStyle: TextStyle(
-                                                                              color: HexColor('#9e1510'),
-                                                                              fontWeight: FontWeight.bold),
-                                                                        ),
-                                                                        onChanged: (value) {
-                                                                          setState(
-                                                                              () {
-                                                                            _value =
-                                                                                value as String;
-                                                                            // _read();
-                                                                          });
-                                                                          prefs.setString(
-                                                                              "T",
-                                                                              _value);
-                                                                        }),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(10),
-                                                              child: Row(
-                                                                children: [
-                                                                  SizedBox(
-                                                                    width: 16,
-                                                                  ),
-                                                                  Image.asset(
-                                                                    'assets/images/success.png',
-                                                                    width: MediaQuery.of(context)
-                                                                            .size
-                                                                            .width *
-                                                                        0.06,
-                                                                  ),
-                                                                  SizedBox(
-                                                                    width: 15,
-                                                                  ),
-                                                                  Container(
-                                                                    margin: EdgeInsets
-                                                                        .only(
-                                                                            top:
-                                                                                4),
-                                                                    child: Text(
-                                                                      "Verified",
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontSize:
-                                                                            21,
-                                                                        fontFamily:
-                                                                            'Cairo-VariableFont_wght',
-                                                                        color: Colors
-                                                                            .green,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(10),
-                                                              child:
-                                                                  ElevatedButton(
-                                                                style: ElevatedButton
-                                                                    .styleFrom(
-                                                                  textStyle:
-                                                                      TextStyle(
-                                                                    fontSize:
-                                                                        20,
-                                                                    color: HexColor(
-                                                                        '#9e1510'),
-                                                                  ),
-                                                                  minimumSize: Size
-                                                                      .fromHeight(
-                                                                          40),
-                                                                  primary: HexColor(
-                                                                      '#9e1510'),
-                                                                  shape: RoundedRectangleBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              5.0)),
-                                                                ),
-                                                                onPressed: () {
-                                                                  setState(() {
-                                                                    visible =
-                                                                        true;
-                                                                    _getBal();
-                                                                  });
-                                                                },
-                                                                child: visible
-                                                                    ? Row(
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment
-                                                                                .center,
-                                                                        children: [
-                                                                            CircularProgressIndicator(
-                                                                              color: Colors.white,
-                                                                            ),
-                                                                            SizedBox(
-                                                                              width: 25,
-                                                                            ),
-                                                                            Text("Please wait...")
-                                                                          ])
-                                                                    : Text(
-                                                                        'Next',
-                                                                        style: TextStyle(
-                                                                            //color: Colors.white,
-                                                                            color: Colors.white,
-                                                                            fontFamily: 'Cairo-VariableFont_wght',
-                                                                            fontWeight: FontWeight.bold)),
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      );
-                                                    }
-                                                  ),
-                                               ),
-                                             ],
-                                           );
-
-                                    //Closssssssssse Column  From Campus 3la Allah
-
-
-                                          } else if (snapshot_oamr
-                                                  .data[0].promo ==
-                                              'N') {
-
-//Starrrrrrrrrrrt Column From Campus With Promo Code
-return Column(
-  children: [
-    pressed
-        ? Expanded(
-            child: SingleChildScrollView(
-              child: Container(
-                decoration: BoxDecoration(color: Colors.white),
-                child: Column(
-                  children: [
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                            child: Divider(
-                              thickness: 2,
-                              color: HexColor('#9e1510'),
-                              height: 25,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "User Guide",
-                          style: TextStyle(
-                            color: HexColor('#BD0006'),
-                            fontSize: MediaQuery.of(context).size.height * 0.02,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Tajawal-Regular',
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                            child: Divider(
-                              thickness: 2,
-                              color: HexColor('#9e1510'),
-                              height: 25,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      child: Image.asset(
-                        "assets/images/BUS Application_Page_4.jpg",
-                        width: MediaQuery.of(context).size.height * 0.50,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          )
-        : SizedBox(),
-    Row(
-      children: <Widget>[
-        Expanded(
-          child: Container(
-            margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-            child: Divider(
-              thickness: 2,
-              color: HexColor('#9e1510'),
-              height: 25,
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(10),
-          child: Text(
-            "Book Your Seat",
-            style: TextStyle(
-              color: HexColor('#9e1510'),
-              fontSize: MediaQuery.of(context).size.height * 0.02,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Tajawal-Regular',
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-            child: Divider(
-              thickness: 2,
-              color: HexColor('#9e1510'),
-              height: 25,
-            ),
-          ),
-        ),
-      ],
-    ),
-    Expanded(
-      child: ListView.builder(
-        itemCount: snapshot.data.length,
-        itemBuilder: (BuildContext context, int index) {
-          return SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(35),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    elevation: 22,
-                    child: ClipPath(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                        decoration: BoxDecoration(
-                          border: Border(
-                            right: BorderSide(color: HexColor('#9e1510'), width: 12),
-                          ),
-                          color: HexColor('#f4f4f4'),
-                        ),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Align(
-                                alignment: Alignment.center,
-                                child: Container(
-                                  child: Image.asset(
-                                    "assets/images/without_number.png",
-                                    width: 35,
-                                    height: 35,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 10),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Container(
-                                  child: Text(
-                                    widget.name,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                      fontFamily: 'Tajawal-Regular',
-                                      color: HexColor('#BD0006'),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      clipper: ShapeBorderClipper(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-                    ),
-                  ),
-                ),
-                MySquare(txt1: "Capacity", txt2: snapshot.data[index].busCapacity),
-                MySquare(txt1: "Reserve", txt2: snapshot.data[index].busReserve),
-                MySquare(txt1: "Available", txt2: snapshot.data[index].busAvailable),
-                FutureBuilder(
-                  future: _GetConfirmationData_topay(),
-                  builder: (BuildContext context, AsyncSnapshot snapshot_toPay) {
-                    if (snapshot_toPay.hasData) {
-                      return MySquare(txt1: "Total price", txt2: snapshot_toPay.data[0].toPay);
-                    } else {
-                      return Center(
-                        child: Lottie.asset(
-                          'assets/images/lf30_editor_iuu7wud2.json',
-                          width: MediaQuery.of(context).size.width * 0.6,
-                        ),
-                      );
-                    }
-                  },
-                ),
-                SizedBox(height: 20),
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    children: [
-                      Text(
-                        "No. of Seats",
-                        style: TextStyle(
-                          color: HexColor('#9e1510'),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.1),
-                      Expanded(
-                        child: DropdownButtonFormField(
-                          value: _value,
-                          items: _menuItems,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-                            ),
-                            hintText: "Seats",
-                            hintStyle: TextStyle(color: HexColor('#9e1510'), fontWeight: FontWeight.bold),
-                          ),
-                          onChanged: (value) {
-                            setState(() {
-                              _value = value as String;
-                            });
-                            prefs.setString("T", _value);
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: InkWell(
-                    onTap: () {
-                      _GetConfirmationData_ConfirmPromo();
-                    },
-                    child: Row(
-                      children: [
-                        SizedBox(width: 16),
-                        Image.asset(
-                          'assets/images/plus.png',
-                          color: Colors.black,
-                          width: MediaQuery.of(context).size.width * 0.04,
-                        ),
-                        SizedBox(width: 15),
-                        Container(
-                          margin: EdgeInsets.only(top: 4),
-                          child: Text(
-                            "Add promo code",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              fontFamily: 'Tajawal-Regular',
-                              color: HexColor('#9e1510'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      textStyle: TextStyle(fontSize: 20, color: HexColor('#9e1510')),
-                      minimumSize: Size.fromHeight(40),
-                      primary: HexColor('#9e1510'),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        visible = true;
-                        _getBal();
-                      });
-                    },
-                    child: visible
-                        ? Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              CircularProgressIndicator(color: Colors.white),
-                              SizedBox(width: 25),
-                              Text("Please wait...")
-                            ],
-                          )
-                        : Text(
-                            'Next',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Cairo-VariableFont_wght',
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                  ),
-                ),
-              ],
-            ),
-          );
-        },
-      ),
-    ),
-  ],
-);
-
-//Closssssssssssssse Colum From Campus With Promo Code
-
-
-                                          } else {
-                                            return Center(
-                                                child: Lottie.asset(
-                                                    'assets/images/lf30_editor_iuu7wud2.json',
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            0.6));
-                                          }
-                                        } else if (snapshot_oamr
-                                                .data[0].openPromo ==
-                                            'N') {
-
-//Starrrrrrrrrrrrrrrrrrrrt Column From Campus Without Promo Code
-
-                                          return Column(
-                                            children: [
-                                              pressed
-                                                  ? Expanded(
-                                                      child:
-                                                          SingleChildScrollView(
-                                                        child: Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                                  color: Colors
-                                                                      .white),
-                                                          child: Column(
-                                                            children: [
-                                                              Row(
-                                                                  children: <
-                                                                      Widget>[
-                                                                    Expanded(
-                                                                      child: new Container(
-                                                                          margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                                                          child: Divider(
-                                                                            thickness:
-                                                                                2,
-                                                                            color:
-                                                                                HexColor('#9e1510'),
-                                                                            height:
-                                                                                25,
-                                                                          )),
-                                                                    ),
-                                                                    Text(
-                                                                        "User Guide",
-                                                                        style: TextStyle(
-                                                                            color: HexColor(
-                                                                                '#9e1510'),
-                                                                            fontSize: MediaQuery.of(context).size.height *
-                                                                                0.02,
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                            fontFamily: 'Tajawal-Regular')),
-                                                                    Expanded(
-                                                                      child: new Container(
-                                                                          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                                                          child: Divider(
-                                                                            thickness:
-                                                                                2,
-                                                                            color:
-                                                                                HexColor('#9e1510'),
-                                                                            height:
-                                                                                25,
-                                                                          )),
-                                                                    ),
-                                                                  ]),
-                                                              Container(
-                                                                  child: Image
-                                                                      .asset(
-                                                                "assets/images/BUS Application_Page_4.jpg",
-                                                                width: MediaQuery.of(
-                                                                            context)
-                                                                        .size
-                                                                        .height *
-                                                                    0.50,
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    )
-                                                  : SizedBox(),
-                                              Row(
-                                                children: <Widget>[
-                                                Expanded(
-                                                  child: new Container(
-                                                      margin:
-                                                          const EdgeInsets.only(
-                                                              left: 10.0,
-                                                              right: 15.0),
-                                                      child: Divider(
-                                                        thickness: 2,
-                                                        color:
-                                                            HexColor('#9e1510'),
-                                                        height: 25,
-                                                      )),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.all(10),
-                                                  child: Text("Book Your Seat", 
-                                                      style: TextStyle(
-                                                          color: HexColor(
-                                                              '#9e1510'),
-                                                          fontSize: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.02,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontFamily:
-                                                              'Tajawal-Regular')),
-                                                ),
-                                                Expanded(
-                                                  child: new Container(
-                                                      margin:
-                                                          const EdgeInsets.only(
-                                                              left: 15.0,
-                                                              right: 10.0),
-                                                      child: Divider(
-                                                        thickness: 2,
-                                                        color:
-                                                            HexColor('#9e1510'),
-                                                        height: 25,
-                                                      )),
-                                                ),
-                                              ]
-                                              ),
-                                              Expanded(
-                                                child: ListView.builder(
-                                                    itemCount:
-                                                        snapshot.data.length,
-                                                    itemBuilder:
-                                                        (BuildContext context,
-                                                            int index) {
-                                                      //final user = snapshot.data as BusBook;
-                                                      return SingleChildScrollView(
-                                                        child: Column(
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(35),
-                                                              child: Card(
-                                                                shape:
-                                                                    RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              20.0),
-                                                                ),
-                                                                elevation: 22,
-                                                                child: ClipPath(
-                                                                  child:
-                                                                      Container(
-                                                                    padding: const EdgeInsets
-                                                                            .symmetric(
+                                                                        .symmetric(
                                                                         horizontal:
                                                                             25,
                                                                         vertical:
@@ -1149,9 +1300,11 @@ return Column(
                                                                             width:
                                                                                 MediaQuery.of(context).size.width * 0.6));
                                                                   }
+
                                                                   /// here your data
                                                                 }),
-                                                            SizedBox(height: 20),
+                                                            SizedBox(
+                                                                height: 20),
                                                             Padding(
                                                               padding:
                                                                   EdgeInsets
@@ -1205,7 +1358,6 @@ return Column(
                                                                 ],
                                                               ),
                                                             ),
-
                                                             Padding(
                                                               padding:
                                                                   EdgeInsets
@@ -1255,9 +1407,12 @@ return Column(
                                                                     : Text(
                                                                         'Next',
                                                                         style: TextStyle(
-                                                                            color: Colors.white,
-                                                                            fontFamily: 'Cairo-VariableFont_wght',
-                                                                            fontWeight: FontWeight.bold)),
+                                                                            color: Colors
+                                                                                .white,
+                                                                            fontFamily:
+                                                                                'Cairo-VariableFont_wght',
+                                                                            fontWeight:
+                                                                                FontWeight.bold)),
                                                               ),
                                                             )
                                                           ],
@@ -1269,72 +1424,999 @@ return Column(
                                           );
 
 //Closssssssssssssssse Column From Campus Without Promo Code
-
-
-
                                         } else {
                                           return Center(
-                                              child: Lottie.asset('assets/images/lf30_editor_iuu7wud2.json',
-                                                  width: MediaQuery.of(context).size.width * 0.6));
+                                              child: Lottie.asset(
+                                                  'assets/images/lf30_editor_iuu7wud2.json',
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.6));
                                         }
                                       } else if (snapshot.connectionState ==
                                           ConnectionState.waiting) {
                                         return Center(
-                                            child: Lottie.asset('assets/images/lf30_editor_iuu7wud2.json',
-                                                width: MediaQuery.of(context).size.width * 0.6));
+                                            child: Lottie.asset(
+                                                'assets/images/lf30_editor_iuu7wud2.json',
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.6));
                                       } else {
                                         return Center(
-                                            child: Lottie.asset('assets/images/lf30_editor_iuu7wud2.json',
-                                                width: MediaQuery.of(context).size.width * 0.6));
+                                            child: Lottie.asset(
+                                                'assets/images/lf30_editor_iuu7wud2.json',
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.6));
                                       }
                                     },
                                   ),
                                 );
                               } else if (widget.bothStatus == "Y") {
                                 return Expanded(
-                                  child:  FutureBuilder(
-                                  future: _GetConfirmationData_topay(),
-                                  builder: (BuildContext context,
-                                      AsyncSnapshot<dynamic>
-                                          snapshot_forpromocode) {
-                                    if (snapshot_forpromocode.connectionState ==
-                                        ConnectionState.done) {
+                                  child: FutureBuilder(
+                                    future: _GetConfirmationData_topay(),
+                                    builder: (BuildContext context,
+                                        AsyncSnapshot<dynamic>
+                                            snapshot_forpromocode) {
                                       if (snapshot_forpromocode
-                                              .data[0].openPromo ==
-                                          'Y') {
+                                              .connectionState ==
+                                          ConnectionState.done) {
                                         if (snapshot_forpromocode
-                                                .data[0].promo ==
+                                                .data[0].openPromo ==
                                             'Y') {
+                                          if (snapshot_forpromocode
+                                                  .data[0].promo ==
+                                              'Y') {
+                                            //Starrrrrrrrrrrrrrrrrrrrt Column to campus 3la allah
 
-                                          //Starrrrrrrrrrrrrrrrrrrrt Column to campus 3la allah
-
-                                          return Column(
-                                            children: [
-                                              pressed
-                                                  ? Expanded(
-                                                      child:
-                                                          SingleChildScrollView(
-                                                        child: Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                                  color: Colors
-                                                                      .white),
+                                            return Column(
+                                              children: [
+                                                pressed
+                                                    ? Expanded(
+                                                        child:
+                                                            SingleChildScrollView(
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                                    color: Colors
+                                                                        .white),
+                                                            child: Column(
+                                                              children: [
+                                                                Row(
+                                                                    children: <Widget>[
+                                                                      Expanded(
+                                                                        child: new Container(
+                                                                            margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+                                                                            child: Divider(
+                                                                              thickness: 2,
+                                                                              color: HexColor('#9e1510'),
+                                                                              height: 25,
+                                                                            )),
+                                                                      ),
+                                                                      Text(
+                                                                          "User Guide",
+                                                                          style: TextStyle(
+                                                                              color: HexColor('#9e1510'),
+                                                                              fontSize: MediaQuery.of(context).size.height * 0.02,
+                                                                              fontWeight: FontWeight.bold,
+                                                                              fontFamily: 'Tajawal-Regular')),
+                                                                      Expanded(
+                                                                        child: new Container(
+                                                                            margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                                                                            child: Divider(
+                                                                              thickness: 2,
+                                                                              color: HexColor('#9e1510'),
+                                                                              height: 25,
+                                                                            )),
+                                                                      ),
+                                                                    ]),
+                                                                Container(
+                                                                    child: Image
+                                                                        .asset(
+                                                                  "assets/images/BUS Application_Page_4.jpg",
+                                                                  width: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .height *
+                                                                      0.50,
+                                                                )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      )
+                                                    : SizedBox(),
+                                                Row(children: <Widget>[
+                                                  Expanded(
+                                                    child: new Container(
+                                                        margin: const EdgeInsets
+                                                            .only(
+                                                            left: 10.0,
+                                                            right: 15.0),
+                                                        child: Divider(
+                                                          thickness: 2,
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          height: 25,
+                                                        )),
+                                                  ),
+                                                  Padding(
+                                                    padding: EdgeInsets.all(10),
+                                                    child: Text(
+                                                        "Book Your Seat",
+                                                        style: TextStyle(
+                                                            color: HexColor(
+                                                                '#9e1510'),
+                                                            fontSize: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .height *
+                                                                0.02,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontFamily:
+                                                                'Tajawal-Regular')),
+                                                  ),
+                                                  Expanded(
+                                                    child: new Container(
+                                                        margin: const EdgeInsets
+                                                            .only(
+                                                            left: 15.0,
+                                                            right: 10.0),
+                                                        child: Divider(
+                                                          thickness: 2,
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          height: 25,
+                                                        )),
+                                                  ),
+                                                ]),
+                                                Expanded(
+                                                  child: ListView.builder(
+                                                      itemCount:
+                                                          snapshot.data.length,
+                                                      itemBuilder:
+                                                          (BuildContext context,
+                                                              int index) {
+                                                        //final user = snapshot.data as BusBook;
+                                                        return SingleChildScrollView(
                                                           child: Column(
                                                             children: [
-                                                              Row(
-                                                                  children: <
-                                                                      Widget>[
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            35),
+                                                                child: Card(
+                                                                  shape:
+                                                                      RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            20.0),
+                                                                  ),
+                                                                  elevation: 22,
+                                                                  child:
+                                                                      ClipPath(
+                                                                    child:
+                                                                        Container(
+                                                                      padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                          horizontal:
+                                                                              25,
+                                                                          vertical:
+                                                                              25),
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        border: Border(
+                                                                            right:
+                                                                                BorderSide(color: HexColor('#9e1510'), width: 12)),
+                                                                        color: HexColor(
+                                                                            '#f4f4f4'),
+                                                                      ),
+                                                                      child:
+                                                                          Center(
+                                                                        child:
+                                                                            Column(
+                                                                          children: [
+                                                                            Align(
+                                                                              alignment: Alignment.center,
+                                                                              child: Container(
+                                                                                  child: Image.asset(
+                                                                                "assets/images/without_number.png",
+                                                                                width: 35,
+                                                                                height: 35,
+                                                                              )),
+                                                                            ),
+                                                                            SizedBox(
+                                                                              height: 10,
+                                                                            ),
+                                                                            Align(
+                                                                              alignment: Alignment.center,
+                                                                              child: Container(
+                                                                                child: Text(
+                                                                                  widget.name,
+                                                                                  style: TextStyle(
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                    fontSize: 18,
+                                                                                    fontFamily: 'Tajawal-Regular',
+                                                                                    color: HexColor('#9e1510'),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    clipper: ShapeBorderClipper(
+                                                                        shape: RoundedRectangleBorder(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(15))),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              MySquare(
+                                                                txt1:
+                                                                    "Capacity",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busCapacity,
+                                                              ),
+                                                              MySquare(
+                                                                txt1: "Reserve",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busReserve,
+                                                              ),
+                                                              MySquare(
+                                                                txt1:
+                                                                    "Available",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busAvailable,
+                                                              ),
+                                                              FutureBuilder(
+                                                                  future:
+                                                                      _GetConfirmationData_topay(),
+                                                                  builder: (BuildContext
+                                                                          context,
+                                                                      AsyncSnapshot
+                                                                          snapshot_toPay) {
+                                                                    if (snapshot_toPay
+                                                                        .hasData) {
+                                                                      return AfterVerified(
+                                                                        txt1:
+                                                                            "Total price",
+                                                                        txt2: snapshot_toPay
+                                                                            .data[0]
+                                                                            .toPay,
+                                                                        txt3: snapshot_toPay
+                                                                            .data[0]
+                                                                            .toPayAfter,
+                                                                        txt4:
+                                                                            'Instead of',
+                                                                      );
+                                                                    } else if (snapshot_toPay
+                                                                        .hasError) {
+                                                                      return Center(
+                                                                          child: Lottie.asset(
+                                                                              'assets/images/lf30_editor_iuu7wud2.json',
+                                                                              width: MediaQuery.of(context).size.width * 0.6));
+                                                                    } else {
+                                                                      return Center(
+                                                                          child: Lottie.asset(
+                                                                              'assets/images/lf30_editor_iuu7wud2.json',
+                                                                              width: MediaQuery.of(context).size.width * 0.6));
+                                                                    }
+
+                                                                    /// here your data
+                                                                  }),
+                                                              SizedBox(
+                                                                height: 20,
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            10),
+                                                                child: Row(
+                                                                  children: [
+                                                                    Text(
+                                                                      "No. of Seats",
+                                                                      style: TextStyle(
+                                                                          color: HexColor(
+                                                                              '#9e1510'),
+                                                                          fontWeight: FontWeight
+                                                                              .bold,
+                                                                          fontSize:
+                                                                              16),
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width: MediaQuery.of(context)
+                                                                              .size
+                                                                              .width *
+                                                                          0.1,
+                                                                    ),
                                                                     Expanded(
-                                                                      child: new Container(
-                                                                          margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                                                          child: Divider(
+                                                                      child: DropdownButtonFormField(
+                                                                          value: _value,
+                                                                          items: _menuItems,
+                                                                          decoration: InputDecoration(
+                                                                            border: OutlineInputBorder(
+                                                                                borderRadius: const BorderRadius.all(
+                                                                              const Radius.circular(10.0),
+                                                                            )),
+                                                                            hintText:
+                                                                                "Seats",
+                                                                            hintStyle:
+                                                                                TextStyle(color: HexColor('#9e1510'), fontWeight: FontWeight.bold),
+                                                                          ),
+                                                                          onChanged: (value) {
+                                                                            setState(() {
+                                                                              _value = value as String;
+                                                                              // _read();
+                                                                            });
+                                                                            prefs.setString("T",
+                                                                                _value);
+                                                                          }),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: <Widget>[
+                                                                  Container(
+                                                                    margin: EdgeInsets
+                                                                        .only(
+                                                                            left:
+                                                                                10),
+                                                                    child: Text(
+                                                                      'Book return trip',
+                                                                      style: TextStyle(
+                                                                          color: HexColor(
+                                                                              '#9e1510'),
+                                                                          fontWeight: FontWeight
+                                                                              .bold,
+                                                                          fontSize:
+                                                                              18),
+                                                                    ),
+                                                                  ),
+                                                                  Container(
+                                                                    margin: EdgeInsets.only(
+                                                                        right:
+                                                                            20),
+                                                                    child:
+                                                                        Checkbox(
+                                                                      value: this
+                                                                          .chk_box,
+                                                                      onChanged:
+                                                                          (chk_box) {
+                                                                        setState(
+                                                                            () {
+                                                                          this.chk_box =
+                                                                              chk_box!;
+                                                                        });
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            10),
+                                                                child: Row(
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width: 16,
+                                                                    ),
+                                                                    Image.asset(
+                                                                      'assets/images/success.png',
+                                                                      width: MediaQuery.of(context)
+                                                                              .size
+                                                                              .width *
+                                                                          0.06,
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width: 15,
+                                                                    ),
+                                                                    Container(
+                                                                      margin: EdgeInsets
+                                                                          .only(
+                                                                              top: 4),
+                                                                      child:
+                                                                          Text(
+                                                                        "Verified",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontSize:
+                                                                              21,
+                                                                          fontFamily:
+                                                                              'Cairo-VariableFont_wght',
+                                                                          color:
+                                                                              Colors.green,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            10),
+                                                                child:
+                                                                    ElevatedButton(
+                                                                  style: ElevatedButton
+                                                                      .styleFrom(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          20,
+                                                                      color: HexColor(
+                                                                          '#9e1510'),
+                                                                    ),
+                                                                    minimumSize:
+                                                                        Size.fromHeight(
+                                                                            40),
+                                                                    primary:
+                                                                        HexColor(
+                                                                            '#9e1510'),
+                                                                    shape: RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(5.0)),
+                                                                  ),
+                                                                  onPressed:
+                                                                      () {
+                                                                    setState(
+                                                                        () {
+                                                                      visible =
+                                                                          true;
+                                                                      _getBal();
+                                                                    });
+                                                                  },
+                                                                  child: visible
+                                                                      ? Row(
+                                                                          mainAxisAlignment: MainAxisAlignment
+                                                                              .center,
+                                                                          children: [
+                                                                              CircularProgressIndicator(
+                                                                                color: Colors.white,
+                                                                              ),
+                                                                              SizedBox(
+                                                                                width: 25,
+                                                                              ),
+                                                                              Text("Please wait...")
+                                                                            ])
+                                                                      : Text(
+                                                                          'Next',
+                                                                          style: TextStyle(
+                                                                              //color: Colors.white,
+                                                                              color: Colors.white,
+                                                                              fontFamily: 'Cairo-VariableFont_wght',
+                                                                              fontWeight: FontWeight.bold)),
+                                                                ),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        );
+                                                      }),
+                                                ),
+                                              ],
+                                            );
+
+                                            //Closssssssssssssssssssse Column to campus 3la allah
+                                          } else if (snapshot_forpromocode
+                                                  .data[0].promo ==
+                                              'N') {
+//Starrrrrrrrrrrrrrrrrrrrt Colum To Campus With Promo Code
+
+                                            return Expanded(
+                                              child: Column(
+                                                children: [
+                                                  pressed
+                                                      ? Expanded(
+                                                          child:
+                                                              SingleChildScrollView(
+                                                            child: Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                      color: Colors
+                                                                          .white),
+                                                              child: Column(
+                                                                children: [
+                                                                  Row(
+                                                                    children: <Widget>[
+                                                                      Expanded(
+                                                                        child:
+                                                                            new Container(
+                                                                          margin: const EdgeInsets
+                                                                              .only(
+                                                                              left: 10.0,
+                                                                              right: 15.0),
+                                                                          child:
+                                                                              Divider(
                                                                             thickness:
                                                                                 2,
                                                                             color:
-                                                                                HexColor('#9e1510'),
+                                                                                HexColor('#BD0006'),
                                                                             height:
                                                                                 25,
-                                                                          )),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      Text(
+                                                                          "User Guide",
+                                                                          style: TextStyle(
+                                                                              color: HexColor('#9e1510'),
+                                                                              fontSize: MediaQuery.of(context).size.height * 0.02,
+                                                                              fontWeight: FontWeight.bold,
+                                                                              fontFamily: 'Tajawal-Regular')),
+                                                                      Expanded(
+                                                                        child:
+                                                                            new Container(
+                                                                          margin: const EdgeInsets
+                                                                              .only(
+                                                                              left: 15.0,
+                                                                              right: 10.0),
+                                                                          child: Divider(
+                                                                              thickness: 2,
+                                                                              color: HexColor('#9e1510'),
+                                                                              height: 25),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                  Container(
+                                                                    child: Image
+                                                                        .asset(
+                                                                      "assets/images/BUS Application_Page_3.jpg",
+                                                                      width: MediaQuery.of(context)
+                                                                              .size
+                                                                              .height *
+                                                                          0.50,
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        )
+                                                      : SizedBox(),
+                                                  Row(
+                                                    children: <Widget>[
+                                                      Expanded(
+                                                        child: new Container(
+                                                          margin:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                                  left: 10.0,
+                                                                  right: 15.0),
+                                                          child: Divider(
+                                                            thickness: 2,
+                                                            color: HexColor(
+                                                                '#9e1510'),
+                                                            height: 25,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Text("Book Your Seat",
+                                                          style: TextStyle(
+                                                              color: HexColor(
+                                                                  '#9e1510'),
+                                                              fontSize: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  0.02,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontFamily:
+                                                                  'Tajawal-Regular')),
+                                                      Expanded(
+                                                        child: new Container(
+                                                          margin:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                                  left: 15.0,
+                                                                  right: 10.0),
+                                                          child: Divider(
+                                                              thickness: 2,
+                                                              color: HexColor(
+                                                                  '#9e1510'),
+                                                              height: 25),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Expanded(
+                                                    child: ListView.builder(
+                                                        itemCount: snapshot
+                                                            .data.length,
+                                                        itemBuilder:
+                                                            (BuildContext
+                                                                    context,
+                                                                int index) {
+                                                          return SingleChildScrollView(
+                                                            child: Column(
+                                                              children: [
+                                                                Padding(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              35),
+                                                                  child: Card(
+                                                                    shape:
+                                                                        RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              20.0),
+                                                                    ),
+                                                                    elevation:
+                                                                        22,
+                                                                    child:
+                                                                        ClipPath(
+                                                                      child:
+                                                                          Container(
+                                                                        padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                            horizontal:
+                                                                                25,
+                                                                            vertical:
+                                                                                25),
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          border:
+                                                                              Border(
+                                                                            right:
+                                                                                BorderSide(color: HexColor('#9e1510'), width: 12),
+                                                                          ),
+                                                                          color:
+                                                                              HexColor('#f4f4f4'),
+                                                                        ),
+                                                                        child:
+                                                                            Center(
+                                                                          child:
+                                                                              Column(
+                                                                            children: [
+                                                                              Align(
+                                                                                alignment: Alignment.center,
+                                                                                child: Container(
+                                                                                  child: Image.asset(
+                                                                                    "assets/images/without_number.png",
+                                                                                    width: 35,
+                                                                                    height: 35,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                              SizedBox(height: 10),
+                                                                              Align(
+                                                                                alignment: Alignment.center,
+                                                                                child: Container(
+                                                                                  child: Text(
+                                                                                    widget.name,
+                                                                                    style: TextStyle(
+                                                                                      fontWeight: FontWeight.bold,
+                                                                                      fontSize: 18,
+                                                                                      fontFamily: 'Tajawal-Regular',
+                                                                                      color: HexColor('#9e1510'),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      clipper: ShapeBorderClipper(
+                                                                          shape:
+                                                                              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                MySquare(
+                                                                  txt1:
+                                                                      "Capacity",
+                                                                  txt2: snapshot
+                                                                      .data[
+                                                                          index]
+                                                                      .busCapacity,
+                                                                ),
+                                                                MySquare(
+                                                                  txt1:
+                                                                      "Reserve",
+                                                                  txt2: snapshot
+                                                                      .data[
+                                                                          index]
+                                                                      .busReserve,
+                                                                ),
+                                                                MySquare(
+                                                                  txt1:
+                                                                      "Available",
+                                                                  txt2: snapshot
+                                                                      .data[
+                                                                          index]
+                                                                      .busAvailable,
+                                                                ),
+                                                                FutureBuilder(
+                                                                    future:
+                                                                        _GetConfirmationData_topay(),
+                                                                    builder: (BuildContext
+                                                                            context,
+                                                                        AsyncSnapshot
+                                                                            snapshot_toPay) {
+                                                                      if (snapshot_toPay
+                                                                          .hasData) {
+                                                                        return MySquare(
+                                                                            txt1:
+                                                                                "Total price",
+                                                                            txt2:
+                                                                                snapshot_toPay.data[0].toPay);
+                                                                      } else if (snapshot_toPay
+                                                                          .hasError) {
+                                                                        return Center(
+                                                                            child:
+                                                                                Lottie.asset('assets/images/lf30_editor_iuu7wud2.json', width: MediaQuery.of(context).size.width * 0.6));
+                                                                      } else {
+                                                                        return Center(
+                                                                          child: Lottie.asset(
+                                                                              'assets/images/lf30_editor_iuu7wud2.json',
+                                                                              width: MediaQuery.of(context).size.width * 0.6),
+                                                                        );
+                                                                      }
+
+                                                                      /// here your data
+                                                                    }),
+                                                                SizedBox(
+                                                                    height: 20),
+                                                                Padding(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              10),
+                                                                  child: Row(
+                                                                    children: [
+                                                                      Text(
+                                                                        "No. of Seats",
+                                                                        style: TextStyle(
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            fontSize: 16),
+                                                                      ),
+                                                                      SizedBox(
+                                                                          width:
+                                                                              MediaQuery.of(context).size.width * 0.1),
+                                                                      Expanded(
+                                                                        child: DropdownButtonFormField(
+                                                                            value: _value,
+                                                                            items: _menuItems,
+                                                                            decoration: InputDecoration(
+                                                                              border: OutlineInputBorder(
+                                                                                borderRadius: const BorderRadius.all(
+                                                                                  const Radius.circular(10.0),
+                                                                                ),
+                                                                              ),
+                                                                              hintText: "Seats",
+                                                                              hintStyle: TextStyle(color: HexColor('#9e1510'), fontWeight: FontWeight.bold),
+                                                                            ),
+                                                                            onChanged: (value) {
+                                                                              setState(() {
+                                                                                _value = value as String;
+                                                                              });
+                                                                              prefs.setString("T", _value);
+                                                                            }),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: <Widget>[
+                                                                    Container(
+                                                                      margin: EdgeInsets.only(
+                                                                          left:
+                                                                              10),
+                                                                      child:
+                                                                          Text(
+                                                                        'Book return trip',
+                                                                        style: TextStyle(
+                                                                            color:
+                                                                                HexColor('#9e1510'),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            fontSize: 18),
+                                                                      ),
+                                                                    ),
+                                                                    Container(
+                                                                      margin: EdgeInsets.only(
+                                                                          right:
+                                                                              20),
+                                                                      child:
+                                                                          Checkbox(
+                                                                        value: this
+                                                                            .chk_box,
+                                                                        onChanged:
+                                                                            (chk_box) {
+                                                                          setState(
+                                                                              () {
+                                                                            this.chk_box =
+                                                                                chk_box!;
+                                                                          });
+                                                                        },
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                Padding(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              10),
+                                                                  child:
+                                                                      InkWell(
+                                                                    onTap: () {
+                                                                      _GetConfirmationData_ConfirmPromo();
+                                                                    },
+                                                                    child: Row(
+                                                                      children: [
+                                                                        SizedBox(
+                                                                            width:
+                                                                                16),
+                                                                        Image
+                                                                            .asset(
+                                                                          'assets/images/plus.png',
+                                                                          color:
+                                                                              Colors.black,
+                                                                          width:
+                                                                              MediaQuery.of(context).size.width * 0.04,
+                                                                        ),
+                                                                        SizedBox(
+                                                                            width:
+                                                                                15),
+                                                                        Container(
+                                                                          margin:
+                                                                              EdgeInsets.only(top: 4),
+                                                                          child:
+                                                                              Text(
+                                                                            "Add promo code",
+                                                                            style:
+                                                                                TextStyle(
+                                                                              fontWeight: FontWeight.bold,
+                                                                              fontSize: 18,
+                                                                              fontFamily: 'Tajawal-Regular',
+                                                                              color: HexColor('#9e1510'),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              10),
+                                                                  child:
+                                                                      ElevatedButton(
+                                                                    style: ElevatedButton
+                                                                        .styleFrom(
+                                                                      textStyle: TextStyle(
+                                                                          fontSize:
+                                                                              20,
+                                                                          color:
+                                                                              HexColor('#9e1510')),
+                                                                      minimumSize:
+                                                                          Size.fromHeight(
+                                                                              40),
+                                                                      primary:
+                                                                          HexColor(
+                                                                              '#9e1510'),
+                                                                      shape: RoundedRectangleBorder(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(5.0)),
+                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      setState(
+                                                                          () {
+                                                                        visible =
+                                                                            true;
+                                                                        _getBal();
+                                                                      });
+                                                                    },
+                                                                    child: visible
+                                                                        ? Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: [
+                                                                              CircularProgressIndicator(color: Colors.white),
+                                                                              SizedBox(width: 25),
+                                                                              Text("Please wait...")
+                                                                            ],
+                                                                          )
+                                                                        : Text(
+                                                                            'Next',
+                                                                            style:
+                                                                                TextStyle(
+                                                                              color: Colors.white,
+                                                                              fontFamily: 'Cairo-VariableFont_wght',
+                                                                              fontWeight: FontWeight.bold,
+                                                                            ),
+                                                                          ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
+                                                        }),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+
+//Closssssssssssssssssssse Colum To Campus With Promo Code
+                                          } else {
+                                            return Center(
+                                                child: Lottie.asset(
+                                                    'assets/images/lf30_editor_iuu7wud2.json',
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.6));
+                                          }
+                                        } else if (snapshot_forpromocode
+                                                .data[0].openPromo ==
+                                            'N') {
+//Starrrrrrrrrrrrrrrrrrrrrt Expanded To Campus Without Promo Code
+
+                                          return Expanded(
+                                            child: Column(
+                                              children: [
+                                                pressed
+                                                    ? Expanded(
+                                                        child:
+                                                            SingleChildScrollView(
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                                    color: Colors
+                                                                        .white),
+                                                            child: Column(
+                                                              children: [
+                                                                Row(
+                                                                  children: <Widget>[
+                                                                    Expanded(
+                                                                      child:
+                                                                          new Container(
+                                                                        margin: const EdgeInsets
+                                                                            .only(
+                                                                            left:
+                                                                                10.0,
+                                                                            right:
+                                                                                15.0),
+                                                                        child:
+                                                                            Divider(
+                                                                          thickness:
+                                                                              2,
+                                                                          color:
+                                                                              HexColor('#BD0006'),
+                                                                          height:
+                                                                              25,
+                                                                        ),
+                                                                      ),
                                                                     ),
                                                                     Text(
                                                                         "User Guide",
@@ -1347,671 +2429,382 @@ return Column(
                                                                                 FontWeight.bold,
                                                                             fontFamily: 'Tajawal-Regular')),
                                                                     Expanded(
-                                                                      child: new Container(
-                                                                          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                                                          child: Divider(
+                                                                      child:
+                                                                          new Container(
+                                                                        margin: const EdgeInsets
+                                                                            .only(
+                                                                            left:
+                                                                                15.0,
+                                                                            right:
+                                                                                10.0),
+                                                                        child: Divider(
                                                                             thickness:
                                                                                 2,
                                                                             color:
                                                                                 HexColor('#9e1510'),
-                                                                            height:
-                                                                                25,
-                                                                          )),
+                                                                            height: 25),
+                                                                      ),
                                                                     ),
-                                                                  ]),
-                                                              Container(
+                                                                  ],
+                                                                ),
+                                                                Container(
                                                                   child: Image
                                                                       .asset(
-                                                                "assets/images/BUS Application_Page_4.jpg",
-                                                                width: MediaQuery.of(
-                                                                            context)
-                                                                        .size
-                                                                        .height *
-                                                                    0.50,
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    )
-                                                  : SizedBox(),
-                                              Row(children: <Widget>[
-                                                Expanded(
-                                                  child: new Container(
-                                                      margin:
-                                                          const EdgeInsets.only(
-                                                              left: 10.0,
-                                                              right: 15.0),
-                                                      child: Divider(
-                                                        thickness: 2,
-                                                        color:
-                                                            HexColor('#9e1510'),
-                                                        height: 25,
-                                                      )),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.all(10),
-                                                  child: Text("Book Your Seat",
-                                                      style: TextStyle(
-                                                          color: HexColor(
-                                                              '#9e1510'),
-                                                          fontSize: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.02,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontFamily:
-                                                              'Tajawal-Regular')),
-                                                ),
-                                                Expanded(
-                                                  child: new Container(
-                                                      margin:
-                                                          const EdgeInsets.only(
-                                                              left: 15.0,
-                                                              right: 10.0),
-                                                      child: Divider(
-                                                        thickness: 2,
-                                                        color:
-                                                            HexColor('#9e1510'),
-                                                        height: 25,
-                                                      )),
-                                                ),
-                                              ]),
-                                              Expanded(
-                                                child: ListView.builder(
-                                                    itemCount:
-                                                        snapshot.data.length,
-                                                    itemBuilder:
-                                                        (BuildContext context,
-                                                            int index) {
-                                                      //final user = snapshot.data as BusBook;
-                                                      return SingleChildScrollView(
-                                                        child: Column(
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(35),
-                                                              child: Card(
-                                                                shape:
-                                                                    RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              20.0),
-                                                                ),
-                                                                elevation: 22,
-                                                                child: ClipPath(
-                                                                  child:
-                                                                      Container(
-                                                                    padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                        horizontal:
-                                                                            25,
-                                                                        vertical:
-                                                                            25),
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      border: Border(
-                                                                          right: BorderSide(
-                                                                              color: HexColor('#9e1510'),
-                                                                              width: 12)),
-                                                                      color: HexColor(
-                                                                          '#f4f4f4'),
-                                                                    ),
-                                                                    child:
-                                                                        Center(
-                                                                      child:
-                                                                          Column(
-                                                                        children: [
-                                                                          Align(
-                                                                            alignment:
-                                                                                Alignment.center,
-                                                                            child: Container(
-                                                                                child: Image.asset(
-                                                                              "assets/images/without_number.png",
-                                                                              width: 35,
-                                                                              height: 35,
-                                                                            )),
-                                                                          ),
-                                                                          SizedBox(
-                                                                            height:
-                                                                                10,
-                                                                          ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                Alignment.center,
-                                                                            child:
-                                                                                Container(
-                                                                              child: Text(
-                                                                                widget.name,
-                                                                                style: TextStyle(
-                                                                                  fontWeight: FontWeight.bold,
-                                                                                  fontSize: 18,
-                                                                                  fontFamily: 'Tajawal-Regular',
-                                                                                  color: HexColor('#9e1510'),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  clipper: ShapeBorderClipper(
-                                                                      shape: RoundedRectangleBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(15))),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            MySquare(
-                                                              txt1: "Capacity",
-                                                              txt2: snapshot
-                                                                  .data[index]
-                                                                  .busCapacity,
-                                                            ),
-                                                            MySquare(
-                                                              txt1: "Reserve",
-                                                              txt2: snapshot
-                                                                  .data[index]
-                                                                  .busReserve,
-                                                            ),
-                                                            MySquare(
-                                                              txt1: "Available",
-                                                              txt2: snapshot
-                                                                  .data[index]
-                                                                  .busAvailable,
-                                                            ),
-                                                            FutureBuilder(
-                                                                future:
-                                                                    _GetConfirmationData_topay(),
-                                                                builder: (BuildContext
-                                                                        context,
-                                                                    AsyncSnapshot
-                                                                        snapshot_toPay) {
-                                                                  if (snapshot_toPay
-                                                                      .hasData) {
-                                                                    return AfterVerified(
-                                                                      txt1:
-                                                                          "Total price",
-                                                                      txt2: snapshot_toPay
-                                                                          .data[
-                                                                              0]
-                                                                          .toPay,
-                                                                      txt3: snapshot_toPay
-                                                                          .data[
-                                                                              0]
-                                                                          .toPayAfter,
-                                                                      txt4:
-                                                                          'Instead of',
-                                                                    );
-                                                                  } else if (snapshot_toPay
-                                                                      .hasError) {
-                                                                    return Center(
-                                                                        child: Lottie.asset(
-                                                                            'assets/images/lf30_editor_iuu7wud2.json',
-                                                                            width:
-                                                                                MediaQuery.of(context).size.width * 0.6));
-                                                                  } else {
-                                                                    return Center(
-                                                                        child: Lottie.asset(
-                                                                            'assets/images/lf30_editor_iuu7wud2.json',
-                                                                            width:
-                                                                                MediaQuery.of(context).size.width * 0.6));
-                                                                  }
-
-                                                                  /// here your data
-                                                                }),
-
-                                                            SizedBox(
-                                                              height: 20,
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(10),
-                                                              child: Row(
-                                                                children: [
-                                                                  Text(
-                                                                    "No. of Seats",
-                                                                    style: TextStyle(
-                                                                        color: HexColor(
-                                                                            '#9e1510'),
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .bold,
-                                                                        fontSize:
-                                                                            16),
-                                                                  ),
-                                                                  SizedBox(
+                                                                    "assets/images/BUS Application_Page_3.jpg",
                                                                     width: MediaQuery.of(context)
                                                                             .size
-                                                                            .width *
-                                                                        0.1,
-                                                                  ),
-                                                                  Expanded(
-                                                                    child: DropdownButtonFormField(
-                                                                        value: _value,
-                                                                        items: _menuItems,
-                                                                        decoration: InputDecoration(
-                                                                          border: OutlineInputBorder(
-                                                                              borderRadius: const BorderRadius.all(
-                                                                            const Radius.circular(10.0),
-                                                                          )),
-                                                                          hintText:
-                                                                              "Seats",
-                                                                          hintStyle: TextStyle(
-                                                                              color: HexColor('#9e1510'),
-                                                                              fontWeight: FontWeight.bold),
-                                                                        ),
-                                                                        onChanged: (value) {
-                                                                          setState(
-                                                                              () {
-                                                                            _value =
-                                                                                value as String;
-                                                                            // _read();
-                                                                          });
-                                                                          prefs.setString(
-                                                                              "T",
-                                                                              _value);
-                                                                        }),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-
-                                                            Row(
-                                                              mainAxisAlignment:MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: <Widget>[
-                                                                Container(
-                                                                  margin: EdgeInsets.only(left:10),
-                                                                  child: Text(
-                                                                    'Book return trip',
-                                                                    style: TextStyle(
-                                                                        color: HexColor('#9e1510'),
-                                                                        fontWeight:FontWeight.bold,
-                                                                        fontSize:18),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  margin: EdgeInsets.only(right:20),
-                                                                  child:Checkbox(
-                                                                    value: this.chk_box,
-                                                                    onChanged:
-                                                                        (chk_box) {
-                                                                      setState(
-                                                                          () {
-                                                                        this.chk_box =
-                                                                            chk_box!;
-                                                                      });
-                                                                    },
-                                                                  ),
-                                                                ),
-                                                              ], 
-                                                            ),
-
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(10),
-                                                              child: Row(
-                                                                children: [
-                                                                  SizedBox(
-                                                                    width: 16,
-                                                                  ),
-                                                                  Image.asset(
-                                                                    'assets/images/success.png',
-                                                                    width: MediaQuery.of(context)
-                                                                            .size
-                                                                            .width *
-                                                                        0.06,
-                                                                  ),
-                                                                  SizedBox(
-                                                                    width: 15,
-                                                                  ),
-                                                                  Container(
-                                                                    margin: EdgeInsets
-                                                                        .only(
-                                                                            top:
-                                                                                4),
-                                                                    child: Text(
-                                                                      "Verified",
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontSize:
-                                                                            21,
-                                                                        fontFamily:
-                                                                            'Cairo-VariableFont_wght',
-                                                                        color: Colors
-                                                                            .green,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(10),
-                                                              child:
-                                                                  ElevatedButton(
-                                                                style: ElevatedButton
-                                                                    .styleFrom(
-                                                                  textStyle:
-                                                                      TextStyle(
-                                                                    fontSize:
-                                                                        20,
-                                                                    color: HexColor(
-                                                                        '#9e1510'),
-                                                                  ),
-                                                                  minimumSize: Size
-                                                                      .fromHeight(
-                                                                          40),
-                                                                  primary: HexColor(
-                                                                      '#9e1510'),
-                                                                  shape: RoundedRectangleBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              5.0)),
-                                                                ),
-                                                                onPressed: () {
-                                                                  setState(() {
-                                                                    visible =
-                                                                        true;
-                                                                    _getBal();
-                                                                  });
-                                                                },
-                                                                child: visible
-                                                                    ? Row(
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment
-                                                                                .center,
-                                                                        children: [
-                                                                            CircularProgressIndicator(
-                                                                              color: Colors.white,
-                                                                            ),
-                                                                            SizedBox(
-                                                                              width: 25,
-                                                                            ),
-                                                                            Text("Please wait...")
-                                                                          ])
-                                                                    : Text(
-                                                                        'Next',
-                                                                        style: TextStyle(
-                                                                            //color: Colors.white,
-                                                                            color: Colors.white,
-                                                                            fontFamily: 'Cairo-VariableFont_wght',
-                                                                            fontWeight: FontWeight.bold)),
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      );
-                                                    }
-                                                  ),
-                                               ),
-                                             ],
-                                           );
-
-                                        //Closssssssssssssssssssse Column to campus 3la allah
-
-                                        } else if (snapshot_forpromocode
-                                                .data[0].promo ==
-                                            'N') {
-
-//Starrrrrrrrrrrrrrrrrrrrt Colum To Campus With Promo Code
-
-            	                        return Expanded(
-                                          child: Column(
-                                            children: [pressed? Expanded(
-                                                      child:SingleChildScrollView(
-                                                        child: Container(decoration:
-                                                              BoxDecoration(color: Colors.white),
-                                                          child: Column(children: [
-                                                              Row(children: <Widget>[
-                                                                    Expanded(child: new Container(
-                                                                          margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                                                          child: Divider(thickness:2,
-                                                                            color:HexColor('#BD0006'),
-                                                                            height:25,),),),
-                                                                    Text("User Guide",
-                                                                        style: TextStyle(
-                                                                            color: HexColor('#9e1510'),
-                                                                            fontSize: MediaQuery.of(context).size.height *0.02,
-                                                                            fontWeight:FontWeight.bold,
-                                                                            fontFamily: 'Tajawal-Regular')),
-                                                                    Expanded(
-                                                                      child: new Container(
-                                                                          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                                                          child: Divider(thickness: 2,
-                                                                            color:HexColor('#9e1510'),
-                                                                            height:25),),),],),
-                                                              Container(child: Image.asset(
-                                                                "assets/images/BUS Application_Page_3.jpg",
-                                                                width: MediaQuery.of(context).size.height *0.50,),),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ): SizedBox(),
-                                              Row(children: <Widget>[
-                                                Expanded(child: new Container(
-                                                      margin: const EdgeInsets.only(left: 10.0,right: 15.0),
-                                                      child: Divider(thickness: 2,
-                                                        color:HexColor('#9e1510'),
-                                                        height: 25,),),),
-                                                Text("Book Your Seat",
-                                                    style: TextStyle(
-                                                        color:HexColor('#9e1510'),
-                                                        fontSize: MediaQuery.of(context).size.height * 0.02,
-                                                        fontWeight:FontWeight.bold,
-                                                        fontFamily:'Tajawal-Regular')),
-                                                Expanded(
-                                                  child: new Container(
-                                                      margin:const EdgeInsets.only(left: 15.0,right: 10.0),
-                                                      child: Divider(thickness: 2,
-                                                        color:HexColor('#9e1510'),
-                                                        height: 25),),),],),
-                                              Expanded(
-                                                child: ListView.builder(itemCount: snapshot.data.length,
-                                                    itemBuilder:(BuildContext context,int index) {
-                                                      return SingleChildScrollView(
-                                                        child: Column( children: [
-                                                            Padding( padding: EdgeInsets.all(35),
-                                                              child: Card(shape: RoundedRectangleBorder(
-                                                                  borderRadius: BorderRadius.circular(20.0),),
-                                                                elevation: 22,
-                                                                child: ClipPath( child:
-                                                                      Container( padding: const EdgeInsets.symmetric(
-                                                                        horizontal: 25,
-                                                                        vertical: 25),
-                                                                    decoration: BoxDecoration(
-                                                                      border: Border(
-                                                                          right: BorderSide(color: HexColor('#9e1510'), width: 12),),
-                                                                      color: HexColor('#f4f4f4'),),
-                                                                    child: Center(
-                                                                      child: Column(
-                                                                        children: [ Align(
-                                                                            alignment: Alignment.center,
-                                                                            child: Container( child: Image.asset(
-                                                                              "assets/images/without_number.png",
-                                                                              width: 35, height: 35,),),),
-                                                                          SizedBox(height: 10),
-                                                                          Align(alignment: Alignment.center,
-                                                                            child: Container(
-                                                                              child: Text( widget.name,
-                                                                                style: TextStyle( fontWeight: FontWeight.bold,
-                                                                                  fontSize: 18, fontFamily: 'Tajawal-Regular',
-                                                                                  color: HexColor('#9e1510'),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  clipper: ShapeBorderClipper(
-                                                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            MySquare(txt1: "Capacity", txt2: snapshot.data[index].busCapacity,),
-                                                            MySquare(txt1: "Reserve", txt2: snapshot.data[index].busReserve,),
-                                                            MySquare(txt1: "Available", txt2: snapshot.data[index].busAvailable,),
-                                                            FutureBuilder(future:_GetConfirmationData_topay(),
-                                                                builder: (BuildContext context, AsyncSnapshot snapshot_toPay) {
-                                                                  if (snapshot_toPay.hasData) {
-                                                                    return MySquare( txt1: "Total price",
-                                                                        txt2: snapshot_toPay.data[0].toPay);
-                                                                  } else if (snapshot_toPay.hasError) {
-                                                                    return Center(child: Lottie.asset(
-                                                                            'assets/images/lf30_editor_iuu7wud2.json',
-                                                                            width: MediaQuery.of(context).size.width * 0.6));
-                                                                  } else {
-                                                                    return Center(
-                                                                        child: Lottie.asset('assets/images/lf30_editor_iuu7wud2.json',
-                                                                            width:MediaQuery.of(context).size.width * 0.6),);
-                                                                }
-                                                                  /// here your data
-                                                                }),
-                                                            SizedBox(height: 20),
-                                                            Padding(padding:EdgeInsets.all(10),
-                                                              child: Row(children: [
-                                                                  Text("No. of Seats",
-                                                                    style: TextStyle( color: HexColor('#9e1510'),
-                                                                        fontWeight: FontWeight.bold,
-                                                                        fontSize: 16),),
-                                                                  SizedBox(width: MediaQuery.of(context).size.width * 0.1),
-                                                                  Expanded(child: DropdownButtonFormField(
-                                                                        value: _value,
-                                                                        items: _menuItems,
-                                                                        decoration: InputDecoration(
-                                                                          border: OutlineInputBorder(
-                                                                              borderRadius: const BorderRadius.all(
-                                                                            const Radius.circular(10.0),
-                                                                          ),),
-                                                                          hintText:"Seats",
-                                                                          hintStyle: TextStyle(
-                                                                              color: HexColor('#9e1510'),
-                                                                              fontWeight: FontWeight.bold),),
-                                                                        onChanged: (value) {
-                                                                          setState(() { _value = value as String;
-                                                                          });
-                                                                          prefs.setString( "T", _value);
-                                                                        }),
-                                                                     ),
-                                                                   ],
-                                                                 ),
-                                                               ),
-
-                                                           Row(
-                                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                              children: <Widget>[
-                                                                Container(margin: EdgeInsets.only(left:10),
-                                                                  child: Text('Book return trip',
-                                                                    style: TextStyle(
-                                                                        color: HexColor('#9e1510'),
-                                                                        fontWeight:FontWeight.bold,
-                                                                        fontSize:18),
-                                                                  ),
-                                                                ),
-                                                                Container(margin: EdgeInsets.only(right:20),
-                                                                  child: Checkbox( value: this.chk_box,
-                                                                    onChanged:(chk_box) {
-                                                                      setState(() { this.chk_box = chk_box!;
-                                                                      });
-                                                                    },
-                                                                  ),
-                                                                ),
-                                                              ], 
-                                                            ),
-
-
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: InkWell(
-                    onTap: () {
-                      _GetConfirmationData_ConfirmPromo();
-                    },
-                    child: Row(
-                      children: [
-                        SizedBox(width: 16),
-                        Image.asset(
-                          'assets/images/plus.png',
-                          color: Colors.black,
-                          width: MediaQuery.of(context).size.width * 0.04,
-                        ),
-                        SizedBox(width: 15),
-                        Container(
-                          margin: EdgeInsets.only(top: 4),
-                          child: Text(
-                            "Add promo code",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              fontFamily: 'Tajawal-Regular',
-                              color: HexColor('#9e1510'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-            Padding(
-                  padding: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      textStyle: TextStyle(fontSize: 20, color: HexColor('#9e1510')),
-                      minimumSize: Size.fromHeight(40),
-                      primary: HexColor('#9e1510'),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        visible = true;
-                        _getBal();
-                      });
-                    },
-                    child: visible
-                        ? Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              CircularProgressIndicator(color: Colors.white),
-                              SizedBox(width: 25),
-                              Text("Please wait...")
-                            ],
-                          )
-                        : Text(
-                            'Next',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Cairo-VariableFont_wght',
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                  ),
-                ),
-                                                                          ],
-                                                                        ),
-                                                                      );
-                                                                    }
+                                                                            .height *
+                                                                        0.50,
                                                                   ),
                                                                 ),
                                                               ],
                                                             ),
-														                              );
-                                                     
-//Closssssssssssssssssssse Colum To Campus With Promo Code
+                                                          ),
+                                                        ),
+                                                      )
+                                                    : SizedBox(),
+                                                Row(
+                                                  children: <Widget>[
+                                                    Expanded(
+                                                      child: new Container(
+                                                        margin: const EdgeInsets
+                                                            .only(
+                                                            left: 10.0,
+                                                            right: 15.0),
+                                                        child: Divider(
+                                                          thickness: 2,
+                                                          color: HexColor(
+                                                              '#9e1510'),
+                                                          height: 25,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Text("Book Your Seat",
+                                                        style: TextStyle(
+                                                            color: HexColor(
+                                                                '#9e1510'),
+                                                            fontSize: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .height *
+                                                                0.02,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontFamily:
+                                                                'Tajawal-Regular')),
+                                                    Expanded(
+                                                      child: new Container(
+                                                        margin: const EdgeInsets
+                                                            .only(
+                                                            left: 15.0,
+                                                            right: 10.0),
+                                                        child: Divider(
+                                                            thickness: 2,
+                                                            color: HexColor(
+                                                                '#9e1510'),
+                                                            height: 25),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Expanded(
+                                                  child: ListView.builder(
+                                                      itemCount:
+                                                          snapshot.data.length,
+                                                      itemBuilder:
+                                                          (BuildContext context,
+                                                              int index) {
+                                                        return SingleChildScrollView(
+                                                          child: Column(
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            35),
+                                                                child: Card(
+                                                                  shape:
+                                                                      RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            20.0),
+                                                                  ),
+                                                                  elevation: 22,
+                                                                  child:
+                                                                      ClipPath(
+                                                                    child:
+                                                                        Container(
+                                                                      padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                          horizontal:
+                                                                              25,
+                                                                          vertical:
+                                                                              25),
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        border:
+                                                                            Border(
+                                                                          right: BorderSide(
+                                                                              color: HexColor('#9e1510'),
+                                                                              width: 12),
+                                                                        ),
+                                                                        color: HexColor(
+                                                                            '#f4f4f4'),
+                                                                      ),
+                                                                      child:
+                                                                          Center(
+                                                                        child:
+                                                                            Column(
+                                                                          children: [
+                                                                            Align(
+                                                                              alignment: Alignment.center,
+                                                                              child: Container(
+                                                                                child: Image.asset(
+                                                                                  "assets/images/without_number.png",
+                                                                                  width: 35,
+                                                                                  height: 35,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            SizedBox(height: 10),
+                                                                            Align(
+                                                                              alignment: Alignment.center,
+                                                                              child: Container(
+                                                                                child: Text(
+                                                                                  widget.name,
+                                                                                  style: TextStyle(
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                    fontSize: 18,
+                                                                                    fontFamily: 'Tajawal-Regular',
+                                                                                    color: HexColor('#9e1510'),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    clipper: ShapeBorderClipper(
+                                                                        shape: RoundedRectangleBorder(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(15))),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              MySquare(
+                                                                txt1:
+                                                                    "Capacity",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busCapacity,
+                                                              ),
+                                                              MySquare(
+                                                                txt1: "Reserve",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busReserve,
+                                                              ),
+                                                              MySquare(
+                                                                txt1:
+                                                                    "Available",
+                                                                txt2: snapshot
+                                                                    .data[index]
+                                                                    .busAvailable,
+                                                              ),
+                                                              FutureBuilder(
+                                                                  future:
+                                                                      _GetConfirmationData_topay(),
+                                                                  builder: (BuildContext
+                                                                          context,
+                                                                      AsyncSnapshot
+                                                                          snapshot_toPay) {
+                                                                    if (snapshot_toPay
+                                                                        .hasData) {
+                                                                      return MySquare(
+                                                                          txt1:
+                                                                              "Total price",
+                                                                          txt2: snapshot_toPay
+                                                                              .data[0]
+                                                                              .toPay);
+                                                                    } else if (snapshot_toPay
+                                                                        .hasError) {
+                                                                      return Center(
+                                                                          child: Lottie.asset(
+                                                                              'assets/images/lf30_editor_iuu7wud2.json',
+                                                                              width: MediaQuery.of(context).size.width * 0.6));
+                                                                    } else {
+                                                                      return Center(
+                                                                        child: Lottie.asset(
+                                                                            'assets/images/lf30_editor_iuu7wud2.json',
+                                                                            width:
+                                                                                MediaQuery.of(context).size.width * 0.6),
+                                                                      );
+                                                                    }
 
+                                                                    /// here your data
+                                                                  }),
+                                                              SizedBox(
+                                                                  height: 20),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            10),
+                                                                child: Row(
+                                                                  children: [
+                                                                    Text(
+                                                                      "No. of Seats",
+                                                                      style: TextStyle(
+                                                                          color: HexColor(
+                                                                              '#9e1510'),
+                                                                          fontWeight: FontWeight
+                                                                              .bold,
+                                                                          fontSize:
+                                                                              16),
+                                                                    ),
+                                                                    SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.1),
+                                                                    Expanded(
+                                                                      child: DropdownButtonFormField(
+                                                                          value: _value,
+                                                                          items: _menuItems,
+                                                                          decoration: InputDecoration(
+                                                                            border:
+                                                                                OutlineInputBorder(
+                                                                              borderRadius: const BorderRadius.all(
+                                                                                const Radius.circular(10.0),
+                                                                              ),
+                                                                            ),
+                                                                            hintText:
+                                                                                "Seats",
+                                                                            hintStyle:
+                                                                                TextStyle(color: HexColor('#9e1510'), fontWeight: FontWeight.bold),
+                                                                          ),
+                                                                          onChanged: (value) {
+                                                                            setState(() {
+                                                                              _value = value as String;
+                                                                            });
+                                                                            prefs.setString("T",
+                                                                                _value);
+                                                                          }),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              SizedBox(
+                                                                  height: 15),
+                                                              Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: <Widget>[
+                                                                  Container(
+                                                                    margin: EdgeInsets
+                                                                        .only(
+                                                                            left:
+                                                                                10),
+                                                                    child: Text(
+                                                                      'Book return trip',
+                                                                      style: TextStyle(
+                                                                          color: HexColor(
+                                                                              '#9e1510'),
+                                                                          fontWeight: FontWeight
+                                                                              .bold,
+                                                                          fontSize:
+                                                                              18),
+                                                                    ),
+                                                                  ),
+                                                                  Container(
+                                                                    margin: EdgeInsets.only(
+                                                                        right:
+                                                                            20),
+                                                                    child:
+                                                                        Checkbox(
+                                                                      value: this
+                                                                          .chk_box,
+                                                                      onChanged:
+                                                                          (chk_box) {
+                                                                        setState(
+                                                                            () {
+                                                                          this.chk_box =
+                                                                              chk_box!;
+                                                                        });
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            10),
+                                                                child:
+                                                                    ElevatedButton(
+                                                                  style: ElevatedButton
+                                                                      .styleFrom(
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          20,
+                                                                      color: HexColor(
+                                                                          '#9e1510'),
+                                                                    ),
+                                                                    minimumSize:
+                                                                        Size.fromHeight(
+                                                                            40),
+                                                                    primary:
+                                                                        HexColor(
+                                                                            '#9e1510'),
+                                                                    shape:
+                                                                        RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5.0),
+                                                                    ),
+                                                                  ),
+                                                                  onPressed:
+                                                                      () {
+                                                                    setState(
+                                                                        () {
+                                                                      visible =
+                                                                          true;
+                                                                      _getBal();
+                                                                    });
+                                                                  },
+                                                                  child: visible
+                                                                      ? Row(
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          children: [
+                                                                            CircularProgressIndicator(
+                                                                              color: Colors.white,
+                                                                            ),
+                                                                            SizedBox(width: 25),
+                                                                            Text("Please wait...")
+                                                                          ],
+                                                                        )
+                                                                      : Text(
+                                                                          'Next',
+                                                                          style: TextStyle(
+                                                                              color: Colors.white,
+                                                                              fontFamily: 'Cairo-VariableFont_wght',
+                                                                              fontWeight: FontWeight.bold),
+                                                                        ),
+                                                                ),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        );
+                                                      }),
+                                                ),
+                                              ],
+                                            ),
+                                          );
 
+//Closssssssssssssssse Expanded To Campus Without Promo Code
                                         } else {
                                           return Center(
                                               child: Lottie.asset(
@@ -2021,216 +2814,17 @@ return Column(
                                                           .width *
                                                       0.6));
                                         }
-                                      } else if (snapshot_forpromocode
-                                              .data[0].openPromo ==
-                                          'N') {
-
-//Starrrrrrrrrrrrrrrrrrrrrt Expanded To Campus Without Promo Code
-
- 								                  	return Expanded(
-                                          child: Column(
-                                            children: [pressed? Expanded(
-                                                      child:SingleChildScrollView(
-                                                        child: Container(decoration:
-                                                              BoxDecoration(color: Colors.white),
-                                                          child: Column(children: [
-                                                              Row(children: <Widget>[
-                                                                    Expanded(child: new Container(
-                                                                          margin: const EdgeInsets.only(left: 10.0, right: 15.0),
-                                                                          child: Divider(thickness:2,
-                                                                            color:HexColor('#BD0006'),
-                                                                            height:25,),),),
-                                                                    Text("User Guide",
-                                                                        style: TextStyle(
-                                                                            color: HexColor('#9e1510'),
-                                                                            fontSize: MediaQuery.of(context).size.height *0.02,
-                                                                            fontWeight:FontWeight.bold,
-                                                                            fontFamily: 'Tajawal-Regular')),
-                                                                    Expanded(
-                                                                      child: new Container(
-                                                                          margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-                                                                          child: Divider(thickness: 2,
-                                                                            color:HexColor('#9e1510'),
-                                                                            height:25),),),],),
-                                                              Container(child: Image.asset(
-                                                                "assets/images/BUS Application_Page_3.jpg",
-                                                                width: MediaQuery.of(context).size.height *0.50,),),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ): SizedBox(),
-                                              Row(children: <Widget>[
-                                                Expanded(child: new Container(
-                                                      margin: const EdgeInsets.only(left: 10.0,right: 15.0),
-                                                      child: Divider(thickness: 2,
-                                                        color:HexColor('#9e1510'),
-                                                        height: 25,),),),
-                                                Text("Book Your Seat",
-                                                    style: TextStyle(
-                                                        color:HexColor('#9e1510'),
-                                                        fontSize: MediaQuery.of(context).size.height * 0.02,
-                                                        fontWeight:FontWeight.bold,
-                                                        fontFamily:'Tajawal-Regular')),
-                                                Expanded(
-                                                  child: new Container(
-                                                      margin:const EdgeInsets.only(left: 15.0,right: 10.0),
-                                                      child: Divider(thickness: 2,
-                                                        color:HexColor('#9e1510'),
-                                                        height: 25),),),],),
-                                              Expanded(
-                                                child: ListView.builder(itemCount: snapshot.data.length,
-                                                    itemBuilder:(BuildContext context,int index) {
-                                                      return SingleChildScrollView(
-                                                        child: Column( children: [
-                                                            Padding( padding: EdgeInsets.all(35),
-                                                              child: Card(shape: RoundedRectangleBorder(
-                                                                  borderRadius: BorderRadius.circular(20.0),),
-                                                                elevation: 22,
-                                                                child: ClipPath( child:
-                                                                      Container( padding: const EdgeInsets.symmetric(
-                                                                        horizontal: 25,
-                                                                        vertical: 25),
-                                                                    decoration: BoxDecoration(
-                                                                      border: Border(
-                                                                          right: BorderSide(color: HexColor('#9e1510'), width: 12),),
-                                                                      color: HexColor('#f4f4f4'),),
-                                                                    child: Center(
-                                                                      child: Column(
-                                                                        children: [ Align(
-                                                                            alignment: Alignment.center,
-                                                                            child: Container( child: Image.asset(
-                                                                              "assets/images/without_number.png",
-                                                                              width: 35, height: 35,),),),
-                                                                          SizedBox(height: 10),
-                                                                          Align(alignment: Alignment.center,
-                                                                            child: Container(
-                                                                              child: Text( widget.name,
-                                                                                style: TextStyle( fontWeight: FontWeight.bold,
-                                                                                  fontSize: 18, fontFamily: 'Tajawal-Regular',
-                                                                                  color: HexColor('#9e1510'),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  clipper: ShapeBorderClipper(
-                                                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            MySquare(txt1: "Capacity", txt2: snapshot.data[index].busCapacity,),
-                                                            MySquare(txt1: "Reserve", txt2: snapshot.data[index].busReserve,),
-                                                            MySquare(txt1: "Available", txt2: snapshot.data[index].busAvailable,),
-                                                            FutureBuilder(future:_GetConfirmationData_topay(),
-                                                                builder: (BuildContext context, AsyncSnapshot snapshot_toPay) {
-                                                                  if (snapshot_toPay.hasData) {
-                                                                    return MySquare( txt1: "Total price",
-                                                                        txt2: snapshot_toPay.data[0].toPay);
-                                                                  } else if (snapshot_toPay.hasError) {
-                                                                    return Center(child: Lottie.asset(
-                                                                            'assets/images/lf30_editor_iuu7wud2.json',
-                                                                            width: MediaQuery.of(context).size.width * 0.6));
-                                                                  } else {
-                                                                    return Center(
-                                                                        child: Lottie.asset('assets/images/lf30_editor_iuu7wud2.json',
-                                                                            width:MediaQuery.of(context).size.width * 0.6),);
-                                                                }
-                                                                  /// here your data
-                                                                }),
-                                                            SizedBox(height: 20),
-                                                            Padding(padding:EdgeInsets.all(10),
-                                                              child: Row(children: [
-                                                                  Text("No. of Seats",
-                                                                    style: TextStyle( color: HexColor('#9e1510'),
-                                                                        fontWeight: FontWeight.bold,
-                                                                        fontSize: 16),),
-                                                                  SizedBox(width: MediaQuery.of(context).size.width * 0.1),
-                                                                  Expanded(child: DropdownButtonFormField(
-                                                                        value: _value,
-                                                                        items: _menuItems,
-                                                                        decoration: InputDecoration(
-                                                                          border: OutlineInputBorder(
-                                                                              borderRadius: const BorderRadius.all(
-                                                                            const Radius.circular(10.0),
-                                                                          ),),
-                                                                          hintText:"Seats",
-                                                                          hintStyle: TextStyle(
-                                                                              color: HexColor('#9e1510'),
-                                                                              fontWeight: FontWeight.bold),),
-                                                                        onChanged: (value) {
-                                                                          setState(() { _value = value as String;
-                                                                          });
-                                                                          prefs.setString( "T", _value);
-                                                                        }),
-                                                                     ),
-                                                                   ],
-                                                                 ),
-                                                               ),
-                                                            SizedBox(height: 15),
-                                                            Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                              children: <Widget>[
-                                                                Container(margin: EdgeInsets.only(left:10),
-                                                                  child: Text('Book return trip',
-                                                                    style: TextStyle(
-                                                                        color: HexColor('#9e1510'),
-                                                                        fontWeight:FontWeight.bold,
-                                                                        fontSize:18),
-                                                                  ),
-                                                                ),
-                                                                Container(margin: EdgeInsets.only(right:20),
-                                                                  child: Checkbox( value: this.chk_box,
-                                                                    onChanged:(chk_box) {
-                                                                      setState(() { this.chk_box = chk_box!;
-                                                                      });
-                                                                    },
-                                                                  ),
-                                                                ),
-                                                              ], 
-                                                            ),
-                                                            Padding(padding:EdgeInsets.all(10),
-                                                              child:ElevatedButton(
-                                                                style: ElevatedButton.styleFrom(
-                                                                  textStyle: TextStyle(
-                                                                    fontSize:20,
-                                                                    color: HexColor('#9e1510'),),
-                                                                  minimumSize: Size.fromHeight(40),
-                                                                  primary: HexColor('#9e1510'),
-                                                                  shape: RoundedRectangleBorder(borderRadius:
-                                                                          BorderRadius.circular(5.0),),),
-                                                                onPressed: () {
-                                                                  setState(() {visible =true;
-                                                                    _getBal(); });
-                                                                },
-                                                                child: visible? Row(
-                                                                        mainAxisAlignment:MainAxisAlignment.center,
-                                                                        children: [CircularProgressIndicator(
-                                                                              color: Colors.white,),
-                                                                            SizedBox(width: 25),
-                                                                            Text("Please wait...")
-                                                                          ],): Text('Next',
-                                                                        style: TextStyle( color: Colors.white,
-                                                                            fontFamily: 'Cairo-VariableFont_wght',
-                                                                            fontWeight: FontWeight.bold),),
-                                                                              ),
-                                                                            )
-                                                                          ],
-                                                                        ),
-                                                                      );
-                                                                    }
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-														                              );
-                                                          
-//Closssssssssssssssse Expanded To Campus Without Promo Code
-
+                                      } else if (snapshot.connectionState ==
+                                          ConnectionState.waiting) {
+                                        return Center(
+                                            child: Lottie.asset(
+                                                'assets/images/lf30_editor_iuu7wud2.json',
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.6));
                                       } else {
-                                  return Center(
+                                        return Center(
                                             child: Lottie.asset(
                                                 'assets/images/lf30_editor_iuu7wud2.json',
                                                 width: MediaQuery.of(context)
@@ -2238,26 +2832,8 @@ return Column(
                                                         .width *
                                                     0.6));
                                       }
-                                    } else if (snapshot.connectionState ==
-                                        ConnectionState.waiting) {
-                                      return Center(
-                                          child: Lottie.asset(
-                                              'assets/images/lf30_editor_iuu7wud2.json',
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.6));
-                                    } else {
-                                      return Center(
-                                          child: Lottie.asset(
-                                              'assets/images/lf30_editor_iuu7wud2.json',
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.6));
-                                    }
-                                  },
-                                ),
+                                    },
+                                  ),
                                 );
                               } else {
                                 return SizedBox(
@@ -2578,7 +3154,8 @@ return Column(
 
     final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
     final response = await http.post(url, body: data);
-    print('_______________________________________________________________________________');
+    print(
+        '_______________________________________________________________________________');
     print(response);
     print("The value of check box2");
     print(chk_box);

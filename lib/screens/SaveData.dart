@@ -98,10 +98,10 @@ class _SaveDataState extends State<SaveData> {
                       title: Text(
                         "Trip details",
                         style: TextStyle(
-                            fontFamily: 'Cairo-VariableFont_wght',
-                            fontSize: 25,
-                            color: Colors.white,
-                            ),
+                          fontFamily: 'Cairo-VariableFont_wght',
+                          fontSize: 25,
+                          color: Colors.white,
+                        ),
                       ),
                       backgroundColor: HexColor('#9e1510'),
                       iconTheme: IconThemeData(color: Colors.white),
@@ -117,10 +117,11 @@ class _SaveDataState extends State<SaveData> {
                               ;
                             });
                           },
-                      icon: Icon(
-                        pressed ? Icons.help : Icons.help_outline,
-                        color: Colors.white, // Sets the color of the help icon to white
-                      ),
+                          icon: Icon(
+                            pressed ? Icons.help : Icons.help_outline,
+                            color: Colors
+                                .white, // Sets the color of the help icon to white
+                          ),
                         ),
                       ],
                     ),
@@ -208,11 +209,11 @@ class _SaveDataState extends State<SaveData> {
       'promo': promo,
     };
 
- print(widget.BothStatus);
- print(widget.dir);
- print(widget.Date);
- print(widget.From_pickTime);
- 
+    print(widget.BothStatus);
+    print(widget.dir);
+    print(widget.Date);
+    print(widget.From_pickTime);
+
     final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetSaveData');
     final response = await http.post(url, body: data);
     print("da bta3 save");

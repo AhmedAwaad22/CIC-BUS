@@ -144,7 +144,8 @@ class _CloseState extends State<Close> {
                           Expanded(
                             child: Text(
                               'Logout',
-                              overflow: TextOverflow.ellipsis, // Handle overflow if text is too long
+                              overflow: TextOverflow
+                                  .ellipsis, // Handle overflow if text is too long
                               style: TextStyle(
                                 fontFamily: 'Cairo-ExtraLight',
                                 fontSize: 16,
@@ -194,14 +195,15 @@ class _CloseState extends State<Close> {
                       ),
                       // Safe access to data from snapshot
                       Text(
-                        snapshot.data[0].activisionMsg,  // Now safe to access
+                        snapshot.data[0].activisionMsg, // Now safe to access
                         style: TextStyle(
                             color: HexColor('#9e1510'),
                             fontWeight: FontWeight.bold,
                             fontSize: 17),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.03),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           textStyle: TextStyle(
@@ -215,7 +217,8 @@ class _CloseState extends State<Close> {
                             borderRadius: BorderRadius.circular(25.0),
                           ),
                         ),
-                        onPressed: _refreshData, // Trigger refresh when button is pressed
+                        onPressed:
+                            _refreshData, // Trigger refresh when button is pressed
                         child: Text(
                           "Refresh",
                           style: TextStyle(

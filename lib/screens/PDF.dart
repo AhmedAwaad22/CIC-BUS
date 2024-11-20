@@ -27,8 +27,8 @@ class _PdfViewerPageState extends State<PdfViewerPage> {
     return Scaffold(
       body: localPath != null
           ? PDFView(
-        filePath: localPath,
-      )
+              filePath: localPath,
+            )
           : Center(child: CircularProgressIndicator()),
     );
   }

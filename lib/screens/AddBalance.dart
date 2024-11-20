@@ -7,10 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart'; 
+import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'package:webview_flutter/webview_flutter.dart';
-
 
 class AddBalance extends StatefulWidget {
   @override
@@ -20,10 +19,15 @@ class AddBalance extends StatefulWidget {
 class _AddBalanceState extends State<AddBalance> {
   String? selectedCollege;
   List<String> campusZY = ['Business', 'Engineering'];
-  List<String> campusNC = ['Business', 'Engineering', 'Mass Communication', 'Computer Science'];
+  List<String> campusNC = [
+    'Business',
+    'Engineering',
+    'Mass Communication',
+    'Computer Science'
+  ];
   List<String> availableColleges = [];
   final TextEditingController priceController = TextEditingController();
-  
+
   bool visible = false;
 
   @override
@@ -37,7 +41,8 @@ class _AddBalanceState extends State<AddBalance> {
   // Load campus and set available colleges from SharedPreferences
   _loadCampusAndSetColleges() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final String? campusSh = prefs.getString('campus'); // Get campus from SharedPreferences
+    final String? campusSh =
+        prefs.getString('campus'); // Get campus from SharedPreferences
 
     if (campusSh != null) {
       setState(() {
@@ -60,7 +65,8 @@ class _AddBalanceState extends State<AddBalance> {
 
       if (username != null) {
         // Prepare the API request to get the JSON response
-        final response = await _getPaymentDetails(username, selectedCollege!, price);
+        final response =
+            await _getPaymentDetails(username, selectedCollege!, price);
         //print('awaaaaaaaaaaaaaad the start');
         //print(username);
         //print('awaaaaaaaaaaaaaad the end');
@@ -70,7 +76,8 @@ class _AddBalanceState extends State<AddBalance> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewPage(url: iframeLink), // Navigate to WebViewPage
+              builder: (context) =>
+                  WebViewPage(url: iframeLink), // Navigate to WebViewPage
             ),
           );
 
@@ -80,7 +87,8 @@ class _AddBalanceState extends State<AddBalance> {
           // );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Error: Could not get payment details')),
+            const SnackBar(
+                content: Text('Error: Could not get payment details')),
           );
         }
       } else {
@@ -93,16 +101,18 @@ class _AddBalanceState extends State<AddBalance> {
         const SnackBar(content: Text('Please fill all fields')),
       );
       setState(() {
-      visible = false;
-    });
+        visible = false;
+      });
     }
   }
 
   // Function to make the network request to get payment details
-  Future<Map<String, dynamic>?> _getPaymentDetails(String username, String selectedCollege, String price) async {
+  Future<Map<String, dynamic>?> _getPaymentDetails(
+      String username, String selectedCollege, String price) async {
     try {
       // Construct the API URL or endpoint
-      final String url = 'http://mobile.cic-cairo.edu.eg/BUS/OnLnPayment/$username/$selectedCollege/$price';
+      final String url =
+          'http://mobile.cic-cairo.edu.eg/BUS/OnLnPayment/$username/$selectedCollege/$price';
       // Send GET request
       final response = await http.get(Uri.parse(url));
 
@@ -136,19 +146,19 @@ class _AddBalanceState extends State<AddBalance> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-              Navigator.pop(context,true);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
-              ).then((value) {
-                if (value == true) {
-                  // Refresh logic here
-                  setState(() {
-                    // Update your state to refresh the UI
-                  });
-                }
-              });
-            },
+            Navigator.pop(context, true);
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomeScreen()),
+            ).then((value) {
+              if (value == true) {
+                // Refresh logic here
+                setState(() {
+                  // Update your state to refresh the UI
+                });
+              }
+            });
+          },
         ),
         actions: [
           IconButton(
@@ -186,14 +196,17 @@ class _AddBalanceState extends State<AddBalance> {
                   );
                 }).toList(),
               ),
-            
+
             // Display the selected college
             if (selectedCollege != null)
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
                   'Your College: $selectedCollege',
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.green),
+                  style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green),
                 ),
               ),
 
@@ -204,51 +217,64 @@ class _AddBalanceState extends State<AddBalance> {
               controller: priceController,
               keyboardType: TextInputType.numberWithOptions(decimal: false),
               inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'^\d?\d*')), // Allow digits and one optional decimal point
-                ],
-                decoration: const InputDecoration(
+                FilteringTextInputFormatter.allow(RegExp(
+                    r'^\d?\d*')), // Allow digits and one optional decimal point
+              ],
+              decoration: const InputDecoration(
                 hintText: 'Enter Amount',
                 border: OutlineInputBorder(),
-                contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               ),
             ),
             const SizedBox(height: 16),
 
-
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 textStyle: TextStyle(
-                  fontSize:20,
-                  color: HexColor('#9e1510'),),
+                  fontSize: 20,
+                  color: HexColor('#9e1510'),
+                ),
                 minimumSize: Size.fromHeight(40),
                 primary: HexColor('#9e1510'),
                 padding: const EdgeInsets.symmetric(vertical: 10),
-                shape: RoundedRectangleBorder(borderRadius:
-                        BorderRadius.circular(8),),),
-                onPressed: () {
-                  setState(() {visible =true;
-                    _addBalance(); });
-                },
-              child: visible? Row(
-                      mainAxisAlignment:MainAxisAlignment.center,
-                      children: [CircularProgressIndicator(
-                            color: Colors.white,),
-                          SizedBox(width: 25),
-                          Text("Please wait...",
-                          style: TextStyle(
-                            color: Colors.white
-                          ),
-                          )
-                        ],): Text('Next',
-                      style: TextStyle( color: Colors.white,
-                          fontFamily: 'Cairo-VariableFont_wght',
-                          fontWeight: FontWeight.bold),),
-                            ),
-                          ],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              onPressed: () {
+                setState(() {
+                  visible = true;
+                  _addBalance();
+                });
+              },
+              child: visible
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircularProgressIndicator(
+                          color: Colors.white,
                         ),
-                      ),
-                    );
-                  }
+                        SizedBox(width: 25),
+                        Text(
+                          "Please wait...",
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
+                    )
+                  : Text(
+                      'Next',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Cairo-VariableFont_wght',
+                          fontWeight: FontWeight.bold),
+                    ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   // Display help dialog
   void _showHelpDialog() {

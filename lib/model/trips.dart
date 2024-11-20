@@ -13,23 +13,23 @@ import 'dart:convert';
 class Trips {
   Trips({
     required this.busId,
-    required  this.capacity,
+    required this.capacity,
     required this.busnumber,
-    required  this.enName,
+    required this.enName,
     required this.arName,
-    required  this.stationPrice,
-    required  this.image,
+    required this.stationPrice,
+    required this.image,
     required this.pickMsg,
   });
 
-   String busId;
-   String capacity;
-   String busnumber;
-   String enName;
-   String arName;
-   String stationPrice;
-   String image;
-   String pickMsg;
+  String busId;
+  String capacity;
+  String busnumber;
+  String enName;
+  String arName;
+  String stationPrice;
+  String image;
+  String pickMsg;
 
   factory Trips.fromJson(Map<String, dynamic> json) => Trips(
         busId: json["BusId"],

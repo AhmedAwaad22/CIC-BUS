@@ -5,7 +5,7 @@ import 'package:webview_flutter/webview_flutter.dart'; // Import the correct Web
 
 class WebViewPage extends StatefulWidget {
   final String url;
-  
+
   WebViewPage({required this.url});
 
   @override
@@ -35,7 +35,8 @@ class _WebViewPageState extends State<WebViewPage> {
         },
         onPageFinished: (String url) {
           setState(() {
-            isLoading = false; // Hide loading indicator when page finishes loading
+            isLoading =
+                false; // Hide loading indicator when page finishes loading
           });
         },
         onWebResourceError: (error) {
@@ -57,7 +58,9 @@ class _WebViewPageState extends State<WebViewPage> {
         Navigator.of(context).pop();
         // After popping, push the same page again to "reopen" it
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => HomeScreen()), // Replace 'YourPage' with your actual page widget
+          MaterialPageRoute(
+              builder: (context) =>
+                  HomeScreen()), // Replace 'YourPage' with your actual page widget
         );
         // Returning false prevents the default back action (e.g., exiting the app)
         return Future.value(false);
@@ -66,11 +69,13 @@ class _WebViewPageState extends State<WebViewPage> {
         appBar: AppBar(
           title: const Text(
             'Payment Page',
-            style: TextStyle(color: Colors.white), // Set the text color to white
+            style:
+                TextStyle(color: Colors.white), // Set the text color to white
           ),
           backgroundColor: Color(0xFF9e1510),
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.white), // Set the back button color to white
+            icon: const Icon(Icons.arrow_back,
+                color: Colors.white), // Set the back button color to white
             onPressed: () {
               Navigator.pop(context, true);
               Navigator.push(
@@ -99,8 +104,8 @@ class _WebViewPageState extends State<WebViewPage> {
             // Home button at the bottom
             Positioned(
               bottom: 16, // Distance from the bottom of the screen
-              left: 16,   // Distance from the left side of the screen
-              right: 16,  // Distance from the right side of the screen
+              left: 16, // Distance from the left side of the screen
+              right: 16, // Distance from the right side of the screen
               child: ElevatedButton(
                 onPressed: () {
                   // Navigate to the Home screen when pressed

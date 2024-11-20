@@ -4,7 +4,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
 class ApiServiceProvider {
-  static final String BASE_URL = "http://mobile.cic-cairo.edu.eg/BUS/public/android/BUSApplication.pdf";
+  static final String BASE_URL =
+      "http://mobile.cic-cairo.edu.eg/BUS/public/android/BUSApplication.pdf";
 
   static Future<String> loadPDF() async {
     var response = await http.get(Uri.parse(BASE_URL));

@@ -12,8 +12,6 @@ import 'package:http/http.dart' as http;
 
 import '../model/TokenModel.dart';
 
-
-
 String? finalEmail;
 bool loginToken = false;
 
@@ -25,19 +23,16 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-   getUserLogin();
-   super.initState();
+    getUserLogin();
+    super.initState();
   }
 
   Future getValidationData() async {
     final SharedPreferences sharedPreferences =
-    await SharedPreferences.getInstance();
+        await SharedPreferences.getInstance();
     var obtainedToken = sharedPreferences.getBool('login') ?? false;
     setState(() {
-
-          loginToken = obtainedToken;
-
-
+      loginToken = obtainedToken;
     });
     print(loginToken);
   }
@@ -47,110 +42,97 @@ class _SplashScreenState extends State<SplashScreen> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Provider.of<InternetConnectionStatus>(context) == InternetConnectionStatus.disconnected
+        Provider.of<InternetConnectionStatus>(context) ==
+                InternetConnectionStatus.disconnected
             ? Expanded(
-          child: NoInternet(),
-        ):
-            Expanded(
-              child:  Scaffold(
-                    body: Stack(
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          height: double.infinity,
-                          child: Image.asset(
-                            'assets/images/splash_2.png',
-                            fit: BoxFit.cover,
-                          ),
+                child: NoInternet(),
+              )
+            : Expanded(
+                child: Scaffold(
+                  body: Stack(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: Image.asset(
+                          'assets/images/splash_2.png',
+                          fit: BoxFit.cover,
                         ),
-                        Center(
-                          child: Image.asset(
-                            'assets/images/logo_2.png',
-                            width: 400.0,
-                            height: 400.0,
-                          ),
+                      ),
+                      Center(
+                        child: Image.asset(
+                          'assets/images/logo_2.png',
+                          width: 400.0,
+                          height: 400.0,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-            ),
-        ],
+                ),
+              ),
+      ],
     );
   }
-
 
   var data = [];
   var data2 = [];
   List<TokenApiNew> results = [];
   List<BusList> results2 = [];
   String urlList = 'http://mobile.cic-cairo.edu.eg/BUS/BusLines';
-  Future<List<TokenApiNew>> getUserLogin() async
-  {
+  Future<List<TokenApiNew>> getUserLogin() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final String? username = prefs.getString('username')?? "";
+    final String? username = prefs.getString('username') ?? "";
     String username2 = "False";
     final String? campus = prefs.getString('campus');
     var url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetToken');
     var url2 = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/BusLines');
 
+    Map postdata2 = {'username': username, 'campus': campus};
 
-
-
-    Map postdata2 = { 'username': username,'campus':campus};
-
-if(username == "")
-  {
-    Map postdata = { 'username': username2};
-    var response = await http.post(url,
-        body: postdata);
-    if (response.statusCode == 200) {
-      data = json.decode(response.body);
-      results = data.map((e) => TokenApiNew.fromJson(e)).toList();
-      if(results[0].token == 'N')
-      {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => LoginScreen()));
+    if (username == "") {
+      Map postdata = {'username': username2};
+      var response = await http.post(url, body: postdata);
+      if (response.statusCode == 200) {
+        data = json.decode(response.body);
+        results = data.map((e) => TokenApiNew.fromJson(e)).toList();
+        if (results[0].token == 'N') {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => LoginScreen()));
+        } else {
+          Timer(Duration(seconds: 2), () {
+            getValidationData().whenComplete(() async {
+              if (loginToken == false) {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
+              } else if (loginToken == true) {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                    fullscreenDialog: true));
+              }
+            });
+          });
+        }
       }
-      else{
+    } else {
+      final String? username = prefs.getString('username');
+      final String? campus = prefs.getString('campus');
+      var url2 = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/BusLines');
+      Map postdata2 = {'username': username, 'campus': campus};
+      var response = await http.post(url2, body: postdata2);
+      if (response.statusCode == 200) {
         Timer(Duration(seconds: 2), () {
           getValidationData().whenComplete(() async {
             if (loginToken == false) {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => LoginScreen()));
-            } else if(loginToken == true) {
+            } else if (loginToken == true) {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => HomeScreen(),
-                  fullscreenDialog: true));
+                  builder: (context) => HomeScreen(), fullscreenDialog: true));
             }
           });
         });
       }
     }
-  }
-else
-  {
-    final String? username = prefs.getString('username');
-    final String? campus = prefs.getString('campus');
-    var url2 = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/BusLines');
-    Map postdata2 = { 'username': username,'campus':campus};
-    var response = await http.post(url2,
-        body: postdata2);
-    if (response.statusCode == 200)
-    {
-      Timer(Duration(seconds: 2), () {
-        getValidationData().whenComplete(() async {
-          if (loginToken == false) {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => LoginScreen()));
-          } else if(loginToken == true) {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => HomeScreen(),
-                fullscreenDialog: true));
-          }
-        });
-      });
-    }
-  }
 
     return results;
   }
