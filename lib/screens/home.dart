@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        final shouldpop = await showWairing(context);
+        final shouldpop = await showWaiting(context);
         return shouldpop ?? false;
       },
       child: Column(
@@ -760,41 +760,69 @@ child: Row(
     });
   }
 
-Future<bool?> showWairing(BuildContext context) async {
-  return showDialog<bool>(
-    context: context,
-    builder: (context) => AlertDialog(
-      title: const Text(
-        "Do you want to close the application?",
-        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-      ),
-      
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      actions: [
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary: Colors.green, // Button color
-
-          ),
-          onPressed: () => SystemNavigator.pop(),
-          child: const Text("Yes"),
+    Future<bool?> showWaiting(BuildContext context) async => showDialog<bool>(
+      context: context,
+      builder: (context) => Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
         ),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary: Colors.red, // Button color
-
+        child: Container(
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 10,
+                offset: Offset(0, 4),
+              ),
+            ],
           ),
-          onPressed: () => Navigator.pop(context, false),
-          child: const Text("No"),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Do you want to exit the application?",
+                  style: TextStyle(
+                    color: HexColor('#BD0006'),
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                  ),
+              ),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      SystemNavigator.pop();
+                    },
+                    child: Text("Yes",
+                    style: TextStyle(
+                    color: HexColor('#BD0006'),
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                     ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, false),
+                    child: Text("No",
+                    style: TextStyle(
+                    color: HexColor('#BD0006'),
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                     ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
-        
-      ],
-    ),
-  );
-}
-
+      ),
+    );
 
 
   Logout() async {

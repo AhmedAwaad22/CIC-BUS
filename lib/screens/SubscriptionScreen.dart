@@ -81,7 +81,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                        
-                       child: Row(
+ child: Row(
   children: [
     ClipRRect(
       borderRadius: BorderRadius.circular(20.0),
@@ -206,17 +206,15 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                 fontSize: 16,
                 color: Colors.white,
                 fontWeight: FontWeight.w800,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-    ),
-  ],
-)
-
-
-  ),
+    ],
+  )
+),
                     ),
                     actions: <Widget>[
                       IconButton(

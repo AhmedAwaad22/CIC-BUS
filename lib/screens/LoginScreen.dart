@@ -34,20 +34,69 @@ class _State extends State<LoginScreen> {
     super.initState();
   }
 
-  Future<bool?> showWairing(BuildContext context) async => showDialog<bool>(
+    Future<bool?> showWaiting(BuildContext context) async => showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
-            title: const Text("Do you want close the application ?"),
-            actions: [
-              ElevatedButton(
-                  onPressed: () => Navigator.pop(context, false),
-                  child: const Text("No")),
-              ElevatedButton(
-                  onPressed: () => SystemNavigator.pop(),
-                  child: const Text("Yes"))
-              //SystemNavigator.pop()
+      builder: (context) => Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Container(
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 10,
+                offset: Offset(0, 4),
+              ),
             ],
-          ));
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Do you want to exit the application?",
+                  style: TextStyle(
+                    color: HexColor('#BD0006'),
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                  ),
+              ),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      SystemNavigator.pop();
+                    },
+                    child: Text("Yes",
+                    style: TextStyle(
+                    color: HexColor('#BD0006'),
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                     ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, false),
+                    child: Text("No",
+                    style: TextStyle(
+                    color: HexColor('#BD0006'),
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                     ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
 
   String? password;
   bool visible = false;
@@ -70,7 +119,7 @@ class _State extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        final shouldpop = await showWairing(context);
+        final shouldpop = await showWaiting(context);
         return shouldpop ?? false;
       },
       child: Column(

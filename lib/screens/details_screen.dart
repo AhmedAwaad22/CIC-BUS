@@ -5,8 +5,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:blur/blur.dart';
 import 'package:cicbus/model/BusLineAPI.dart';
 import 'package:cicbus/model/trips.dart';
+import 'package:cicbus/screens/home.dart';
 import 'package:cicbus/widget/my_square.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
@@ -50,26 +52,79 @@ class _DetailsScreenState extends State<DetailsScreen> {
   Future<void> secureScreen() async {
     await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   }
-
-  Future<bool?> showWairing(BuildContext context) async => showDialog<bool>(
+    Future<bool?> showWaiting(BuildContext context) async => showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
-            title: const Text("Do you want back to the home ?"),
-            actions: [
-              ElevatedButton(
-                  onPressed: () => Navigator.pop(context, false),
-                  child: const Text("No")),
-              ElevatedButton(
-                  onPressed: () => Navigator.pop(context, true),
-                  child: const Text("Yes"))
+      builder: (context) => Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Container(
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 10,
+                offset: Offset(0, 4),
+              ),
             ],
-          ));
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Do you want back to the Home Page?",
+                  style: TextStyle(
+                    color: HexColor('#BD0006'),
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                  ),
+              ),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(
+                     onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
+                    child: Text("Yes",
+                    style: TextStyle(
+                    color: HexColor('#BD0006'),
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                     ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, false),
+                    child: Text("No",
+                    style: TextStyle(
+                    color: HexColor('#BD0006'),
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                     ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: () async {
-          final shouldpop = await showWairing(context);
+          final shouldpop = await showWaiting(context);
           return shouldpop ?? false;
         },
         child: Column(
