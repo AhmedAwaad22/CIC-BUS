@@ -167,7 +167,11 @@ class _PaySubscriptionState extends State<PaySubscription> {
             const SizedBox(height: 16),
             const Text(
               'Pay Subscription Fees:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+              ),
             ),
             const SizedBox(height: 16),
 
@@ -210,7 +214,7 @@ class _PaySubscriptionState extends State<PaySubscription> {
             fontSize: 16,
             fontWeight: FontWeight.bold,
             color: Colors.black,
-          ),
+             ),
             ),
             TextField(
               controller: priceController..text = widget.subamount,

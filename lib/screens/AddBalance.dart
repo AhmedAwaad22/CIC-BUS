@@ -175,7 +175,11 @@ class _AddBalanceState extends State<AddBalance> {
             const SizedBox(height: 16),
             const Text(
               'Add Money To Wallet:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+              ),
             ),
             const SizedBox(height: 16),
 
@@ -212,7 +216,13 @@ class _AddBalanceState extends State<AddBalance> {
 
             const SizedBox(height: 16),
 
-            const Text('Add Money:'),
+            const Text('Add Money:',
+            style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+             ),
+            ),
             TextField(
               controller: priceController,
               keyboardType: TextInputType.numberWithOptions(decimal: false),

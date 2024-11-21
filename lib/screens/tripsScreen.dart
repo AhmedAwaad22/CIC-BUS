@@ -111,69 +111,86 @@ class _TripsState extends State<TripsScreen> {
                               if (snapshot.data![0].activeStatus == 'N') {
                                 return Scaffold(
                                   backgroundColor: Colors.white70,
-                                  body: Container(
-                                    width: double.infinity,
-                                    decoration: const BoxDecoration(
-                                        color: Colors.white),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
+                                  body: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
                                         SvgPicture.asset(
                                           'assets/images/holiday.svg',
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              .2,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              .2,
+                                          height: MediaQuery.of(context).size.height * 0.2,
+                                          width: MediaQuery.of(context).size.width * 0.2,
                                           fit: BoxFit.cover,
                                         ),
-                                        SizedBox(
-                                          height: 50,
+                                    SizedBox(height: 30),
+                                    Padding(
+                                        padding: EdgeInsets.symmetric(
+                                        horizontal: MediaQuery.of(context).size.width * 0.050,
                                         ),
+                                    child: Container(
+                                    padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.040),
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [Colors.red, Colors.white],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.2),
+                                          offset: Offset(0, 4),
+                                          blurRadius: 6,
+                                          spreadRadius: 2,
+                                        ),
+                                      ],
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                      child: Column(
+                                      children: [
                                         Text(
                                           snapshot.data![0].activeMsg,
                                           style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 17),
+                                            color: Colors.black,
+                                            fontSize: 18, // Increased font size for better visibility
+                                            fontWeight: FontWeight.w600, // Make the text bolder
+                                          ),
+                                          textAlign: TextAlign.center, // Ensure the text is centered
                                         ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                              textStyle: TextStyle(
-                                                fontSize: 18,
-                                                color: Colors.blue,
-                                              ),
-                                              primary: Colors.white,
-                                              shape: RoundedRectangleBorder(
-                                                  side: BorderSide(
-                                                      color:
-                                                          HexColor('#9e1510'),
-                                                      width: 1),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          25.0)),
-                                            ),
-                                            onPressed: () {
-                                              setState(() {
-                                                refresh();
-                                              });
-                                            },
-                                            child: Text("Refresh",
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    color: HexColor('#9e1510'),
-                                                    fontWeight:
-                                                        FontWeight.bold)))
-                                      ],
+                                       ],
+                                      ),
                                     ),
-                                  ),
-                                );
+                                   ),
+                                    SizedBox(height: 25),
+                                       ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            textStyle: TextStyle(fontSize: 18, color: Colors.white),
+                                            primary: HexColor('#BD0006'),
+                                            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 40.0),
+                                            shape: RoundedRectangleBorder(
+                                              side: BorderSide(
+                                                color: HexColor('#BD0006'),
+                                                width: 1,
+                                              ),
+                                              borderRadius: BorderRadius.circular(30.0),
+                                            ),
+                                          ),
+                                          onPressed: () {
+                                            setState(() {
+                                              refresh();
+                                            });
+                                          },
+                                          child: Text(
+                                            "Refresh",
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                            ),
+                                           ),
+                                         ),
+                                       ],
+                                      ),
+                                     );
                               } else if (snapshot.data![0].activeStatus ==
                                   'Y') {
                                 List<SearchModel>? data1 = snapshot.data;
