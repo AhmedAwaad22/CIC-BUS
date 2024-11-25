@@ -154,14 +154,10 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
                           builder:
                               (BuildContext context, AsyncSnapshot snapshot) {
                             print('The data is omar omar $snapshot.data');
-
                             if (snapshot.hasError) {
-                              return Center(
-                                child: Text(
-                                  'Oops! something went wrong occurred',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              );
+                              
+                              return NoInternet();
+
                             } else if (snapshot.hasData) {
                               if (widget.bothStatus == "N") {
                                 return Expanded(

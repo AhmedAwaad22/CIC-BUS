@@ -10,6 +10,25 @@ class NoInternet extends StatefulWidget {
 }
 
 class _NoInternetState extends State<NoInternet> {
+  bool _isLoading = false;
+
+  void _refreshPage() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    // Simulate a delay for the refresh action (e.g., re-fetching data or retrying a connection)
+    await Future.delayed(const Duration(seconds: 2));
+
+    setState(() {
+      _isLoading = false;
+    });
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),  // Fallback screen
+      );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +66,8 @@ class _NoInternetState extends State<NoInternet> {
             SizedBox(
               height: 20,
             ),
+              _isLoading
+           ? const CircularProgressIndicator():
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 textStyle: const TextStyle(
@@ -59,12 +80,7 @@ class _NoInternetState extends State<NoInternet> {
                   borderRadius: BorderRadius.circular(25.0),
                 ),
               ),
-              onPressed: () {
-                setState(() {
-                  // Add any logic here to update the state or refresh data.
-                  // For example, re-fetch data or reset variables.
-                });
-              },
+              onPressed: _refreshPage,
               child: const Text(
                 "Refresh",
                 style: TextStyle(

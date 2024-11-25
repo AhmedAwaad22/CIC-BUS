@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cicbus/screens/LoginScreen.dart';
+import 'package:cicbus/screens/NoInternatePageMain.dart';
 import 'package:cicbus/screens/SplashScreen.dart';
 import 'package:cicbus/screens/home.dart';
 import 'package:cicbus/widget/App_theme.dart';
@@ -42,7 +43,7 @@ class _MyAppState extends State<MyApp> {
     return StreamProvider<InternetConnectionStatus>(
       initialData: InternetConnectionStatus.connected,
       create: (_) {
-        return InternetConnectionChecker().onStatusChange;
+        //return InternetConnectionChecker().onStatusChange;
       },
       child: GetMaterialApp(
         title: 'CIC',

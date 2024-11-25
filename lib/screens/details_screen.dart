@@ -184,12 +184,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             print("hna ahm snapn shot");
                             print(snapshot.data);
                             if (snapshot.hasError) {
-                              return Center(
-                                child: Text(
-                                  'Oops! something went wrong omar',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              );
+                              return NoInternet();
                             } else if (snapshot.hasData) {
                               if (snapshot.data[0].driverName == '') {
                                 return Column(
