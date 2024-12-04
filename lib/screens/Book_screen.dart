@@ -2996,14 +2996,17 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20)),
+                  fontSize: 20),
+                  ),
           backgroundColor: HexColor('#9e1510'),
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(
             side: BorderSide(color: Colors.white, width: 0),
             borderRadius: BorderRadius.circular(20),
           ),
-        ));
+          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 300),
+        ),
+      );
 
         //limit == 'Y' ده الكونديشن الاصل
       } else if (limit == 'Y') {
