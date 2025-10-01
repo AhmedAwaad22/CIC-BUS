@@ -14,7 +14,7 @@ class FetchUserList {
   // BuildContext context;
   var data = [];
   List<BusList> results = [];
-  String urlList = 'http://mobile.cic-cairo.edu.eg/BUS/BusLines';
+  String urlList = 'https://mobile.cic-cairo.edu.eg/BUS/BusLines';
   Future<PackageInfo> packageInfo = PackageInfo.fromPlatform();
 
   //FetchUserList({Key? key,required this.context});

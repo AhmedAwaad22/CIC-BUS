@@ -359,7 +359,7 @@ class _TripsState extends State<TripsScreen> {
 
   var data = [];
   List<Trips> results = [];
-  String urlList = 'http://mobile.cic-cairo.edu.eg/BUS/SearchDirection';
+  String urlList = 'https://mobile.cic-cairo.edu.eg/BUS/SearchDirection';
 
   Future<List<Trips>> getTripList() async {
     var url = Uri.parse(urlList);
@@ -396,7 +396,7 @@ class _TripsState extends State<TripsScreen> {
   List<Trips> trip = [];
 
   //The bus name lines
-  String urlList2 = 'http://mobile.cic-cairo.edu.eg/BUS/SearchLines';
+  String urlList2 = 'https://mobile.cic-cairo.edu.eg/BUS/SearchLines';
   Future<List<SearchModel>> getStatusToHoliday() async {
     var url = Uri.parse(urlList2);
     final SharedPreferences prefs = await SharedPreferences.getInstance();

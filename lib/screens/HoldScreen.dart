@@ -259,7 +259,7 @@ class _HoldScreenState extends State<HoldScreen> {
     setState(() {
       visible = true;
     });
-    String urlList = 'http://mobile.cic-cairo.edu.eg/BUS/LogoutAPI';
+    String urlList = 'https://mobile.cic-cairo.edu.eg/BUS/LogoutAPI';
     var url = Uri.parse(urlList);
 
     final SharedPreferences prefs = await SharedPreferences.getInstance();

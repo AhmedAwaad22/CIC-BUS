@@ -687,7 +687,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _setAuthHeaders() =>
         {'Accept': 'application/json', 'Authorization': 'Bearer $_token'};
 
-    final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/CancelReserve');
+    final url = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/CancelReserve');
     final response = await http.post(url, body: data);
     print(response);
     List<dynamic> data1 = json.decode(response.body);
@@ -711,7 +711,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   var data = [];
   List<Trips> results = [];
-  String urlList = 'http://mobile.cic-cairo.edu.eg/BUS/SearchDirection';
+  String urlList = 'https://mobile.cic-cairo.edu.eg/BUS/SearchDirection';
 
   Future<List<Trips>> getTripList() async {
     var url = Uri.parse(urlList);
@@ -823,7 +823,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       visible = true;
     });
-    String urlList = 'http://mobile.cic-cairo.edu.eg/BUS/LogoutAPI';
+    String urlList = 'https://mobile.cic-cairo.edu.eg/BUS/LogoutAPI';
     var url = Uri.parse(urlList);
 
     final SharedPreferences prefs = await SharedPreferences.getInstance();

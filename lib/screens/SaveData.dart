@@ -214,7 +214,7 @@ class _SaveDataState extends State<SaveData> {
     print(widget.Date);
     print(widget.From_pickTime);
 
-    final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetSaveData');
+    final url = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/GetSaveData');
     final response = await http.post(url, body: data);
     print("da bta3 save");
     print(response);

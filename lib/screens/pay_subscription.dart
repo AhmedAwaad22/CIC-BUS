@@ -103,7 +103,7 @@ class _PaySubscriptionState extends State<PaySubscription> {
     try {
       // Construct the API URL or endpoint
       final String url =
-          'http://mobile.cic-cairo.edu.eg/BUS/OnLnPayment/$username/$selectedCollege/$price/subfees';
+          'https://mobile.cic-cairo.edu.eg/BUS/OnLnPayment/$username/$selectedCollege/$price/subfees';
       // Send GET request
       final response = await http.get(Uri.parse(url));
   print(url);

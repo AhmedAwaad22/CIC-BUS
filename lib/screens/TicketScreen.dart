@@ -580,7 +580,7 @@ child: Row(
 
     Map data = {'username': username, 'refno': ref_no, 'campus': campus};
 
-    final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/CancelReserve');
+    final url = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/CancelReserve');
     final response = await http.post(url, body: data);
     print(response);
     // List<dynamic> data1 = json.decode(response.body);
@@ -600,7 +600,7 @@ child: Row(
     setState(() {
       visible = true;
     });
-    String urlList = 'http://mobile.cic-cairo.edu.eg/BUS/LogoutAPI';
+    String urlList = 'https://mobile.cic-cairo.edu.eg/BUS/LogoutAPI';
     var url = Uri.parse(urlList);
 
     final SharedPreferences prefs = await SharedPreferences.getInstance();

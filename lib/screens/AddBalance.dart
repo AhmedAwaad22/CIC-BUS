@@ -112,7 +112,7 @@ class _AddBalanceState extends State<AddBalance> {
     try {
       // Construct the API URL or endpoint
       final String url =
-          'http://mobile.cic-cairo.edu.eg/BUS/OnLnPayment/$username/$selectedCollege/$price/wallet';
+          'https://mobile.cic-cairo.edu.eg/BUS/OnLnPayment/$username/$selectedCollege/$price/wallet';
       // Send GET request
       final response = await http.get(Uri.parse(url));
 

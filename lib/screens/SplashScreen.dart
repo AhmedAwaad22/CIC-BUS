@@ -80,14 +80,14 @@ class _SplashScreenState extends State<SplashScreen> {
   var data2 = [];
   List<TokenApiNew> results = [];
   List<BusList> results2 = [];
-  String urlList = 'http://mobile.cic-cairo.edu.eg/BUS/BusLines';
+  String urlList = 'https://mobile.cic-cairo.edu.eg/BUS/BusLines';
   Future<List<TokenApiNew>> getUserLogin() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? username = prefs.getString('username') ?? "";
     String username2 = "False";
     final String? campus = prefs.getString('campus');
-    var url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetToken');
-    var url2 = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/BusLines');
+    var url = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/GetToken');
+    var url2 = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/BusLines');
    
     if (username == "") {
       Map postdata = {'username': username2};
@@ -116,7 +116,7 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       final String? username = prefs.getString('username');
       final String? campus = prefs.getString('campus');
-      var url2 = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/BusLines');
+      var url2 = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/BusLines');
       Map postdata2 = {'username': username, 'campus': campus};
       var response = await http.post(url2, body: postdata2);
       if (response.statusCode == 200) {
@@ -146,8 +146,8 @@ class _SplashScreenState extends State<SplashScreen> {
     final String? username = prefs.getString('username') ?? "";
     String username2 = "False";
     final String? campus = prefs.getString('campus');
-    var url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetToken');
-    var url2 = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/BusLines');
+    var url = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/GetToken');
+    var url2 = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/BusLines');
 
     Map postdata2 = {'username': username, 'campus': campus};
     print('hesho');

@@ -2889,7 +2889,7 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
     _setAuthHeaders() =>
         {'Accept': 'application/json', 'Authorization': 'Bearer $_token'};
 
-    final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetChairs');
+    final url = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/GetChairs');
     final response = await http.post(url, body: data);
     print(response);
     List<dynamic> data1 = json.decode(response.body);
@@ -2960,7 +2960,7 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
       'promo': value,
     };
 
-    final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
+    final url = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
     final response = await http.post(url, body: data);
     // print(response);
     // print("The value of check box");
@@ -3094,7 +3094,7 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
       // 'promo':  questionValue,
     };
 
-    final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
+    final url = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
     final response = await http.post(url, body: data);
     print(response);
     print("The value of check box1");
@@ -3151,7 +3151,7 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
     _setAuthHeaders() =>
         {'Accept': 'application/json', 'Authorization': 'Bearer $_token'};
 
-    final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
+    final url = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
     final response = await http.post(url, body: data);
     print(
         '_______________________________________________________________________________');
@@ -3262,7 +3262,7 @@ class _BookScreenAndPaymentState_old extends State<BookScreenAndPayment> {
     _setAuthHeaders() =>
         {'Accept': 'application/json', 'Authorization': 'Bearer $_token'};
 
-    final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
+    final url = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/GetConfirmData');
     final response = await http.post(url, body: data);
     print(response);
     print("The value of check box3");

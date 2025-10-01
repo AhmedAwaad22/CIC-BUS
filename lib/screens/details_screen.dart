@@ -1175,7 +1175,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     _setAuthHeaders() =>
         {'Accept': 'application/json', 'Authorization': 'Bearer $_token'};
 
-    final url = Uri.parse('http://mobile.cic-cairo.edu.eg/BUS/BusPoints');
+    final url = Uri.parse('https://mobile.cic-cairo.edu.eg/BUS/BusPoints');
     final response = await http.post(url, body: data);
     print(response);
     List<dynamic> data1 = json.decode(response.body);

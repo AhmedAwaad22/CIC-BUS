@@ -309,7 +309,7 @@ class _State extends State<LoginScreen> {
     var jsonResponse;
 
     var response = await http.post(
-        Uri.parse("http://mobile.cic-cairo.edu.eg/BUS/LDAP_auth"),
+        Uri.parse("https://mobile.cic-cairo.edu.eg/BUS/LDAP_auth"),
         body: data);
 
     if (response.statusCode == 200) {
@@ -369,7 +369,7 @@ class _State extends State<LoginScreen> {
       Map data2 = {'username': username.trim()};
 
       var response = await http.post(
-          Uri.parse("http://mobile.cic-cairo.edu.eg/BUS/GetUser"),
+          Uri.parse("https://mobile.cic-cairo.edu.eg/BUS/GetUser"),
           body: data2);
       final jsonResponse;
       if (response.statusCode == 200) {
